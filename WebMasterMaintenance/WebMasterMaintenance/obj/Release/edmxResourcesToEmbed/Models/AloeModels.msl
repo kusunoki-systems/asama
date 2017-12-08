@@ -1,0 +1,582 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AloeModelStoreContainer" CdmEntityContainer="AloeEntities">
+    <EntitySetMapping Name="M_Drug">
+      <EntityTypeMapping TypeName="AloeModel.M_Drug">
+        <MappingFragment StoreEntitySet="M_Drug">
+          <ScalarProperty Name="MDRG_FormulationCode" ColumnName="MDRG_FormulationCode" />
+          <ScalarProperty Name="MDRG_Remarks" ColumnName="MDRG_Remarks" />
+          <ScalarProperty Name="MDRG_PatientLimitedFlag" ColumnName="MDRG_PatientLimitedFlag" />
+          <ScalarProperty Name="MDRG_OrderTransfusionFlag" ColumnName="MDRG_OrderTransfusionFlag" />
+          <ScalarProperty Name="MDRG_TransfusionUnit" ColumnName="MDRG_TransfusionUnit" />
+          <ScalarProperty Name="MDRG_FacilityID" ColumnName="MDRG_FacilityID" />
+          <ScalarProperty Name="MDRG_StatusClass" ColumnName="MDRG_StatusClass" />
+          <ScalarProperty Name="MDRG_HotCode" ColumnName="MDRG_HotCode" />
+          <ScalarProperty Name="MDRG_LogNo" ColumnName="MDRG_LogNo" />
+          <ScalarProperty Name="MDRG_UpdateDate" ColumnName="MDRG_UpdateDate" />
+          <ScalarProperty Name="MDRG_UpdateClientName" ColumnName="MDRG_UpdateClientName" />
+          <ScalarProperty Name="MDRG_UpdateStaffID" ColumnName="MDRG_UpdateStaffID" />
+          <ScalarProperty Name="MDRG_DelFlag" ColumnName="MDRG_DelFlag" />
+          <ScalarProperty Name="MDRG_ValidDateFrom" ColumnName="MDRG_ValidDateFrom" />
+          <ScalarProperty Name="MDRG_ValidDateTo" ColumnName="MDRG_ValidDateTo" />
+          <ScalarProperty Name="MDRG_ReceiptCode" ColumnName="MDRG_ReceiptCode" />
+          <ScalarProperty Name="MDRG_StandardCode" ColumnName="MDRG_StandardCode" />
+          <ScalarProperty Name="MDRG_MHLWCode" ColumnName="MDRG_MHLWCode" />
+          <ScalarProperty Name="MDRG_PublicCode" ColumnName="MDRG_PublicCode" />
+          <ScalarProperty Name="MDRG_DrugName" ColumnName="MDRG_DrugName" />
+          <ScalarProperty Name="MDRG_DrugKana" ColumnName="MDRG_DrugKana" />
+          <ScalarProperty Name="MDRG_SalesName" ColumnName="MDRG_SalesName" />
+          <ScalarProperty Name="MDRG_PublicName" ColumnName="MDRG_PublicName" />
+          <ScalarProperty Name="MDRG_DisplayDrugName" ColumnName="MDRG_DisplayDrugName" />
+          <ScalarProperty Name="MDRG_SearchKeyword" ColumnName="MDRG_SearchKeyword" />
+          <ScalarProperty Name="MDRG_ComponentName" ColumnName="MDRG_ComponentName" />
+          <ScalarProperty Name="MDRG_OriginalName" ColumnName="MDRG_OriginalName" />
+          <ScalarProperty Name="MDRG_UnitInit" ColumnName="MDRG_UnitInit" />
+          <ScalarProperty Name="MDRG_UnitReceipt" ColumnName="MDRG_UnitReceipt" />
+          <ScalarProperty Name="MDRG_UnitPharm" ColumnName="MDRG_UnitPharm" />
+          <ScalarProperty Name="MDRG_NarcoticClass" ColumnName="MDRG_NarcoticClass" />
+          <ScalarProperty Name="MDRG_DosageFormClass" ColumnName="MDRG_DosageFormClass" />
+          <ScalarProperty Name="MDRG_DrugFormType" ColumnName="MDRG_DrugFormType" />
+          <ScalarProperty Name="MDRG_Syringeful" ColumnName="MDRG_Syringeful" />
+          <ScalarProperty Name="MDRG_UsageCode" ColumnName="MDRG_UsageCode" />
+          <ScalarProperty Name="MDRG_ExternalPartCode" ColumnName="MDRG_ExternalPartCode" />
+          <ScalarProperty Name="MDRG_DosageClass" ColumnName="MDRG_DosageClass" />
+          <ScalarProperty Name="MDRG_DoseTimes" ColumnName="MDRG_DoseTimes" />
+          <ScalarProperty Name="MDRG_DoseDays" ColumnName="MDRG_DoseDays" />
+          <ScalarProperty Name="MDRG_IntervalDays" ColumnName="MDRG_IntervalDays" />
+          <ScalarProperty Name="MDRG_Dosage" ColumnName="MDRG_Dosage" />
+          <ScalarProperty Name="MDRG_OnceMaxDosage" ColumnName="MDRG_OnceMaxDosage" />
+          <ScalarProperty Name="MDRG_DailyMaxDosage" ColumnName="MDRG_DailyMaxDosage" />
+          <ScalarProperty Name="MDRG_AdoptClass" ColumnName="MDRG_AdoptClass" />
+          <ScalarProperty Name="MDRG_OrderMedicineFlag" ColumnName="MDRG_OrderMedicineFlag" />
+          <ScalarProperty Name="MDRG_OrderInjectionFlag" ColumnName="MDRG_OrderInjectionFlag" />
+          <ScalarProperty Name="MDRG_NerveDestroyFlag" ColumnName="MDRG_NerveDestroyFlag" />
+          <ScalarProperty Name="MDRG_BiologyFlag" ColumnName="MDRG_BiologyFlag" />
+          <ScalarProperty Name="MDRG_GenericFlag" ColumnName="MDRG_GenericFlag" />
+          <ScalarProperty Name="MDRG_DentistrySpecialtyFlag" ColumnName="MDRG_DentistrySpecialtyFlag" />
+          <ScalarProperty Name="MDRG_ContrastMediumFlag" ColumnName="MDRG_ContrastMediumFlag" />
+          <ScalarProperty Name="MDRG_GrindFlag" ColumnName="MDRG_GrindFlag" />
+          <ScalarProperty Name="MDRG_MixFlag" ColumnName="MDRG_MixFlag" />
+          <ScalarProperty Name="MDRG_DissolveFlag" ColumnName="MDRG_DissolveFlag" />
+          <ScalarProperty Name="MDRG_PTPFlag" ColumnName="MDRG_PTPFlag" />
+          <ScalarProperty Name="MDRG_OneDosePackagFlag" ColumnName="MDRG_OneDosePackagFlag" />
+          <ScalarProperty Name="MDRG_HospitalPreparationFlag" ColumnName="MDRG_HospitalPreparationFlag" />
+          <ScalarProperty Name="MDRG_INDFlag" ColumnName="MDRG_INDFlag" />
+          <ScalarProperty Name="MDRG_ExtraDrugFlag" ColumnName="MDRG_ExtraDrugFlag" />
+          <ScalarProperty Name="MDRG_DiabetesFlag" ColumnName="MDRG_DiabetesFlag" />
+          <ScalarProperty Name="MDRG_AnticancerDrugFlag" ColumnName="MDRG_AnticancerDrugFlag" />
+          <ScalarProperty Name="MDRG_SubstituteHotCode1" ColumnName="MDRG_SubstituteHotCode1" />
+          <ScalarProperty Name="MDRG_SubstituteHotCode2" ColumnName="MDRG_SubstituteHotCode2" />
+          <ScalarProperty Name="MDRG_LabelPrintFlag" ColumnName="MDRG_LabelPrintFlag" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GM_Drug">
+      <EntityTypeMapping TypeName="AloeModel.GM_Drug">
+        <MappingFragment StoreEntitySet="GM_Drug">
+          <ScalarProperty Name="GDRG_FormulationCode" ColumnName="GDRG_FormulationCode" />
+          <ScalarProperty Name="GDRG_Remarks" ColumnName="GDRG_Remarks" />
+          <ScalarProperty Name="GDRG_PatientLimitedFlag" ColumnName="GDRG_PatientLimitedFlag" />
+          <ScalarProperty Name="GDRG_OrderTransfusionFlag" ColumnName="GDRG_OrderTransfusionFlag" />
+          <ScalarProperty Name="GDRG_TransfusionUnit" ColumnName="GDRG_TransfusionUnit" />
+          <ScalarProperty Name="GDRG_LabelPrintFlag" ColumnName="GDRG_LabelPrintFlag" />
+          <ScalarProperty Name="GDRG_SubstituteHotCode2" ColumnName="GDRG_SubstituteHotCode2" />
+          <ScalarProperty Name="GDRG_SubstituteHotCode1" ColumnName="GDRG_SubstituteHotCode1" />
+          <ScalarProperty Name="GDRG_AnticancerDrugFlag" ColumnName="GDRG_AnticancerDrugFlag" />
+          <ScalarProperty Name="GDRG_DiabetesFlag" ColumnName="GDRG_DiabetesFlag" />
+          <ScalarProperty Name="GDRG_ExtraDrugFlag" ColumnName="GDRG_ExtraDrugFlag" />
+          <ScalarProperty Name="GDRG_INDFlag" ColumnName="GDRG_INDFlag" />
+          <ScalarProperty Name="GDRG_HospitalPreparationFlag" ColumnName="GDRG_HospitalPreparationFlag" />
+          <ScalarProperty Name="GDRG_OneDosePackagFlag" ColumnName="GDRG_OneDosePackagFlag" />
+          <ScalarProperty Name="GDRG_PTPFlag" ColumnName="GDRG_PTPFlag" />
+          <ScalarProperty Name="GDRG_DissolveFlag" ColumnName="GDRG_DissolveFlag" />
+          <ScalarProperty Name="GDRG_MixFlag" ColumnName="GDRG_MixFlag" />
+          <ScalarProperty Name="GDRG_GrindFlag" ColumnName="GDRG_GrindFlag" />
+          <ScalarProperty Name="GDRG_ContrastMediumFlag" ColumnName="GDRG_ContrastMediumFlag" />
+          <ScalarProperty Name="GDRG_DentistrySpecialtyFlag" ColumnName="GDRG_DentistrySpecialtyFlag" />
+          <ScalarProperty Name="GDRG_GenericFlag" ColumnName="GDRG_GenericFlag" />
+          <ScalarProperty Name="GDRG_BiologyFlag" ColumnName="GDRG_BiologyFlag" />
+          <ScalarProperty Name="GDRG_NerveDestroyFlag" ColumnName="GDRG_NerveDestroyFlag" />
+          <ScalarProperty Name="GDRG_OrderInjectionFlag" ColumnName="GDRG_OrderInjectionFlag" />
+          <ScalarProperty Name="GDRG_OrderMedicineFlag" ColumnName="GDRG_OrderMedicineFlag" />
+          <ScalarProperty Name="GDRG_AdoptClass" ColumnName="GDRG_AdoptClass" />
+          <ScalarProperty Name="GDRG_DailyMaxDosage" ColumnName="GDRG_DailyMaxDosage" />
+          <ScalarProperty Name="GDRG_OnceMaxDosage" ColumnName="GDRG_OnceMaxDosage" />
+          <ScalarProperty Name="GDRG_Dosage" ColumnName="GDRG_Dosage" />
+          <ScalarProperty Name="GDRG_IntervalDays" ColumnName="GDRG_IntervalDays" />
+          <ScalarProperty Name="GDRG_DoseDays" ColumnName="GDRG_DoseDays" />
+          <ScalarProperty Name="GDRG_DoseTimes" ColumnName="GDRG_DoseTimes" />
+          <ScalarProperty Name="GDRG_DosageClass" ColumnName="GDRG_DosageClass" />
+          <ScalarProperty Name="GDRG_ExternalPartCode" ColumnName="GDRG_ExternalPartCode" />
+          <ScalarProperty Name="GDRG_UsageCode" ColumnName="GDRG_UsageCode" />
+          <ScalarProperty Name="GDRG_Syringeful" ColumnName="GDRG_Syringeful" />
+          <ScalarProperty Name="GDRG_DrugFormType" ColumnName="GDRG_DrugFormType" />
+          <ScalarProperty Name="GDRG_DosageFormClass" ColumnName="GDRG_DosageFormClass" />
+          <ScalarProperty Name="GDRG_NarcoticClass" ColumnName="GDRG_NarcoticClass" />
+          <ScalarProperty Name="GDRG_UnitPharm" ColumnName="GDRG_UnitPharm" />
+          <ScalarProperty Name="GDRG_UnitReceipt" ColumnName="GDRG_UnitReceipt" />
+          <ScalarProperty Name="GDRG_UnitInit" ColumnName="GDRG_UnitInit" />
+          <ScalarProperty Name="GDRG_SearchKeyword" ColumnName="GDRG_SearchKeyword" />
+          <ScalarProperty Name="GDRG_DisplayDrugName" ColumnName="GDRG_DisplayDrugName" />
+          <ScalarProperty Name="GDRG_OriginalName" ColumnName="GDRG_OriginalName" />
+          <ScalarProperty Name="GDRG_ComponentName" ColumnName="GDRG_ComponentName" />
+          <ScalarProperty Name="GDRG_PublicName" ColumnName="GDRG_PublicName" />
+          <ScalarProperty Name="GDRG_SalesName" ColumnName="GDRG_SalesName" />
+          <ScalarProperty Name="GDRG_DrugKana" ColumnName="GDRG_DrugKana" />
+          <ScalarProperty Name="GDRG_DrugName" ColumnName="GDRG_DrugName" />
+          <ScalarProperty Name="GDRG_PublicCode" ColumnName="GDRG_PublicCode" />
+          <ScalarProperty Name="GDRG_MHLWCode" ColumnName="GDRG_MHLWCode" />
+          <ScalarProperty Name="GDRG_StandardCode" ColumnName="GDRG_StandardCode" />
+          <ScalarProperty Name="GDRG_ReceiptCode" ColumnName="GDRG_ReceiptCode" />
+          <ScalarProperty Name="GDRG_ValidDateTo" ColumnName="GDRG_ValidDateTo" />
+          <ScalarProperty Name="GDRG_ValidDateFrom" ColumnName="GDRG_ValidDateFrom" />
+          <ScalarProperty Name="GDRG_DelFlag" ColumnName="GDRG_DelFlag" />
+          <ScalarProperty Name="GDRG_UpdateStaffID" ColumnName="GDRG_UpdateStaffID" />
+          <ScalarProperty Name="GDRG_UpdateClientName" ColumnName="GDRG_UpdateClientName" />
+          <ScalarProperty Name="GDRG_UpdateDate" ColumnName="GDRG_UpdateDate" />
+          <ScalarProperty Name="GDRG_LogNo" ColumnName="GDRG_LogNo" />
+          <ScalarProperty Name="GDRG_HotCode" ColumnName="GDRG_HotCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GM_DrugUnit">
+      <EntityTypeMapping TypeName="AloeModel.GM_DrugUnit">
+        <MappingFragment StoreEntitySet="GM_DrugUnit">
+          <ScalarProperty Name="GDUT_CalculateFlag" ColumnName="GDUT_CalculateFlag" />
+          <ScalarProperty Name="GDUT_UnitRatio" ColumnName="GDUT_UnitRatio" />
+          <ScalarProperty Name="GDUT_UnitCode" ColumnName="GDUT_UnitCode" />
+          <ScalarProperty Name="GDUT_DelFlag" ColumnName="GDUT_DelFlag" />
+          <ScalarProperty Name="GDUT_UpdateStaffID" ColumnName="GDUT_UpdateStaffID" />
+          <ScalarProperty Name="GDUT_UpdateClientName" ColumnName="GDUT_UpdateClientName" />
+          <ScalarProperty Name="GDUT_UpdateDate" ColumnName="GDUT_UpdateDate" />
+          <ScalarProperty Name="GDUT_UnitNo" ColumnName="GDUT_UnitNo" />
+          <ScalarProperty Name="GDUT_HotCode" ColumnName="GDUT_HotCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="M_DrugUnit">
+      <EntityTypeMapping TypeName="AloeModel.M_DrugUnit">
+        <MappingFragment StoreEntitySet="M_DrugUnit">
+          <ScalarProperty Name="MDUT_CalculateFlag" ColumnName="MDUT_CalculateFlag" />
+          <ScalarProperty Name="MDUT_UnitRatio" ColumnName="MDUT_UnitRatio" />
+          <ScalarProperty Name="MDUT_UnitCode" ColumnName="MDUT_UnitCode" />
+          <ScalarProperty Name="MDUT_DelFlag" ColumnName="MDUT_DelFlag" />
+          <ScalarProperty Name="MDUT_UpdateStaffID" ColumnName="MDUT_UpdateStaffID" />
+          <ScalarProperty Name="MDUT_UpdateClientName" ColumnName="MDUT_UpdateClientName" />
+          <ScalarProperty Name="MDUT_UpdateDate" ColumnName="MDUT_UpdateDate" />
+          <ScalarProperty Name="MDUT_UnitNo" ColumnName="MDUT_UnitNo" />
+          <ScalarProperty Name="MDUT_HotCode" ColumnName="MDUT_HotCode" />
+          <ScalarProperty Name="MDUT_StatusClass" ColumnName="MDUT_StatusClass" />
+          <ScalarProperty Name="MDUT_FacilityID" ColumnName="MDUT_FacilityID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CM_Drug">
+      <EntityTypeMapping TypeName="AloeModel.CM_Drug">
+        <MappingFragment StoreEntitySet="CM_Drug">
+          <ScalarProperty Name="CDRG_ValidDateTo" ColumnName="CDRG_ValidDateTo" />
+          <ScalarProperty Name="CDRG_ValidDateFrom" ColumnName="CDRG_ValidDateFrom" />
+          <ScalarProperty Name="CDRG_ContrastMediumFlag" ColumnName="CDRG_ContrastMediumFlag" />
+          <ScalarProperty Name="CDRG_DentistrySpecialtyFlag" ColumnName="CDRG_DentistrySpecialtyFlag" />
+          <ScalarProperty Name="CDRG_GenericFlag" ColumnName="CDRG_GenericFlag" />
+          <ScalarProperty Name="CDRG_BiologyFlag" ColumnName="CDRG_BiologyFlag" />
+          <ScalarProperty Name="CDRG_NerveDestroyFlag" ColumnName="CDRG_NerveDestroyFlag" />
+          <ScalarProperty Name="CDRG_Syringeful" ColumnName="CDRG_Syringeful" />
+          <ScalarProperty Name="CDRG_DosageFormClass" ColumnName="CDRG_DosageFormClass" />
+          <ScalarProperty Name="CDRG_NarcoticClass" ColumnName="CDRG_NarcoticClass" />
+          <ScalarProperty Name="CDRG_UnitCode" ColumnName="CDRG_UnitCode" />
+          <ScalarProperty Name="CDRG_OriginalName" ColumnName="CDRG_OriginalName" />
+          <ScalarProperty Name="CDRG_ComponentName" ColumnName="CDRG_ComponentName" />
+          <ScalarProperty Name="CDRG_PublicName" ColumnName="CDRG_PublicName" />
+          <ScalarProperty Name="CDRG_SalesName" ColumnName="CDRG_SalesName" />
+          <ScalarProperty Name="CDRG_DrugKana" ColumnName="CDRG_DrugKana" />
+          <ScalarProperty Name="CDRG_DrugName" ColumnName="CDRG_DrugName" />
+          <ScalarProperty Name="CDRG_PublicCode" ColumnName="CDRG_PublicCode" />
+          <ScalarProperty Name="CDRG_IndividualCode" ColumnName="CDRG_IndividualCode" />
+          <ScalarProperty Name="CDRG_MhlwCode" ColumnName="CDRG_MhlwCode" />
+          <ScalarProperty Name="CDRG_ReceiptCode" ColumnName="CDRG_ReceiptCode" />
+          <ScalarProperty Name="CDRG_CompanyCode" ColumnName="CDRG_CompanyCode" />
+          <ScalarProperty Name="CDRG_Hot7Code" ColumnName="CDRG_Hot7Code" />
+          <ScalarProperty Name="CDRG_SalesCompany" ColumnName="CDRG_SalesCompany" />
+          <ScalarProperty Name="CDRG_MakerCompany" ColumnName="CDRG_MakerCompany" />
+          <ScalarProperty Name="CDRG_PackTotalUnit" ColumnName="CDRG_PackTotalUnit" />
+          <ScalarProperty Name="CDRG_PackUnit" ColumnName="CDRG_PackUnit" />
+          <ScalarProperty Name="CDRG_JANCode" ColumnName="CDRG_JANCode" />
+          <ScalarProperty Name="CDRG_StandardCode" ColumnName="CDRG_StandardCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="M_Name">
+      <EntityTypeMapping TypeName="AloeModel.M_Name">
+        <MappingFragment StoreEntitySet="M_Name">
+          <ScalarProperty Name="MNAM_ValidDateTo" ColumnName="MNAM_ValidDateTo" />
+          <ScalarProperty Name="MNAM_ValidDateFrom" ColumnName="MNAM_ValidDateFrom" />
+          <ScalarProperty Name="MNAM_SortNo" ColumnName="MNAM_SortNo" />
+          <ScalarProperty Name="MNAM_DelFlag" ColumnName="MNAM_DelFlag" />
+          <ScalarProperty Name="MNAM_UpdateStaffID" ColumnName="MNAM_UpdateStaffID" />
+          <ScalarProperty Name="MNAM_UpdateClientName" ColumnName="MNAM_UpdateClientName" />
+          <ScalarProperty Name="MNAM_UpdateDate" ColumnName="MNAM_UpdateDate" />
+          <ScalarProperty Name="MNAM_LogNo" ColumnName="MNAM_LogNo" />
+          <ScalarProperty Name="MNAM_NameCode" ColumnName="MNAM_NameCode" />
+          <ScalarProperty Name="MNAM_NameClass" ColumnName="MNAM_NameClass" />
+          <ScalarProperty Name="MNAM_StatusClass" ColumnName="MNAM_StatusClass" />
+          <ScalarProperty Name="MNAM_FacilityID" ColumnName="MNAM_FacilityID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GM_Name">
+      <EntityTypeMapping TypeName="AloeModel.GM_Name">
+        <MappingFragment StoreEntitySet="GM_Name">
+          <ScalarProperty Name="GNAM_Flag10" ColumnName="GNAM_Flag10" />
+          <ScalarProperty Name="GNAM_Flag09" ColumnName="GNAM_Flag09" />
+          <ScalarProperty Name="GNAM_Flag08" ColumnName="GNAM_Flag08" />
+          <ScalarProperty Name="GNAM_Flag07" ColumnName="GNAM_Flag07" />
+          <ScalarProperty Name="GNAM_Flag06" ColumnName="GNAM_Flag06" />
+          <ScalarProperty Name="GNAM_Flag05" ColumnName="GNAM_Flag05" />
+          <ScalarProperty Name="GNAM_Flag04" ColumnName="GNAM_Flag04" />
+          <ScalarProperty Name="GNAM_Flag03" ColumnName="GNAM_Flag03" />
+          <ScalarProperty Name="GNAM_Flag02" ColumnName="GNAM_Flag02" />
+          <ScalarProperty Name="GNAM_Flag01" ColumnName="GNAM_Flag01" />
+          <ScalarProperty Name="GNAM_Value10" ColumnName="GNAM_Value10" />
+          <ScalarProperty Name="GNAM_Value09" ColumnName="GNAM_Value09" />
+          <ScalarProperty Name="GNAM_Value08" ColumnName="GNAM_Value08" />
+          <ScalarProperty Name="GNAM_Value07" ColumnName="GNAM_Value07" />
+          <ScalarProperty Name="GNAM_Value06" ColumnName="GNAM_Value06" />
+          <ScalarProperty Name="GNAM_Value05" ColumnName="GNAM_Value05" />
+          <ScalarProperty Name="GNAM_Value04" ColumnName="GNAM_Value04" />
+          <ScalarProperty Name="GNAM_Value03" ColumnName="GNAM_Value03" />
+          <ScalarProperty Name="GNAM_Value02" ColumnName="GNAM_Value02" />
+          <ScalarProperty Name="GNAM_Value01" ColumnName="GNAM_Value01" />
+          <ScalarProperty Name="GNAM_Explanation" ColumnName="GNAM_Explanation" />
+          <ScalarProperty Name="GNAM_Kana" ColumnName="GNAM_Kana" />
+          <ScalarProperty Name="GNAM_ShortName" ColumnName="GNAM_ShortName" />
+          <ScalarProperty Name="GNAM_Name" ColumnName="GNAM_Name" />
+          <ScalarProperty Name="GNAM_FacilitySelectFlag" ColumnName="GNAM_FacilitySelectFlag" />
+          <ScalarProperty Name="GNAM_ValidDateTo" ColumnName="GNAM_ValidDateTo" />
+          <ScalarProperty Name="GNAM_ValidDateFrom" ColumnName="GNAM_ValidDateFrom" />
+          <ScalarProperty Name="GNAM_SortNo" ColumnName="GNAM_SortNo" />
+          <ScalarProperty Name="GNAM_DelFlag" ColumnName="GNAM_DelFlag" />
+          <ScalarProperty Name="GNAM_UpdateStaffID" ColumnName="GNAM_UpdateStaffID" />
+          <ScalarProperty Name="GNAM_UpdateClientName" ColumnName="GNAM_UpdateClientName" />
+          <ScalarProperty Name="GNAM_UpdateDate" ColumnName="GNAM_UpdateDate" />
+          <ScalarProperty Name="GNAM_LogNo" ColumnName="GNAM_LogNo" />
+          <ScalarProperty Name="GNAM_NameCode" ColumnName="GNAM_NameCode" />
+          <ScalarProperty Name="GNAM_NameClass" ColumnName="GNAM_NameClass" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="M_StaffBase">
+      <EntityTypeMapping TypeName="AloeModel.M_StaffBase">
+        <MappingFragment StoreEntitySet="M_StaffBase">
+          <ScalarProperty Name="MSTB_Remarks" ColumnName="MSTB_Remarks" />
+          <ScalarProperty Name="MSTB_RetireDate" ColumnName="MSTB_RetireDate" />
+          <ScalarProperty Name="MSTB_EnterDate" ColumnName="MSTB_EnterDate" />
+          <ScalarProperty Name="MSTB_SexType" ColumnName="MSTB_SexType" />
+          <ScalarProperty Name="MSTB_BirthDate" ColumnName="MSTB_BirthDate" />
+          <ScalarProperty Name="MSTB_FirstName" ColumnName="MSTB_FirstName" />
+          <ScalarProperty Name="MSTB_MiddleName" ColumnName="MSTB_MiddleName" />
+          <ScalarProperty Name="MSTB_LastName" ColumnName="MSTB_LastName" />
+          <ScalarProperty Name="MSTB_FirstNameKana" ColumnName="MSTB_FirstNameKana" />
+          <ScalarProperty Name="MSTB_MiddleNameKana" ColumnName="MSTB_MiddleNameKana" />
+          <ScalarProperty Name="MSTB_LastNameKana" ColumnName="MSTB_LastNameKana" />
+          <ScalarProperty Name="MSTB_DisplayStaffID" ColumnName="MSTB_DisplayStaffID" />
+          <ScalarProperty Name="MSTB_ValidType" ColumnName="MSTB_ValidType" />
+          <ScalarProperty Name="MSTB_ValidDateTo" ColumnName="MSTB_ValidDateTo" />
+          <ScalarProperty Name="MSTB_ValidDateFrom" ColumnName="MSTB_ValidDateFrom" />
+          <ScalarProperty Name="MSTB_DelFlag" ColumnName="MSTB_DelFlag" />
+          <ScalarProperty Name="MSTB_UpdateStaffID" ColumnName="MSTB_UpdateStaffID" />
+          <ScalarProperty Name="MSTB_UpdateClientName" ColumnName="MSTB_UpdateClientName" />
+          <ScalarProperty Name="MSTB_UpdateDate" ColumnName="MSTB_UpdateDate" />
+          <ScalarProperty Name="MSTB_LogNo" ColumnName="MSTB_LogNo" />
+          <ScalarProperty Name="MSTB_StaffID" ColumnName="MSTB_StaffID" />
+          <ScalarProperty Name="MSTB_FacilityID" ColumnName="MSTB_FacilityID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="M_StaffPassword">
+      <EntityTypeMapping TypeName="AloeModel.M_StaffPassword">
+        <MappingFragment StoreEntitySet="M_StaffPassword">
+          <ScalarProperty Name="MSTP_Password" ColumnName="MSTP_Password" />
+          <ScalarProperty Name="MSTP_UpdateStaffID" ColumnName="MSTP_UpdateStaffID" />
+          <ScalarProperty Name="MSTP_UpdateClientName" ColumnName="MSTP_UpdateClientName" />
+          <ScalarProperty Name="MSTP_UpdateDate" ColumnName="MSTP_UpdateDate" />
+          <ScalarProperty Name="MSTP_LogNo" ColumnName="MSTP_LogNo" />
+          <ScalarProperty Name="MSTP_StaffID" ColumnName="MSTP_StaffID" />
+          <ScalarProperty Name="MSTP_FacilityID" ColumnName="MSTP_FacilityID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VM_Name">
+      <EntityTypeMapping TypeName="AloeModel.VM_Name">
+        <MappingFragment StoreEntitySet="VM_Name">
+          <ScalarProperty Name="VNAM_Flag10" ColumnName="VNAM_Flag10" />
+          <ScalarProperty Name="VNAM_Flag09" ColumnName="VNAM_Flag09" />
+          <ScalarProperty Name="VNAM_Flag08" ColumnName="VNAM_Flag08" />
+          <ScalarProperty Name="VNAM_Flag07" ColumnName="VNAM_Flag07" />
+          <ScalarProperty Name="VNAM_Flag06" ColumnName="VNAM_Flag06" />
+          <ScalarProperty Name="VNAM_Flag05" ColumnName="VNAM_Flag05" />
+          <ScalarProperty Name="VNAM_Flag04" ColumnName="VNAM_Flag04" />
+          <ScalarProperty Name="VNAM_Flag03" ColumnName="VNAM_Flag03" />
+          <ScalarProperty Name="VNAM_Flag02" ColumnName="VNAM_Flag02" />
+          <ScalarProperty Name="VNAM_Flag01" ColumnName="VNAM_Flag01" />
+          <ScalarProperty Name="VNAM_Value10" ColumnName="VNAM_Value10" />
+          <ScalarProperty Name="VNAM_Value09" ColumnName="VNAM_Value09" />
+          <ScalarProperty Name="VNAM_Value08" ColumnName="VNAM_Value08" />
+          <ScalarProperty Name="VNAM_Value07" ColumnName="VNAM_Value07" />
+          <ScalarProperty Name="VNAM_Value06" ColumnName="VNAM_Value06" />
+          <ScalarProperty Name="VNAM_Value05" ColumnName="VNAM_Value05" />
+          <ScalarProperty Name="VNAM_Value04" ColumnName="VNAM_Value04" />
+          <ScalarProperty Name="VNAM_Value03" ColumnName="VNAM_Value03" />
+          <ScalarProperty Name="VNAM_Value02" ColumnName="VNAM_Value02" />
+          <ScalarProperty Name="VNAM_Value01" ColumnName="VNAM_Value01" />
+          <ScalarProperty Name="VNAM_Explanation" ColumnName="VNAM_Explanation" />
+          <ScalarProperty Name="VNAM_Kana" ColumnName="VNAM_Kana" />
+          <ScalarProperty Name="VNAM_ShortName" ColumnName="VNAM_ShortName" />
+          <ScalarProperty Name="VNAM_Name" ColumnName="VNAM_Name" />
+          <ScalarProperty Name="VNAM_FacilitySelectFlag" ColumnName="VNAM_FacilitySelectFlag" />
+          <ScalarProperty Name="VNAM_ValidDateTo" ColumnName="VNAM_ValidDateTo" />
+          <ScalarProperty Name="VNAM_ValidDateFrom" ColumnName="VNAM_ValidDateFrom" />
+          <ScalarProperty Name="VNAM_SortNo" ColumnName="VNAM_SortNo" />
+          <ScalarProperty Name="VNAM_DelFlag" ColumnName="VNAM_DelFlag" />
+          <ScalarProperty Name="VNAM_NameCode" ColumnName="VNAM_NameCode" />
+          <ScalarProperty Name="VNAM_NameClass" ColumnName="VNAM_NameClass" />
+          <ScalarProperty Name="VNAM_StatusClass" ColumnName="VNAM_StatusClass" />
+          <ScalarProperty Name="VNAM_FacilityID" ColumnName="VNAM_FacilityID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GM_Control">
+      <EntityTypeMapping TypeName="AloeModel.GM_Control">
+        <MappingFragment StoreEntitySet="GM_Control">
+          <ScalarProperty Name="GCTL_ControlInfo" ColumnName="GCTL_ControlInfo" />
+          <ScalarProperty Name="GCTL_DelFlag" ColumnName="GCTL_DelFlag" />
+          <ScalarProperty Name="GCTL_UpdateStaffID" ColumnName="GCTL_UpdateStaffID" />
+          <ScalarProperty Name="GCTL_UpdateClientName" ColumnName="GCTL_UpdateClientName" />
+          <ScalarProperty Name="GCTL_UpdateDate" ColumnName="GCTL_UpdateDate" />
+          <ScalarProperty Name="GCTL_FunctionID" ColumnName="GCTL_FunctionID" />
+          <ScalarProperty Name="GCTL_JobCode" ColumnName="GCTL_JobCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="M_StaffControl">
+      <EntityTypeMapping TypeName="AloeModel.M_StaffControl">
+        <MappingFragment StoreEntitySet="M_StaffControl">
+          <ScalarProperty Name="MSTC_ControlInfo" ColumnName="MSTC_ControlInfo" />
+          <ScalarProperty Name="MSTC_DelFlag" ColumnName="MSTC_DelFlag" />
+          <ScalarProperty Name="MSTC_UpdateStaffID" ColumnName="MSTC_UpdateStaffID" />
+          <ScalarProperty Name="MSTC_UpdateClientName" ColumnName="MSTC_UpdateClientName" />
+          <ScalarProperty Name="MSTC_UpdateDate" ColumnName="MSTC_UpdateDate" />
+          <ScalarProperty Name="MSTC_FunctionID" ColumnName="MSTC_FunctionID" />
+          <ScalarProperty Name="MSTC_JobCode" ColumnName="MSTC_JobCode" />
+          <ScalarProperty Name="MSTC_StaffID" ColumnName="MSTC_StaffID" />
+          <ScalarProperty Name="MSTC_FacilityID" ColumnName="MSTC_FacilityID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="S_GroupFacility">
+      <EntityTypeMapping TypeName="AloeModel.S_GroupFacility">
+        <MappingFragment StoreEntitySet="S_GroupFacility">
+          <ScalarProperty Name="SGFA_InstanceName" ColumnName="SGFA_InstanceName" />
+          <ScalarProperty Name="SGFA_FacilityType" ColumnName="SGFA_FacilityType" />
+          <ScalarProperty Name="SGFA_GenericName" ColumnName="SGFA_GenericName" />
+          <ScalarProperty Name="SGFA_ValidDateTo" ColumnName="SGFA_ValidDateTo" />
+          <ScalarProperty Name="SGFA_ValidDateFrom" ColumnName="SGFA_ValidDateFrom" />
+          <ScalarProperty Name="SGFA_SortNo" ColumnName="SGFA_SortNo" />
+          <ScalarProperty Name="SGFA_DelFlag" ColumnName="SGFA_DelFlag" />
+          <ScalarProperty Name="SGFA_UpdateStaffID" ColumnName="SGFA_UpdateStaffID" />
+          <ScalarProperty Name="SGFA_UpdateClientName" ColumnName="SGFA_UpdateClientName" />
+          <ScalarProperty Name="SGFA_UpdateDate" ColumnName="SGFA_UpdateDate" />
+          <ScalarProperty Name="SGFA_FacilityID" ColumnName="SGFA_FacilityID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="M_StaffJobType">
+      <EntityTypeMapping TypeName="AloeModel.M_StaffJobType">
+        <MappingFragment StoreEntitySet="M_StaffJobType">
+          <ScalarProperty Name="MSJT_ValidDateTo" ColumnName="MSJT_ValidDateTo" />
+          <ScalarProperty Name="MSJT_ValidDateFrom" ColumnName="MSJT_ValidDateFrom" />
+          <ScalarProperty Name="MSJT_DelFlag" ColumnName="MSJT_DelFlag" />
+          <ScalarProperty Name="MSJT_UpdateStaffID" ColumnName="MSJT_UpdateStaffID" />
+          <ScalarProperty Name="MSJT_UpdateClientName" ColumnName="MSJT_UpdateClientName" />
+          <ScalarProperty Name="MSJT_UpdateDate" ColumnName="MSJT_UpdateDate" />
+          <ScalarProperty Name="MSJT_LogNo" ColumnName="MSJT_LogNo" />
+          <ScalarProperty Name="MSJT_JobCode" ColumnName="MSJT_JobCode" />
+          <ScalarProperty Name="MSJT_StaffID" ColumnName="MSJT_StaffID" />
+          <ScalarProperty Name="MSJT_FacilityID" ColumnName="MSJT_FacilityID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="M_Control">
+      <EntityTypeMapping TypeName="AloeModel.M_Control">
+        <MappingFragment StoreEntitySet="M_Control">
+          <ScalarProperty Name="MCTL_ControlInfo" ColumnName="MCTL_ControlInfo" />
+          <ScalarProperty Name="MCTL_DelFlag" ColumnName="MCTL_DelFlag" />
+          <ScalarProperty Name="MCTL_UpdateStaffID" ColumnName="MCTL_UpdateStaffID" />
+          <ScalarProperty Name="MCTL_UpdateClientName" ColumnName="MCTL_UpdateClientName" />
+          <ScalarProperty Name="MCTL_UpdateDate" ColumnName="MCTL_UpdateDate" />
+          <ScalarProperty Name="MCTL_FunctionID" ColumnName="MCTL_FunctionID" />
+          <ScalarProperty Name="MCTL_JobCode" ColumnName="MCTL_JobCode" />
+          <ScalarProperty Name="MCTL_StatusClass" ColumnName="MCTL_StatusClass" />
+          <ScalarProperty Name="MCTL_FacilityID" ColumnName="MCTL_FacilityID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_OrderDetail_20">
+      <EntityTypeMapping TypeName="AloeModel.T_OrderDetail_20">
+        <MappingFragment StoreEntitySet="T_OrderDetail_20">
+          <ScalarProperty Name="TORD_UnitCode" ColumnName="TORD_UnitCode" />
+          <ScalarProperty Name="TORD_Dosage" ColumnName="TORD_Dosage" />
+          <ScalarProperty Name="TORD_Record" ColumnName="TORD_Record" />
+          <ScalarProperty Name="TORD_Class3" ColumnName="TORD_Class3" />
+          <ScalarProperty Name="TORD_Class2" ColumnName="TORD_Class2" />
+          <ScalarProperty Name="TORD_Class1" ColumnName="TORD_Class1" />
+          <ScalarProperty Name="TORD_OrderType" ColumnName="TORD_OrderType" />
+          <ScalarProperty Name="TORD_RPRecNo" ColumnName="TORD_RPRecNo" />
+          <ScalarProperty Name="TORD_RP" ColumnName="TORD_RP" />
+          <ScalarProperty Name="TORD_PatientID" ColumnName="TORD_PatientID" />
+          <ScalarProperty Name="TORD_InvalidFlag" ColumnName="TORD_InvalidFlag" />
+          <ScalarProperty Name="TORD_ValidDateTo" ColumnName="TORD_ValidDateTo" />
+          <ScalarProperty Name="TORD_ValidDateFrom" ColumnName="TORD_ValidDateFrom" />
+          <ScalarProperty Name="TORD_DelFlag" ColumnName="TORD_DelFlag" />
+          <ScalarProperty Name="TORD_UpdateJobCode" ColumnName="TORD_UpdateJobCode" />
+          <ScalarProperty Name="TORD_UpdateStaffID" ColumnName="TORD_UpdateStaffID" />
+          <ScalarProperty Name="TORD_UpdateClientName" ColumnName="TORD_UpdateClientName" />
+          <ScalarProperty Name="TORD_UpdateDate" ColumnName="TORD_UpdateDate" />
+          <ScalarProperty Name="TORD_RecNo" ColumnName="TORD_RecNo" />
+          <ScalarProperty Name="TORD_OrderID" ColumnName="TORD_OrderID" />
+          <ScalarProperty Name="TORD_FacilityID" ColumnName="TORD_FacilityID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_OrderDetail_30">
+      <EntityTypeMapping TypeName="AloeModel.T_OrderDetail_30">
+        <MappingFragment StoreEntitySet="T_OrderDetail_30">
+          <ScalarProperty Name="TORD_UnitCode" ColumnName="TORD_UnitCode" />
+          <ScalarProperty Name="TORD_Dosage" ColumnName="TORD_Dosage" />
+          <ScalarProperty Name="TORD_Record" ColumnName="TORD_Record" />
+          <ScalarProperty Name="TORD_Class3" ColumnName="TORD_Class3" />
+          <ScalarProperty Name="TORD_Class2" ColumnName="TORD_Class2" />
+          <ScalarProperty Name="TORD_Class1" ColumnName="TORD_Class1" />
+          <ScalarProperty Name="TORD_OrderType" ColumnName="TORD_OrderType" />
+          <ScalarProperty Name="TORD_RPRecNo" ColumnName="TORD_RPRecNo" />
+          <ScalarProperty Name="TORD_RP" ColumnName="TORD_RP" />
+          <ScalarProperty Name="TORD_PatientID" ColumnName="TORD_PatientID" />
+          <ScalarProperty Name="TORD_InvalidFlag" ColumnName="TORD_InvalidFlag" />
+          <ScalarProperty Name="TORD_ValidDateTo" ColumnName="TORD_ValidDateTo" />
+          <ScalarProperty Name="TORD_ValidDateFrom" ColumnName="TORD_ValidDateFrom" />
+          <ScalarProperty Name="TORD_DelFlag" ColumnName="TORD_DelFlag" />
+          <ScalarProperty Name="TORD_UpdateJobCode" ColumnName="TORD_UpdateJobCode" />
+          <ScalarProperty Name="TORD_UpdateStaffID" ColumnName="TORD_UpdateStaffID" />
+          <ScalarProperty Name="TORD_UpdateClientName" ColumnName="TORD_UpdateClientName" />
+          <ScalarProperty Name="TORD_UpdateDate" ColumnName="TORD_UpdateDate" />
+          <ScalarProperty Name="TORD_RecNo" ColumnName="TORD_RecNo" />
+          <ScalarProperty Name="TORD_OrderID" ColumnName="TORD_OrderID" />
+          <ScalarProperty Name="TORD_FacilityID" ColumnName="TORD_FacilityID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_OrderDetail_40">
+      <EntityTypeMapping TypeName="AloeModel.T_OrderDetail_40">
+        <MappingFragment StoreEntitySet="T_OrderDetail_40">
+          <ScalarProperty Name="TORD_UnitCode" ColumnName="TORD_UnitCode" />
+          <ScalarProperty Name="TORD_Dosage" ColumnName="TORD_Dosage" />
+          <ScalarProperty Name="TORD_Record" ColumnName="TORD_Record" />
+          <ScalarProperty Name="TORD_Class3" ColumnName="TORD_Class3" />
+          <ScalarProperty Name="TORD_Class2" ColumnName="TORD_Class2" />
+          <ScalarProperty Name="TORD_Class1" ColumnName="TORD_Class1" />
+          <ScalarProperty Name="TORD_OrderType" ColumnName="TORD_OrderType" />
+          <ScalarProperty Name="TORD_RPRecNo" ColumnName="TORD_RPRecNo" />
+          <ScalarProperty Name="TORD_RP" ColumnName="TORD_RP" />
+          <ScalarProperty Name="TORD_PatientID" ColumnName="TORD_PatientID" />
+          <ScalarProperty Name="TORD_InvalidFlag" ColumnName="TORD_InvalidFlag" />
+          <ScalarProperty Name="TORD_ValidDateTo" ColumnName="TORD_ValidDateTo" />
+          <ScalarProperty Name="TORD_ValidDateFrom" ColumnName="TORD_ValidDateFrom" />
+          <ScalarProperty Name="TORD_DelFlag" ColumnName="TORD_DelFlag" />
+          <ScalarProperty Name="TORD_UpdateJobCode" ColumnName="TORD_UpdateJobCode" />
+          <ScalarProperty Name="TORD_UpdateStaffID" ColumnName="TORD_UpdateStaffID" />
+          <ScalarProperty Name="TORD_UpdateClientName" ColumnName="TORD_UpdateClientName" />
+          <ScalarProperty Name="TORD_UpdateDate" ColumnName="TORD_UpdateDate" />
+          <ScalarProperty Name="TORD_RecNo" ColumnName="TORD_RecNo" />
+          <ScalarProperty Name="TORD_OrderID" ColumnName="TORD_OrderID" />
+          <ScalarProperty Name="TORD_FacilityID" ColumnName="TORD_FacilityID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_OrderDetail_70">
+      <EntityTypeMapping TypeName="AloeModel.T_OrderDetail_70">
+        <MappingFragment StoreEntitySet="T_OrderDetail_70">
+          <ScalarProperty Name="TORD_UnitCode" ColumnName="TORD_UnitCode" />
+          <ScalarProperty Name="TORD_Dosage" ColumnName="TORD_Dosage" />
+          <ScalarProperty Name="TORD_Record" ColumnName="TORD_Record" />
+          <ScalarProperty Name="TORD_Class3" ColumnName="TORD_Class3" />
+          <ScalarProperty Name="TORD_Class2" ColumnName="TORD_Class2" />
+          <ScalarProperty Name="TORD_Class1" ColumnName="TORD_Class1" />
+          <ScalarProperty Name="TORD_OrderType" ColumnName="TORD_OrderType" />
+          <ScalarProperty Name="TORD_RPRecNo" ColumnName="TORD_RPRecNo" />
+          <ScalarProperty Name="TORD_RP" ColumnName="TORD_RP" />
+          <ScalarProperty Name="TORD_PatientID" ColumnName="TORD_PatientID" />
+          <ScalarProperty Name="TORD_InvalidFlag" ColumnName="TORD_InvalidFlag" />
+          <ScalarProperty Name="TORD_ValidDateTo" ColumnName="TORD_ValidDateTo" />
+          <ScalarProperty Name="TORD_ValidDateFrom" ColumnName="TORD_ValidDateFrom" />
+          <ScalarProperty Name="TORD_DelFlag" ColumnName="TORD_DelFlag" />
+          <ScalarProperty Name="TORD_UpdateJobCode" ColumnName="TORD_UpdateJobCode" />
+          <ScalarProperty Name="TORD_UpdateStaffID" ColumnName="TORD_UpdateStaffID" />
+          <ScalarProperty Name="TORD_UpdateClientName" ColumnName="TORD_UpdateClientName" />
+          <ScalarProperty Name="TORD_UpdateDate" ColumnName="TORD_UpdateDate" />
+          <ScalarProperty Name="TORD_RecNo" ColumnName="TORD_RecNo" />
+          <ScalarProperty Name="TORD_OrderID" ColumnName="TORD_OrderID" />
+          <ScalarProperty Name="TORD_FacilityID" ColumnName="TORD_FacilityID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_OrderRecordTools_70">
+      <EntityTypeMapping TypeName="AloeModel.T_OrderRecordTools_70">
+        <MappingFragment StoreEntitySet="T_OrderRecordTools_70">
+          <ScalarProperty Name="TORT_Comment" ColumnName="TORT_Comment" />
+          <ScalarProperty Name="TORT_ToolUnitCode" ColumnName="TORT_ToolUnitCode" />
+          <ScalarProperty Name="TORT_ToolQuantity" ColumnName="TORT_ToolQuantity" />
+          <ScalarProperty Name="TORT_ToolCode" ColumnName="TORT_ToolCode" />
+          <ScalarProperty Name="TORT_ToolClass" ColumnName="TORT_ToolClass" />
+          <ScalarProperty Name="TORT_DelFlag" ColumnName="TORT_DelFlag" />
+          <ScalarProperty Name="TORT_UpdateJobCode" ColumnName="TORT_UpdateJobCode" />
+          <ScalarProperty Name="TORT_UpdateStaffID" ColumnName="TORT_UpdateStaffID" />
+          <ScalarProperty Name="TORT_UpdateClientName" ColumnName="TORT_UpdateClientName" />
+          <ScalarProperty Name="TORT_UpdateDate" ColumnName="TORT_UpdateDate" />
+          <ScalarProperty Name="TORT_RecNo" ColumnName="TORT_RecNo" />
+          <ScalarProperty Name="TORT_RpNo" ColumnName="TORT_RpNo" />
+          <ScalarProperty Name="TORT_ExecNo" ColumnName="TORT_ExecNo" />
+          <ScalarProperty Name="TORT_OrderType" ColumnName="TORT_OrderType" />
+          <ScalarProperty Name="TORT_FacilityID" ColumnName="TORT_FacilityID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_SafetyInfo">
+      <EntityTypeMapping TypeName="AloeModel.T_SafetyInfo">
+        <MappingFragment StoreEntitySet="T_SafetyInfo">
+          <ScalarProperty Name="TSAF_HearStaffID" ColumnName="TSAF_HearStaffID" />
+          <ScalarProperty Name="TSAF_InfoDonorRelation" ColumnName="TSAF_InfoDonorRelation" />
+          <ScalarProperty Name="TSAF_InfoDonor" ColumnName="TSAF_InfoDonor" />
+          <ScalarProperty Name="TSAF_SafetyEtc" ColumnName="TSAF_SafetyEtc" />
+          <ScalarProperty Name="TSAF_SafetyContent" ColumnName="TSAF_SafetyContent" />
+          <ScalarProperty Name="TSAF_SafetyCode" ColumnName="TSAF_SafetyCode" />
+          <ScalarProperty Name="TSAF_RecordDate" ColumnName="TSAF_RecordDate" />
+          <ScalarProperty Name="TSAF_FixFlag" ColumnName="TSAF_FixFlag" />
+          <ScalarProperty Name="TSAF_DelFlag" ColumnName="TSAF_DelFlag" />
+          <ScalarProperty Name="TSAF_AdmitJobCode" ColumnName="TSAF_AdmitJobCode" />
+          <ScalarProperty Name="TSAF_AdmitStaffID" ColumnName="TSAF_AdmitStaffID" />
+          <ScalarProperty Name="TSAF_AdmitDate" ColumnName="TSAF_AdmitDate" />
+          <ScalarProperty Name="TSAF_DeputyJobCode" ColumnName="TSAF_DeputyJobCode" />
+          <ScalarProperty Name="TSAF_DeputyStaffID" ColumnName="TSAF_DeputyStaffID" />
+          <ScalarProperty Name="TSAF_UpdateJobCode" ColumnName="TSAF_UpdateJobCode" />
+          <ScalarProperty Name="TSAF_UpdateStaffID" ColumnName="TSAF_UpdateStaffID" />
+          <ScalarProperty Name="TSAF_UpdateClientName" ColumnName="TSAF_UpdateClientName" />
+          <ScalarProperty Name="TSAF_UpdateDate" ColumnName="TSAF_UpdateDate" />
+          <ScalarProperty Name="TSAF_RecNo" ColumnName="TSAF_RecNo" />
+          <ScalarProperty Name="TSAF_SafetyType" ColumnName="TSAF_SafetyType" />
+          <ScalarProperty Name="TSAF_PatientID" ColumnName="TSAF_PatientID" />
+          <ScalarProperty Name="TSAF_FacilityID" ColumnName="TSAF_FacilityID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

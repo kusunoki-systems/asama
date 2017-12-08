@@ -1,0 +1,699 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AloeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="GM_Control">
+    <Key>
+      <PropertyRef Name="GCTL_JobCode" />
+      <PropertyRef Name="GCTL_FunctionID" />
+    </Key>
+    <Property Name="GCTL_JobCode" Type="char" MaxLength="7" Nullable="false" />
+    <Property Name="GCTL_FunctionID" Type="char" MaxLength="9" Nullable="false" />
+    <Property Name="GCTL_UpdateDate" Type="datetime" Nullable="false" />
+    <Property Name="GCTL_UpdateClientName" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="GCTL_UpdateStaffID" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="GCTL_DelFlag" Type="int" Nullable="false" />
+    <Property Name="GCTL_ControlInfo" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GM_Drug">
+    <Key>
+      <PropertyRef Name="GDRG_HotCode" />
+      <PropertyRef Name="GDRG_LogNo" />
+    </Key>
+    <Property Name="GDRG_HotCode" Type="char" MaxLength="9" Nullable="false" />
+    <Property Name="GDRG_LogNo" Type="int" Nullable="false" />
+    <Property Name="GDRG_UpdateDate" Type="datetime" Nullable="false" />
+    <Property Name="GDRG_UpdateClientName" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="GDRG_UpdateStaffID" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="GDRG_DelFlag" Type="int" Nullable="false" />
+    <Property Name="GDRG_ValidDateFrom" Type="datetime" Nullable="false" />
+    <Property Name="GDRG_ValidDateTo" Type="datetime" Nullable="false" />
+    <Property Name="GDRG_ReceiptCode" Type="char" MaxLength="9" Nullable="false" />
+    <Property Name="GDRG_StandardCode" Type="char" MaxLength="13" Nullable="false" />
+    <Property Name="GDRG_MHLWCode" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="GDRG_PublicCode" Type="char" MaxLength="12" />
+    <Property Name="GDRG_FormulationCode" Type="char" MaxLength="7" />
+    <Property Name="GDRG_DrugName" Type="varchar" MaxLength="120" Nullable="false" />
+    <Property Name="GDRG_DrugKana" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="GDRG_SalesName" Type="varchar" MaxLength="120" />
+    <Property Name="GDRG_PublicName" Type="varchar" MaxLength="200" />
+    <Property Name="GDRG_ComponentName" Type="varchar" MaxLength="200" />
+    <Property Name="GDRG_OriginalName" Type="varchar" MaxLength="200" />
+    <Property Name="GDRG_DisplayDrugName" Type="varchar" MaxLength="120" />
+    <Property Name="GDRG_SearchKeyword" Type="varchar" MaxLength="200" />
+    <Property Name="GDRG_UnitInit" Type="int" Nullable="false" />
+    <Property Name="GDRG_UnitReceipt" Type="int" Nullable="false" />
+    <Property Name="GDRG_UnitPharm" Type="int" Nullable="false" />
+    <Property Name="GDRG_NarcoticClass" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="GDRG_DosageFormClass" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="GDRG_DrugFormType" Type="char" MaxLength="2" />
+    <Property Name="GDRG_Syringeful" Type="int" Nullable="false" />
+    <Property Name="GDRG_TransfusionUnit" Type="int" Nullable="false" />
+    <Property Name="GDRG_UsageCode" Type="char" MaxLength="4" />
+    <Property Name="GDRG_ExternalPartCode" Type="char" MaxLength="4" />
+    <Property Name="GDRG_DosageClass" Type="char" MaxLength="1" />
+    <Property Name="GDRG_DoseTimes" Type="int" />
+    <Property Name="GDRG_DoseDays" Type="int" />
+    <Property Name="GDRG_IntervalDays" Type="int" />
+    <Property Name="GDRG_Dosage" Type="decimal" Precision="9" Scale="5" />
+    <Property Name="GDRG_OnceMaxDosage" Type="decimal" Precision="9" Scale="5" />
+    <Property Name="GDRG_DailyMaxDosage" Type="decimal" Precision="9" Scale="5" />
+    <Property Name="GDRG_AdoptClass" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="GDRG_OrderMedicineFlag" Type="int" Nullable="false" />
+    <Property Name="GDRG_OrderInjectionFlag" Type="int" Nullable="false" />
+    <Property Name="GDRG_OrderTransfusionFlag" Type="int" Nullable="false" />
+    <Property Name="GDRG_NerveDestroyFlag" Type="int" Nullable="false" />
+    <Property Name="GDRG_BiologyFlag" Type="int" Nullable="false" />
+    <Property Name="GDRG_GenericFlag" Type="int" Nullable="false" />
+    <Property Name="GDRG_DentistrySpecialtyFlag" Type="int" Nullable="false" />
+    <Property Name="GDRG_ContrastMediumFlag" Type="int" Nullable="false" />
+    <Property Name="GDRG_GrindFlag" Type="int" Nullable="false" />
+    <Property Name="GDRG_MixFlag" Type="int" Nullable="false" />
+    <Property Name="GDRG_DissolveFlag" Type="int" Nullable="false" />
+    <Property Name="GDRG_PTPFlag" Type="int" Nullable="false" />
+    <Property Name="GDRG_OneDosePackagFlag" Type="int" Nullable="false" />
+    <Property Name="GDRG_HospitalPreparationFlag" Type="int" Nullable="false" />
+    <Property Name="GDRG_INDFlag" Type="int" Nullable="false" />
+    <Property Name="GDRG_ExtraDrugFlag" Type="int" Nullable="false" />
+    <Property Name="GDRG_DiabetesFlag" Type="int" Nullable="false" />
+    <Property Name="GDRG_AnticancerDrugFlag" Type="int" Nullable="false" />
+    <Property Name="GDRG_SubstituteHotCode1" Type="char" MaxLength="9" />
+    <Property Name="GDRG_SubstituteHotCode2" Type="char" MaxLength="9" />
+    <Property Name="GDRG_LabelPrintFlag" Type="int" Nullable="false" />
+    <Property Name="GDRG_PatientLimitedFlag" Type="int" Nullable="false" />
+    <Property Name="GDRG_Remarks" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="GM_DrugUnit">
+    <Key>
+      <PropertyRef Name="GDUT_HotCode" />
+      <PropertyRef Name="GDUT_UnitNo" />
+    </Key>
+    <Property Name="GDUT_HotCode" Type="char" MaxLength="9" Nullable="false" />
+    <Property Name="GDUT_UnitNo" Type="int" Nullable="false" />
+    <Property Name="GDUT_UpdateDate" Type="datetime" Nullable="false" />
+    <Property Name="GDUT_UpdateClientName" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="GDUT_UpdateStaffID" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="GDUT_DelFlag" Type="int" Nullable="false" />
+    <Property Name="GDUT_UnitCode" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="GDUT_UnitRatio" Type="decimal" Precision="9" Scale="5" Nullable="false" />
+    <Property Name="GDUT_CalculateFlag" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GM_Name">
+    <Key>
+      <PropertyRef Name="GNAM_NameClass" />
+      <PropertyRef Name="GNAM_NameCode" />
+      <PropertyRef Name="GNAM_LogNo" />
+    </Key>
+    <Property Name="GNAM_NameClass" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="GNAM_NameCode" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="GNAM_LogNo" Type="int" Nullable="false" />
+    <Property Name="GNAM_UpdateDate" Type="datetime" Nullable="false" />
+    <Property Name="GNAM_UpdateClientName" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="GNAM_UpdateStaffID" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="GNAM_DelFlag" Type="int" Nullable="false" />
+    <Property Name="GNAM_SortNo" Type="int" Nullable="false" />
+    <Property Name="GNAM_ValidDateFrom" Type="datetime" Nullable="false" />
+    <Property Name="GNAM_ValidDateTo" Type="datetime" Nullable="false" />
+    <Property Name="GNAM_FacilitySelectFlag" Type="int" Nullable="false" />
+    <Property Name="GNAM_Name" Type="varchar" MaxLength="48" Nullable="false" />
+    <Property Name="GNAM_ShortName" Type="varchar" MaxLength="24" Nullable="false" />
+    <Property Name="GNAM_Kana" Type="varchar" MaxLength="96" Nullable="false" />
+    <Property Name="GNAM_Explanation" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="GNAM_Value01" Type="varchar(max)" Nullable="false" />
+    <Property Name="GNAM_Value02" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="GNAM_Value03" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="GNAM_Value04" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="GNAM_Value05" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="GNAM_Value06" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="GNAM_Value07" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="GNAM_Value08" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="GNAM_Value09" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="GNAM_Value10" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="GNAM_Flag01" Type="int" Nullable="false" />
+    <Property Name="GNAM_Flag02" Type="int" Nullable="false" />
+    <Property Name="GNAM_Flag03" Type="int" Nullable="false" />
+    <Property Name="GNAM_Flag04" Type="int" Nullable="false" />
+    <Property Name="GNAM_Flag05" Type="int" Nullable="false" />
+    <Property Name="GNAM_Flag06" Type="int" Nullable="false" />
+    <Property Name="GNAM_Flag07" Type="int" Nullable="false" />
+    <Property Name="GNAM_Flag08" Type="int" Nullable="false" />
+    <Property Name="GNAM_Flag09" Type="int" Nullable="false" />
+    <Property Name="GNAM_Flag10" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="M_Control">
+    <Key>
+      <PropertyRef Name="MCTL_FacilityID" />
+      <PropertyRef Name="MCTL_JobCode" />
+      <PropertyRef Name="MCTL_FunctionID" />
+    </Key>
+    <Property Name="MCTL_FacilityID" Type="char" MaxLength="13" Nullable="false" />
+    <Property Name="MCTL_StatusClass" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="MCTL_JobCode" Type="char" MaxLength="7" Nullable="false" />
+    <Property Name="MCTL_FunctionID" Type="char" MaxLength="9" Nullable="false" />
+    <Property Name="MCTL_UpdateDate" Type="datetime" Nullable="false" />
+    <Property Name="MCTL_UpdateClientName" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="MCTL_UpdateStaffID" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="MCTL_DelFlag" Type="int" Nullable="false" />
+    <Property Name="MCTL_ControlInfo" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="M_Drug">
+    <Key>
+      <PropertyRef Name="MDRG_FacilityID" />
+      <PropertyRef Name="MDRG_HotCode" />
+      <PropertyRef Name="MDRG_LogNo" />
+    </Key>
+    <Property Name="MDRG_FacilityID" Type="char" MaxLength="13" Nullable="false" />
+    <Property Name="MDRG_StatusClass" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="MDRG_HotCode" Type="char" MaxLength="9" Nullable="false" />
+    <Property Name="MDRG_LogNo" Type="int" Nullable="false" />
+    <Property Name="MDRG_UpdateDate" Type="datetime" Nullable="false" />
+    <Property Name="MDRG_UpdateClientName" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="MDRG_UpdateStaffID" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="MDRG_DelFlag" Type="int" Nullable="false" />
+    <Property Name="MDRG_ValidDateFrom" Type="datetime" Nullable="false" />
+    <Property Name="MDRG_ValidDateTo" Type="datetime" Nullable="false" />
+    <Property Name="MDRG_ReceiptCode" Type="char" MaxLength="9" Nullable="false" />
+    <Property Name="MDRG_StandardCode" Type="char" MaxLength="13" Nullable="false" />
+    <Property Name="MDRG_MHLWCode" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="MDRG_PublicCode" Type="char" MaxLength="12" />
+    <Property Name="MDRG_FormulationCode" Type="char" MaxLength="7" />
+    <Property Name="MDRG_DrugName" Type="varchar" MaxLength="120" Nullable="false" />
+    <Property Name="MDRG_DrugKana" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="MDRG_SalesName" Type="varchar" MaxLength="120" />
+    <Property Name="MDRG_PublicName" Type="varchar" MaxLength="200" />
+    <Property Name="MDRG_DisplayDrugName" Type="varchar" MaxLength="120" />
+    <Property Name="MDRG_SearchKeyword" Type="varchar" MaxLength="200" />
+    <Property Name="MDRG_ComponentName" Type="varchar" MaxLength="200" />
+    <Property Name="MDRG_OriginalName" Type="varchar" MaxLength="200" />
+    <Property Name="MDRG_UnitInit" Type="int" Nullable="false" />
+    <Property Name="MDRG_UnitReceipt" Type="int" Nullable="false" />
+    <Property Name="MDRG_UnitPharm" Type="int" Nullable="false" />
+    <Property Name="MDRG_NarcoticClass" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="MDRG_DosageFormClass" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="MDRG_DrugFormType" Type="char" MaxLength="2" />
+    <Property Name="MDRG_Syringeful" Type="int" Nullable="false" />
+    <Property Name="MDRG_TransfusionUnit" Type="int" Nullable="false" />
+    <Property Name="MDRG_UsageCode" Type="char" MaxLength="4" />
+    <Property Name="MDRG_ExternalPartCode" Type="char" MaxLength="4" />
+    <Property Name="MDRG_DosageClass" Type="char" MaxLength="1" />
+    <Property Name="MDRG_DoseTimes" Type="int" />
+    <Property Name="MDRG_DoseDays" Type="int" />
+    <Property Name="MDRG_IntervalDays" Type="int" />
+    <Property Name="MDRG_Dosage" Type="decimal" Precision="9" Scale="5" />
+    <Property Name="MDRG_OnceMaxDosage" Type="decimal" Precision="9" Scale="5" />
+    <Property Name="MDRG_DailyMaxDosage" Type="decimal" Precision="9" Scale="5" />
+    <Property Name="MDRG_AdoptClass" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="MDRG_OrderMedicineFlag" Type="int" Nullable="false" />
+    <Property Name="MDRG_OrderInjectionFlag" Type="int" Nullable="false" />
+    <Property Name="MDRG_OrderTransfusionFlag" Type="int" Nullable="false" />
+    <Property Name="MDRG_NerveDestroyFlag" Type="int" Nullable="false" />
+    <Property Name="MDRG_BiologyFlag" Type="int" Nullable="false" />
+    <Property Name="MDRG_GenericFlag" Type="int" Nullable="false" />
+    <Property Name="MDRG_DentistrySpecialtyFlag" Type="int" Nullable="false" />
+    <Property Name="MDRG_ContrastMediumFlag" Type="int" Nullable="false" />
+    <Property Name="MDRG_GrindFlag" Type="int" Nullable="false" />
+    <Property Name="MDRG_MixFlag" Type="int" Nullable="false" />
+    <Property Name="MDRG_DissolveFlag" Type="int" Nullable="false" />
+    <Property Name="MDRG_PTPFlag" Type="int" Nullable="false" />
+    <Property Name="MDRG_OneDosePackagFlag" Type="int" Nullable="false" />
+    <Property Name="MDRG_HospitalPreparationFlag" Type="int" Nullable="false" />
+    <Property Name="MDRG_INDFlag" Type="int" Nullable="false" />
+    <Property Name="MDRG_ExtraDrugFlag" Type="int" Nullable="false" />
+    <Property Name="MDRG_DiabetesFlag" Type="int" Nullable="false" />
+    <Property Name="MDRG_AnticancerDrugFlag" Type="int" Nullable="false" />
+    <Property Name="MDRG_SubstituteHotCode1" Type="char" MaxLength="9" />
+    <Property Name="MDRG_SubstituteHotCode2" Type="char" MaxLength="9" />
+    <Property Name="MDRG_LabelPrintFlag" Type="int" Nullable="false" />
+    <Property Name="MDRG_PatientLimitedFlag" Type="int" Nullable="false" />
+    <Property Name="MDRG_Remarks" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="M_DrugUnit">
+    <Key>
+      <PropertyRef Name="MDUT_FacilityID" />
+      <PropertyRef Name="MDUT_HotCode" />
+      <PropertyRef Name="MDUT_UnitNo" />
+    </Key>
+    <Property Name="MDUT_FacilityID" Type="char" MaxLength="13" Nullable="false" />
+    <Property Name="MDUT_StatusClass" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="MDUT_HotCode" Type="char" MaxLength="9" Nullable="false" />
+    <Property Name="MDUT_UnitNo" Type="int" Nullable="false" />
+    <Property Name="MDUT_UpdateDate" Type="datetime" Nullable="false" />
+    <Property Name="MDUT_UpdateClientName" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="MDUT_UpdateStaffID" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="MDUT_DelFlag" Type="int" Nullable="false" />
+    <Property Name="MDUT_UnitCode" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="MDUT_UnitRatio" Type="decimal" Precision="9" Scale="5" Nullable="false" />
+    <Property Name="MDUT_CalculateFlag" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="M_Name">
+    <Key>
+      <PropertyRef Name="MNAM_FacilityID" />
+      <PropertyRef Name="MNAM_NameClass" />
+      <PropertyRef Name="MNAM_NameCode" />
+      <PropertyRef Name="MNAM_LogNo" />
+    </Key>
+    <Property Name="MNAM_FacilityID" Type="char" MaxLength="13" Nullable="false" />
+    <Property Name="MNAM_StatusClass" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="MNAM_NameClass" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="MNAM_NameCode" Type="char" MaxLength="4" Nullable="false" />
+    <Property Name="MNAM_LogNo" Type="int" Nullable="false" />
+    <Property Name="MNAM_UpdateDate" Type="datetime" Nullable="false" />
+    <Property Name="MNAM_UpdateClientName" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="MNAM_UpdateStaffID" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="MNAM_DelFlag" Type="int" Nullable="false" />
+    <Property Name="MNAM_SortNo" Type="int" Nullable="false" />
+    <Property Name="MNAM_ValidDateFrom" Type="datetime" Nullable="false" />
+    <Property Name="MNAM_ValidDateTo" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="M_StaffBase">
+    <Key>
+      <PropertyRef Name="MSTB_FacilityID" />
+      <PropertyRef Name="MSTB_StaffID" />
+      <PropertyRef Name="MSTB_LogNo" />
+    </Key>
+    <Property Name="MSTB_FacilityID" Type="char" MaxLength="13" Nullable="false" />
+    <Property Name="MSTB_StaffID" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="MSTB_LogNo" Type="int" Nullable="false" />
+    <Property Name="MSTB_UpdateDate" Type="datetime" Nullable="false" />
+    <Property Name="MSTB_UpdateClientName" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="MSTB_UpdateStaffID" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="MSTB_DelFlag" Type="int" Nullable="false" />
+    <Property Name="MSTB_ValidDateFrom" Type="datetime" Nullable="false" />
+    <Property Name="MSTB_ValidDateTo" Type="datetime" Nullable="false" />
+    <Property Name="MSTB_ValidType" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="MSTB_DisplayStaffID" Type="varchar" MaxLength="12" Nullable="false" />
+    <Property Name="MSTB_LastNameKana" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="MSTB_MiddleNameKana" Type="varchar" MaxLength="20" />
+    <Property Name="MSTB_FirstNameKana" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="MSTB_LastName" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="MSTB_MiddleName" Type="varchar" MaxLength="20" />
+    <Property Name="MSTB_FirstName" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="MSTB_BirthDate" Type="datetime" />
+    <Property Name="MSTB_SexType" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="MSTB_EnterDate" Type="datetime" />
+    <Property Name="MSTB_RetireDate" Type="datetime" />
+    <Property Name="MSTB_Remarks" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="M_StaffControl">
+    <Key>
+      <PropertyRef Name="MSTC_FacilityID" />
+      <PropertyRef Name="MSTC_StaffID" />
+      <PropertyRef Name="MSTC_JobCode" />
+      <PropertyRef Name="MSTC_FunctionID" />
+    </Key>
+    <Property Name="MSTC_FacilityID" Type="char" MaxLength="13" Nullable="false" />
+    <Property Name="MSTC_StaffID" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="MSTC_JobCode" Type="char" MaxLength="7" Nullable="false" />
+    <Property Name="MSTC_FunctionID" Type="char" MaxLength="9" Nullable="false" />
+    <Property Name="MSTC_UpdateDate" Type="datetime" Nullable="false" />
+    <Property Name="MSTC_UpdateClientName" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="MSTC_UpdateStaffID" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="MSTC_DelFlag" Type="int" Nullable="false" />
+    <Property Name="MSTC_ControlInfo" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="M_StaffJobType">
+    <Key>
+      <PropertyRef Name="MSJT_FacilityID" />
+      <PropertyRef Name="MSJT_StaffID" />
+      <PropertyRef Name="MSJT_JobCode" />
+      <PropertyRef Name="MSJT_LogNo" />
+    </Key>
+    <Property Name="MSJT_FacilityID" Type="char" MaxLength="13" Nullable="false" />
+    <Property Name="MSJT_StaffID" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="MSJT_JobCode" Type="char" MaxLength="7" Nullable="false" />
+    <Property Name="MSJT_LogNo" Type="int" Nullable="false" />
+    <Property Name="MSJT_UpdateDate" Type="datetime" Nullable="false" />
+    <Property Name="MSJT_UpdateClientName" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="MSJT_UpdateStaffID" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="MSJT_DelFlag" Type="int" Nullable="false" />
+    <Property Name="MSJT_ValidDateFrom" Type="datetime" Nullable="false" />
+    <Property Name="MSJT_ValidDateTo" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="M_StaffPassword">
+    <Key>
+      <PropertyRef Name="MSTP_FacilityID" />
+      <PropertyRef Name="MSTP_StaffID" />
+      <PropertyRef Name="MSTP_LogNo" />
+    </Key>
+    <Property Name="MSTP_FacilityID" Type="char" MaxLength="13" Nullable="false" />
+    <Property Name="MSTP_StaffID" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="MSTP_LogNo" Type="int" Nullable="false" />
+    <Property Name="MSTP_UpdateDate" Type="datetime" Nullable="false" />
+    <Property Name="MSTP_UpdateClientName" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="MSTP_UpdateStaffID" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="MSTP_Password" Type="char" MaxLength="64" Nullable="false" />
+  </EntityType>
+  <EntityType Name="S_GroupFacility">
+    <Key>
+      <PropertyRef Name="SGFA_FacilityID" />
+    </Key>
+    <Property Name="SGFA_FacilityID" Type="char" MaxLength="13" Nullable="false" />
+    <Property Name="SGFA_UpdateDate" Type="datetime" Nullable="false" />
+    <Property Name="SGFA_UpdateClientName" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="SGFA_UpdateStaffID" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="SGFA_DelFlag" Type="int" Nullable="false" />
+    <Property Name="SGFA_SortNo" Type="int" Nullable="false" />
+    <Property Name="SGFA_ValidDateFrom" Type="datetime" Nullable="false" />
+    <Property Name="SGFA_ValidDateTo" Type="datetime" Nullable="false" />
+    <Property Name="SGFA_GenericName" Type="varchar" MaxLength="24" Nullable="false" />
+    <Property Name="SGFA_FacilityType" Type="varchar" MaxLength="2" Nullable="false" />
+    <Property Name="SGFA_InstanceName" Type="varchar" MaxLength="96" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_OrderDetail_20">
+    <Key>
+      <PropertyRef Name="TORD_FacilityID" />
+      <PropertyRef Name="TORD_OrderID" />
+      <PropertyRef Name="TORD_RecNo" />
+    </Key>
+    <Property Name="TORD_FacilityID" Type="char" MaxLength="13" Nullable="false" />
+    <Property Name="TORD_OrderID" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="TORD_RecNo" Type="int" Nullable="false" />
+    <Property Name="TORD_UpdateDate" Type="datetime" Nullable="false" />
+    <Property Name="TORD_UpdateClientName" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="TORD_UpdateStaffID" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="TORD_UpdateJobCode" Type="char" MaxLength="7" Nullable="false" />
+    <Property Name="TORD_DelFlag" Type="int" Nullable="false" />
+    <Property Name="TORD_ValidDateFrom" Type="datetime" Nullable="false" />
+    <Property Name="TORD_ValidDateTo" Type="datetime" Nullable="false" />
+    <Property Name="TORD_InvalidFlag" Type="int" Nullable="false" />
+    <Property Name="TORD_PatientID" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="TORD_RP" Type="int" Nullable="false" />
+    <Property Name="TORD_RPRecNo" Type="int" Nullable="false" />
+    <Property Name="TORD_OrderType" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="TORD_Class1" Type="char" MaxLength="3" />
+    <Property Name="TORD_Class2" Type="char" MaxLength="3" />
+    <Property Name="TORD_Class3" Type="char" MaxLength="3" />
+    <Property Name="TORD_Record" Type="varchar" MaxLength="1000" />
+    <Property Name="TORD_Dosage" Type="varchar" MaxLength="32" />
+    <Property Name="TORD_UnitCode" Type="char" MaxLength="4" />
+  </EntityType>
+  <EntityType Name="T_OrderDetail_30">
+    <Key>
+      <PropertyRef Name="TORD_FacilityID" />
+      <PropertyRef Name="TORD_OrderID" />
+      <PropertyRef Name="TORD_RecNo" />
+    </Key>
+    <Property Name="TORD_FacilityID" Type="char" MaxLength="13" Nullable="false" />
+    <Property Name="TORD_OrderID" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="TORD_RecNo" Type="int" Nullable="false" />
+    <Property Name="TORD_UpdateDate" Type="datetime" Nullable="false" />
+    <Property Name="TORD_UpdateClientName" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="TORD_UpdateStaffID" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="TORD_UpdateJobCode" Type="char" MaxLength="7" Nullable="false" />
+    <Property Name="TORD_DelFlag" Type="int" Nullable="false" />
+    <Property Name="TORD_ValidDateFrom" Type="datetime" Nullable="false" />
+    <Property Name="TORD_ValidDateTo" Type="datetime" Nullable="false" />
+    <Property Name="TORD_InvalidFlag" Type="int" Nullable="false" />
+    <Property Name="TORD_PatientID" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="TORD_RP" Type="int" Nullable="false" />
+    <Property Name="TORD_RPRecNo" Type="int" Nullable="false" />
+    <Property Name="TORD_OrderType" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="TORD_Class1" Type="char" MaxLength="3" />
+    <Property Name="TORD_Class2" Type="char" MaxLength="3" />
+    <Property Name="TORD_Class3" Type="char" MaxLength="3" />
+    <Property Name="TORD_Record" Type="varchar" MaxLength="1000" />
+    <Property Name="TORD_Dosage" Type="varchar" MaxLength="32" />
+    <Property Name="TORD_UnitCode" Type="char" MaxLength="4" />
+  </EntityType>
+  <EntityType Name="T_OrderDetail_40">
+    <Key>
+      <PropertyRef Name="TORD_FacilityID" />
+      <PropertyRef Name="TORD_OrderID" />
+      <PropertyRef Name="TORD_RecNo" />
+    </Key>
+    <Property Name="TORD_FacilityID" Type="char" MaxLength="13" Nullable="false" />
+    <Property Name="TORD_OrderID" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="TORD_RecNo" Type="int" Nullable="false" />
+    <Property Name="TORD_UpdateDate" Type="datetime" Nullable="false" />
+    <Property Name="TORD_UpdateClientName" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="TORD_UpdateStaffID" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="TORD_UpdateJobCode" Type="char" MaxLength="7" Nullable="false" />
+    <Property Name="TORD_DelFlag" Type="int" Nullable="false" />
+    <Property Name="TORD_ValidDateFrom" Type="datetime" Nullable="false" />
+    <Property Name="TORD_ValidDateTo" Type="datetime" Nullable="false" />
+    <Property Name="TORD_InvalidFlag" Type="int" Nullable="false" />
+    <Property Name="TORD_PatientID" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="TORD_RP" Type="int" Nullable="false" />
+    <Property Name="TORD_RPRecNo" Type="int" Nullable="false" />
+    <Property Name="TORD_OrderType" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="TORD_Class1" Type="char" MaxLength="3" />
+    <Property Name="TORD_Class2" Type="char" MaxLength="3" />
+    <Property Name="TORD_Class3" Type="char" MaxLength="3" />
+    <Property Name="TORD_Record" Type="varchar" MaxLength="1000" />
+    <Property Name="TORD_Dosage" Type="varchar" MaxLength="32" />
+    <Property Name="TORD_UnitCode" Type="char" MaxLength="4" />
+  </EntityType>
+  <EntityType Name="T_OrderDetail_70">
+    <Key>
+      <PropertyRef Name="TORD_FacilityID" />
+      <PropertyRef Name="TORD_OrderID" />
+      <PropertyRef Name="TORD_RecNo" />
+    </Key>
+    <Property Name="TORD_FacilityID" Type="char" MaxLength="13" Nullable="false" />
+    <Property Name="TORD_OrderID" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="TORD_RecNo" Type="int" Nullable="false" />
+    <Property Name="TORD_UpdateDate" Type="datetime" Nullable="false" />
+    <Property Name="TORD_UpdateClientName" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="TORD_UpdateStaffID" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="TORD_UpdateJobCode" Type="char" MaxLength="7" Nullable="false" />
+    <Property Name="TORD_DelFlag" Type="int" Nullable="false" />
+    <Property Name="TORD_ValidDateFrom" Type="datetime" Nullable="false" />
+    <Property Name="TORD_ValidDateTo" Type="datetime" Nullable="false" />
+    <Property Name="TORD_InvalidFlag" Type="int" Nullable="false" />
+    <Property Name="TORD_PatientID" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="TORD_RP" Type="int" Nullable="false" />
+    <Property Name="TORD_RPRecNo" Type="int" Nullable="false" />
+    <Property Name="TORD_OrderType" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="TORD_Class1" Type="char" MaxLength="3" />
+    <Property Name="TORD_Class2" Type="char" MaxLength="3" />
+    <Property Name="TORD_Class3" Type="char" MaxLength="3" />
+    <Property Name="TORD_Record" Type="varchar" MaxLength="1000" />
+    <Property Name="TORD_Dosage" Type="varchar" MaxLength="32" />
+    <Property Name="TORD_UnitCode" Type="char" MaxLength="4" />
+  </EntityType>
+  <EntityType Name="T_OrderRecordTools_70">
+    <Key>
+      <PropertyRef Name="TORT_FacilityID" />
+      <PropertyRef Name="TORT_OrderType" />
+      <PropertyRef Name="TORT_ExecNo" />
+      <PropertyRef Name="TORT_RpNo" />
+      <PropertyRef Name="TORT_RecNo" />
+    </Key>
+    <Property Name="TORT_FacilityID" Type="char" MaxLength="13" Nullable="false" />
+    <Property Name="TORT_OrderType" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="TORT_ExecNo" Type="int" Nullable="false" />
+    <Property Name="TORT_RpNo" Type="int" Nullable="false" />
+    <Property Name="TORT_RecNo" Type="int" Nullable="false" />
+    <Property Name="TORT_UpdateDate" Type="datetime" Nullable="false" />
+    <Property Name="TORT_UpdateClientName" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="TORT_UpdateStaffID" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="TORT_UpdateJobCode" Type="char" MaxLength="7" Nullable="false" />
+    <Property Name="TORT_DelFlag" Type="int" Nullable="false" />
+    <Property Name="TORT_ToolClass" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="TORT_ToolCode" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="TORT_ToolQuantity" Type="decimal" Precision="9" Scale="2" />
+    <Property Name="TORT_ToolUnitCode" Type="char" MaxLength="4" />
+    <Property Name="TORT_Comment" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="T_SafetyInfo">
+    <Key>
+      <PropertyRef Name="TSAF_FacilityID" />
+      <PropertyRef Name="TSAF_PatientID" />
+      <PropertyRef Name="TSAF_SafetyType" />
+      <PropertyRef Name="TSAF_RecNo" />
+    </Key>
+    <Property Name="TSAF_FacilityID" Type="char" MaxLength="13" Nullable="false" />
+    <Property Name="TSAF_PatientID" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="TSAF_SafetyType" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="TSAF_RecNo" Type="int" Nullable="false" />
+    <Property Name="TSAF_UpdateDate" Type="datetime" Nullable="false" />
+    <Property Name="TSAF_UpdateClientName" Type="char" MaxLength="20" Nullable="false" />
+    <Property Name="TSAF_UpdateStaffID" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="TSAF_UpdateJobCode" Type="char" MaxLength="7" Nullable="false" />
+    <Property Name="TSAF_DeputyStaffID" Type="char" MaxLength="12" />
+    <Property Name="TSAF_DeputyJobCode" Type="char" MaxLength="7" />
+    <Property Name="TSAF_AdmitDate" Type="datetime" />
+    <Property Name="TSAF_AdmitStaffID" Type="char" MaxLength="12" />
+    <Property Name="TSAF_AdmitJobCode" Type="char" MaxLength="7" />
+    <Property Name="TSAF_DelFlag" Type="int" Nullable="false" />
+    <Property Name="TSAF_FixFlag" Type="int" Nullable="false" />
+    <Property Name="TSAF_RecordDate" Type="datetime" Nullable="false" />
+    <Property Name="TSAF_SafetyCode" Type="char" MaxLength="20" />
+    <Property Name="TSAF_SafetyContent" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="TSAF_SafetyEtc" Type="varchar" MaxLength="256" />
+    <Property Name="TSAF_InfoDonor" Type="varchar" MaxLength="40" />
+    <Property Name="TSAF_InfoDonorRelation" Type="varchar" MaxLength="20" />
+    <Property Name="TSAF_HearStaffID" Type="char" MaxLength="12" />
+  </EntityType>
+  <!--生成中に見つかったエラー:
+警告 6002: テーブル/ビュー 'Aloe.dbo.CM_Drug' には主キーが定義されていません。主キーは推論され、定義は読み取り専用のテーブル/ビューとして作成されました。-->
+  <EntityType Name="CM_Drug">
+    <Key>
+      <PropertyRef Name="CDRG_StandardCode" />
+      <PropertyRef Name="CDRG_JANCode" />
+      <PropertyRef Name="CDRG_Hot7Code" />
+      <PropertyRef Name="CDRG_CompanyCode" />
+      <PropertyRef Name="CDRG_MhlwCode" />
+      <PropertyRef Name="CDRG_IndividualCode" />
+    </Key>
+    <Property Name="CDRG_StandardCode" Type="char" MaxLength="13" Nullable="false" />
+    <Property Name="CDRG_JANCode" Type="char" MaxLength="13" Nullable="false" />
+    <Property Name="CDRG_PackUnit" Type="varchar" MaxLength="8000" />
+    <Property Name="CDRG_PackTotalUnit" Type="varchar" MaxLength="8000" />
+    <Property Name="CDRG_MakerCompany" Type="varchar" MaxLength="100" />
+    <Property Name="CDRG_SalesCompany" Type="varchar" MaxLength="100" />
+    <Property Name="CDRG_Hot7Code" Type="char" MaxLength="7" Nullable="false" />
+    <Property Name="CDRG_CompanyCode" Type="char" MaxLength="2" Nullable="false" />
+    <Property Name="CDRG_ReceiptCode" Type="char" MaxLength="9" />
+    <Property Name="CDRG_MhlwCode" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="CDRG_IndividualCode" Type="char" MaxLength="12" Nullable="false" />
+    <Property Name="CDRG_PublicCode" Type="char" MaxLength="12" />
+    <Property Name="CDRG_DrugName" Type="varchar" MaxLength="64" />
+    <Property Name="CDRG_DrugKana" Type="varchar" MaxLength="20" />
+    <Property Name="CDRG_SalesName" Type="varchar" MaxLength="120" />
+    <Property Name="CDRG_PublicName" Type="varchar" MaxLength="200" />
+    <Property Name="CDRG_ComponentName" Type="varchar" MaxLength="200" />
+    <Property Name="CDRG_OriginalName" Type="varchar" MaxLength="120" />
+    <Property Name="CDRG_UnitCode" Type="varchar" MaxLength="7" />
+    <Property Name="CDRG_NarcoticClass" Type="char" MaxLength="1" />
+    <Property Name="CDRG_DosageFormClass" Type="char" MaxLength="1" />
+    <Property Name="CDRG_Syringeful" Type="int" />
+    <Property Name="CDRG_NerveDestroyFlag" Type="int" />
+    <Property Name="CDRG_BiologyFlag" Type="int" />
+    <Property Name="CDRG_GenericFlag" Type="int" />
+    <Property Name="CDRG_DentistrySpecialtyFlag" Type="int" />
+    <Property Name="CDRG_ContrastMediumFlag" Type="int" />
+    <Property Name="CDRG_ValidDateFrom" Type="datetime" />
+    <Property Name="CDRG_ValidDateTo" Type="datetime" />
+  </EntityType>
+  <!--生成中に見つかったエラー:
+警告 6002: テーブル/ビュー 'Aloe.dbo.VM_Name' には主キーが定義されていません。主キーは推論され、定義は読み取り専用のテーブル/ビューとして作成されました。-->
+  <EntityType Name="VM_Name">
+    <Key>
+      <PropertyRef Name="VNAM_FacilityID" />
+      <PropertyRef Name="VNAM_StatusClass" />
+    </Key>
+    <Property Name="VNAM_FacilityID" Type="char" MaxLength="13" Nullable="false" />
+    <Property Name="VNAM_StatusClass" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="VNAM_NameClass" Type="char" MaxLength="4" />
+    <Property Name="VNAM_NameCode" Type="char" MaxLength="4" />
+    <Property Name="VNAM_DelFlag" Type="int" />
+    <Property Name="VNAM_SortNo" Type="int" />
+    <Property Name="VNAM_ValidDateFrom" Type="datetime" />
+    <Property Name="VNAM_ValidDateTo" Type="datetime" />
+    <Property Name="VNAM_FacilitySelectFlag" Type="int" />
+    <Property Name="VNAM_Name" Type="varchar" MaxLength="48" />
+    <Property Name="VNAM_ShortName" Type="varchar" MaxLength="24" />
+    <Property Name="VNAM_Kana" Type="varchar" MaxLength="96" />
+    <Property Name="VNAM_Explanation" Type="varchar" MaxLength="200" />
+    <Property Name="VNAM_Value01" Type="varchar(max)" />
+    <Property Name="VNAM_Value02" Type="varchar" MaxLength="200" />
+    <Property Name="VNAM_Value03" Type="varchar" MaxLength="200" />
+    <Property Name="VNAM_Value04" Type="varchar" MaxLength="200" />
+    <Property Name="VNAM_Value05" Type="varchar" MaxLength="200" />
+    <Property Name="VNAM_Value06" Type="varchar" MaxLength="200" />
+    <Property Name="VNAM_Value07" Type="varchar" MaxLength="200" />
+    <Property Name="VNAM_Value08" Type="varchar" MaxLength="200" />
+    <Property Name="VNAM_Value09" Type="varchar" MaxLength="200" />
+    <Property Name="VNAM_Value10" Type="varchar" MaxLength="200" />
+    <Property Name="VNAM_Flag01" Type="int" />
+    <Property Name="VNAM_Flag02" Type="int" />
+    <Property Name="VNAM_Flag03" Type="int" />
+    <Property Name="VNAM_Flag04" Type="int" />
+    <Property Name="VNAM_Flag05" Type="int" />
+    <Property Name="VNAM_Flag06" Type="int" />
+    <Property Name="VNAM_Flag07" Type="int" />
+    <Property Name="VNAM_Flag08" Type="int" />
+    <Property Name="VNAM_Flag09" Type="int" />
+    <Property Name="VNAM_Flag10" Type="int" />
+  </EntityType>
+  <EntityContainer Name="AloeModelStoreContainer">
+    <EntitySet Name="GM_Control" EntityType="Self.GM_Control" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GM_Drug" EntityType="Self.GM_Drug" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GM_DrugUnit" EntityType="Self.GM_DrugUnit" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GM_Name" EntityType="Self.GM_Name" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="M_Control" EntityType="Self.M_Control" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="M_Drug" EntityType="Self.M_Drug" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="M_DrugUnit" EntityType="Self.M_DrugUnit" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="M_Name" EntityType="Self.M_Name" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="M_StaffBase" EntityType="Self.M_StaffBase" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="M_StaffControl" EntityType="Self.M_StaffControl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="M_StaffJobType" EntityType="Self.M_StaffJobType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="M_StaffPassword" EntityType="Self.M_StaffPassword" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="S_GroupFacility" EntityType="Self.S_GroupFacility" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_OrderDetail_20" EntityType="Self.T_OrderDetail_20" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_OrderDetail_30" EntityType="Self.T_OrderDetail_30" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_OrderDetail_40" EntityType="Self.T_OrderDetail_40" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_OrderDetail_70" EntityType="Self.T_OrderDetail_70" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_OrderRecordTools_70" EntityType="Self.T_OrderRecordTools_70" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_SafetyInfo" EntityType="Self.T_SafetyInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CM_Drug" EntityType="Self.CM_Drug" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [CM_Drug].[CDRG_StandardCode] AS [CDRG_StandardCode], 
+    [CM_Drug].[CDRG_JANCode] AS [CDRG_JANCode], 
+    [CM_Drug].[CDRG_PackUnit] AS [CDRG_PackUnit], 
+    [CM_Drug].[CDRG_PackTotalUnit] AS [CDRG_PackTotalUnit], 
+    [CM_Drug].[CDRG_MakerCompany] AS [CDRG_MakerCompany], 
+    [CM_Drug].[CDRG_SalesCompany] AS [CDRG_SalesCompany], 
+    [CM_Drug].[CDRG_Hot7Code] AS [CDRG_Hot7Code], 
+    [CM_Drug].[CDRG_CompanyCode] AS [CDRG_CompanyCode], 
+    [CM_Drug].[CDRG_ReceiptCode] AS [CDRG_ReceiptCode], 
+    [CM_Drug].[CDRG_MhlwCode] AS [CDRG_MhlwCode], 
+    [CM_Drug].[CDRG_IndividualCode] AS [CDRG_IndividualCode], 
+    [CM_Drug].[CDRG_PublicCode] AS [CDRG_PublicCode], 
+    [CM_Drug].[CDRG_DrugName] AS [CDRG_DrugName], 
+    [CM_Drug].[CDRG_DrugKana] AS [CDRG_DrugKana], 
+    [CM_Drug].[CDRG_SalesName] AS [CDRG_SalesName], 
+    [CM_Drug].[CDRG_PublicName] AS [CDRG_PublicName], 
+    [CM_Drug].[CDRG_ComponentName] AS [CDRG_ComponentName], 
+    [CM_Drug].[CDRG_OriginalName] AS [CDRG_OriginalName], 
+    [CM_Drug].[CDRG_UnitCode] AS [CDRG_UnitCode], 
+    [CM_Drug].[CDRG_NarcoticClass] AS [CDRG_NarcoticClass], 
+    [CM_Drug].[CDRG_DosageFormClass] AS [CDRG_DosageFormClass], 
+    [CM_Drug].[CDRG_Syringeful] AS [CDRG_Syringeful], 
+    [CM_Drug].[CDRG_NerveDestroyFlag] AS [CDRG_NerveDestroyFlag], 
+    [CM_Drug].[CDRG_BiologyFlag] AS [CDRG_BiologyFlag], 
+    [CM_Drug].[CDRG_GenericFlag] AS [CDRG_GenericFlag], 
+    [CM_Drug].[CDRG_DentistrySpecialtyFlag] AS [CDRG_DentistrySpecialtyFlag], 
+    [CM_Drug].[CDRG_ContrastMediumFlag] AS [CDRG_ContrastMediumFlag], 
+    [CM_Drug].[CDRG_ValidDateFrom] AS [CDRG_ValidDateFrom], 
+    [CM_Drug].[CDRG_ValidDateTo] AS [CDRG_ValidDateTo]
+    FROM [dbo].[CM_Drug] AS [CM_Drug]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="VM_Name" EntityType="Self.VM_Name" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [VM_Name].[VNAM_FacilityID] AS [VNAM_FacilityID], 
+    [VM_Name].[VNAM_StatusClass] AS [VNAM_StatusClass], 
+    [VM_Name].[VNAM_NameClass] AS [VNAM_NameClass], 
+    [VM_Name].[VNAM_NameCode] AS [VNAM_NameCode], 
+    [VM_Name].[VNAM_DelFlag] AS [VNAM_DelFlag], 
+    [VM_Name].[VNAM_SortNo] AS [VNAM_SortNo], 
+    [VM_Name].[VNAM_ValidDateFrom] AS [VNAM_ValidDateFrom], 
+    [VM_Name].[VNAM_ValidDateTo] AS [VNAM_ValidDateTo], 
+    [VM_Name].[VNAM_FacilitySelectFlag] AS [VNAM_FacilitySelectFlag], 
+    [VM_Name].[VNAM_Name] AS [VNAM_Name], 
+    [VM_Name].[VNAM_ShortName] AS [VNAM_ShortName], 
+    [VM_Name].[VNAM_Kana] AS [VNAM_Kana], 
+    [VM_Name].[VNAM_Explanation] AS [VNAM_Explanation], 
+    [VM_Name].[VNAM_Value01] AS [VNAM_Value01], 
+    [VM_Name].[VNAM_Value02] AS [VNAM_Value02], 
+    [VM_Name].[VNAM_Value03] AS [VNAM_Value03], 
+    [VM_Name].[VNAM_Value04] AS [VNAM_Value04], 
+    [VM_Name].[VNAM_Value05] AS [VNAM_Value05], 
+    [VM_Name].[VNAM_Value06] AS [VNAM_Value06], 
+    [VM_Name].[VNAM_Value07] AS [VNAM_Value07], 
+    [VM_Name].[VNAM_Value08] AS [VNAM_Value08], 
+    [VM_Name].[VNAM_Value09] AS [VNAM_Value09], 
+    [VM_Name].[VNAM_Value10] AS [VNAM_Value10], 
+    [VM_Name].[VNAM_Flag01] AS [VNAM_Flag01], 
+    [VM_Name].[VNAM_Flag02] AS [VNAM_Flag02], 
+    [VM_Name].[VNAM_Flag03] AS [VNAM_Flag03], 
+    [VM_Name].[VNAM_Flag04] AS [VNAM_Flag04], 
+    [VM_Name].[VNAM_Flag05] AS [VNAM_Flag05], 
+    [VM_Name].[VNAM_Flag06] AS [VNAM_Flag06], 
+    [VM_Name].[VNAM_Flag07] AS [VNAM_Flag07], 
+    [VM_Name].[VNAM_Flag08] AS [VNAM_Flag08], 
+    [VM_Name].[VNAM_Flag09] AS [VNAM_Flag09], 
+    [VM_Name].[VNAM_Flag10] AS [VNAM_Flag10]
+    FROM [dbo].[VM_Name] AS [VM_Name]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

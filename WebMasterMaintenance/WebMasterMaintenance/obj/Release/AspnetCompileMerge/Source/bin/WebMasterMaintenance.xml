@@ -1,0 +1,3354 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+WebMasterMaintenance
+</name>
+</assembly>
+<members>
+<member name="T:WebMasterMaintenance.My.Resources.Resources">
+<summary>
+  ローカライズされた文字列などを検索するための、厳密に型指定されたリソース クラスです。
+</summary>
+</member>
+<member name="P:WebMasterMaintenance.My.Resources.Resources.ResourceManager">
+<summary>
+  このクラスで使用されているキャッシュされた ResourceManager インスタンスを返します。
+</summary>
+</member>
+<member name="P:WebMasterMaintenance.My.Resources.Resources.Culture">
+<summary>
+  厳密に型指定されたこのリソース クラスを使用して、すべての検索リソースに対し、
+  現在のスレッドの CurrentUICulture プロパティをオーバーライドします。
+</summary>
+</member>
+<member name="F:WebMasterMaintenance.Controllers.BaseController.db">
+ <summary>
+ DBコンテキスト
+ </summary>
+</member>
+<member name="F:WebMasterMaintenance.Controllers.BaseController.dbError">
+ <summary>
+ DB接続エラー
+ </summary>
+</member>
+<member name="F:WebMasterMaintenance.Controllers.BaseController.mStaffbase">
+ <summary>
+ スタッフ情報
+ </summary>
+</member>
+<member name="F:WebMasterMaintenance.Controllers.BaseController.COOKIE_MASTER_TYPE">
+ <summary>
+ マスタータイプ（医薬品、医療材料、血液製剤）
+ </summary>
+</member>
+<member name="F:WebMasterMaintenance.Controllers.BaseController.COOKIE_FACILITY_ID">
+ <summary>
+ 施設ID
+ </summary>
+</member>
+<member name="F:WebMasterMaintenance.Controllers.BaseController.COOKIE_JOBCODE">
+ <summary>
+ 職種コード
+ </summary>
+</member>
+<member name="F:WebMasterMaintenance.Controllers.BaseController.AloeGeneralData">
+ <summary>
+ アクセス権
+ </summary>
+</member>
+<member name="F:WebMasterMaintenance.Controllers.BaseController.IPAddress">
+ <summary>
+ IPアドレス
+ </summary>
+</member>
+<member name="F:WebMasterMaintenance.Controllers.BaseController.HostName">
+ <summary>
+ ホスト
+ </summary>
+</member>
+<member name="M:WebMasterMaintenance.Controllers.BaseController.Initialize(System.Web.Routing.RequestContext)">
+ <summary>
+ ユーザー情報取得
+ </summary>
+</member>
+<member name="M:WebMasterMaintenance.Controllers.BaseController.GetUser">
+ <summary>
+ ユーザー情報取得
+ </summary>
+</member>
+<member name="M:WebMasterMaintenance.Controllers.BaseController.GetFacility">
+ <summary>
+ 施設情報取得
+ </summary>
+</member>
+<member name="M:WebMasterMaintenance.Controllers.BaseController.SetActiveMenu">
+ <summary>
+ アクティブメニュー判定
+ </summary>
+ <remarks>アクティブなメニューのViewBagに”Active”をセット</remarks>
+</member>
+<member name="M:WebMasterMaintenance.Controllers.BaseController.GetMenuAuthority">
+ <summary>
+ 操作権限取得
+ </summary>
+</member>
+<member name="M:WebMasterMaintenance.Controllers.BaseController.GetIPAddress">
+ <summary>
+ IPアドレス取得
+ </summary>
+</member>
+<member name="M:WebMasterMaintenance.Controllers.BaseController.GetCookieValueByKey(System.String)">
+ <summary>
+ キーから、リクエストのクッキーを取得します
+ </summary>
+ <param name="key"></param>
+ <returns></returns>
+</member>
+<member name="M:WebMasterMaintenance.Controllers.BaseController.SetCookie(System.String,System.String)">
+ <summary>
+ レスポンスにクッキーを設定します
+ </summary>
+ <param name="key">キー</param>
+ <param name="value">値</param>
+</member>
+<member name="M:WebMasterMaintenance.Controllers.BaseController.RemoveCookie(System.String)">
+ <summary>
+ クッキーを削除します
+ </summary>
+ <param name="key">キー</param>
+</member>
+<member name="T:WebMasterMaintenance.Controllers.M_DrugController">
+ <summary>
+ M_Drug　コントローラー
+ </summary>
+</member>
+<member name="M:WebMasterMaintenance.Controllers.M_DrugController.Initialize(System.Web.Routing.RequestContext)">
+ <summary>
+ Initialize
+ </summary>
+ <param name="requestContext"></param>
+</member>
+<member name="M:WebMasterMaintenance.Controllers.M_DrugController.Index(System.String)">
+ <summary>
+ Action:Index(Get)
+ </summary>
+ <param name="retry"></param>
+ <returns></returns>
+</member>
+<member name="M:WebMasterMaintenance.Controllers.M_DrugController.Index(System.String,WebMasterMaintenance.M_DrugEX)">
+ <summary>
+ Action:Index(Post)
+ </summary>
+ <param name="SubmitButton"></param>
+ <param name="m_Drug"></param>
+ <returns></returns>
+</member>
+<member name="M:WebMasterMaintenance.Controllers.M_DrugController.IndexCMDrug(WebMasterMaintenance.CM_DrugCondition@,WebMasterMaintenance.M_DrugEX@)">
+ <summary>
+ 共通薬品検索
+ </summary>
+ <param name="Condition"></param>
+ <param name="m_Drug"></param>
+ <remarks></remarks>
+</member>
+<member name="M:WebMasterMaintenance.Controllers.M_DrugController.IndexGMDrug(WebMasterMaintenance.GM_DrugCondition@,WebMasterMaintenance.M_DrugEX@)">
+ <summary>
+　グループ統一薬品検索
+ </summary>
+ <param name="Condition"></param>
+ <param name="m_Drug"></param>
+ <remarks></remarks>
+</member>
+<member name="M:WebMasterMaintenance.Controllers.M_DrugController.IndexMDrug(WebMasterMaintenance.M_DrugCondition@,WebMasterMaintenance.M_DrugEX@)">
+ <summary>
+ 病院限定薬品検索
+ </summary>
+ <param name="Condition"></param>
+ <param name="m_Drug"></param>
+</member>
+<member name="M:WebMasterMaintenance.Controllers.M_DrugController.ListCM">
+ <summary>
+ Action:ListCM（Get)
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:WebMasterMaintenance.Controllers.M_DrugController.ListCM(System.String[])">
+ <summary>
+ Action:ListCM（Post)
+ </summary>
+ <param name="row"></param>
+ <returns></returns>
+</member>
+<member name="M:WebMasterMaintenance.Controllers.M_DrugController.ListGM">
+ <summary>
+ Action:ListGM(Get)
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:WebMasterMaintenance.Controllers.M_DrugController.ListGM(System.String[])">
+ <summary>
+ Action:ListGM(Post)
+ </summary>
+ <param name="row"></param>
+ <returns></returns>
+</member>
+<member name="M:WebMasterMaintenance.Controllers.M_DrugController.CreateMaterial">
+ <summary>
+ Action:CreateMaterial(Get)
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:WebMasterMaintenance.Controllers.M_DrugController.CreateMaterial(WebMasterMaintenance.M_DrugExMaterial)">
+ <summary>
+ Action:CreateMaterial(Post)
+ </summary>
+ <param name="m_Drug"></param>
+ <returns></returns>
+</member>
+<member name="M:WebMasterMaintenance.Controllers.M_DrugController.EditMaterial(System.String,System.String)">
+ <summary>
+ Action:EditMaterial(Get)
+ </summary>
+ <param name="id"></param>
+ <param name="Added"></param>
+ <returns></returns>
+</member>
+<member name="M:WebMasterMaintenance.Controllers.M_DrugController.EditMaterial(System.String,WebMasterMaintenance.M_DrugExMaterial)">
+ <summary>
+ Action:EditMaterial(Post)
+ </summary>
+ <param name="SubmitButton"></param>
+ <param name="mDrug"></param>
+ <returns></returns>
+</member>
+<member name="M:WebMasterMaintenance.Controllers.M_DrugController.CreateBlood">
+ <summary>
+ Action:CreateBlood(Get)
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:WebMasterMaintenance.Controllers.M_DrugController.CreateBlood(WebMasterMaintenance.M_DrugExBlood)">
+ <summary>
+ Action:CreateBlood(Post)
+ </summary>
+ <param name="m_Drug"></param>
+ <returns></returns>
+</member>
+<member name="M:WebMasterMaintenance.Controllers.M_DrugController.EditBlood(System.String,System.String)">
+ <summary>
+ Action:EditBlood(Get)
+ </summary>
+ <param name="id"></param>
+ <param name="Added"></param>
+ <returns></returns>
+</member>
+<member name="M:WebMasterMaintenance.Controllers.M_DrugController.EditBlood(System.String,WebMasterMaintenance.M_DrugExBlood)">
+ <summary>
+ Action:EditBlood(Post)
+ </summary>
+ <param name="SubmitButton"></param>
+ <param name="mDrug"></param>
+ <returns></returns>
+</member>
+<member name="M:WebMasterMaintenance.Controllers.M_DrugController.Edit(System.String,System.String)">
+ <summary>
+ Action:Edit(Get)
+ </summary>
+ <param name="id"></param>
+ <param name="Added"></param>
+ <returns></returns>
+</member>
+<member name="M:WebMasterMaintenance.Controllers.M_DrugController.Edit(System.String,WebMasterMaintenance.M_DrugEX)">
+ <summary>
+ Action:Edit(Post)
+ </summary>
+ <param name="SubmitButton"></param>
+ <param name="mDrug"></param>
+ <returns></returns>
+</member>
+<member name="M:WebMasterMaintenance.Controllers.M_DrugController.EditUpdate(System.String,WebMasterMaintenance.M_DrugEX)">
+ <summary>
+ 編集更新処理
+ </summary>
+ <param name="SubmitButton"></param>
+ <param name="mDrug"></param>
+ <returns></returns>
+</member>
+<member name="M:WebMasterMaintenance.Controllers.M_DrugController.Copy(System.String)">
+ <summary>
+ Action:Copy(Get)
+ </summary>
+ <param name="id"></param>
+ <returns></returns>
+</member>
+<member name="M:WebMasterMaintenance.Controllers.M_DrugController.Copy(System.String,WebMasterMaintenance.M_DrugEX)">
+ <summary>
+ Action:Copy(Post)
+ </summary>
+ <param name="SubmitButton"></param>
+ <param name="m_Drug"></param>
+ <returns></returns>
+</member>
+<member name="M:WebMasterMaintenance.Controllers.M_DrugController.ReturnEditView(WebMasterMaintenance.M_DrugEX,System.Boolean)">
+ <summary>
+ 
+ </summary>
+ <param name="m_Drug"></param>
+ <returns></returns>
+</member>
+<member name="M:WebMasterMaintenance.Controllers.M_DrugController.Dispose(System.Boolean)">
+ <summary>
+ Dispose
+ </summary>
+ <param name="disposing"></param>
+</member>
+<member name="M:WebMasterMaintenance.Controllers.M_DrugController.PrintEntityValidationErrors(System.Data.Entity.Validation.DbEntityValidationException)">
+ <summary>
+ PrintEntityValidationErrors
+ EntityValidationErrorを抽出
+ </summary>
+ <param name="entityValidationErrors"></param>
+ <returns></returns>
+</member>
+<member name="M:WebMasterMaintenance.Controllers.M_DrugController.CsvDownloadList">
+ <summary>
+ CSV出力処理
+ </summary>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:WebMasterMaintenance.Controllers.M_DrugController.ConvertDataToCsv">
+ <summary>
+ CSV作成
+ </summary>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:WebMasterMaintenance.Controllers.M_DrugController.Quotes(System.Object,System.Collections.Generic.Dictionary{System.String,System.String})">
+ <summary>
+ 型･名称変換関数
+ </summary>
+ <param name="Item"></param>
+ <param name="List"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:WebMasterMaintenance.Controllers.M_DrugController.GetHeaderList">
+ <summary>
+ ヘッダ名リスト
+ </summary>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:WebMasterMaintenance.Controllers.UserController.Login(WebMasterMaintenance.UserModel,System.String)">
+ <summary>
+ ログイン POST: User
+ </summary>
+ <param name="model"></param>
+ <param name="returnurl"></param>
+ <returns></returns>
+</member>
+<member name="M:WebMasterMaintenance.Controllers.UserController.Logout">
+ <summary>
+ ログアウト
+ </summary>
+ <returns></returns>
+</member>
+<member name="T:WebMasterMaintenance.Controllers.GM_DrugController">
+ <summary>
+ GM_Drug　コントローラー
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:WebMasterMaintenance.Controllers.GM_DrugController.Initialize(System.Web.Routing.RequestContext)">
+ <summary>
+ Initialize
+ </summary>
+ <param name="requestContext"></param>
+</member>
+<member name="M:WebMasterMaintenance.Controllers.GM_DrugController.Index(System.String,WebMasterMaintenance.GM_DrugEX)">
+ <summary>
+ Action:Index(Post)
+ </summary>
+ <param name="SubmitButton"></param>
+ <param name="gm_Drug"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:WebMasterMaintenance.Controllers.GM_DrugController.IndexCMDrug(WebMasterMaintenance.CM_DrugCondition@,WebMasterMaintenance.GM_DrugEX@)">
+ <summary>
+ 
+ </summary>
+ <param name="Condition"></param>
+ <param name="gm_Drug"></param>
+ <remarks></remarks>
+</member>
+<member name="M:WebMasterMaintenance.Controllers.GM_DrugController.IndexGMDrug(WebMasterMaintenance.GM_DrugCondition@,WebMasterMaintenance.GM_DrugEX@)">
+ <summary>
+ 
+ </summary>
+ <param name="Condition"></param>
+ <param name="gm_Drug"></param>
+ <remarks></remarks>
+</member>
+<member name="M:WebMasterMaintenance.Controllers.GM_DrugController.List(System.String[])">
+ <summary>
+ Action:List（Post)
+ </summary>
+ <param name="row"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:WebMasterMaintenance.Controllers.GM_DrugController.CreateMaterial">
+ <summary>
+ Action:CreateMaterial(Get)
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:WebMasterMaintenance.Controllers.GM_DrugController.CreateMaterial(WebMasterMaintenance.GM_DrugExMaterial)">
+ <summary>
+ Action:CreateMaterial(Post)
+ </summary>
+ <param name="gm_Drug"></param>
+ <returns></returns>
+</member>
+<member name="M:WebMasterMaintenance.Controllers.GM_DrugController.EditMaterial(System.String,System.String)">
+ <summary>
+ Action:EditMaterial(Get)
+ </summary>
+ <param name="id"></param>
+ <param name="Added"></param>
+ <returns></returns>
+</member>
+<member name="M:WebMasterMaintenance.Controllers.GM_DrugController.EditMaterial(System.String,WebMasterMaintenance.GM_DrugExMaterial)">
+ <summary>
+ Action:EditMaterial(Post)
+ </summary>
+ <param name="SubmitButton"></param>
+ <param name="gmDrug"></param>
+ <returns></returns>
+</member>
+<member name="M:WebMasterMaintenance.Controllers.GM_DrugController.CreateBlood">
+ <summary>
+ Action:CreateBlood(Get)
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:WebMasterMaintenance.Controllers.GM_DrugController.CreateBlood(WebMasterMaintenance.GM_DrugExBlood)">
+ <summary>
+ Action:CreateBlood(Post)
+ </summary>
+ <param name="gm_Drug"></param>
+ <returns></returns>
+</member>
+<member name="M:WebMasterMaintenance.Controllers.GM_DrugController.EditBlood(System.String,System.String)">
+ <summary>
+ Action:EditBlood(Get)
+ </summary>
+ <param name="id"></param>
+ <param name="Added"></param>
+ <returns></returns>
+</member>
+<member name="M:WebMasterMaintenance.Controllers.GM_DrugController.EditBlood(System.String,WebMasterMaintenance.GM_DrugExBlood)">
+ <summary>
+ Action:EditBlood(Post)
+ </summary>
+ <param name="SubmitButton"></param>
+ <param name="gmDrug"></param>
+ <returns></returns>
+</member>
+<member name="M:WebMasterMaintenance.Controllers.GM_DrugController.Edit(System.String,System.String)">
+ <summary>
+ Action:Edit(Get)
+ </summary>
+ <param name="id"></param>
+ <param name="Added"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:WebMasterMaintenance.Controllers.GM_DrugController.Edit(System.String,WebMasterMaintenance.GM_DrugEX)">
+ <summary>
+ Action:Edit(Post)
+ </summary>
+ <param name="SubmitButton"></param>
+ <param name="gmDrug"></param>
+ <returns></returns>
+</member>
+<member name="M:WebMasterMaintenance.Controllers.GM_DrugController.ReturnEditView(WebMasterMaintenance.GM_DrugEX,System.Boolean)">
+ <summary>
+ 
+ </summary>
+ <param name="gm_Drug"></param>
+ <returns></returns>
+</member>
+<member name="M:WebMasterMaintenance.Controllers.GM_DrugController.Dispose(System.Boolean)">
+ <summary>
+ Dispose
+ </summary>
+ <param name="disposing"></param>
+ <remarks></remarks>
+</member>
+<member name="M:WebMasterMaintenance.Controllers.GM_DrugController.PrintEntityValidationErrors(System.Data.Entity.Validation.DbEntityValidationException)">
+ <summary>
+ PrintEntityValidationErrors
+ EntityValidationErrorを抽出
+ </summary>
+ <param name="entityValidationErrors"></param>
+ <returns></returns>
+</member>
+<member name="M:WebMasterMaintenance.Controllers.M_DrugUnitController.Initialize(System.Web.Routing.RequestContext)">
+ <summary>
+ Initialize
+ </summary>
+ <param name="requestContext"></param>
+</member>
+<member name="T:WebMasterMaintenance.Helpers.HtmlHelperEditor">
+ <summary>
+ 編集用ヘルパー
+ </summary>
+</member>
+<member name="M:WebMasterMaintenance.Helpers.HtmlHelperEditor.ReadOnlyEditor(System.Object,System.String,System.String)">
+ <summary>
+ 文字列をテキストで表示
+ </summary>
+ <param name="obj"></param>
+ <param name="name"></param>
+ <param name="format"></param>
+ <returns></returns>
+</member>
+<member name="M:WebMasterMaintenance.Helpers.HtmlHelperEditor.ReadOnlyEditor(System.Object,System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+ <summary>
+ 選択肢から表示
+ </summary>
+ <param name="obj"></param>
+ <param name="name"></param>
+ <param name="list"></param>
+ <returns></returns>
+</member>
+<member name="M:WebMasterMaintenance.Helpers.HtmlHelperEditor.ReadOnlyEditor(System.Object,System.String,System.Collections.Generic.List{WebMasterMaintenance.VM_Name},System.String)">
+ <summary>
+ 選択肢から表示 List（単位等）
+ </summary>
+ <param name="obj"></param>
+ <param name="name"></param>
+ <param name="list"></param>
+ <returns></returns>
+</member>
+<member name="M:WebMasterMaintenance.Helpers.HtmlHelperEditor.FlagRadioButtonEditor(System.Object,System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+ <summary>
+ ラジオボタンエディター
+ </summary>
+ <param name="obj"></param>
+ <param name="name"></param>
+ <param name="valueList">valueList("key")=value</param>
+ <returns></returns>
+</member>
+<member name="M:WebMasterMaintenance.Helpers.HtmlHelperEditor.FlagCheckBoxEditor(System.Object,System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.Boolean,System.String)">
+ <summary>
+ チェックボックスエディター
+ </summary>
+ <param name="obj"></param>
+ <param name="name"></param>
+ <param name="valueList"></param>
+ <returns></returns>
+</member>
+<member name="M:WebMasterMaintenance.Helpers.HtmlHelperEditor.CheckBoxEditor(System.Boolean,System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.Int32,System.Boolean)">
+ <summary>
+ チェックボックスエディター
+ </summary>
+ <param name="check"></param>
+ <param name="name"></param>
+ <param name="valueList"></param>
+ <param name="ItemKey"></param>
+ <param name="disabled"></param>
+ <returns></returns>
+</member>
+<member name="M:WebMasterMaintenance.Helpers.HtmlHelperEditor.CheckBoxEditorSingle(System.Int32,System.String,System.String,System.String,System.Boolean)">
+ <summary>
+ 
+ </summary>
+ <param name="count"></param>
+ <param name="name"></param>
+ <param name="value1"></param>
+ <param name="value2"></param>
+ <param name="flg"></param>
+ <returns></returns>
+</member>
+<member name="M:WebMasterMaintenance.Helpers.HtmlHelperEditor.DropDownEditor(System.Object,System.String,System.Collections.Generic.Dictionary{System.String,System.String})">
+ <summary>
+ ドロップダウンエディター
+ </summary>
+ <param name="obj"></param>
+ <param name="name"></param>
+ <param name="valueList"></param>
+ <returns></returns>
+</member>
+<member name="M:WebMasterMaintenance.Helpers.HtmlHelperEditor.DropDownEditor(System.Object,System.String,System.Collections.Generic.IEnumerable{System.Object},System.Collections.Generic.IEnumerable{System.Object})">
+ <summary>
+ 単位マスタ
+ </summary>
+ <param name="obj"></param>
+ <param name="name"></param>
+ <param name="mdlsUnit"></param>
+ <param name="mdlsNames"></param>
+ <returns></returns>
+</member>
+<member name="M:WebMasterMaintenance.Helpers.HtmlHelperEditor.DropDownEditorUnit(System.Object,System.String,System.Collections.Generic.List{WebMasterMaintenance.VM_Name},System.Boolean)">
+ <summary>
+ 単位マスタ
+ </summary>
+ <param name="obj"></param>
+ <param name="name"></param>
+ <param name="mdls"></param>
+ <param name="read_only"></param>
+ <returns></returns>
+</member>
+<member name="M:WebMasterMaintenance.CM_DrugEX.SetFromOriginalModel(WebMasterMaintenance.CM_Drug)">
+ <summary>
+ 規定モデルから値をセット
+ </summary>
+ <param name="model"></param>
+</member>
+<member name="M:WebMasterMaintenance.CM_DrugEX.GetOriginalModel">
+ <summary>
+ 規定モデルを取得
+ </summary>
+ <returns>GM_Drug</returns>
+</member>
+<member name="P:WebMasterMaintenance.LoginAD.FunctionName">
+ <summary>
+ 機能名
+ </summary>
+ <value></value>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="P:WebMasterMaintenance.LoginAD.LoginCount">
+ <summary>
+ ログイン試行カウント
+ </summary>
+ <value></value>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="T:WebMasterMaintenance.LoginStaffInfo">
+ <summary>AloeGeneraData・ログイン者情報</summary>
+</member>
+<member name="P:WebMasterMaintenance.LoginStaffInfo.StaffID">
+ <summary>AloeGeneraData・ログイン者　職員ID</summary>
+</member>
+<member name="P:WebMasterMaintenance.LoginStaffInfo.DisplayName">
+ <summary>AloeGeneraData・ログイン者　表示用漢字氏名</summary>
+</member>
+<member name="P:WebMasterMaintenance.LoginStaffInfo.JobCode">
+ <summary>AloeGeneraData・ログイン者　職種コード</summary>
+</member>
+<member name="P:WebMasterMaintenance.LoginStaffInfo.JobName">
+ <summary>AloeGeneraData・ログイン者　表示用職種名</summary>
+</member>
+<member name="P:WebMasterMaintenance.LoginStaffInfo.JobShortName">
+ <summary>AloeGeneraData・ログイン者　表示用職種略称</summary>
+</member>
+<member name="P:WebMasterMaintenance.LoginStaffInfo.Password">
+ <summary>AloeGeneraData・ログイン者　パスワード</summary>
+</member>
+<member name="P:WebMasterMaintenance.LoginStaffInfo.GroupCode">
+ <summary>AloeGeneraData・ログイン者　グループコード</summary>
+</member>
+<member name="P:WebMasterMaintenance.LoginStaffInfo.DepartmentCode">
+ <summary>AloeGeneraData・ログイン者　診療科コード</summary>
+</member>
+<member name="T:WebMasterMaintenance.GM_DrugExBloodMetaData">
+ <summary>
+ 医療材料用メタデータ
+ </summary>
+</member>
+<member name="T:WebMasterMaintenance.M_DrugExBloodMetaData">
+ <summary>
+ 医療材料用メタデータ
+ </summary>
+</member>
+<member name="T:WebMasterMaintenance.GM_DrugExMaterialMetaData">
+ <summary>
+ 医療材料用メタデータ
+ </summary>
+</member>
+<member name="T:WebMasterMaintenance.M_DrugUnitEXMetaData">
+ <summary>
+ 医療材料用メタデータ
+ </summary>
+</member>
+<member name="T:WebMasterMaintenance.M_DrugExMaterialMetaData">
+ <summary>
+ 医療材料用メタデータ
+ </summary>
+</member>
+<member name="T:WebMasterMaintenance.M_DrugEXMetaData">
+ <summary>
+ 薬品用メタデータ
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="T:WebMasterMaintenance.GM_DrugEX">
+ <summary>
+ M_Drugモデル
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:WebMasterMaintenance.GM_DrugEX.SetFromOriginalModel(WebMasterMaintenance.GM_Drug)">
+ <summary>
+ 規定モデルから値をセット
+ </summary>
+ <param name="model"></param>
+</member>
+<member name="M:WebMasterMaintenance.GM_DrugEX.GetOriginalModel">
+ <summary>
+ 規定モデルを取得
+ </summary>
+ <returns>GM_Drug</returns>
+</member>
+<member name="T:WebMasterMaintenance.M_DrugEX">
+ <summary>
+ M_Drugモデル
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:WebMasterMaintenance.M_DrugEX.SetFromOriginalModel(WebMasterMaintenance.M_Drug)">
+ <summary>
+ 規定モデルから値をセット
+ </summary>
+ <param name="model"></param>
+</member>
+<member name="M:WebMasterMaintenance.M_DrugEX.GetOriginalModel">
+ <summary>
+ 規定モデルを取得
+ </summary>
+ <returns>M_Drug</returns>
+</member>
+<member name="T:WebMasterMaintenance.GM_DrugExBlood">
+ <summary>
+ 輸血製剤モデル
+ </summary>
+</member>
+<member name="T:WebMasterMaintenance.M_DrugExBlood">
+ <summary>
+ 輸血製剤モデル
+ </summary>
+</member>
+<member name="T:WebMasterMaintenance.GM_DrugExMaterial">
+ <summary>
+ 医療材料用モデル
+ </summary>
+</member>
+<member name="T:WebMasterMaintenance.M_DrugExMaterial">
+ <summary>
+ 医療材料用モデル
+ </summary>
+</member>
+<member name="T:WebMasterMaintenance.GM_DrugUnitEX">
+ <summary>
+ M_DrugUnitマスタ
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:WebMasterMaintenance.GM_DrugUnitEX.SetFromOriginalModel(WebMasterMaintenance.GM_DrugUnit,WebMasterMaintenance.AloeEntities)">
+ <summary>
+ 規定モデルから値をセット
+ </summary>
+ <param name="model"></param>
+</member>
+<member name="T:WebMasterMaintenance.M_DrugUnitEX">
+ <summary>
+ M_DurugUnitマスタ
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:WebMasterMaintenance.M_DrugUnitEX.SetFromOriginalModel(WebMasterMaintenance.M_DrugUnit,WebMasterMaintenance.AloeEntities)">
+ <summary>
+ 規定モデルから値をセット
+ </summary>
+ <param name="model"></param>
+</member>
+<member name="M:WebMasterMaintenance.Options.GetOption_NarcoticClass(System.String)">
+ <summary>
+ 麻毒区分
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:WebMasterMaintenance.Options.GetOption_DosageFormClass(System.String)">
+ <summary>
+ 剤形区分
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:WebMasterMaintenance.Options.GetOption_ExternalPartCode(System.String)">
+ <summary>
+ 外用部位コード
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:WebMasterMaintenance.Options.GetOption_UnitCode(System.String)">
+ <summary>
+ 単位マスタ
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:WebMasterMaintenance.Options.GetOption_VMName(System.String,System.String,System.Boolean)">
+ <summary>
+ VMName取得
+ </summary>
+ <param name="strClass"></param>
+ <returns></returns>
+</member>
+<member name="M:WebMasterMaintenance.Options.GetOption_Flag1">
+ <summary>
+ 0:対象外/1:対象のリストを取得
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:WebMasterMaintenance.Options.GetOption_AdoptClass">
+ <summary>
+ 採用区分のリストを取得
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:WebMasterMaintenance.Options.GetOption_ValidCheckbox">
+ <summary>
+ 無期限
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:WebMasterMaintenance.Options.GetOption_CheckFlag">
+ <summary>
+ チェックボックス用フラグ
+ </summary>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:WebMasterMaintenance.Options.GetOption_DiabetesFlag_Material">
+ <summary>
+ 医療材料糖尿病薬
+ </summary>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:WebMasterMaintenance.UserModel.SetFacilityModels(System.Collections.Generic.List{WebMasterMaintenance.S_GroupFacility})">
+ <summary>
+ 施設格納
+ </summary>
+ <param name="mdls"></param>
+</member>
+<member name="T:WebMasterMaintenance.AloeConst">
+ <summary>
+ Aloe 共通定数
+ </summary>
+ <remarks>
+ <para>【履歴】</para>
+ <para>2017年08月時点のConstを移植</para>
+ </remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.ConnectionString">
+ <summary>DB接続文字列</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.UndefString">
+ <summary>DB無効値・文字列</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.UndefIntegerMin">
+ <summary>DB無効値・Integer最小値</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.UndefIntegerMax">
+ <summary>DB無効値・Integer最大値</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.UndefDecimal">
+ <summary>DB無効値・Decimal</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.UndefDateMin">
+ <summary>DB無効値・min日付</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.UndefDateMax">
+ <summary>DB無効値・MAX日付</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DateTimeStart">
+ <summary>開始時刻（00:00:00）</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DateTimeLast">
+ <summary>最終時刻（23:59:59）</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.OIDTitle">
+ <summary>最終時刻（23:59:59）</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DateTimeStart2">
+ <summary>開始時刻2（00:00）</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DateTimeLast2">
+ <summary>最終時刻2（23:59）</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DateTimeMax">
+ <summary>最大時刻（99:99）</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DateTimeFree">
+ <summary>フリー文字</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.FormatDateString">
+ <summary>フォーマット・日付</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.FormatDateShortString">
+ <summary>フォーマット・日付（西暦下2桁表示）</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.FormatDateTimeNoMarkString">
+ <summary>フォーマット・日付（スラッシュなし）</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.FormatDateTimeString">
+ <summary>フォーマット・日付　年月日＆時分</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.FormatDateTimeSecondString">
+ <summary>フォーマット・日付　年月日＆時分秒</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.FormatYearMonthString_JP">
+ <summary>フォーマット・年月（漢字）</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.FormatYearString">
+ <summary>フォーマット・年（西暦年）</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.FormatDayofWeek">
+ <summary>フォーマット・曜日（曜）</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.FormatTimeString">
+ <summary>フォーマット・時刻</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.FormatCreateDateTimeString">
+ <summary>フォーマット・日付日時</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.ClientID">
+ <summary>AloeGeneraDataキー・クライアントマシン名</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.FacilityID">
+ <summary>AloeGeneraDataキー・施設ID</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.LoginStaffInfo">
+ <summary>AloeGeneraDataキー・ログイン者職員情報</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DeputyStaffInfo">
+ <summary>AloeGeneraDataキー・代行職員情報</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.PatientDispInfo">
+ <summary>AloeGeneraDataキー・患者表示情報</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.PatientModeInfo">
+ <summary>AloeGeneraDataキー・患者モード情報</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.FunctionInfo">
+ <summary>AloeGeneraDataキー・機能情報</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.RedrawCall">
+ <summary>再表示呼び出し文字列</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.ReceiveConfirmOrderData">
+ <summary>オーダデータ受け取り確認</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DisplayPatientID">
+ <summary>表示用患者IDの名称</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.OrderStatusCancel">
+ <summary>状態表示値：中止（旧：削除）</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.OrderStatusStop">
+ <summary>状態表示値：途中中止</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.OrderStatusNew">
+ <summary>状態表示値：新規</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.OrderStatusEdit">
+ <summary>状態表示値：修正</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.OrderStatusEditStop">
+ <summary>状態表示値：修正</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DummyOrderId">
+ <summary>ダミーオーダID</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.ReserveTimeUnspecified">
+ <summary>予約時刻未確定</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.STRING_PAGE_BREAK">
+ <summary>レポートの改ページ時の出力文字</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.STRING_PAGE_END">
+ <summary>レポートの最終行の出力文字</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.BeforeOrderIdTitle">
+ <summary>修正前オーダID</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.NAME_CLASS_BM02_PROCESS_TYPE">
+ <summary>名称区分：受診状況種別</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.NAME_CLASS_BM08_MEDICAL_CARE_TYPE">
+ <summary>名称区分：診療種別</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.NAME_CLASS_CM02_SEX_TYPE">
+ <summary>名称区分：性別</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.NAME_CLASS_CM03_STATE">
+ <summary>名称区分：都道府県</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.NAME_CLASS_CM04_UNIT">
+ <summary>名称区分：単位</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.NAME_CLASS_CM07_VALID_TYPE">
+ <summary>名称区分：現任区分</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.NAME_CLASS_FA06_RESERVE_CLASS">
+ <summary>名称区分：予約枠区分</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.NAME_CLASS_FA10_IN_OUT_CLASS">
+ <summary>名称区分：入外区分</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.NAME_CLASS_OD01_ORDER_TYPE">
+ <summary>名称区分：オーダ種別</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.NAME_CLASS_OD03_TEMPORARY_CLASS">
+ <summary>名称区分：処方箋種別_外来（院内／院外）</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.NAME_CLASS_OD04_TEMPORARY_CLASS">
+ <summary>名称区分：処方箋種別_入院(定期/臨時)</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.NAME_CLASS_OD05_DOSAGE_CLASS">
+ <summary>名称区分：処方用法種別</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.NAME_CLASS_OD06_DOSE_TIMING">
+ <summary>名称区分：時間区分</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.NAME_CLASS_OD10_DOSE_SCENE">
+ <summary>名称区分：処方頓用指示コメント</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.NAME_CLASS_OD11_EXTERNAL_PART">
+ <summary>名称区分：処方外用指示コメント１（部位）</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.NAME_CLASS_OD12_EXTERNAL_METHOD">
+ <summary>名称区分：処方外用指示コメント２（使用法）</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.NAME_CLASS_OD13_INSULIN_PART">
+ <summary>名称区分：処方その他指示コメント（インスリン対象部位）</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.NAME_CLASS_OD14_EXTERNAL_PART_CODE">
+ <summary>名称区分：外用部位区分）</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.NAME_CLASS_OD16_SPECIAL_DRUG">
+ <summary>名称区分：特殊薬品識別区分</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.NAME_CLASS_OD17_NARCOTIC_POISON_DRUG">
+ <summary>名称区分：薬品麻毒区分</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.NAME_CLASS_OD18_DOSAGE_FORM_CLASS">
+ <summary>名称区分：剤形区分</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.NAME_CLASS_OD28_PHYSIOLOGICAL_EXAM_TYPE">
+ <summary>名称区分：生理機能検査（種別）</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.NAME_CLASS_OD31_INJECTION_TECHNIQUE">
+ <summary>名称区分：注射投与手技</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.NAME_CLASS_OD32_INJECTION_METHOD">
+ <summary>名称区分：注射投与方法</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.NAME_CLASS_OD33_INJECTION_SPEED">
+ <summary>名称区分：（注射）点滴速度区分</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.NAME_CLASS_OD35_DATE_TYPE">
+ <summary>名称区分：日付区分（指示日/実施日）</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.NAME_CLASS_OD36_ORDER_STATUS">
+ <summary>名称区分：オーダ状態</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.NAME_CLASS_OD37_ORCER_ACCEPT">
+ <summary>名称区分：オーダ受け種別</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.NAME_CLASS_RE01_DISEASE_TYPE">
+ <summary>名称区分：主副病名区分</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.NAME_CLASS_RE02_OUTCOME_TYPE">
+ <summary>名称区分：傷病名転帰</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.NAME_CLASS_RE03_RECIEPT_FLAG">
+ <summary>名称区分：保険病名区分</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.NAME_CLASS_RE18_SAFETY_CODE">
+ <summary>名称区分：安全管理区分</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.NAME_CLASS_ST01_LICENSE">
+ <summary>名称区分：免許区分</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.UNIV_CLASS_ODCMT_COMMENT">
+ <summary>汎用区分：指示コメント</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.UNIV_CLASS_ODEPC_EXAM_PURPOSE">
+ <summary>汎用区分：検査目的・臨床診断コメント</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.UNIV_CLASS_RES01_DESCRIPTION">
+ <summary>汎用区分：予約票説明欄テンプレート</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.UNIV_CLASS_REP01_MEDICAL_CONTENTS">
+ <summary>汎用区分：診療内容区分</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DB_FUNCTION">
+ <summary>DB名称</summary>
+ <remarks>0103 機能一覧</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DB_DEPARTMENT">
+ <summary>DB名称</summary>
+ <remarks>0222 診療科マスタ</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DB_RESERVE_ITEM">
+ <summary>DB名称</summary>
+ <remarks>0223 予約項目マスタ</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DB_RESERVE_UNIT">
+ <summary>DB名称</summary>
+ <remarks>0224 予約枠マスタ</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DB_HOSPITAL_WARD">
+ <summary>DB名称</summary>
+ <remarks>0231 病棟マスタ</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DB_HOSPITAL_ROOM">
+ <summary>DB名称</summary>
+ <remarks>0232 病室マスタ</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DB_HOSPITAL_BED">
+ <summary>DB名称</summary>
+ <remarks>0233 病床マスタ</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DB_HOSPITAL">
+ <summary>アクセスクラス名称名称</summary>
+ <remarks>病棟/病室/病床マスタ</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DB_STAFF_BASE">
+ <summary>DB名称</summary>
+ <remarks>0301 職員基本情報</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DB_STAFF_JOB_TYPE">
+ <summary>DB名称</summary>
+ <remarks>0302 職員担当職種</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DB_STAFF_DEPARTMENT">
+ <summary>DB名称</summary>
+ <remarks>0303 職員担当診療科</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DB_STAFF_PASSWORD">
+ <summary>DB名称</summary>
+ <remarks>0305 職員パスワード情報</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DB_STAFF_LICENSE">
+ <summary>DB名称</summary>
+ <remarks>0306 職員免許情報</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DB_PATIENT_BASE">
+ <summary>DB名称</summary>
+ <remarks>0401 患者基本情報</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DB_CONTROL_RESERVE">
+ <summary>DB名称</summary>
+ <remarks>0601 予約枠情報</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DB_CONTROL_OUTPATIENT">
+ <summary>DB名称</summary>
+ <remarks>0602 科予約受付管理</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DB_HISTORY_BED">
+ <summary>DB名称</summary>
+ <remarks>0623 転床転科履歴</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DB_DISEASE">
+ <summary>DB名称</summary>
+ <remarks>0710 傷病名情報</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DB_PROGRESS_HEADER">
+ <summary>DB名称</summary>
+ <remarks>0714 経過記録</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DB_PROGRESS_DETAIL">
+ <summary>DB名称</summary>
+ <remarks>0715 経過明細</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DB_PROGRESS_DATA">
+ <summary>アクセスクラス名称</summary>
+ <remarks>経過記録/明細情報</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DB_DOCUMENT">
+ <summary>DB名称</summary>
+ <remarks>0781 文書データ</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DB_ORDER_BASE">
+ <summary>DB名称</summary>
+ <remarks>0801 オーダ基本情報</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DB_ORDER_SCHEDULE">
+ <summary>DB名称</summary>
+ <remarks>0802 オーダ予定実績</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DB_ORDER_ACCEPT">
+ <summary>DB名称</summary>
+ <remarks>0803 オーダ受け情報</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DB_ORDER_PUBLISH">
+ <summary>DB名称</summary>
+ <remarks>0804 オーダ発行情報</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DB_ORDER_DETAIL">
+ <summary>DB名称</summary>
+ <remarks>08XX オーダ詳細情報</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DB_ORDER_INFO">
+ <summary>アクセスクラス名称</summary>
+ <remarks>オーダ基本情報/オーダ受け情報/オーダ予定実績</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DB_JOB">
+ <summary>DB名称</summary>
+ <remarks>1001 職種マスタ</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DB_CONTROL">
+ <summary>DB名称</summary>
+ <remarks>1002M 制御マスタ</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DB_NAME">
+ <summary>DB名称</summary>
+ <remarks>1004 名称マスタ</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DB_UNIVERSAL">
+ <summary>DB名称</summary>
+ <remarks>1008 汎用マスタ</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DB_EXAMINATION">
+ <summary>DB名称</summary>
+ <remarks>1165 検査マスタ</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DB_SLIP_CATEGORY">
+ <summary>DB名称</summary>
+ <remarks>2101 伝票カテゴリマスタ</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DB_SLIP_BASE">
+ <summary>DB名称</summary>
+ <remarks>2102 伝票基本マスタ</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DB_SLIP_DETAIL">
+ <summary>DB名称</summary>
+ <remarks>2103 伝票詳細マスタ</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DB_LINK_MASTER">
+ <summary>DB名称</summary>
+ <remarks>9001 連携用コード変換マスタ</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.ExeFileNo_OutpatientReception">
+ <summary>実行ファイル名[SY03]：外来受付</summary>
+ <remarks>名称マスタ［SY03］に定義される［名称コード］</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.ExeFileNo_ImagingDivisionSystem">
+ <summary>実行ファイル名[SY03]：画像部門システム</summary>
+ <remarks>名称マスタ［SY03］に定義される［名称コード］</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.ExeFileNo_RehabDivisionSystem">
+ <summary>実行ファイル名[SY03]：リハビリ部門システム</summary>
+ <remarks>名称マスタ［SY03］に定義される［名称コード］</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.ExeFileNo_LaboratoryExamSystem">
+ <summary>実行ファイル名[SY03]：検体検査部門システム</summary>
+ <remarks>名称マスタ［SY03］に定義される［名称コード］</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.ExeFileNo_NutritionDivisionSystem">
+ <summary>実行ファイル名[SY03]：栄養部門システム</summary>
+ <remarks>名称マスタ［SY03］に定義される［名称コード］</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.ExeFileNo_PharmacyDivisionSystem">
+ <summary>実行ファイル名[SY03]：薬剤部門システム</summary>
+ <remarks>名称マスタ［SY03］に定義される［名称コード］</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.ExeFileNo_PhysiologicalExamSystem">
+ <summary>実行ファイル名[SY03]：生理検査部門システム</summary>
+ <remarks>名称マスタ［SY03］に定義される［名称コード］</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.ExeFileNo_PrintWristBand">
+ <summary>実行ファイル名[SY03]：リストバンド印刷</summary>
+ <remarks>名称マスタ［SY03］に定義される［名称コード］</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.ExeFileNo_ReserveSheet">
+ <summary>実行ファイル名[SY03]：予約票印刷</summary>
+ <remarks>名称マスタ［SY03］に定義される［名称コード］</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.ExeFileNo_PrintNutritionRecipe">
+ <summary>実行ファイル名[SY03]：食事箋印刷</summary>
+ <remarks>名称マスタ［SY03］に定義される［名称コード］</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.ExeFileNo_PrintNutritionLabel">
+ <summary>実行ファイル名[SY03]：経管栄養ラベル印刷</summary>
+ <remarks>名称マスタ［SY03］に定義される［名称コード］</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.ExeFileNo_PrintDischargeCarePlan">
+ <summary>実行ファイル名[SY03]：退院療養計画書印刷</summary>
+ <remarks>名称マスタ［SY03］に定義される［名称コード］</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.ExeFileNo_PrintAdmissionCarePlan">
+ <summary>実行ファイル名[SY03]：入院診療計画書印刷</summary>
+ <remarks>名称マスタ［SY03］に定義される［名称コード］</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.ExeFileNo_PrintAssessment">
+ <summary>実行ファイル名[SY03]：総合評価版印刷</summary>
+ <remarks>名称マスタ［SY03］に定義される［名称コード］</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.ExeFileNo_PrintBedsoreCarePlan">
+ <summary>実行ファイル名[SY03]：褥瘡診療計画印刷</summary>
+ <remarks>名称マスタ［SY03］に定義される［名称コード］</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.ExeFileNo_PrintExamResultProgress">
+ <summary>実行ファイル名[SY03]：検査結果（時系列）印刷</summary>
+ <remarks>名称マスタ［SY03］に定義される［名称コード］</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.ExeFileNo_PrintExamResultOneDay">
+ <summary>実行ファイル名[SY03]：検査結果（日毎）印刷</summary>
+ <remarks>名称マスタ［SY03］に定義される［名称コード］</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.ExeFileNo_PrintOutOfHospitalRecipe">
+ <summary>実行ファイル名[SY03]：院外処方箋印刷</summary>
+ <remarks>名称マスタ［SY03］に定義される［名称コード］</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.ExeFileNo_PrintInsideHospitalRecipe">
+ <summary>実行ファイル名[SY03]：院内処方箋印刷</summary>
+ <remarks>名称マスタ［SY03］に定義される［名称コード］</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.ExeFileNo_PrintInsideHospitalInjectionRecipe">
+ <summary>実行ファイル名[SY03]：院内注射箋印刷</summary>
+ <remarks>名称マスタ［SY03］に定義される［名称コード］</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.ExeFileNo_PrintInjectionLabel">
+ <summary>実行ファイル名[SY03]：注射ラベル印刷</summary>
+ <remarks>名称マスタ［SY03］に定義される［名称コード］</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.ExeFileNo_PrintNarcoticRecipe">
+ <summary>実行ファイル名[SY03]：施用箋印刷</summary>
+ <remarks>名称マスタ［SY03］に定義される［名称コード］</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.ExeFileNo_PrintOrderSheet">
+ <summary>実行ファイル名[SY03]：指示書印刷</summary>
+ <remarks>名称マスタ［SY03］に定義される［名称コード］</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.ExeFileNo_PrintFoodTag">
+ <summary>実行ファイル名[SY03]：食札印刷</summary>
+ <remarks>名称マスタ［SY03］に定義される［名称コード］</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.ExeFileNo_PrintPrescriptionLabel">
+ <summary>実行ファイル名[SY03]：処方ラベル</summary>
+ <remarks>名称マスタ［SY03］に定義される［名称コード］</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.ExeFileNo_PrintScreeningAssessment">
+ <summary>実行ファイル名[SY03]：栄養スクリーニング・アセスメント印刷</summary>
+ <remarks>名称マスタ［SY03］に定義される［名称コード］</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.ExeFileNo_PrintLowNutrientManagement">
+ <summary>実行ファイル名[SY03]：低栄養マネジメント印刷</summary>
+ <remarks>名称マスタ［SY03］に定義される［名称コード］</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.ExeFileNo_PrintNutrientManagementPlan">
+ <summary>実行ファイル名[SY03]：栄養管理計画印刷</summary>
+ <remarks>名称マスタ［SY03］に定義される［名称コード］</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.ExeFileNo_PrintNutrientCureImplementPlan">
+ <summary>実行ファイル名[SY03]：栄養治療実施計画印刷</summary>
+ <remarks>名称マスタ［SY03］に定義される［名称コード］</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.ExeFileNo_PrintIVHPlan">
+ <summary>実行ファイル名[SY03]：IVH管理・離脱計画印刷</summary>
+ <remarks>名称マスタ［SY03］に定義される［名称コード］</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.ExeFileNo_PrintCarePlan">
+ <summary>実行ファイル名[SY03]：看護計画印刷</summary>
+ <remarks>名称マスタ［SY03］に定義される［名称コード］</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.ExeFileNo_PrintWardWorksheet">
+ <summary>実行ファイル名[SY03]：病棟ワークシート印刷</summary>
+ <remarks>名称マスタ［SY03］に定義される［名称コード］</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.ExeFileNo_PrintAdmissionNursingBase">
+ <summary>実行ファイル名[SY03]：入院時看護基礎データ</summary>
+ <remarks>名称マスタ［SY03］に定義される［名称コード］</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.ExeFileNo_NutritionalManagementSystem">
+ <summary>実行ファイル名[SY03]：栄養管理システム（※コード未設定）</summary>
+ <remarks>
+ <para>名称マスタ［SY03］に定義される［名称コード］</para>
+ <para>※名称マスタ［SY03］に「検体オーダ簡易受付」で上書きされており、今は使用されていない。</para>
+ </remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.ExeFileNo_LaboratoryExamOrderSimpleReception">
+ <summary>実行ファイル名[SY03]：検体オーダ簡易受付</summary>
+ <remarks>名称マスタ［SY03］に定義される［名称コード］</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.ExeFileNo_StatisticsSystem">
+ <summary>実行ファイル名[SY03]：統計情報（患者台帳）</summary>
+ <remarks>名称マスタ［SY03］に定義される［名称コード］</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.ExeFileNo_PrintHandOver">
+ <summary>実行ファイル名[SY03]：申し送り印刷</summary>
+ <remarks>名称マスタ［SY03］に定義される［名称コード］</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.ExeFileNo_PrintPharmacyDivision">
+ <summary>実行ファイル名[SY03]：薬剤部門システム</summary>
+ <remarks>名称マスタ［SY03］に定義される［名称コード］</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.ExeFileNo_PrintOutpatientBaseSlip">
+ <summary>実行ファイル名[SY03]：基本票印刷</summary>
+ <remarks>名称マスタ［SY03］に定義される［名称コード］</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.ExeFileNo_PrintKarte">
+ <summary>実行ファイル名[SY03]：カルテ印刷</summary>
+ <remarks>名称マスタ［SY03］に定義される［名称コード］</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DocType_DischargeDoctorSummary">
+ <summary>文書種別［RE13］：退院時ドクターサマリ</summary>
+ <remarks>名称マスタ［RE13］に定義される［名称コード］</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DocType_NursingSummary_Progress">
+ <summary>文書種別［RE13］：経過看護サマリ</summary>
+ <remarks>名称マスタ［RE13］に定義される［名称コード］</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DocType_NursingSummary_ChangeWard">
+ <summary>文書種別［RE13］：転棟時看護サマリ</summary>
+ <remarks>名称マスタ［RE13］に定義される［名称コード］</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DocType_NursingSummary_ChangeFacility">
+ <summary>文書種別［RE13］：転院時看護サマリ</summary>
+ <remarks>名称マスタ［RE13］に定義される［名称コード］</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DocType_NursingSummary_DischargeTime">
+ <summary>文書種別［RE13］：退院時看護サマリ</summary>
+ <remarks>名称マスタ［RE13］に定義される［名称コード］</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DocType_NursingSummary_Discharge">
+ <summary>文書種別［RE13］：退院看護サマリ</summary>
+ <remarks>名称マスタ［RE13］に定義される［名称コード］</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DocType_CarePlan">
+ <summary>文書種別［RE13］：看護計画</summary>
+ <remarks>名称マスタ［RE13］に定義される［名称コード］</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DocType_ProblemManagement">
+ <summary>文書種別［RE13］：問題点管理</summary>
+ <remarks>名称マスタ［RE13］に定義される［名称コード］</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DocType_HealthInformation">
+ <summary>文書種別［RE13］：診療情報提供書（紹介状）</summary>
+ <remarks>名称マスタ［RE13］に定義される［名称コード］</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DocType_ReplyRecipe">
+ <summary>文書種別［RE13］：返信箋</summary>
+ <remarks>名称マスタ［RE13］に定義される［名称コード］</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DocType_DiseaseStateConsentForm">
+ <summary>文書種別［RE13］：病状説明同意書</summary>
+ <remarks>名称マスタ［RE13］に定義される［名称コード］</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DocType_DischargeCertificationForm">
+ <summary>文書種別［RE13］：退院証明書</summary>
+ <remarks>名称マスタ［RE13］に定義される［名称コード］</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DocType_DiseaseAssessmentPlan">
+ <summary>文書種別［RE13］：病状評価計画表</summary>
+ <remarks>名称マスタ［RE13］に定義される［名称コード］</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DocType_AdmissionNursingBase">
+ <summary>文書種別［RE13］：入院時看護基礎データ</summary>
+ <remarks>名称マスタ［RE13］に定義される［名称コード］</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DocType_BedsoreCarePlan">
+ <summary>文書種別［RE13］：褥瘡診療計画書</summary>
+ <remarks>名称マスタ［RE13］に定義される［名称コード］</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DocType_Nutrition_Screening">
+ <summary>文書種別［RE13］：栄養スクリーニング</summary>
+ <remarks>名称マスタ［RE13］に定義される［名称コード］</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DocType_LowNutrientManagement">
+ <summary>文書種別［RE13］：低栄養マネジメント</summary>
+ <remarks>名称マスタ［RE13］に定義される［名称コード］</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DocType_Nutrition_ManagementPlan">
+ <summary>文書種別［RE13］：栄養管理計画</summary>
+ <remarks>名称マスタ［RE13］に定義される［名称コード］</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DocType_Nutrition_CarePlan">
+ <summary>文書種別［RE13］：栄養ケア計画</summary>
+ <remarks>名称マスタ［RE13］に定義される［名称コード］</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DocType_Nutrition_IVHPlan">
+ <summary>文書種別［RE13］：栄養IVH計画</summary>
+ <remarks>名称マスタ［RE13］に定義される［名称コード］</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DocType_Nutrition_CureImplementPlan">
+ <summary>文書種別［RE13］：栄養治療実施計画</summary>
+ <remarks>名称マスタ［RE13］に定義される［名称コード］</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DocType_DischargeCarePlan">
+ <summary>文書種別［RE13］：退院療養計画書</summary>
+ <remarks>名称マスタ［RE13］に定義される［名称コード］</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DocType_AdmissionCarePlan">
+ <summary>文書種別［RE13］：入院時診療計画書</summary>
+ <remarks>名称マスタ［RE13］に定義される［名称コード］</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DocType_Conference">
+ <summary>文書種別［RE13］：カンファレンス</summary>
+ <remarks>名称マスタ［RE13］に定義される［名称コード］</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.DocType_WardWorksheet">
+ <summary>文書種別［RE13］：病棟ワークシート</summary>
+ <remarks>名称マスタ［RE13］に定義される［名称コード］</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.PrintInsideHospitalRecipeMode_Medical">
+ <summary>実行ファイルパラメータ 薬剤部用</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.PrintInsideHospitalRecipeMode_Ward">
+ <summary>実行ファイルパラメータ 病棟用</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.PrintInsideHospitalRecipeMode_MedicalWard">
+ <summary>実行ファイルパラメータ 薬剤部用/病棟用</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.PrintInsideHospitalInjectionRecipeMode_Both">
+ <summary>実行ファイルパラメータ 両方（薬剤部用/病棟用を同一プリンタ出力）</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.PrintInsideHospitalInjectionRecipeMode_Medical">
+ <summary>実行ファイルパラメータ 薬剤部用</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.PrintInsideHospitalInjectionRecipeMode_Ward">
+ <summary>実行ファイルパラメータ 病棟用</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.PrintInsideHospitalInjectionRecipeMode_MedicalWard">
+ <summary>実行ファイルパラメータ 薬剤部用/病棟用</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.Insurance">
+ <summary>データ情報：保険情報の権限制御設定を持つ［S_Data.SDAT_DataID］</summary>
+ <remarks>データ一覧情報で持つ、システム固定とするコード定義：</remarks>
+</member>
+<member name="T:WebMasterMaintenance.AloeConst.enmNutritionUnit">
+ <summary>栄養オーダ・単位</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.NoPlanExecExamination">
+ <summary>検査日未定</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.Parameter">
+ <summary>機能連携用パラメータ</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_10000001">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_10000002">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_10000003">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_10000004">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_10000005">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_10000006">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_10000007">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_10000008">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_10000009">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_10000010">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_10000011">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_10000012">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_10000013">
+ <summary>
+ <para>マスタ取得エラー時</para>
+ <para>[0]項目名/データ名</para>
+ </summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_10000014">
+ <summary>
+ <para>DB取得成功時</para>
+ <para>[0]</para>
+ <para>[1]</para>
+ </summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_10000015">
+ <summary>
+ <para>DB取得失敗時</para>
+ <para>[0]</para>
+ <para>[1]</para>
+ </summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_10000016">
+ <summary>
+ <para>DB登録成功時（画面用）</para>
+ <para>[0]項目名/データ名</para>
+ </summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_10000017">
+ <summary>
+ <para>DB登録失敗時（画面用）</para>
+ <para>[0]項目名/データ名</para>
+ </summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_10000018">
+ <summary>
+ <para>DB更新成功時（画面用）</para>
+ <para>[0]項目名/データ名</para>
+ </summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_10000019">
+ <summary>
+ <para>DB更新失敗時（画面用）</para>
+ <para>[0]項目名/データ名</para>
+ </summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_10000020">
+ <summary>
+ <para>DB削除成功時（画面用）</para>
+ <para>[0]項目名/データ名</para>
+ </summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_10000021">
+ <summary>
+ <para>DB削除失敗時（画面用）</para>
+ <para>[0]項目名/データ名</para>
+ </summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_10000022">
+ <summary>
+ <para>DB取得成功時（画面用）</para>
+ <para>[0]項目名/データ名</para>
+ </summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_10000023">
+ <summary>
+ <para>DB取得失敗時（画面用）</para>
+ <para>[0]項目名/データ名</para>
+ </summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000001">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000002">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000003">
+ <summary>
+ <para>必須項目エラー：“［0］は、必須項目です。”</para>
+ <para>[0]項目名</para>
+ </summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000004">
+ <summary>※重複のため使用不可</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000005">
+ <summary>
+ <para>必須項目未選択エラー：“［0］を選択してください。”</para>
+ <para>[0]項目名</para>
+ </summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000006">
+ <summary>
+ <para>必須項目未指定エラー：“［0］を指定してください。”</para>
+ <para>[0]項目名</para>
+ </summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000007">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000008">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000009">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000010">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000011">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000012">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000013">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000014">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000015">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000016">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000017">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000018">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000019">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000020">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000021">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000022">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000023">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000024">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000025">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000026">
+ <summary>
+ <para>MAX桁数オーバ</para>
+ <para>[0]項目名</para>
+ <para>[1]文字数</para>
+ </summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000027">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000028">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000029">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000030">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000031">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000032">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000033">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000034">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000035">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000036">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000037">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000038">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000039">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000040">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000041">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000042">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000043">
+ <summary>編集中確認メッセージ（部門ログアウト時）</summary>
+ <remarks>※20000044と重複のような気もする</remarks>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000044">
+ <summary>編集中確認メッセージ（閉じる場合）</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000045">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000046">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000047">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000048">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000049">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000050">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000051">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000052">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000053">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000054">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000055">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000056">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000057">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000058">
+ <summary>編集中確認メッセージ（新規、修正時）</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000059">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000060">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000061">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000062">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000063">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000064">
+ <summary>編集中確認メッセージ（重複⇒20000058を使用してください）</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000065">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000066">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000067">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000068">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000069">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000070">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000071">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000072">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000073">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000074">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000075">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000076">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000077">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000078">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000079">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000080">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000081">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000082">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000083">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000084">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000085">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000086">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000087">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000088">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000089">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000090">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000091">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000092">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000093">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000094">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000095">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000096">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000097">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000098">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000099">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000100">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000101">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000102">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000103">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000104">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000105">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000106">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000107">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000108">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000109">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000110">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000111">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000112">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000113">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000114">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000115">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000116">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000117">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000118">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000119">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000120">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000121">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000122">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000123">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000124">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000125">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000126">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000127">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000128">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000129">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000130">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000131">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000132">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000133">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000134">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000135">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000136">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000137">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000138">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000139">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000140">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000141">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000142">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000143">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000144">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000145">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000146">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000147">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000148">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000149">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000150">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000151">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000152">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000153">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000154">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000155">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000156">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000157">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000158">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000159">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000160">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000161">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000162">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000163">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000164">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000165">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000166">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000167">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000168">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000169">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000170">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000171">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000172">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000173">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_20000174">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_30000001">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_30000002">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_30000003">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_30000004">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_30000005">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_30000006">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_30000007">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_30000008">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_30000009">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_30000010">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_30000011">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_30000012">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_30000013">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_40000001">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_40000002">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_40000003">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_40000004">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_90000001">
+ <summary>
+ <para>システムエラー時（画面用）</para>
+ <para>[0]プログラム名</para>
+ <para>[1]エラーコード</para>
+ </summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_90000002">
+ <summary>
+ <para>システムエラー時（ログ用）</para>
+ <para>[0]ex.Message</para>
+ </summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_90000003">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_90000006">
+ <summary></summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.MSGID_90000010">
+ <summary>
+ <para>印刷エラー時（POPUPなし）</para>
+ <para>[0]患者ID</para>
+ <para>[1]職員ID</para>
+ <para>[2]実行マシン</para>
+ </summary>
+</member>
+<member name="T:WebMasterMaintenance.AloeConst.enmReceptionType">
+ <summary>受診状況種別（受付関連）</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.enmReceptionType.Reservation">
+ <summary>受診状況種別：予約</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.enmReceptionType.ReceptionCompleted">
+ <summary>受診状況種別：受付済</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.enmReceptionType.MedicalCareWait">
+ <summary>受診状況種別：診察待</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.enmReceptionType.MedicalCareIn">
+ <summary>受診状況種別：診察中</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.enmReceptionType.ExamWait">
+ <summary>受診状況種別：検査待</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.enmReceptionType.ExamIn">
+ <summary>受診状況種別：検査中</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.enmReceptionType.MedicalCareCompleted">
+ <summary>受診状況種別：診察済</summary>
+</member>
+<member name="T:WebMasterMaintenance.AloeConst.enmMedicalCareType">
+ <summary>診療種別</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.enmMedicalCareType.FirstVisit">
+ <summary>診療種別：初診</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.enmMedicalCareType.RepeatedVisit">
+ <summary>診療種別：再診</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.PRIFIX_TEMP">
+ <summary>問題点番号　接頭文字：一時的</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.PRIFIX_GENERAL">
+ <summary>問題点番号　接頭文字：一般</summary>
+</member>
+<member name="T:WebMasterMaintenance.AloeConst.enmFlag">
+ <summary>フラグ値</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.enmFlag.FlagOff">
+ <summary>OFF(False)</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.enmFlag.FlagOn">
+ <summary>ON(True)</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.AGE_STRING">
+ <summary>年齢表示 歳の文字列</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.LEN_STAFF_ID">
+ <summary>表示用職員ID　桁数</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.ORDERTYPE_13">
+ <summary>enmOrderType.TeachingOrderを使用してください</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.ORDERTYPE_20">
+ <summary>enmOrderType.Prescriptionを使用してください</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.ORDERTYPE_30">
+ <summary>enmOrderType.Injectionを使用してください</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.ORDERTYPE_40">
+ <summary>enmOrderType.Aidを使用してください</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.ORDERTYPE_61">
+ <summary>enmOrderType.LaboratoryExamを使用してください</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.ORDERTYPE_62">
+ <summary>enmOrderType.PhysiologicalExamを使用してください</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.ORDERTYPE_63">
+ <summary>enmOrderType.Endscopeを使用してください</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.ORDERTYPE_64">
+ <summary>enmOrderType.Bacteriaを使用してください</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.ORDERTYPE_70">
+ <summary>enmOrderType.ImagingExamを使用してください</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.ORDERTYPE_81">
+ <summary>enmOrderType.Rehabを使用してください</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.NonAdmitState">
+ <summary>代行承認状態・未承認「未」</summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeConst.AdmitState">
+ <summary>代行承認状態・承認済み「済」</summary>
+</member>
+<member name="T:WebMasterMaintenance.AloeFunctionID">
+ <summary>
+ 機能ID
+ </summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeFunctionID.MasterMainte_M_Drug">
+ <summary>
+ 施設用薬品マスタメンテナンス
+ </summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeFunctionID.MasterMainte_GM_Drug">
+ <summary>
+ グループ用薬品マスタメンテナンス
+ </summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeFunctionID.MasterMainte_M_Drug_Blood">
+ <summary>
+ 施設用血液製剤マスタメンテナンス
+ </summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeFunctionID.MasterMainte_GM_Drug_Blood">
+ <summary>
+ グループ用血液製剤マスタメンテナンス
+ </summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeFunctionID.MasterMainte_M_Drug_Material">
+ <summary>
+ 施設用処方医療材料マスタメンテナンス
+ </summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeFunctionID.MasterMainte_GM_Drug_Material">
+ <summary>
+ グループ用処方医療材料マスタメンテナンス
+ </summary>
+</member>
+<member name="F:WebMasterMaintenance.AloeFunctionID.AccessAuthority">
+ <summary>機能ID：アクセス権限</summary>
+</member>
+<member name="T:WebMasterMaintenance.AloeGeneralData`1">
+ <summary>
+ Aloeジェネラルデータ
+ </summary>
+ <typeparam name="TData"></typeparam>
+ <remarks></remarks>
+</member>
+<member name="T:WebMasterMaintenance.AuthorityInfo">
+ <summary>
+ 制御マスタ戻り値格納用クラス
+ </summary>
+ <remarks>
+ </remarks>
+</member>
+<member name="P:WebMasterMaintenance.AuthorityInfo.AuthSelect">
+ <summary>
+ 権限（参照）
+ </summary>
+ <value></value>
+ <returns>TRUE=権限あり、FALSE=権限なし</returns>
+ <remarks></remarks>
+</member>
+<member name="P:WebMasterMaintenance.AuthorityInfo.AuthInsert">
+ <summary>
+ 権限（登録）
+ </summary>
+ <value></value>
+ <returns>TRUE=権限あり、FALSE=権限なし</returns>
+ <remarks></remarks>
+</member>
+<member name="P:WebMasterMaintenance.AuthorityInfo.AuthUpdate">
+ <summary>
+ 権限（修正）
+ </summary>
+ <value></value>
+ <returns>TRUE=権限あり、FALSE=権限なし</returns>
+ <remarks></remarks>
+</member>
+<member name="P:WebMasterMaintenance.AuthorityInfo.AuthCancel">
+ <summary>
+ 権限（中止）
+ </summary>
+ <value></value>
+ <returns>TRUE=権限あり、FALSE=権限なし</returns>
+ <remarks></remarks>
+</member>
+<member name="P:WebMasterMaintenance.AuthorityInfo.AuthDelete">
+ <summary>
+ 権限（削除）
+ </summary>
+ <value></value>
+ <returns>TRUE=権限あり、FALSE=権限なし</returns>
+ <remarks></remarks>
+</member>
+<member name="M:WebMasterMaintenance.Common.NVL(System.Nullable{System.DateTime},System.DateTime)">
+ <summary>
+ NVL　Nothingの場合に、rtnValueを返す
+ </summary>
+ <param name="dt"></param>
+ <param name="rtnValue"></param>
+ <returns></returns>
+</member>
+<member name="F:WebMasterMaintenance.enmLogMessageReturnType.Successful">
+ <summary>
+ 【outputLogMessageメソッド】正常終了
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="F:WebMasterMaintenance.enmLogMessageReturnType.IgnoreError">
+ <summary>
+ 【outputLogMessageメソッド】無視できるエラー
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="F:WebMasterMaintenance.enmLogMessageReturnType.ExceptionError">
+ <summary>
+ 【outputLogMessageメソッド】例外エラー
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:WebMasterMaintenance.AloeHotCode.GetHotCode_MDrug_Material(WebMasterMaintenance.AloeEntities)">
+ <summary>
+ 病院限定　医療材料HotCode採番
+ </summary>
+ <param name="db"></param>
+ <returns></returns>
+</member>
+<member name="M:WebMasterMaintenance.AloeHotCode.GetHotCode_GMDrug_Material(WebMasterMaintenance.AloeEntities)">
+ <summary>
+ グループ統一　医療材料HotCode採番
+ </summary>
+ <param name="db"></param>
+ <returns></returns>
+</member>
+<member name="M:WebMasterMaintenance.GM_DrugService.M_ToCopy(WebMasterMaintenance.AloeEntities,System.Collections.Generic.Dictionary{System.String,System.String},System.String,System.String,System.String,System.String)">
+ <summary>
+ GMマスタからMマスタへコピーを行う
+ </summary>
+ <param name="db"></param>
+ <param name="dicCheckItem"></param>
+ <param name="FacilityId"></param>
+ <param name="StaffID"></param>
+ <param name="MachineName"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:WebMasterMaintenance.GM_DrugService.GM_DrugToM_Drug(System.Object)">
+ <summary>
+ M_Drugの形式に詰め替え
+ </summary>
+ <param name="g"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:WebMasterMaintenance.GM_DrugService.GM_DrugUnitToM_DrugUnit(System.Object)">
+ <summary>
+ M_DrugUnitの形式に詰め替え
+ </summary>
+ <param name="g"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:WebMasterMaintenance.GM_DrugService.Update(WebMasterMaintenance.AloeEntities,WebMasterMaintenance.GM_DrugEX,System.String,System.String,System.Boolean)">
+ <summary>
+ UPDATE
+ </summary>
+ <param name="db"></param>
+ <param name="gm_Drug"></param>
+ <param name="SaveChange"></param>
+</member>
+<member name="M:WebMasterMaintenance.GM_DrugService.Insert(WebMasterMaintenance.AloeEntities,WebMasterMaintenance.GM_DrugEX,System.String,System.String,System.Boolean)">
+ <summary>
+ 
+ </summary>
+ <param name="db"></param>
+ <param name="gm_Drug"></param>
+ <param name="staffId"></param>
+ <param name="HostName"></param>
+ <param name="SaveChange"></param>
+ <remarks></remarks>
+</member>
+<member name="M:WebMasterMaintenance.GM_DrugService.CheckDeleteDrug(WebMasterMaintenance.AloeEntities,WebMasterMaintenance.GM_Drug,System.String@)">
+ <summary>
+ 削除時チェック
+ </summary>
+ <param name="db"></param>
+ <param name="mdl"></param>
+ <param name="msg"></param>
+ <returns></returns>
+</member>
+<member name="M:WebMasterMaintenance.GM_DrugService.CheckUpdateDrug(WebMasterMaintenance.AloeEntities,WebMasterMaintenance.GM_Drug,System.String@,System.Boolean)">
+ <summary>
+ 
+ </summary>
+ <param name="db"></param>
+ <param name="mdl"></param>
+ <param name="msg"></param>
+ <returns></returns>
+</member>
+<member name="M:WebMasterMaintenance.GM_DrugService.CheckValidateDate(WebMasterMaintenance.AloeEntities,WebMasterMaintenance.GM_Drug,System.Boolean)">
+ <summary>
+ 有効期限チェック
+ </summary>
+ <param name="db"></param>
+ <param name="mdl"></param>
+ <returns></returns>
+</member>
+<member name="M:WebMasterMaintenance.CM_DrugService.GM_ToCopy(WebMasterMaintenance.AloeEntities,System.Collections.Generic.Dictionary{System.String,System.String},System.Int32,System.String,System.String,System.String)">
+ <summary>
+ CMマスタからGMマスタへコピーを行う
+ </summary>
+ <param name="db"></param>
+ <param name="dicCheckItem"></param>
+ <param name="MasterType"></param>
+ <param name="FacilityId"></param>
+ <param name="StaffID"></param>
+ <param name="MachineName"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:WebMasterMaintenance.CM_DrugService.M_ToCopy(WebMasterMaintenance.AloeEntities,System.Collections.Generic.Dictionary{System.String,System.String},System.Int32,System.String,System.String,System.String,System.String@)">
+ <summary>
+ CMマスタからMマスタへコピーを行う
+ </summary>
+ <param name="db"></param>
+ <param name="dicCheckItem"></param>
+ <param name="MasterType"></param>
+ <param name="FacilityId"></param>
+ <param name="StaffID"></param>
+ <param name="MachineName"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:WebMasterMaintenance.CM_DrugService.CM_DrugToGM_Drug(System.Object)">
+ <summary>
+ GM_Drugの形式に詰め替え
+ </summary>
+ <param name="model"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:WebMasterMaintenance.CM_DrugService.CM_DrugUnitToGM_DrugUnit(System.Object)">
+ <summary>
+ GM_DrugUnitの形式に詰め替え
+ </summary>
+ <param name="model"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:WebMasterMaintenance.CM_DrugService.CM_DrugToM_Drug(System.Object)">
+ <summary>
+ M_Drugの形式に詰め替え
+ </summary>
+ <param name="model"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:WebMasterMaintenance.CM_DrugService.CM_DrugUnitToM_DrugUnit(System.Object)">
+ <summary>
+ M_DrugUnitの形式に詰め替え
+ </summary>
+ <param name="model"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:WebMasterMaintenance.CM_DrugService.ExternalPartCode(System.String,System.String)">
+ <summary>
+ ExternalPartCodeの値を取得する
+ </summary>
+ <param name="MHLWCode"></param>
+ <param name="DrugName"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:WebMasterMaintenance.UclLoginBL.DoMain(WebMasterMaintenance.AloeEntities,WebMasterMaintenance.LoginAD)">
+ <summary>
+ DoMain
+ </summary>
+ <remarks>
+ 概要： 有効なログインユーザであるか確認した後、ログイン情報の取得をする。
+ 【履歴】
+  日付    担当    Ver. チケット# 変更理由
+  ----------------------------------------------------------------
+ </remarks>
+</member>
+<member name="M:WebMasterMaintenance.UclLoginBL.GetControlInfo(System.String,WebMasterMaintenance.LoginAD)">
+ <summary>
+ GetControlInfo
+ </summary>
+ <remarks>
+ 概要： システム制御情報の取得する。
+ 【履歴】
+  日付    担当    Ver. チケット# 変更理由
+  ----------------------------------------------------------------
+ </remarks>
+</member>
+<member name="M:WebMasterMaintenance.UclLoginBL.GetSha256(System.String)">
+ <summary>'
+ 文字列から SHA256 のハッシュ値を取得'
+ </summary>'
+</member>
+<member name="M:WebMasterMaintenance.UclLoginBL.GetAccessAuth(System.String)">
+ <summary>
+ アクセス権限取得
+ </summary>
+ <param name="strXMLAccessAuth">アクセス権限XMLの文字列</param>
+ <returns>IReadOnlyDictionary</returns>
+ <remarks>
+ 概要：　アクセス権限の文字列を読み込み、読み込んだアクセス権限をIReadOnlyDictionaryに保持する。
+ 【履歴】
+ 　日付	　　担当	　　Ver.	チケット#	変更理由
+ ----------------------------------------------------------------
+ </remarks>
+</member>
+<member name="M:WebMasterMaintenance.UclLoginBL.UpdateValidType(WebMasterMaintenance.AloeEntities,WebMasterMaintenance.LoginAD,System.String)">
+ <summary>
+ <para>現在保持している情報の現任種別を変更して、履歴番号を採番してInsertする</para>
+ <para>（編集履歴を保持するためUpdateは行いません）</para>
+ <para>ValidType=0(有効)ならば2(停止)のレコードを物理削除。但し変更前が0(有効),1(退職)の場合はエラー(HasError=True)</para>
+ <para>ValidType=1(退職)ならば現在の有効期間のまま現任種別を1で更新</para>
+ <para>ValidType=2(停止)ならば有効期間min-maxで停止レコードをInsert。但し変更前が2(停止)の場合はエラー(HasError=True)</para>
+ </summary>
+ <param name="db">context</param>
+ <param name="LoginAppData">エラー受渡し用AloeADBase</param>
+ <param name="strValidType">現任種別 0:有効、1:退職、2:停止</param>
+ <returns>AloeADBase</returns>
+ <remarks></remarks>
+</member>
+<member name="M:WebMasterMaintenance.LogMessage.OutputLogMessage(System.Int32@,WebMasterMaintenance.ErrorMessage)">
+ <summary>
+ ログメッセージの出力
+ </summary>
+ <param name="intReturnValue">返却値</param>
+ <param name="msg">エラーメッセージオブジェクト</param>
+ <returns>boolean</returns>
+ <remarks>
+ 概要：　エラーメッセージオブジェクトを元にログメッセージを取得し、ファイルに出力する。
+ 【履歴】
+ 　日付	　　担当	　　Ver.	チケット#	変更理由
+ ----------------------------------------------------------------
+ </remarks>
+</member>
+<member name="M:WebMasterMaintenance.LogMessage.OutputLogMessage(System.Int32@,System.String,System.String,System.String,System.String,System.Collections.ArrayList,System.String)">
+ <summary>
+ ログメッセージの出力
+ </summary>
+ <param name="intReturnValue">返却値</param>
+ <param name="strFormID">ログ出力用フォームID</param>
+ <param name="strMessageID">ログ出力用メッセージID</param>
+ <param name="strMessageTitle">ログ出力用タイトルメッセージ</param>
+ <param name="strErrorOccurrencePosition">エラー発生場所</param>
+ <param name="arrReplaceString">ログ出力用置き換え文字列</param>
+ <param name="strErrMessage">その他のエラーメッセージ(システムエラーメッセージを表示したい場合に指定)</param>
+ <returns>boolean</returns>
+ <remarks>
+ 概要：　メッセージIDをキーにログメッセージを取得し、ファイルに出力する。
+ 【履歴】
+ 　日付	　　担当	　　Ver.	チケット#	変更理由
+ ----------------------------------------------------------------
+ </remarks>
+</member>
+<member name="M:WebMasterMaintenance.LogMessage.NewclsMessage(System.String,System.String,System.String,System.String,System.String)">
+ <summary>
+ インスタンス作成と初期値設定 
+ </summary>
+ <param name="strFormID">ログ出力用フォームID</param>
+ <param name="strMessageID">ログ出力用メッセージID</param>
+ <param name="strMessageTitle">ログ出力用タイトルメッセージ</param>
+ <param name="strErrorOccurrencePosition">ログ出力用エラー発生場所</param>
+ <param name="strErrMessage">ログ出力用エラーメッセージ</param>
+ <remarks>
+ 概要：　クラス変数等のインスタンス処理を行う。
+ 【履歴】
+ 　日付	　　担当	　　Ver.	チケット#	変更理由
+ ----------------------------------------------------------------
+ </remarks>
+</member>
+<member name="M:WebMasterMaintenance.LogMessage.GetMstMessage(System.String)">
+ <summary>
+ メッセージ取得処理 
+ </summary>
+ <returns>boolean</returns>
+ <remarks>
+ 概要：　メッセージIDをキーにメッセージマスタテーブルよりメッセージを取得する。
+ 【履歴】
+ 　日付	　　担当	　　Ver.	チケット#	変更理由
+ ----------------------------------------------------------------
+ </remarks>
+</member>
+<member name="M:WebMasterMaintenance.LogMessage.ReplaceMessageDetail(System.Collections.ArrayList)">
+ <summary>
+ メッセージ本文置換処理 
+ </summary>
+ <param name="arrReplaceString">arrReplaceString</param>
+ <returns>boolean</returns>
+ <remarks>
+ 概要：　改行文字と置換文字を置換し、表示するメッセージ内容を作成する。
+ 【履歴】
+ 　日付	　　担当	　　Ver.	チケット#	変更理由
+ ----------------------------------------------------------------
+ </remarks>
+</member>
+<member name="M:WebMasterMaintenance.LogMessage.LogMessageOutput">
+ <summary>
+ ログメッセージ出力処理 
+ </summary>
+ <returns>boolean</returns>
+ <remarks>
+ 概要：　ログメッセージを出力する。
+ 【履歴】
+ 　日付	　　担当	　　Ver.	チケット#	変更理由
+ ----------------------------------------------------------------
+ </remarks>
+</member>
+<member name="M:WebMasterMaintenance.LogMessage.CheckNull(System.Object)">
+ <summary>
+ NULLデータチェック
+ </summary>
+ <param name="objData">チェック対象データオブジェクト</param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="T:WebMasterMaintenance.LogMessageTbl">
+ <summary>
+ メッセージ一覧アクセスクラス
+ </summary>
+ <remarks>
+ <para>日付			作業者		#ﾁｹｯﾄ	メソッド名/概要</para>
+ </remarks>
+</member>
+<member name="F:WebMasterMaintenance.LogMessageTbl.TABLE_NAME">
+ <summary>テーブル名</summary>
+</member>
+<member name="F:WebMasterMaintenance.LogMessageTbl.TABLE_PREFIX">
+ <summary>テーブルプリフィックス</summary>
+</member>
+<member name="F:WebMasterMaintenance.LogMessageTbl.KEY_FIELD">
+ <summary>Data取得時のキーフィールド</summary>
+</member>
+<member name="T:WebMasterMaintenance.LogMessageTbl.LogMessageMember">
+ <summary>
+ <para>Messageテーブルの列を扱うクラス</para>
+ </summary>
+ <remarks>
+ <para>Messageの列をプロパティで公開する。</para>
+ <para>テーブルアダプタとプロパティとの連携を行う。</para>
+ <para>(メンバの初期値がAloeConst.UndefXXX未使用だが、使用するのがLogMessage内のみで他に影響ないためそのままとする)</para>
+ </remarks>
+</member>
+<member name="P:WebMasterMaintenance.LogMessageTbl.LogMessageMember.HasData">
+ <summary>
+ <para>データ有無</para>
+ <para>GetDataのNew時にデータ取得できたかどうかを持つ</para>
+ <para>True=データあり</para>
+ </summary>
+ <value></value>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="P:WebMasterMaintenance.LogMessageTbl.LogMessageMember.MessageID">
+ <summary>
+ <para>メッセージID 8byte</para>
+ </summary>
+ <value></value>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="P:WebMasterMaintenance.LogMessageTbl.LogMessageMember.LogLevelForm">
+ <summary>
+ <para>ログレベル(画面) 1byte</para>
+ <para>0：未出力、1：通常、2：デバッグ</para>
+ </summary>
+ <value></value>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="P:WebMasterMaintenance.LogMessageTbl.LogMessageMember.LogLevelFile">
+ <summary>
+ <para>ログレベル(ログファイル) 1byte</para>
+ <para>0：未出力、1：通常、2：デバッグ</para>
+ </summary>
+ <value></value>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="P:WebMasterMaintenance.LogMessageTbl.LogMessageMember.MessageIcon">
+ <summary>
+ <para>メッセージアイコン</para>
+ <para>64:情報、48:警告、32:確認、16:エラー</para>
+ </summary>
+ <value></value>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="P:WebMasterMaintenance.LogMessageTbl.LogMessageMember.MessageDetail">
+ <summary>
+ メッセージ内容 1000byte
+ </summary>
+ <value></value>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="P:WebMasterMaintenance.LogMessageTbl.LogMessageMember.ButtonType">
+ <summary>
+ <para>ボタン種別 1byte</para>
+ <para>0:OKOnly、4:YesNo、3:YesNoCancel、1:OkCancel、5:RetryCancel</para>
+ </summary>
+ <value></value>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="P:WebMasterMaintenance.LogMessageTbl.LogMessageMember.ButtonPosition">
+ <summary>
+ <para>デフォルトボタン</para>
+ <para>0:Button1、256:Button2、512:Button3</para>
+ </summary>
+ <value></value>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="T:WebMasterMaintenance.LogMessageTbl.LogMessageData">
+ <summary>
+ Messageの1データを取り扱うクラス【AloeGeneralData使用】
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:WebMasterMaintenance.LogMessageTbl.LogMessageData.#ctor">
+ <summary>
+ コンストラクタ（新規挿入用読み込みなし）
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:WebMasterMaintenance.LogMessageTbl.LogMessageData.#ctor(WebMasterMaintenance.AloeEntities@,System.String)">
+ <summary>
+ コンストラクタ（キー指定で対象データを取得）
+ </summary>
+ <param name="appData">エラー受渡し用AloeADBase</param>
+ <param name="strMessageID">メッセージID</param>
+ <remarks></remarks>
+</member>
+<member name="M:WebMasterMaintenance.LogMessageTbl.LogMessageData.GetData(WebMasterMaintenance.AloeEntities,System.String)">
+ <summary>
+ <para>指定条件のデータをAloeGeneralDataから取得する</para>
+ </summary>
+ <param name="appData">エラー受渡し用AloeADBase</param>
+ <param name="strMessageID">メッセージID</param>
+ <remarks></remarks>
+</member>
+<member name="T:WebMasterMaintenance.IPHelper">
+ <summary>
+ IPHelper IPアドレス取得
+ </summary>
+</member>
+<member name="M:WebMasterMaintenance.IPHelper.GetIPAddress(System.String@,System.String@,System.String,System.String,System.String)">
+ <summary>
+ Gets the user's IP Address
+ </summary>
+ <param name="IPAddress">IPAddress</param>
+ <param name="HostName">HostName</param>
+ <param name="httpVia">HTTP_VIA Server variable</param>
+ <param name="httpXForwardedFor">HTTP_X_FORWARDED Server variable</param>
+ <param name="RemoteAddr">REMOTE_ADDR Server variable</param>
+</member>
+<member name="M:WebMasterMaintenance.IPHelper.IsIPV4(System.String)">
+ <summary>
+ Determines weather an IP Address is V4
+ </summary>
+ <param name="input">input string</param>
+ <returns>Is IPV4 True or False</returns>
+</member>
+<member name="M:WebMasterMaintenance.IPHelper.IsIPV4(System.Net.IPAddress)">
+ <summary>
+ Determines weather an IP Address is V4
+ </summary>
+ <param name="address">input IP address</param>
+ <returns>Is IPV4 True or False</returns>
+</member>
+<member name="F:WebMasterMaintenance.Message.MSG_REQUIRED">
+ <summary>
+ 必須入力エラー
+ </summary>
+</member>
+<member name="F:WebMasterMaintenance.Message.MSG_DELETED">
+ <summary>
+削除しました。
+ </summary>
+</member>
+<member name="F:WebMasterMaintenance.Message.MSG_SELECTED">
+ <summary>
+検索結果が０件です。"
+ </summary>
+</member>
+<member name="F:WebMasterMaintenance.Message.MSG_HOTCORD">
+ <summary>
+ ホットコード重複エラー
+ </summary>
+</member>
+<member name="F:WebMasterMaintenance.Message.MSG_20000035">
+ <summary>
+ 終了日には、開始日以降の日付を指定してください。
+ </summary>
+</member>
+<member name="F:WebMasterMaintenance.Message.MSG_DUPLICATE_VALIDDATE">
+ <summary>
+ 有効期限が重複しています。
+ </summary>
+</member>
+<member name="F:WebMasterMaintenance.Message.MSG_BEFORE_VALIDDATE_FROM">
+ <summary>
+ カルテで使用されているため、開始日は登録開始日以降への変更はできません。
+ </summary>
+</member>
+<member name="F:WebMasterMaintenance.Message.MSG_BEFORE_VALIDDATE_TO">
+ <summary>
+ 開始日は登録開始日以降への変更はできません。
+ </summary>
+</member>
+<member name="F:WebMasterMaintenance.Message.MSG_KARTE_USED">
+ <summary>
+ カルテで使用されているため、削除できません。
+ </summary>
+</member>
+<member name="F:WebMasterMaintenance.Message.MSG_NODELETE_LOG">
+ <summary>
+ （途中履歴）は、削除できません。
+ </summary>
+</member>
+<member name="F:WebMasterMaintenance.Message.MSG_DUPLICATE_UNIT">
+ <summary>
+ 単位が重複しています。
+ </summary>
+</member>
+<member name="M:WebMasterMaintenance.M_DrugUnitService.DupllicateCheck(WebMasterMaintenance.AloeEntities,WebMasterMaintenance.M_DrugUnit,System.String@)">
+ <summary>
+ 重複チェック
+ </summary>
+ <param name="db"></param>
+ <param name="mdl"></param>
+ <param name="msg"></param>
+ <returns></returns>
+</member>
+<member name="M:WebMasterMaintenance.M_DrugService.Update(WebMasterMaintenance.AloeEntities,WebMasterMaintenance.M_DrugEX,System.String,System.String,System.Boolean)">
+ <summary>
+ UPDATE
+ </summary>
+ <param name="db"></param>
+ <param name="m_drug"></param>
+ <param name="SaveChange"></param>
+</member>
+<member name="M:WebMasterMaintenance.M_DrugService.Insert(WebMasterMaintenance.AloeEntities,WebMasterMaintenance.M_DrugEX,System.String,System.String,System.Boolean)">
+ <summary>
+ INSERT M_DrugExMaterial
+ </summary>
+ <param name="db"></param>
+ <param name="m_drug"></param>
+ <param name="staffId"></param>
+ <param name="HostName"></param>
+ <param name="SaveChange"></param>
+</member>
+<member name="M:WebMasterMaintenance.M_DrugService.CopyRegist(WebMasterMaintenance.AloeEntities,WebMasterMaintenance.M_DrugEX,System.String,System.String)">
+ <summary>
+ 複写登録
+ </summary>
+ <param name="db"></param>
+ <param name="m_Drug"></param>
+ <param name="staffid"></param>
+ <param name="host"></param>
+</member>
+<member name="M:WebMasterMaintenance.M_DrugService.CheckDeleteMDrug(WebMasterMaintenance.AloeEntities,WebMasterMaintenance.M_Drug,System.String@)">
+ <summary>
+ 削除時チェック
+ </summary>
+ <param name="db"></param>
+ <param name="mdl"></param>
+ <param name="msg"></param>
+ <returns></returns>
+</member>
+<member name="M:WebMasterMaintenance.M_DrugService.CheckLog(WebMasterMaintenance.AloeEntities,WebMasterMaintenance.M_Drug)">
+ <summary>
+ LOG番号チェック
+ </summary>
+ <param name="db"></param>
+ <param name="mdl"></param>
+ <returns></returns>
+</member>
+<member name="M:WebMasterMaintenance.M_DrugService.CheckUpdateDrug(WebMasterMaintenance.AloeEntities,WebMasterMaintenance.M_Drug,System.String@,System.Boolean)">
+ <summary>
+ 
+ </summary>
+ <param name="db"></param>
+ <param name="mdl"></param>
+ <param name="msg"></param>
+ <returns></returns>
+</member>
+<member name="M:WebMasterMaintenance.M_DrugService.CheckValidateDate(WebMasterMaintenance.AloeEntities,WebMasterMaintenance.M_Drug,System.Boolean)">
+ <summary>
+ 有効期限チェック
+ </summary>
+ <param name="db"></param>
+ <param name="mdl"></param>
+ <returns></returns>
+</member>
+<member name="M:WebMasterMaintenance.M_DrugService.CheckValidateFromDate(WebMasterMaintenance.AloeEntities,WebMasterMaintenance.M_Drug,System.DateTime@)">
+ <summary>
+ 開始日変更の確認
+ </summary>
+ <param name="db"></param>
+ <param name="mdl"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:WebMasterMaintenance.M_DrugService.CheckKarte20(WebMasterMaintenance.AloeEntities,WebMasterMaintenance.M_Drug)">
+ <summary>
+ 処方オーダ使用有無
+ </summary>
+ <param name="db"></param>
+ <param name="mdl"></param>
+ <returns></returns>
+</member>
+<member name="M:WebMasterMaintenance.M_DrugService.CheckKarte30(WebMasterMaintenance.AloeEntities,WebMasterMaintenance.M_Drug)">
+ <summary>
+ 注射チェック
+ </summary>
+ <param name="db"></param>
+ <param name="mdl"></param>
+ <returns></returns>
+</member>
+<member name="M:WebMasterMaintenance.M_DrugService.CheckKarte40(WebMasterMaintenance.AloeEntities,WebMasterMaintenance.M_Drug)">
+ <summary>
+ 処置チェック
+ </summary>
+ <param name="db"></param>
+ <param name="mdl"></param>
+ <returns></returns>
+</member>
+<member name="M:WebMasterMaintenance.M_DrugService.CheckKarte55(WebMasterMaintenance.AloeEntities,WebMasterMaintenance.M_Drug)">
+ <summary>
+ 輸血チェック
+ </summary>
+ <param name="db"></param>
+ <param name="mdl"></param>
+ <returns></returns>
+</member>
+<member name="M:WebMasterMaintenance.M_DrugService.CheckKarte70(WebMasterMaintenance.AloeEntities,WebMasterMaintenance.M_Drug)">
+ <summary>
+ 放射線チェック
+ </summary>
+ <param name="db"></param>
+ <param name="mdl"></param>
+ <returns></returns>
+</member>
+<member name="M:WebMasterMaintenance.M_DrugService.CheckOrderRecordTools70(WebMasterMaintenance.AloeEntities,WebMasterMaintenance.M_Drug)">
+ <summary>
+ 放射線詳細チェック
+ </summary>
+ <param name="db"></param>
+ <param name="mdl"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:WebMasterMaintenance.M_DrugService.CheckSafetyInfo(WebMasterMaintenance.AloeEntities,WebMasterMaintenance.M_Drug)">
+ <summary>
+ 診療基本情報チェック
+ </summary>
+ <param name="db"></param>
+ <param name="mdl"></param>
+ <returns></returns>
+ <remarks></remarks>
+</member>
+<member name="M:WebMasterMaintenance.S_GroupFacilityService.GetFacilityModel(WebMasterMaintenance.AloeEntities,System.String)">
+ <summary>
+ 施設情報取得
+ </summary>
+ <param name="db"></param>
+ <param name="id"></param>
+ <returns></returns>
+</member>
+<member name="T:WebMasterMaintenance.UserService">
+ <summary>
+ ユーザーサービス
+ </summary>
+</member>
+<member name="M:WebMasterMaintenance.UserService.GetGroupFacility(WebMasterMaintenance.AloeEntities)">
+ <summary>
+ グループ施設マスタ取得
+ </summary>
+ <param name="db"></param>
+ <returns></returns>
+</member>
+<member name="M:WebMasterMaintenance.UserService.LoginAuthority(WebMasterMaintenance.AloeEntities,WebMasterMaintenance.UserModel,System.Object)">
+ <summary>
+ 認証
+ </summary>
+ <returns></returns>
+</member>
+<member name="M:WebMasterMaintenance.UserService.setMergeAuthDic(System.Collections.Generic.Dictionary{System.String,System.String}@,System.Collections.Generic.KeyValuePair{System.String,System.String})">
+ <summary>
+ 権限情報のマージ
+ </summary>
+ <param name="dicControlInfo"></param>
+ <param name="dicPair"></param>
+</member>
+<member name="T:WebMasterMaintenance.XMLControlInfo">
+ <summary>
+ ［制御マスタ］の設定情報
+ </summary>
+ <remarks></remarks>
+</member>
+<member name="M:WebMasterMaintenance.XMLControlInfo.GetXMLAccessAuth(WebMasterMaintenance.AloeEntities,WebMasterMaintenance.AloeGeneralData{System.Xml.Linq.XElement},System.String,System.String[],System.String,WebMasterMaintenance.AuthorityInfo@,System.String)">
+ <summary>
+ 制御情報取得(アクセス権限)
+ </summary>
+ <param name="clsAuthorityInfo">アクセス権限返却用クラス</param>
+ <param name="strFunctionID">機能ID</param>
+ <returns>Integer</returns>
+ <remarks>
+ 概要：制御Gマスタおよび制御マスタのアクセス権限情報を取得する。
+       取得後はAloeGeneralDataへの制御情報格納を行う。
+       その後アクセス権限情報のマージ処理を行う。
+ 【履歴】
+ 　日付	　　担当	　　Ver.	チケット#	変更理由
+ ----------------------------------------------------------------
+ 2015/06/02	FSI 山口	0.0.1	#XXXXXXXX	新規作成
+ 2016/04/02  M.Miyoshi   2.0.15  #5814　　　 委任マスタに渡す値が逆だったので改修
+ 2016/04/08  M.Miyoshi   2.0.15  #5856       委任時の判断が逆なので修正
+ </remarks>
+</member>
+<member name="M:WebMasterMaintenance.XMLControlInfo.GetConfigControl(WebMasterMaintenance.AloeEntities,WebMasterMaintenance.XMLControlInfo.ConfigXMLData@,WebMasterMaintenance.XMLControlInfo.ConfigXMLData@,WebMasterMaintenance.XMLControlInfo.ConfigXMLData@,WebMasterMaintenance.XMLControlInfo.ConfigXMLData@,System.String[],System.String,System.String,System.Collections.ArrayList,System.Collections.ArrayList,System.String)">
+ <summary>
+ 制御Gマスタおよび制御マスタより制御情報を取得
+ </summary>
+ <param name="clsConfigXMLGroupJob">制御Gマスタ用設定値格納クラス(特定職種)</param>
+ <param name="clsConfigXMLGroupCommon">制御Gマスタ用設定値格納クラス(共通職種)</param>
+ <param name="clsConfigXMLFacilityJob">制御マスタ用設定値格納クラス(特定職種)</param>
+ <param name="clsConfigXMLFacilityCommon">制御マスタ用設定値格納クラス(共通職種)</param>
+ <param name="strJobCode">職種コード</param>
+ <param name="strCommonJobCode">共通職種コード</param>
+ <param name="strFunctionID">機能ID</param>
+ <param name="arrConfigTag">制御情報のタグ情報</param>
+ <param name="arrAttribute">制御情報の属性情報</param>
+ <returns>Integer</returns>
+ <remarks>
+ 概要：制御Gマスタおよび制御マスタの制御情報を取得する。
+       取得後はAloeGeneralDataへの制御情報格納を行う。
+       その後制御情報のマージ処理を行う。
+ 【履歴】
+ 　日付	　　担当	　　Ver.	チケット#	変更理由
+ ----------------------------------------------------------------
+ </remarks>
+</member>
+<member name="M:WebMasterMaintenance.XMLControlInfo.MergeConfigXML(WebMasterMaintenance.XMLControlInfo.ConfigXMLData@,WebMasterMaintenance.XMLControlInfo.ConfigXMLData@,System.Collections.ArrayList,System.Collections.ArrayList,System.String)">
+ <summary>
+ 制御情報のマージ処理
+ </summary>
+ <param name="clsConfigXMLTarget">マージ先設定値格納クラス</param>
+ <param name="clsConfigXMLMerge">マージ元設定値格納クラス</param>
+ <param name="arrConfigTag">制御情報のタグ情報</param>
+ <param name="arrAttribute">制御情報の属性情報</param>
+ <param name="strFunctionID">機能ID</param>
+ <returns>Integer</returns>
+ <remarks>
+ 概要：制御Gマスタおよび制御マスタの制御情報を取得する。
+       取得後はAloeGeneralDataへの制御情報格納を行う。
+       その後制御情報のマージ処理を行う。
+ 【履歴】
+ 　日付	　　担当	　　Ver.	チケット#	変更理由
+ ----------------------------------------------------------------
+ </remarks>
+</member>
+<member name="M:WebMasterMaintenance.XMLControlInfo.MergeConfigXML(WebMasterMaintenance.XMLControlInfo.ConfigXMLData@,WebMasterMaintenance.XMLControlInfo.ConfigXMLData@,System.Collections.ArrayList,System.Collections.ArrayList)">
+ <summary>
+ 制御情報のマージ処理(アクセス権限用)
+ </summary>
+ <param name="clsConfigXMLTarget">マージ先設定値格納クラス</param>
+ <param name="clsConfigXMLMerge">マージ元設定値格納クラス</param>
+ <param name="arrConfigTag">制御情報のタグ情報</param>
+ <param name="arrAttribute">制御情報の属性情報</param>
+ <returns>Integer</returns>
+ <remarks>
+ 概要：制御Gマスタおよび制御マスタの制御情報を取得する。
+       取得後はAloeGeneralDataへの制御情報格納を行う。
+       その後制御情報のマージ処理を行う。
+ 【履歴】
+ 　日付	　　担当	　　Ver.	チケット#	変更理由
+ ----------------------------------------------------------------
+ 2014/12/22	FSI 山口	0.0.1	#XXXXXXX
+ </remarks>
+</member>
+<member name="M:WebMasterMaintenance.XMLControlInfo.MenuOverWriteValue(WebMasterMaintenance.XMLControlInfo.ConfigXMLData@,WebMasterMaintenance.XMLControlInfo.ConfigXMLData@,System.Xml.Linq.XElement,System.Collections.ArrayList,System.Int32,System.String,System.String)">
+ <summary>
+ メニュー表示制御情報の設定値上書き処理
+ </summary>
+ <param name="clsConfigXMLSource">制御マスタ用設定値格納クラス(マージ先)</param>
+ <param name="clsConfigXMLMerge">制御マスタ用設定値格納クラス(マージ元)</param>
+ <param name="xelElementGroup">読み込み中の制御Gマスタ設定値(行)</param>
+ <param name="arrAttribute">制御情報の属性情報</param>
+ <param name="intDataCnt">制御Gマスタ制御情報のデータカウント</param>
+ <param name="strAttributeKey">キーとなる属性値</param>
+ <returns>Integer</returns>
+ <remarks>
+ 概要：キーとなる属性値が一致する場合、制御情報の上書き処理を行う
+ 【履歴】
+ 　日付	　　担当	　　Ver.	チケット#	変更理由
+ ----------------------------------------------------------------
+ 2014/12/22	FSI 山口	0.0.1	#XXXXXXXX	新規作成
+ </remarks>
+</member>
+<member name="M:WebMasterMaintenance.XMLControlInfo.AuthOverWriteValue(WebMasterMaintenance.XMLControlInfo.ConfigXMLData@,WebMasterMaintenance.XMLControlInfo.ConfigXMLData@,System.Xml.Linq.XElement,System.Collections.ArrayList,System.Int32)">
+ <summary>
+ アクセス権限制御情報の設定値上書き処理
+ </summary>
+ <param name="clsConfigXMLOverWrite">上書き先設定値格納クラス</param>
+ <param name="clsConfigXMLSource">上書き元設定値格納クラス</param>
+ <param name="xelElementOverWrite">読み込み中の上書き先マスタ設定値(行)</param>
+ <param name="arrAttribute">制御情報の属性情報</param>
+ <param name="intDataCnt">制御Gマスタ制御情報のデータカウント</param>
+ <returns>Integer</returns>
+ <remarks>
+ 概要：キーとなる属性値が一致する場合、制御情報の上書き処理を行う
+ 【履歴】
+ 　日付	　　担当	　　Ver.	チケット#	変更理由
+ ----------------------------------------------------------------
+ 2015/06/02	FSI 山口	0.0.1	#XXXXXXXX	新規作成
+ </remarks>
+</member>
+<member name="M:WebMasterMaintenance.XMLControlInfo.MergeAuthConfigXMLDeputy(WebMasterMaintenance.XMLControlInfo.ConfigXMLData@,WebMasterMaintenance.XMLControlInfo.ConfigXMLData@,System.Collections.ArrayList,System.Collections.ArrayList,System.String)">
+ <summary>
+ Todo: 次のフェーズでは廃止　委任マスタアクセス権限制御情報と制御・職員マージ後アクセス権限制御情報の設定値マージ処理
+ </summary>
+ <param name="clsConfigXMLDeputy">委任マスタ制御情報格納クラス</param>
+ <param name="clsConfigXMLMerge">制御・職員マージ制御情報格納クラス</param>
+ <param name="arrConfigTag">制御情報のタグ情報</param>
+ <param name="arrAttribute">制御情報の属性情報</param>
+ <param name="strFunctionID">機能ID</param>
+ <returns>Integer</returns>
+ <remarks>
+ 概要：キーとなる属性値が一致する場合、制御情報の上書き処理を行う
+ 【履歴】
+ 　日付	　　担当	　　Ver.	チケット#	変更理由
+ ----------------------------------------------------------------
+ 2014/12/22	FSI 山口	0.0.1	#XXXXXXXX	新規作成
+ </remarks>
+</member>
+<member name="M:WebMasterMaintenance.XMLControlInfo.MergeAuthorityXMLDeputy(WebMasterMaintenance.XMLControlInfo.ConfigXMLData@,WebMasterMaintenance.XMLControlInfo.ConfigXMLData@,System.Collections.ArrayList,System.Collections.ArrayList,System.String)">
+ <summary>
+ 委任マスタアクセス権限制御情報と制御・職員マージ後アクセス権限制御情報の設定値マージ処理
+ </summary>
+ <param name="clsConfigXMLDeputy">委任マスタ制御情報格納クラス</param>
+ <param name="clsConfigXMLMerge">制御・職員マージ制御情報格納クラス</param>
+ <param name="arrConfigTag">制御情報のタグ情報</param>
+ <param name="arrAttribute">制御情報の属性情報</param>
+ <param name="strFunctionID">機能ID</param>
+ <returns>Integer</returns>
+ <remarks>
+ 概要：キーとなる属性値が一致する場合、制御情報の上書き処理を行う
+ 【履歴】
+ 　日付	　　担当	　　Ver.	チケット#	変更理由
+ ----------------------------------------------------------------
+ 2014/12/22	FSI 山口	0.0.1	#XXXXXXXX	新規作成
+ </remarks>
+</member>
+<member name="M:WebMasterMaintenance.XMLControlInfo.ReadXMLElementData(System.Collections.Generic.IEnumerable{System.Xml.Linq.XElement}@,System.Xml.Linq.XElement,System.Collections.ArrayList)">
+ <summary>
+ 制御情報の要素単位読み込み処理
+ </summary>
+ <param name="xmlElementList">制御情報行の読み込み情報</param>
+ <param name="xmlElement">読み込み元の制御情報</param>
+ <param name="arrConfigTag">読み込み対象のタグ(要素)情報</param>
+ <returns>Integer</returns>
+ <remarks>
+ 概要：キーとなる属性値が一致する場合、制御情報の上書き処理を行う
+ 【履歴】
+ 　日付	　　担当	　　Ver.	チケット#	変更理由
+ ----------------------------------------------------------------
+ </remarks>
+</member>
+<member name="M:WebMasterMaintenance.XMLControlInfo.ReadConfigXmlData(System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.String}}@,WebMasterMaintenance.XMLControlInfo.ConfigXMLData,System.Collections.ArrayList,System.Collections.ArrayList)">
+ <summary>
+ XML設定データの読み込み処理
+ </summary>
+ <param name="dicConfigTagData">設定値格納用配列(Dictionary)</param>
+ <param name="clsXMLMerge">マージ済みXMLデータ格納クラス</param>
+ <param name="arrConfigTag">読み込み対象のタグ(要素)情報</param>
+ <param name="arrAttr">読み込み対象対象の属性</param>
+ <returns>Integer</returns>
+ <remarks>
+ 概要：XML設定データの読み込みを行い、設定値を出力する。
+ 【履歴】
+ 　日付	　　担当	　　Ver.	チケット#	変更理由
+ ----------------------------------------------------------------
+ </remarks>
+</member>
+<member name="M:WebMasterMaintenance.XMLControlInfo.ReadConfigXmlData(WebMasterMaintenance.AuthorityInfo@,WebMasterMaintenance.XMLControlInfo.ConfigXMLData,System.Collections.ArrayList,System.Collections.ArrayList,System.String)">
+ <summary>
+ XML設定データの読み込み処理(アクセス権限取得用)
+ </summary>
+ <param name="clsAuthorityInfo">アクセス権限格納用クラス</param>
+ <param name="clsXMLMerge">マージ済みXMLデータ格納クラス</param>
+ <param name="arrConfigTag">読み込み対象のタグ(要素)情報</param>
+ <param name="arrAttr">読み込み対象対象の属性</param>
+ <returns>Integer</returns>
+ <remarks>
+ 概要：XML設定データの読み込みを行い、設定値を出力する。
+ 【履歴】
+ 　日付	　　担当	　　Ver.	チケット#	変更理由
+ ----------------------------------------------------------------
+ </remarks>
+</member>
+</members>
+</doc>

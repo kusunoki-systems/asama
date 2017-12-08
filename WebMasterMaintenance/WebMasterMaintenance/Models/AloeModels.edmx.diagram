@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="000db8cb081344b08030ebc9db338f7d" Name="Diagram1" ZoomLevel="64">
+        <EntityTypeShape EntityType="AloeModel.M_StaffBase" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="AloeModel.M_Color" Width="1.5" PointX="6" PointY="13.625" />
+        <EntityTypeShape EntityType="AloeModel.M_ColorType" Width="1.5" PointX="3.75" PointY="0.75" />
+        <EntityTypeShape EntityType="AloeModel.M_Customer" Width="1.5" PointX="0.75" PointY="6.875" />
+        <EntityTypeShape EntityType="AloeModel.M_Item" Width="1.5" PointX="6" PointY="4.125" />
+        <EntityTypeShape EntityType="AloeModel.M_Maker" Width="1.5" PointX="2.75" PointY="8.875" />
+        <EntityTypeShape EntityType="AloeModel.M_Size" Width="1.5" PointX="6" PointY="9.625" />
+        <EntityTypeShape EntityType="AloeModel.M_SizeType" Width="1.5" PointX="3.75" PointY="4.75" />
+        <EntityTypeShape EntityType="AloeModel.M_StaffPassword" Width="1.5" PointX="8.75" PointY="1.875" />
+        <EntityTypeShape EntityType="AloeModel.M_Supplier" Width="1.5" PointX="8.75" PointY="5.875" />
+        <EntityTypeShape EntityType="AloeModel.T_ArrivalBody" Width="1.5" PointX="8.75" PointY="9.875" />
+        <EntityTypeShape EntityType="AloeModel.T_DeliverBody" Width="1.5" PointX="10.75" PointY="1.875" />
+        <EntityTypeShape EntityType="AloeModel.T_HachuBody" Width="1.5" PointX="10.75" PointY="6.875" />
+        <EntityTypeShape EntityType="AloeModel.T_InvoiceBody" Width="1.5" PointX="10.75" PointY="11.875" />
+        <EntityTypeShape EntityType="AloeModel.T_JuchuBody" Width="1.5" PointX="0.75" PointY="12.875" />
+        <EntityTypeShape EntityType="AloeModel.T_Nyukin" Width="1.5" PointX="2.75" PointY="12.875" />
+        <EntityTypeShape EntityType="AloeModel.T_PaymentBody" Width="1.5" PointX="12.75" PointY="1.875" />
+        <EntityTypeShape EntityType="AloeModel.T_ArrivalHeader" Width="1.5" PointX="12.75" PointY="5.875" />
+        <EntityTypeShape EntityType="AloeModel.T_DeliverHeader" Width="1.5" PointX="12.75" PointY="8.875" />
+        <EntityTypeShape EntityType="AloeModel.T_HachuHeader" Width="1.5" PointX="12.75" PointY="12.875" />
+        <EntityTypeShape EntityType="AloeModel.T_InvoiceHeader" Width="1.5" PointX="14.75" PointY="1.875" />
+        <EntityTypeShape EntityType="AloeModel.T_JuchuHeader" Width="1.5" PointX="14.75" PointY="5.875" />
+        <EntityTypeShape EntityType="AloeModel.T_PaymentHeader" Width="1.5" PointX="14.75" PointY="8.875" />
+        <AssociationConnector Association="AloeModel.FK_M_Color_M_ColorType" />
+        <AssociationConnector Association="AloeModel.FK_M_PRODUCT_M_ColorType" />
+        <AssociationConnector Association="AloeModel.FK_M_PRODUCT_M_SizeType" />
+        <AssociationConnector Association="AloeModel.FK_M_Size_M_SizeType" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

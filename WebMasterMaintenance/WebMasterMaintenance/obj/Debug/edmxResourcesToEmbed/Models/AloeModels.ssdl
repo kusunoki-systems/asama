@@ -1,0 +1,502 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AloeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="M_Color">
+    <Key>
+      <PropertyRef Name="ColorCd" />
+    </Key>
+    <Property Name="ColorCd" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ColorName" Type="varchar" MaxLength="20" />
+    <Property Name="ColorTypeCd" Type="varchar" MaxLength="20" />
+    <Property Name="InsertedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="InsertedAt" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="UpdatedAt" Type="datetime" />
+  </EntityType>
+  <EntityType Name="M_ColorType">
+    <Key>
+      <PropertyRef Name="ColorTypeCd" />
+    </Key>
+    <Property Name="ColorTypeCd" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ColorTypeName" Type="varchar" MaxLength="100" />
+    <Property Name="InsertedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="InsertedAt" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="UpdatedAt" Type="datetime" />
+  </EntityType>
+  <EntityType Name="M_Customer">
+    <Key>
+      <PropertyRef Name="CustomerCd" />
+    </Key>
+    <Property Name="CustomerCd" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="CustomerName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="CustomerContact" Type="nvarchar(max)" />
+    <Property Name="InsertedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="InsertedAt" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="UpdatedAt" Type="datetime" />
+  </EntityType>
+  <EntityType Name="M_Item">
+    <Key>
+      <PropertyRef Name="ItemCd" />
+    </Key>
+    <Property Name="ItemCd" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ItemName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Season" Type="nvarchar" MaxLength="100" />
+    <Property Name="MakerCd" Type="char" MaxLength="6" />
+    <Property Name="SizeTypeCd" Type="varchar" MaxLength="20" />
+    <Property Name="ColorTypeCd" Type="varchar" MaxLength="20" />
+    <Property Name="RetailPrice" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="CostPrice" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="InsertedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="InsertedAt" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="UpdatedAt" Type="datetime" />
+  </EntityType>
+  <EntityType Name="M_Maker">
+    <Key>
+      <PropertyRef Name="MakerCd" />
+    </Key>
+    <Property Name="MakerCd" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="MakerName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="MakerContact" Type="nvarchar(max)" />
+    <Property Name="InsertedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="InsertedAt" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="UpdatedAt" Type="datetime" />
+  </EntityType>
+  <EntityType Name="M_Size">
+    <Key>
+      <PropertyRef Name="SizeCd" />
+    </Key>
+    <Property Name="SizeCd" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="SizeName" Type="varchar" MaxLength="20" />
+    <Property Name="SizeTypeCd" Type="varchar" MaxLength="20" />
+    <Property Name="InsertedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="InsertedAt" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="UpdatedAt" Type="datetime" />
+  </EntityType>
+  <EntityType Name="M_SizeType">
+    <Key>
+      <PropertyRef Name="SizeTypeCd" />
+    </Key>
+    <Property Name="SizeTypeCd" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="SizeTypeName" Type="varchar" MaxLength="100" />
+    <Property Name="InsertedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="InsertedAt" Type="datetime" />
+    <Property Name="UpdatedBy" Type="varchar" MaxLength="20" />
+    <Property Name="UpdateAt" Type="datetime" />
+  </EntityType>
+  <!--生成中に見つかったエラー:
+警告 6002: テーブル/ビュー 'Acchito.dbo.M_StaffBase' には主キーが定義されていません。主キーは推論され、定義は読み取り専用のテーブル/ビューとして作成されました。-->
+  <EntityType Name="M_StaffBase">
+    <Key>
+      <PropertyRef Name="MSTB_StaffID" />
+      <PropertyRef Name="MSTB_LogNo" />
+      <PropertyRef Name="MSTB_UpdateDate" />
+      <PropertyRef Name="MSTB_UpdateClientName" />
+      <PropertyRef Name="MSTB_UpdateStaffID" />
+      <PropertyRef Name="MSTB_DelFlag" />
+      <PropertyRef Name="MSTB_NameKana" />
+      <PropertyRef Name="MSTB_Name" />
+      <PropertyRef Name="MSTB_SexType" />
+    </Key>
+    <Property Name="MSTB_StaffID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MSTB_LogNo" Type="int" Nullable="false" />
+    <Property Name="MSTB_UpdateDate" Type="datetime" Nullable="false" />
+    <Property Name="MSTB_UpdateClientName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MSTB_UpdateStaffID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MSTB_DelFlag" Type="int" Nullable="false" />
+    <Property Name="MSTB_NameKana" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="MSTB_Name" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="MSTB_BirthDate" Type="datetime" />
+    <Property Name="MSTB_SexType" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="MSTB_EnterDate" Type="datetime" />
+    <Property Name="MSTB_RetireDate" Type="datetime" />
+    <Property Name="MSTB_Remarks" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="M_StaffPassword">
+    <Key>
+      <PropertyRef Name="MSTP_StaffID" />
+      <PropertyRef Name="MSTP_LogNo" />
+    </Key>
+    <Property Name="MSTP_StaffID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MSTP_LogNo" Type="int" Nullable="false" />
+    <Property Name="MSTP_UpdateDate" Type="datetime" Nullable="false" />
+    <Property Name="MSTP_UpdateClientName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MSTP_UpdateStaffID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MSTP_Password" Type="char" MaxLength="64" Nullable="false" />
+  </EntityType>
+  <EntityType Name="M_Supplier">
+    <Key>
+      <PropertyRef Name="SupplierCd" />
+    </Key>
+    <Property Name="SupplierCd" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="SupplierName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="SupplierContact" Type="nvarchar(max)" />
+    <Property Name="InsertedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="InsertedAt" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="UpdatedAt" Type="datetime" />
+  </EntityType>
+  <EntityType Name="T_ArrivalBody">
+    <Key>
+      <PropertyRef Name="ArrivalNo" />
+      <PropertyRef Name="ArrivalBodyID" />
+    </Key>
+    <Property Name="ArrivalNo" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="ArrivalBodyID" Type="int" Nullable="false" />
+    <Property Name="ProductCd" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ProductName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Size" Type="nvarchar" MaxLength="4" />
+    <Property Name="Color" Type="nvarchar" MaxLength="50" />
+    <Property Name="RetailPrice" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="InsertedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="InsertedAt" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="UpdatedAt" Type="datetime" />
+  </EntityType>
+  <!--生成中に見つかったエラー:
+警告 6002: テーブル/ビュー 'Acchito.dbo.T_ArrivalHeader' には主キーが定義されていません。主キーは推論され、定義は読み取り専用のテーブル/ビューとして作成されました。-->
+  <EntityType Name="T_ArrivalHeader">
+    <Key>
+      <PropertyRef Name="SupplierCd" />
+    </Key>
+    <Property Name="ArrivalNo" Type="varchar" MaxLength="10" />
+    <Property Name="SupplierCd" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="ArrivalDate" Type="date" />
+    <Property Name="ArrivalAmount" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="T_DeliverBody">
+    <Key>
+      <PropertyRef Name="DeliverNo" />
+      <PropertyRef Name="DeliverBodyID" />
+    </Key>
+    <Property Name="DeliverNo" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="DeliverBodyID" Type="int" Nullable="false" />
+    <Property Name="ProductCd" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ProductName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Size" Type="nvarchar" MaxLength="4" />
+    <Property Name="Color" Type="nvarchar" MaxLength="50" />
+    <Property Name="RetailPrice" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="InsertedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="InsertedAt" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="UpdatedAt" Type="datetime" />
+  </EntityType>
+  <!--生成中に見つかったエラー:
+警告 6002: テーブル/ビュー 'Acchito.dbo.T_DeliverHeader' には主キーが定義されていません。主キーは推論され、定義は読み取り専用のテーブル/ビューとして作成されました。-->
+  <EntityType Name="T_DeliverHeader">
+    <Key>
+      <PropertyRef Name="CustomerCd" />
+    </Key>
+    <Property Name="DeliverNo" Type="varchar" MaxLength="10" />
+    <Property Name="CustomerCd" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="DeliverDate" Type="date" />
+    <Property Name="InsertedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="InsertedAt" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="UpdatedAt" Type="datetime" />
+  </EntityType>
+  <EntityType Name="T_HachuBody">
+    <Key>
+      <PropertyRef Name="HachuNo" />
+      <PropertyRef Name="HachuBodyID" />
+    </Key>
+    <Property Name="HachuNo" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="HachuBodyID" Type="int" Nullable="false" />
+    <Property Name="ProductCd" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ProductName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Size" Type="nvarchar" MaxLength="4" />
+    <Property Name="Color" Type="nvarchar" MaxLength="50" />
+    <Property Name="RetailPrice" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="InsertedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="InsertedAt" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="UpdatedAt" Type="datetime" />
+  </EntityType>
+  <!--生成中に見つかったエラー:
+警告 6002: テーブル/ビュー 'Acchito.dbo.T_HachuHeader' には主キーが定義されていません。主キーは推論され、定義は読み取り専用のテーブル/ビューとして作成されました。-->
+  <EntityType Name="T_HachuHeader">
+    <Key>
+      <PropertyRef Name="SupplierCd" />
+    </Key>
+    <Property Name="HachuNo" Type="varchar" MaxLength="10" />
+    <Property Name="SupplierCd" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="HachuDate" Type="date" />
+    <Property Name="HachuAmount" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="OrderNo" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="T_InvoiceBody">
+    <Key>
+      <PropertyRef Name="HachuNo" />
+      <PropertyRef Name="HachuBodyID" />
+    </Key>
+    <Property Name="HachuNo" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="HachuBodyID" Type="int" Nullable="false" />
+    <Property Name="ProductCd" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ProductName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Size" Type="nvarchar" MaxLength="4" />
+    <Property Name="Color" Type="nvarchar" MaxLength="50" />
+    <Property Name="RetailPrice" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="InsertedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="InsertedAt" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="UpdatedAt" Type="datetime" />
+  </EntityType>
+  <!--生成中に見つかったエラー:
+警告 6002: テーブル/ビュー 'Acchito.dbo.T_InvoiceHeader' には主キーが定義されていません。主キーは推論され、定義は読み取り専用のテーブル/ビューとして作成されました。-->
+  <EntityType Name="T_InvoiceHeader">
+    <Key>
+      <PropertyRef Name="CustomerCd" />
+    </Key>
+    <Property Name="InvoiceNo" Type="varchar" MaxLength="10" />
+    <Property Name="CustomerCd" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="InvoiceDate" Type="date" />
+    <Property Name="InsertedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="InsertedAt" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="UpdatedAt" Type="datetime" />
+  </EntityType>
+  <EntityType Name="T_JuchuBody">
+    <Key>
+      <PropertyRef Name="JuchuNo" />
+      <PropertyRef Name="JuchuBodyID" />
+    </Key>
+    <Property Name="JuchuNo" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="JuchuBodyID" Type="int" Nullable="false" />
+    <Property Name="ProductCd" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ProductName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Size" Type="nvarchar" MaxLength="4" />
+    <Property Name="Color" Type="nvarchar" MaxLength="50" />
+    <Property Name="RetailPrice" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="InsertedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="InsertedAt" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="UpdatedAt" Type="datetime" />
+  </EntityType>
+  <!--生成中に見つかったエラー:
+警告 6002: テーブル/ビュー 'Acchito.dbo.T_JuchuHeader' には主キーが定義されていません。主キーは推論され、定義は読み取り専用のテーブル/ビューとして作成されました。-->
+  <EntityType Name="T_JuchuHeader">
+    <Key>
+      <PropertyRef Name="CustomerCd" />
+    </Key>
+    <Property Name="JuchuNo" Type="varchar" MaxLength="10" />
+    <Property Name="CustomerCd" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="JuchuDate" Type="date" />
+  </EntityType>
+  <EntityType Name="T_Nyukin">
+    <Key>
+      <PropertyRef Name="NyukinNo" />
+    </Key>
+    <Property Name="NyukinNo" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="CustomerCd" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="Amount" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="NyukinDate" Type="datetime" Nullable="false" />
+    <Property Name="NyukinMethod" Type="nvarchar" MaxLength="100" />
+    <Property Name="InsertedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="InsertedAt" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="UpdatedAt" Type="datetime" />
+  </EntityType>
+  <EntityType Name="T_PaymentBody">
+    <Key>
+      <PropertyRef Name="PaymentlNo" />
+      <PropertyRef Name="PaymentBodyID" />
+    </Key>
+    <Property Name="PaymentlNo" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="PaymentBodyID" Type="int" Nullable="false" />
+    <Property Name="ArrivalNo" Type="varchar" MaxLength="10" />
+    <Property Name="Arrival" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="InsertedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="InsertedAt" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="UpdatedAt" Type="datetime" />
+  </EntityType>
+  <!--生成中に見つかったエラー:
+警告 6002: テーブル/ビュー 'Acchito.dbo.T_PaymentHeader' には主キーが定義されていません。主キーは推論され、定義は読み取り専用のテーブル/ビューとして作成されました。-->
+  <EntityType Name="T_PaymentHeader">
+    <Key>
+      <PropertyRef Name="SupplierCd" />
+    </Key>
+    <Property Name="PaymentNo" Type="varchar" MaxLength="10" />
+    <Property Name="SupplierCd" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="PaymentDate" Type="date" />
+    <Property Name="InvoiceAmount" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="PaymentAmount" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Deduction" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="InsertedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="InsertedAt" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="UpdatedAt" Type="datetime" />
+  </EntityType>
+  <Association Name="FK_M_Color_M_ColorType">
+    <End Role="M_ColorType" Type="Self.M_ColorType" Multiplicity="0..1" />
+    <End Role="M_Color" Type="Self.M_Color" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="M_ColorType">
+        <PropertyRef Name="ColorTypeCd" />
+      </Principal>
+      <Dependent Role="M_Color">
+        <PropertyRef Name="ColorTypeCd" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_M_PRODUCT_M_ColorType">
+    <End Role="M_ColorType" Type="Self.M_ColorType" Multiplicity="0..1" />
+    <End Role="M_Item" Type="Self.M_Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="M_ColorType">
+        <PropertyRef Name="ColorTypeCd" />
+      </Principal>
+      <Dependent Role="M_Item">
+        <PropertyRef Name="ColorTypeCd" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_M_PRODUCT_M_SizeType">
+    <End Role="M_SizeType" Type="Self.M_SizeType" Multiplicity="0..1" />
+    <End Role="M_Item" Type="Self.M_Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="M_SizeType">
+        <PropertyRef Name="SizeTypeCd" />
+      </Principal>
+      <Dependent Role="M_Item">
+        <PropertyRef Name="SizeTypeCd" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_M_Size_M_SizeType">
+    <End Role="M_SizeType" Type="Self.M_SizeType" Multiplicity="0..1" />
+    <End Role="M_Size" Type="Self.M_Size" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="M_SizeType">
+        <PropertyRef Name="SizeTypeCd" />
+      </Principal>
+      <Dependent Role="M_Size">
+        <PropertyRef Name="SizeTypeCd" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AloeModelStoreContainer">
+    <EntitySet Name="M_Color" EntityType="Self.M_Color" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="M_ColorType" EntityType="Self.M_ColorType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="M_Customer" EntityType="Self.M_Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="M_Item" EntityType="Self.M_Item" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="M_Maker" EntityType="Self.M_Maker" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="M_Size" EntityType="Self.M_Size" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="M_SizeType" EntityType="Self.M_SizeType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="M_StaffPassword" EntityType="Self.M_StaffPassword" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="M_Supplier" EntityType="Self.M_Supplier" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_ArrivalBody" EntityType="Self.T_ArrivalBody" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_DeliverBody" EntityType="Self.T_DeliverBody" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_HachuBody" EntityType="Self.T_HachuBody" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_InvoiceBody" EntityType="Self.T_InvoiceBody" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_JuchuBody" EntityType="Self.T_JuchuBody" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_Nyukin" EntityType="Self.T_Nyukin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_PaymentBody" EntityType="Self.T_PaymentBody" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="M_StaffBase" EntityType="Self.M_StaffBase" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [M_StaffBase].[MSTB_StaffID] AS [MSTB_StaffID], 
+    [M_StaffBase].[MSTB_LogNo] AS [MSTB_LogNo], 
+    [M_StaffBase].[MSTB_UpdateDate] AS [MSTB_UpdateDate], 
+    [M_StaffBase].[MSTB_UpdateClientName] AS [MSTB_UpdateClientName], 
+    [M_StaffBase].[MSTB_UpdateStaffID] AS [MSTB_UpdateStaffID], 
+    [M_StaffBase].[MSTB_DelFlag] AS [MSTB_DelFlag], 
+    [M_StaffBase].[MSTB_NameKana] AS [MSTB_NameKana], 
+    [M_StaffBase].[MSTB_Name] AS [MSTB_Name], 
+    [M_StaffBase].[MSTB_BirthDate] AS [MSTB_BirthDate], 
+    [M_StaffBase].[MSTB_SexType] AS [MSTB_SexType], 
+    [M_StaffBase].[MSTB_EnterDate] AS [MSTB_EnterDate], 
+    [M_StaffBase].[MSTB_RetireDate] AS [MSTB_RetireDate], 
+    [M_StaffBase].[MSTB_Remarks] AS [MSTB_Remarks]
+    FROM [dbo].[M_StaffBase] AS [M_StaffBase]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="T_ArrivalHeader" EntityType="Self.T_ArrivalHeader" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [T_ArrivalHeader].[ArrivalNo] AS [ArrivalNo], 
+    [T_ArrivalHeader].[SupplierCd] AS [SupplierCd], 
+    [T_ArrivalHeader].[ArrivalDate] AS [ArrivalDate], 
+    [T_ArrivalHeader].[ArrivalAmount] AS [ArrivalAmount]
+    FROM [dbo].[T_ArrivalHeader] AS [T_ArrivalHeader]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="T_DeliverHeader" EntityType="Self.T_DeliverHeader" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [T_DeliverHeader].[DeliverNo] AS [DeliverNo], 
+    [T_DeliverHeader].[CustomerCd] AS [CustomerCd], 
+    [T_DeliverHeader].[DeliverDate] AS [DeliverDate], 
+    [T_DeliverHeader].[InsertedBy] AS [InsertedBy], 
+    [T_DeliverHeader].[InsertedAt] AS [InsertedAt], 
+    [T_DeliverHeader].[UpdatedBy] AS [UpdatedBy], 
+    [T_DeliverHeader].[UpdatedAt] AS [UpdatedAt]
+    FROM [dbo].[T_DeliverHeader] AS [T_DeliverHeader]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="T_HachuHeader" EntityType="Self.T_HachuHeader" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [T_HachuHeader].[HachuNo] AS [HachuNo], 
+    [T_HachuHeader].[SupplierCd] AS [SupplierCd], 
+    [T_HachuHeader].[HachuDate] AS [HachuDate], 
+    [T_HachuHeader].[HachuAmount] AS [HachuAmount], 
+    [T_HachuHeader].[OrderNo] AS [OrderNo]
+    FROM [dbo].[T_HachuHeader] AS [T_HachuHeader]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="T_InvoiceHeader" EntityType="Self.T_InvoiceHeader" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [T_InvoiceHeader].[InvoiceNo] AS [InvoiceNo], 
+    [T_InvoiceHeader].[CustomerCd] AS [CustomerCd], 
+    [T_InvoiceHeader].[InvoiceDate] AS [InvoiceDate], 
+    [T_InvoiceHeader].[InsertedBy] AS [InsertedBy], 
+    [T_InvoiceHeader].[InsertedAt] AS [InsertedAt], 
+    [T_InvoiceHeader].[UpdatedBy] AS [UpdatedBy], 
+    [T_InvoiceHeader].[UpdatedAt] AS [UpdatedAt]
+    FROM [dbo].[T_InvoiceHeader] AS [T_InvoiceHeader]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="T_JuchuHeader" EntityType="Self.T_JuchuHeader" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [T_JuchuHeader].[JuchuNo] AS [JuchuNo], 
+    [T_JuchuHeader].[CustomerCd] AS [CustomerCd], 
+    [T_JuchuHeader].[JuchuDate] AS [JuchuDate]
+    FROM [dbo].[T_JuchuHeader] AS [T_JuchuHeader]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="T_PaymentHeader" EntityType="Self.T_PaymentHeader" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [T_PaymentHeader].[PaymentNo] AS [PaymentNo], 
+    [T_PaymentHeader].[SupplierCd] AS [SupplierCd], 
+    [T_PaymentHeader].[PaymentDate] AS [PaymentDate], 
+    [T_PaymentHeader].[InvoiceAmount] AS [InvoiceAmount], 
+    [T_PaymentHeader].[PaymentAmount] AS [PaymentAmount], 
+    [T_PaymentHeader].[Deduction] AS [Deduction], 
+    [T_PaymentHeader].[InsertedBy] AS [InsertedBy], 
+    [T_PaymentHeader].[InsertedAt] AS [InsertedAt], 
+    [T_PaymentHeader].[UpdatedBy] AS [UpdatedBy], 
+    [T_PaymentHeader].[UpdatedAt] AS [UpdatedAt]
+    FROM [dbo].[T_PaymentHeader] AS [T_PaymentHeader]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_M_Color_M_ColorType" Association="Self.FK_M_Color_M_ColorType">
+      <End Role="M_ColorType" EntitySet="M_ColorType" />
+      <End Role="M_Color" EntitySet="M_Color" />
+    </AssociationSet>
+    <AssociationSet Name="FK_M_PRODUCT_M_ColorType" Association="Self.FK_M_PRODUCT_M_ColorType">
+      <End Role="M_ColorType" EntitySet="M_ColorType" />
+      <End Role="M_Item" EntitySet="M_Item" />
+    </AssociationSet>
+    <AssociationSet Name="FK_M_PRODUCT_M_SizeType" Association="Self.FK_M_PRODUCT_M_SizeType">
+      <End Role="M_SizeType" EntitySet="M_SizeType" />
+      <End Role="M_Item" EntitySet="M_Item" />
+    </AssociationSet>
+    <AssociationSet Name="FK_M_Size_M_SizeType" Association="Self.FK_M_Size_M_SizeType">
+      <End Role="M_SizeType" EntitySet="M_SizeType" />
+      <End Role="M_Size" EntitySet="M_Size" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
