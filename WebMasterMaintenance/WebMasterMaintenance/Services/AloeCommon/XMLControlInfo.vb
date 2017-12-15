@@ -1,5 +1,5 @@
 ﻿'*********************************************************
-'*	システム名	：	Aloe
+'*	システム名	：	Asama
 '*	ファイル名	：	XMLControlInfo
 '*	概要		：	XML制御情報クラス
 '*
@@ -8,7 +8,7 @@
 '*	【履歴】
 '*　日付	　担当		Ver.	チケット#	変更理由
 '* ----------------------------------------------------------------
-'*　2017/07/04	KSI中村	2.3.82	#--------	新規作成　Aloe.clsXMLControlInfoクラスよりコピー
+'*　2017/07/04	KSI中村	2.3.82	#--------	新規作成　Asama.clsXMLControlInfoクラスよりコピー
 '******************************************************************
 Imports System.Collections.Specialized
 
@@ -26,7 +26,7 @@ Public Class XMLControlInfo
     Private Const TAG_AUTH As String = "Function"
 
     '******************************************************************
-    '*	システム名	：	Aloe
+    '*	システム名	：	Asama
     '*	ファイル名	：	KeyData
     '*	概要		：	制御情報取得用キーデータクラス
     '*
@@ -39,7 +39,7 @@ Public Class XMLControlInfo
     '******************************************************************
     Private Class KeyData
 
-        'Public FacilityID As String
+        Public FacilityID As String
         Public GroupCode As String
         Public JobCode As String()
         Public CommonJobCode As String = "0000000"
@@ -51,7 +51,7 @@ Public Class XMLControlInfo
 
     End Class
     '******************************************************************
-    '*	システム名	：	Aloe
+    '*	システム名	：	Asama
     '*	ファイル名	：	ConfigXMLData
     '*	概要		：	XML設定情報格納クラス
     '*
@@ -78,7 +78,7 @@ Public Class XMLControlInfo
     '''' <returns>Integer</returns>
     '''' <remarks>
     '''' 概要：制御Gマスタおよび制御マスタのアクセス権限情報を取得する。
-    ''''       取得後はAloeGeneralDataへの制御情報格納を行う。
+    ''''       取得後はAsamaGeneralDataへの制御情報格納を行う。
     ''''       その後アクセス権限情報のマージ処理を行う。
     '''' 【履歴】
     '''' 　日付	　　担当	　　Ver.	チケット#	変更理由
@@ -87,8 +87,8 @@ Public Class XMLControlInfo
     '''' 2016/04/02  M.Miyoshi   2.0.15  #5814　　　 委任マスタに渡す値が逆だったので改修
     '''' 2016/04/08  M.Miyoshi   2.0.15  #5856       委任時の判断が逆なので修正
     '''' </remarks>
-    'Public Function GetXMLAccessAuth(db As AloeEntities,
-    '                                 AloeGeneralData As AloeGeneralData(Of XElement),
+    'Public Function GetXMLAccessAuth(db As AsamaEntities,
+    '                                 AsamaGeneralData As AsamaGeneralData(Of XElement),
     '                                 strFacilityId As String,
     '                                 strJobCode As String(),
     '                                 strStaffId As String,
@@ -101,7 +101,7 @@ Public Class XMLControlInfo
     '    Dim arrAttribute As New ArrayList
 
     '    Try
-    '         If IsNothing(strFunctionID) = True OrElse String.IsNullOrEmpty(strFunctionID) = True Then
+    '        If IsNothing(strFunctionID) = True OrElse String.IsNullOrEmpty(strFunctionID) = True Then
     '            Dim intRet As Integer = 0
     '            'Dim clsLogMessage As New LogMessage
     '            Dim arrMessage As New ArrayList
@@ -110,7 +110,7 @@ Public Class XMLControlInfo
     '            Exit Function
     '        End If
 
-    '        'AloeGeneralDataより施設IDを取得
+    '        'AsamaGeneralDataより施設IDを取得
     '        Dim clsKeyData As New KeyData
     '        clsKeyData.FacilityID = strFacilityId
     '        clsKeyData.JobCode = strJobCode
@@ -126,19 +126,19 @@ Public Class XMLControlInfo
     '        'エラー判定用アプリケーションデータクラスベース、
     '        '制御Gマスタ取得用変数(職種共通とログイン職員の職種)
     '        '制御マスタ取得用変数(職種共通とログイン職員の職種)
-    '        'Dim clsAloeADBase As New AloeADBase
+    '        'Dim clsAsamaADBase As New AsamaADBase
     '        Dim clsConfigXMLGroupJob As New ConfigXMLData
     '        Dim clsConfigXMLGroupCommon As New ConfigXMLData
     '        Dim clsConfigXMLDataJob As New ConfigXMLData
     '        Dim clsConfigXMLDataCommon As New ConfigXMLData
 
-    '        If AloeGeneralData.ContainsKey(AloeFunctionID.AccessAuthority) = False Then
+    '        If AsamaGeneralData.ContainsKey(AsamaFunctionID.AccessAuthority) = False Then
 
     '            '制御Gマスタ情報と制御マスタ情報の制御情報取得
     '            If GetConfigControl(db, clsConfigXMLGroupJob, clsConfigXMLGroupCommon,
     '                                clsConfigXMLDataJob, clsConfigXMLDataCommon,
     '                                clsKeyData.JobCode, clsKeyData.CommonJobCode,
-    '                                AloeFunctionID.AccessAuthority, arrConfigTag, arrAttribute, clsKeyData.FacilityID) <> 0 Then
+    '                                AsamaFunctionID.AccessAuthority, arrConfigTag, arrAttribute, clsKeyData.FacilityID) <> 0 Then
     '                GetXMLAccessAuth = 2
     '                Exit Function
     '            End If
@@ -148,7 +148,7 @@ Public Class XMLControlInfo
 
     '            Dim query = From e As M_StaffControl In db.M_StaffControl
     '                        Where e.MSTC_FacilityID = clsKeyData.FacilityID And
-    '                            e.MSTC_FunctionID = AloeFunctionID.AccessAuthority And
+    '                            e.MSTC_FunctionID = AsamaFunctionID.AccessAuthority And
     '                            clsKeyData.JobCode.Contains(e.MSTC_JobCode) And
     '                            e.MSTC_StaffID = clsKeyData.StaffID
     '                        Select e
@@ -167,10 +167,10 @@ Public Class XMLControlInfo
 
     '            clsConfigXMLOutput = clsConfigXMLGroupCommon
     '            'ジェネラルデータにセット
-    '            AloeGeneralData.Item(AloeFunctionID.AccessAuthority) = clsConfigXMLGroupCommon.xelElement
+    '            AsamaGeneralData.Item(AsamaFunctionID.AccessAuthority) = clsConfigXMLGroupCommon.xelElement
     '        Else
     '            'ジェネラルデータからセット
-    '            clsConfigXMLOutput.xelElement = AloeGeneralData.Item(AloeFunctionID.AccessAuthority)
+    '            clsConfigXMLOutput.xelElement = AsamaGeneralData.Item(AsamaFunctionID.AccessAuthority)
     '        End If
 
     '        '設定値抽出
@@ -195,7 +195,7 @@ Public Class XMLControlInfo
     '        strAttribute = strAttribute.Substring(0, strAttribute.Length - 1) & "」"
     '        Dim arrMessage As New ArrayList
     '        arrMessage.Add("制御マスタ")
-    '        clsLogMessage.OutputLogMessage(intRet, strFunctionID, AloeConst.MSGID_30000002, "制御情報取得(アクセス権限)", ex.StackTrace(), arrMessage, strTag & " " & strAttribute)
+    '        clsLogMessage.OutputLogMessage(intRet, strFunctionID, AsamaConst.MSGID_30000002, "制御情報取得(アクセス権限)", ex.StackTrace(), arrMessage, strTag & " " & strAttribute)
     '        GetXMLAccessAuth = 2
     '        Exit Function
 
@@ -205,151 +205,151 @@ Public Class XMLControlInfo
 
     'End Function
 
-    ''' <summary>
-    ''' 制御Gマスタおよび制御マスタより制御情報を取得
-    ''' </summary>
-    ''' <param name="clsConfigXMLGroupJob">制御Gマスタ用設定値格納クラス(特定職種)</param>
-    ''' <param name="clsConfigXMLGroupCommon">制御Gマスタ用設定値格納クラス(共通職種)</param>
-    ''' <param name="clsConfigXMLFacilityJob">制御マスタ用設定値格納クラス(特定職種)</param>
-    ''' <param name="clsConfigXMLFacilityCommon">制御マスタ用設定値格納クラス(共通職種)</param>
-    ''' <param name="strJobCode">職種コード</param>
-    ''' <param name="strCommonJobCode">共通職種コード</param>
-    ''' <param name="strFunctionID">機能ID</param>
-    ''' <param name="arrConfigTag">制御情報のタグ情報</param>
-    ''' <param name="arrAttribute">制御情報の属性情報</param>
-    ''' <returns>Integer</returns>
-    ''' <remarks>
-    ''' 概要：制御Gマスタおよび制御マスタの制御情報を取得する。
-    '''       取得後はAloeGeneralDataへの制御情報格納を行う。
-    '''       その後制御情報のマージ処理を行う。
-    ''' 【履歴】
-    ''' 　日付	　　担当	　　Ver.	チケット#	変更理由
-    ''' ----------------------------------------------------------------
-    ''' </remarks>
-    Private Overloads Function GetConfigControl(db As AloeEntities, ByRef clsConfigXMLGroupJob As ConfigXMLData,
-                                                ByRef clsConfigXMLGroupCommon As ConfigXMLData,
-                                                ByRef clsConfigXMLFacilityJob As ConfigXMLData,
-                                                ByRef clsConfigXMLFacilityCommon As ConfigXMLData,
-                                                ByVal strJobCode As String(),
-                                                ByVal strCommonJobCode As String,
-                                                ByVal strFunctionID As String,
-                                                ByVal arrConfigTag As ArrayList,
-                                                ByVal arrAttribute As ArrayList,
-                                                ByVal strFacilityID As String) As Integer
+    '''' <summary>
+    '''' 制御Gマスタおよび制御マスタより制御情報を取得
+    '''' </summary>
+    '''' <param name="clsConfigXMLGroupJob">制御Gマスタ用設定値格納クラス(特定職種)</param>
+    '''' <param name="clsConfigXMLGroupCommon">制御Gマスタ用設定値格納クラス(共通職種)</param>
+    '''' <param name="clsConfigXMLFacilityJob">制御マスタ用設定値格納クラス(特定職種)</param>
+    '''' <param name="clsConfigXMLFacilityCommon">制御マスタ用設定値格納クラス(共通職種)</param>
+    '''' <param name="strJobCode">職種コード</param>
+    '''' <param name="strCommonJobCode">共通職種コード</param>
+    '''' <param name="strFunctionID">機能ID</param>
+    '''' <param name="arrConfigTag">制御情報のタグ情報</param>
+    '''' <param name="arrAttribute">制御情報の属性情報</param>
+    '''' <returns>Integer</returns>
+    '''' <remarks>
+    '''' 概要：制御Gマスタおよび制御マスタの制御情報を取得する。
+    ''''       取得後はAsamaGeneralDataへの制御情報格納を行う。
+    ''''       その後制御情報のマージ処理を行う。
+    '''' 【履歴】
+    '''' 　日付	　　担当	　　Ver.	チケット#	変更理由
+    '''' ----------------------------------------------------------------
+    '''' </remarks>
+    'Private Overloads Function GetConfigControl(db As AsamaEntities, ByRef clsConfigXMLGroupJob As ConfigXMLData,
+    '                                            ByRef clsConfigXMLGroupCommon As ConfigXMLData,
+    '                                            ByRef clsConfigXMLFacilityJob As ConfigXMLData,
+    '                                            ByRef clsConfigXMLFacilityCommon As ConfigXMLData,
+    '                                            ByVal strJobCode As String(),
+    '                                            ByVal strCommonJobCode As String,
+    '                                            ByVal strFunctionID As String,
+    '                                            ByVal arrConfigTag As ArrayList,
+    '                                            ByVal arrAttribute As ArrayList,
+    '                                            ByVal strFacilityID As String) As Integer
 
-        GetConfigControl = 1
+    '    GetConfigControl = 1
 
-        Try
+    '    Try
 
-            ''制御Gマスタ情報を取得(特定の職種コード)
-            'Dim clsControlGroup As GM_Control
-            'If strJobCode.Count > 0 Then
-            '    clsControlGroup = (From e As GM_Control In db.GM_Control
-            '                       Where strJobCode.Contains(e.GCTL_JobCode) And
-            '                        e.GCTL_FunctionID = strFunctionID
-            '                       Select e).FirstOrDefault
+    '        '制御Gマスタ情報を取得(特定の職種コード)
+    '        Dim clsControlGroup As GM_Control
+    '        If strJobCode.Count > 0 Then
+    '            clsControlGroup = (From e As GM_Control In db.GM_Control
+    '                               Where strJobCode.Contains(e.GCTL_JobCode) And
+    '                                e.GCTL_FunctionID = strFunctionID
+    '                               Select e).FirstOrDefault
 
-            '    If clsControlGroup IsNot Nothing Then
-            '        Dim strControlGroup As String = clsControlGroup.GCTL_ControlInfo
-            '        If String.IsNullOrEmpty(strControlGroup) = False Then
-            '            clsConfigXMLGroupJob.xelElement = XElement.Parse(strControlGroup)
-            '        End If
-            '    End If
-            'End If
+    '            If clsControlGroup IsNot Nothing Then
+    '                Dim strControlGroup As String = clsControlGroup.GCTL_ControlInfo
+    '                If String.IsNullOrEmpty(strControlGroup) = False Then
+    '                    clsConfigXMLGroupJob.xelElement = XElement.Parse(strControlGroup)
+    '                End If
+    '            End If
+    '        End If
 
-            ''制御Gマスタ情報を取得(職種共通コード)
-            'clsControlGroup = (From e As GM_Control In db.GM_Control
-            '                   Where e.GCTL_JobCode = strCommonJobCode And
-            '                        e.GCTL_FunctionID = strFunctionID
-            '                   Select e).FirstOrDefault
-            'If clsControlGroup IsNot Nothing Then
-            '    Dim strControlGroupCommon As String = clsControlGroup.GCTL_ControlInfo
-            '    If String.IsNullOrEmpty(strControlGroupCommon) = False Then
-            '        clsConfigXMLGroupCommon.xelElement = XElement.Parse(strControlGroupCommon)
-            '    End If
-            'End If
+    '        '制御Gマスタ情報を取得(職種共通コード)
+    '        clsControlGroup = (From e As GM_Control In db.GM_Control
+    '                           Where e.GCTL_JobCode = strCommonJobCode And
+    '                                e.GCTL_FunctionID = strFunctionID
+    '                           Select e).FirstOrDefault
+    '        If clsControlGroup IsNot Nothing Then
+    '            Dim strControlGroupCommon As String = clsControlGroup.GCTL_ControlInfo
+    '            If String.IsNullOrEmpty(strControlGroupCommon) = False Then
+    '                clsConfigXMLGroupCommon.xelElement = XElement.Parse(strControlGroupCommon)
+    '            End If
+    '        End If
 
-            ''制御マスタ情報を取得(特定の職種コード)
-            'Dim clsControlData As M_Control
-            'If strJobCode.Count > 0 Then
-            '    clsControlData = (From e As M_Control In db.M_Control
-            '                      Where e.MCTL_FacilityID = strFacilityID And
-            '                         strJobCode.Contains(e.MCTL_JobCode) And
-            '                         e.MCTL_FunctionID = strFunctionID
-            '                      Select e).FirstOrDefault
+    '        '制御マスタ情報を取得(特定の職種コード)
+    '        Dim clsControlData As M_Control
+    '        If strJobCode.Count > 0 Then
+    '            clsControlData = (From e As M_Control In db.M_Control
+    '                              Where e.MCTL_FacilityID = strFacilityID And
+    '                                 strJobCode.Contains(e.MCTL_JobCode) And
+    '                                 e.MCTL_FunctionID = strFunctionID
+    '                              Select e).FirstOrDefault
 
-            '    If clsControlData IsNot Nothing Then
-            '        Dim strControlData As String = clsControlData.MCTL_ControlInfo
-            '        If String.IsNullOrEmpty(strControlData) = False Then
-            '            clsConfigXMLFacilityJob.xelElement = XElement.Parse(strControlData)
-            '        End If
-            '    End If
-            'End If
+    '            If clsControlData IsNot Nothing Then
+    '                Dim strControlData As String = clsControlData.MCTL_ControlInfo
+    '                If String.IsNullOrEmpty(strControlData) = False Then
+    '                    clsConfigXMLFacilityJob.xelElement = XElement.Parse(strControlData)
+    '                End If
+    '            End If
+    '        End If
 
-            ''制御マスタ情報を取得(職種共通コード)
-            'clsControlData = (From e As M_Control In db.M_Control
-            '                  Where e.MCTL_FacilityID = strFacilityID And
-            '                     e.MCTL_JobCode = strCommonJobCode And
-            '                     e.MCTL_FunctionID = strFunctionID
-            '                  Select e).FirstOrDefault
+    '        '制御マスタ情報を取得(職種共通コード)
+    '        clsControlData = (From e As M_Control In db.M_Control
+    '                          Where e.MCTL_FacilityID = strFacilityID And
+    '                             e.MCTL_JobCode = strCommonJobCode And
+    '                             e.MCTL_FunctionID = strFunctionID
+    '                          Select e).FirstOrDefault
 
-            'If clsControlData Is Nothing Then
-            '    GetConfigControl = 2
-            '    Exit Function
-            'End If
-            'If clsControlData IsNot Nothing Then
-            '    Dim strControlDataCommon As String = clsControlData.MCTL_ControlInfo
-            '    If String.IsNullOrEmpty(strControlDataCommon) = False Then
-            '        clsConfigXMLFacilityCommon.xelElement = XElement.Parse(strControlDataCommon)
-            '    End If
-            'End If
-            'Todo :AloeGeneralDataへの制御情報設定
+    '        'If clsControlData Is Nothing Then
+    '        '    GetConfigControl = 2
+    '        '    Exit Function
+    '        'End If
+    '        If clsControlData IsNot Nothing Then
+    '            Dim strControlDataCommon As String = clsControlData.MCTL_ControlInfo
+    '            If String.IsNullOrEmpty(strControlDataCommon) = False Then
+    '                clsConfigXMLFacilityCommon.xelElement = XElement.Parse(strControlDataCommon)
+    '            End If
+    '        End If
+    '        'Todo :AsamaGeneralDataへの制御情報設定
 
-            ''制御Gマスタの職種毎設定情報と制御Gマスタの共通職種設定情報のマージ
-            'If MergeConfigXML(clsConfigXMLGroupCommon, clsConfigXMLGroupJob, arrConfigTag, arrAttribute, strFunctionID) <> 0 Then
-            '    GetConfigControl = 2
-            '    Exit Function
-            'End If
+    '        '制御Gマスタの職種毎設定情報と制御Gマスタの共通職種設定情報のマージ
+    '        If MergeConfigXML(clsConfigXMLGroupCommon, clsConfigXMLGroupJob, arrConfigTag, arrAttribute, strFunctionID) <> 0 Then
+    '            GetConfigControl = 2
+    '            Exit Function
+    '        End If
 
-            ''制御マスタの職種毎設定情報と制御マスタの共通職種設定情報のマージ
-            'If IsNothing(clsConfigXMLFacilityCommon.xelElement) = False And IsNothing(clsConfigXMLFacilityJob.xelElement) = False Then
-            '    If MergeConfigXML(clsConfigXMLFacilityCommon, clsConfigXMLFacilityJob, arrConfigTag, arrAttribute, strFunctionID) <> 0 Then
-            '        GetConfigControl = 2
-            '        Exit Function
-            '    End If
-            'End If
+    '        '制御マスタの職種毎設定情報と制御マスタの共通職種設定情報のマージ
+    '        If IsNothing(clsConfigXMLFacilityCommon.xelElement) = False And IsNothing(clsConfigXMLFacilityJob.xelElement) = False Then
+    '            If MergeConfigXML(clsConfigXMLFacilityCommon, clsConfigXMLFacilityJob, arrConfigTag, arrAttribute, strFunctionID) <> 0 Then
+    '                GetConfigControl = 2
+    '                Exit Function
+    '            End If
+    '        End If
 
-            ''制御Gマスタと制御マスタ情報設定情報のマージ
-            'If MergeConfigXML(clsConfigXMLGroupCommon, clsConfigXMLFacilityCommon, arrConfigTag, arrAttribute, strFunctionID) <> 0 Then
-            '    GetConfigControl = 2
-            '    Exit Function
-            'End If
+    '        '制御Gマスタと制御マスタ情報設定情報のマージ
+    '        If MergeConfigXML(clsConfigXMLGroupCommon, clsConfigXMLFacilityCommon, arrConfigTag, arrAttribute, strFunctionID) <> 0 Then
+    '            GetConfigControl = 2
+    '            Exit Function
+    '        End If
 
-        Catch ex As Exception
+    '    Catch ex As Exception
 
-            Dim clsLogMessage As New LogMessage
-            Dim intRet As Integer
-            Dim strTag As String = "タグ「"
-            For intTagCount As Integer = 0 To arrConfigTag.Count - 1
-                strTag = strTag & arrConfigTag.Item(intTagCount).ToString & ","
-            Next
-            strTag = strTag.Substring(0, strTag.Length - 1) & "」"
-            Dim strAttribute As String = "属性「"
-            For intAttributeCount As Integer = 0 To arrAttribute.Count - 1
-                strAttribute = strAttribute & arrAttribute.Item(intAttributeCount).ToString & ","
-            Next
-            strAttribute = strAttribute.Substring(0, strTag.Length - 1) & "」"
-            Dim arrMessage As New ArrayList
-            arrMessage.Add("制御マスタ")
-            clsLogMessage.OutputLogMessage(intRet, strFunctionID, AloeConst.MSGID_30000002, "制御Gマスタおよび制御マスタより制御情報を取得", ex.StackTrace(), arrMessage, strTag & " " & strAttribute)
-            GetConfigControl = 2
-            Exit Function
+    '        Dim clsLogMessage As New LogMessage
+    '        Dim intRet As Integer
+    '        Dim strTag As String = "タグ「"
+    '        For intTagCount As Integer = 0 To arrConfigTag.Count - 1
+    '            strTag = strTag & arrConfigTag.Item(intTagCount).ToString & ","
+    '        Next
+    '        strTag = strTag.Substring(0, strTag.Length - 1) & "」"
+    '        Dim strAttribute As String = "属性「"
+    '        For intAttributeCount As Integer = 0 To arrAttribute.Count - 1
+    '            strAttribute = strAttribute & arrAttribute.Item(intAttributeCount).ToString & ","
+    '        Next
+    '        strAttribute = strAttribute.Substring(0, strTag.Length - 1) & "」"
+    '        Dim arrMessage As New ArrayList
+    '        arrMessage.Add("制御マスタ")
+    '        clsLogMessage.OutputLogMessage(intRet, strFunctionID, AsamaConst.MSGID_30000002, "制御Gマスタおよび制御マスタより制御情報を取得", ex.StackTrace(), arrMessage, strTag & " " & strAttribute)
+    '        GetConfigControl = 2
+    '        Exit Function
 
-        End Try
+    '    End Try
 
-        GetConfigControl = 0
+    '    GetConfigControl = 0
 
-    End Function
+    'End Function
 
     ''' <summary>
     ''' 制御情報のマージ処理
@@ -362,7 +362,7 @@ Public Class XMLControlInfo
     ''' <returns>Integer</returns>
     ''' <remarks>
     ''' 概要：制御Gマスタおよび制御マスタの制御情報を取得する。
-    '''       取得後はAloeGeneralDataへの制御情報格納を行う。
+    '''       取得後はAsamaGeneralDataへの制御情報格納を行う。
     '''       その後制御情報のマージ処理を行う。
     ''' 【履歴】
     ''' 　日付	　　担当	　　Ver.	チケット#	変更理由
@@ -451,7 +451,7 @@ Public Class XMLControlInfo
             strAttribute = strAttribute.Substring(0, strTag.Length - 1) & "」"
             Dim arrMessage As New ArrayList
             arrMessage.Add("制御マスタ")
-            clsLogMessage.OutputLogMessage(intRet, strFunctionID, AloeConst.MSGID_30000002, "制御情報のマージ処理", ex.StackTrace(), arrMessage, strTag & " " & strAttribute)
+            clsLogMessage.OutputLogMessage(intRet, strFunctionID, AsamaConst.MSGID_30000002, "制御情報のマージ処理", ex.StackTrace(), arrMessage, strTag & " " & strAttribute)
             MergeConfigXML = 2
             Exit Function
 
@@ -471,7 +471,7 @@ Public Class XMLControlInfo
     ''' <returns>Integer</returns>
     ''' <remarks>
     ''' 概要：制御Gマスタおよび制御マスタの制御情報を取得する。
-    '''       取得後はAloeGeneralDataへの制御情報格納を行う。
+    '''       取得後はAsamaGeneralDataへの制御情報格納を行う。
     '''       その後制御情報のマージ処理を行う。
     ''' 【履歴】
     ''' 　日付	　　担当	　　Ver.	チケット#	変更理由
@@ -554,7 +554,7 @@ Public Class XMLControlInfo
             strAttribute = strAttribute.Substring(0, strTag.Length - 1) & "」"
             Dim arrMessage As New ArrayList
             arrMessage.Add("制御マスタ")
-            clsLogMessage.OutputLogMessage(intRet, "AUTH", AloeConst.MSGID_30000002, "制御情報のマージ処理", ex.StackTrace(), arrMessage, strTag & " " & strAttribute)
+            clsLogMessage.OutputLogMessage(intRet, "AUTH", AsamaConst.MSGID_30000002, "制御情報のマージ処理", ex.StackTrace(), arrMessage, strTag & " " & strAttribute)
             MergeConfigXML = 2
             Exit Function
 
@@ -649,7 +649,7 @@ Public Class XMLControlInfo
             strAttribute = strAttribute & " strAttributeKey:" & strAttributeKey
             Dim arrMessage As New ArrayList
             arrMessage.Add("制御マスタ")
-            clsLogMessage.OutputLogMessage(intRet, strFunctionID, AloeConst.MSGID_30000002, "メニュー表示制御情報の設定値上書き処理", ex.StackTrace(), arrMessage, strAttribute)
+            clsLogMessage.OutputLogMessage(intRet, strFunctionID, AsamaConst.MSGID_30000002, "メニュー表示制御情報の設定値上書き処理", ex.StackTrace(), arrMessage, strAttribute)
             MenuOverWriteValue = 2
             Exit Function
 
@@ -716,7 +716,7 @@ Public Class XMLControlInfo
 
     '        Dim clsLogMessage As New LogMessage
     '        Dim intRet As Integer
-    '        clsLogMessage.OutputLogMessage(intRet, "", AloeConst.MSGID_30000002, "メニュー表示制御情報の設定値上書き処理", ex.StackTrace())
+    '        clsLogMessage.OutputLogMessage(intRet, "", AsamaConst.MSGID_30000002, "メニュー表示制御情報の設定値上書き処理", ex.StackTrace())
     '        OtherOverWriteValue = 2
     '        Exit Function
 
@@ -786,7 +786,7 @@ Public Class XMLControlInfo
             strAttribute = strAttribute.Substring(0, strAttribute.Length - 1) & "」"
             Dim arrMessage As New ArrayList
             arrMessage.Add("制御マスタ")
-            clsLogMessage.OutputLogMessage(intRet, "AUTH", AloeConst.MSGID_30000002, "アクセス権限制御情報の設定値上書き処理", ex.StackTrace(), arrMessage, strAttribute)
+            clsLogMessage.OutputLogMessage(intRet, "AUTH", AsamaConst.MSGID_30000002, "アクセス権限制御情報の設定値上書き処理", ex.StackTrace(), arrMessage, strAttribute)
             AuthOverWriteValue = 2
             Exit Function
 
@@ -958,7 +958,7 @@ Public Class XMLControlInfo
             strAttribute = strAttribute.Substring(0, strTag.Length - 1) & "」"
             Dim arrMessage As New ArrayList
             arrMessage.Add("制御マスタ")
-            clsLogMessage.OutputLogMessage(intRet, strFunctionID, AloeConst.MSGID_30000002, "制御Gマスタおよび制御マスタの制御情報取得処理", ex.StackTrace(), arrMessage, strTag & " " & strAttribute)
+            clsLogMessage.OutputLogMessage(intRet, strFunctionID, AsamaConst.MSGID_30000002, "制御Gマスタおよび制御マスタの制御情報取得処理", ex.StackTrace(), arrMessage, strTag & " " & strAttribute)
             MergeAuthConfigXMLDeputy = 2
             Exit Function
 
@@ -1104,7 +1104,7 @@ Public Class XMLControlInfo
             strAttribute = strAttribute.Substring(0, strTag.Length - 1) & "」"
             Dim arrMessage As New ArrayList
             arrMessage.Add("制御マスタ")
-            clsLogMessage.OutputLogMessage(intRet, "", AloeConst.MSGID_30000002, "制御Gマスタおよび制御マスタの制御情報取得処理", ex.StackTrace(), arrMessage, strTag & " " & strAttribute)
+            clsLogMessage.OutputLogMessage(intRet, "", AsamaConst.MSGID_30000002, "制御Gマスタおよび制御マスタの制御情報取得処理", ex.StackTrace(), arrMessage, strTag & " " & strAttribute)
             MergeAuthorityXMLDeputy = 2
             Exit Function
 
@@ -1157,7 +1157,7 @@ Public Class XMLControlInfo
             strTag = strTag.Substring(0, strTag.Length - 1) & "」"
             Dim arrMessage As New ArrayList
             arrMessage.Add("制御マスタ")
-            clsLogMessage.OutputLogMessage(intRet, "", AloeConst.MSGID_30000002, "制御情報の要素単位読み込み処理", ex.StackTrace(), arrMessage, strTag)
+            clsLogMessage.OutputLogMessage(intRet, "", AsamaConst.MSGID_30000002, "制御情報の要素単位読み込み処理", ex.StackTrace(), arrMessage, strTag)
             ReadXMLElementData = 2
             Exit Function
 
@@ -1264,7 +1264,7 @@ Public Class XMLControlInfo
             End If
             Dim arrMessage As New ArrayList
             arrMessage.Add("制御マスタ")
-            clsLogMessage.OutputLogMessage(intRet, "", AloeConst.MSGID_30000002, "制御情報の要素単位読み込み処理", ex.StackTrace(), arrMessage, strTag & " " & strAttribute)
+            clsLogMessage.OutputLogMessage(intRet, "", AsamaConst.MSGID_30000002, "制御情報の要素単位読み込み処理", ex.StackTrace(), arrMessage, strTag & " " & strAttribute)
             ReadConfigXmlData = 2
             Exit Function
         End Try
@@ -1355,7 +1355,7 @@ Public Class XMLControlInfo
             End If
             Dim arrMessage As New ArrayList
             arrMessage.Add("制御マスタ")
-            clsLogMessage.OutputLogMessage(intRet, "AUTH", AloeConst.MSGID_30000002, "制御情報の要素単位読み込み処理", ex.StackTrace(), arrMessage, strTag & " " & strAttribute)
+            clsLogMessage.OutputLogMessage(intRet, "AUTH", AsamaConst.MSGID_30000002, "制御情報の要素単位読み込み処理", ex.StackTrace(), arrMessage, strTag & " " & strAttribute)
             ReadConfigXmlData = 2
             Exit Function
         End Try

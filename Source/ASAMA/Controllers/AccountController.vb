@@ -62,6 +62,9 @@ Public Class AccountController
         Dim result = SignInStatus.Success
         Select Case result
             Case SignInStatus.Success
+                'ユーザー認証 成功
+                FormsAuthentication.SetAuthCookie(model.Email, model.RememberMe)
+                'User.Identity.IsAuthenticated
                 Return RedirectToLocal(returnUrl)
             Case SignInStatus.LockedOut
                 Return View("Lockout")

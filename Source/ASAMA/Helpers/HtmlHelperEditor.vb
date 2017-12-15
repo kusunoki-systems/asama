@@ -84,30 +84,30 @@ Namespace Helpers
 
         End Function
 
-        ''' <summary>
-        ''' 選択肢から表示 List（単位等）
-        ''' </summary>
-        ''' <param name="obj"></param>
-        ''' <param name="name"></param>
-        ''' <param name="list"></param>
-        ''' <returns></returns>
-        Public Shared Function ReadOnlyEditor(obj As Object, name As String, list As List(Of VM_Name), FacilityID As String) As IHtmlString
+        '''' <summary>
+        '''' 選択肢から表示 List（単位等）
+        '''' </summary>
+        '''' <param name="obj"></param>
+        '''' <param name="name"></param>
+        '''' <param name="list"></param>
+        '''' <returns></returns>
+        'Public Shared Function ReadOnlyEditor(obj As Object, name As String, list As List(Of VM_Name), FacilityID As String) As IHtmlString
 
-            Dim l = (From e As VM_Name In list
-                     Where e.VNAM_FacilityID = FacilityID And
-                         e.VNAM_NameClass = "CM04" And
-                         e.VNAM_NameCode = obj.ToString
-                     Select e).FirstOrDefault
+        '    Dim l = (From e As VM_Name In list
+        '             Where e.VNAM_FacilityID = FacilityID And
+        '                 e.VNAM_NameClass = "CM04" And
+        '                 e.VNAM_NameCode = obj.ToString
+        '             Select e).FirstOrDefault
 
-            Return MvcHtmlString.Create(
-            String.Format("<input type=""text"" value=""{0}"" class=""form-control text-box single-line"" id=""{1}"" name=""{1}"" readonly=""true""/>",
-                                  HttpUtility.HtmlAttributeEncode(String.Format("{0}", If(l Is Nothing, "", l.VNAM_Name))),
-                                  HttpUtility.HtmlAttributeEncode(name)) &
-            String.Format("<input type=""hidden"" value=""{0}"" name=""{1}""/>",
-                                  HttpUtility.HtmlAttributeEncode(String.Format("{0}", If(l Is Nothing, "", l.VNAM_Name))),
-                                  HttpUtility.HtmlAttributeEncode(name)))
+        '    Return MvcHtmlString.Create(
+        '    String.Format("<input type=""text"" value=""{0}"" class=""form-control text-box single-line"" id=""{1}"" name=""{1}"" readonly=""true""/>",
+        '                          HttpUtility.HtmlAttributeEncode(String.Format("{0}", If(l Is Nothing, "", l.VNAM_Name))),
+        '                          HttpUtility.HtmlAttributeEncode(name)) &
+        '    String.Format("<input type=""hidden"" value=""{0}"" name=""{1}""/>",
+        '                          HttpUtility.HtmlAttributeEncode(String.Format("{0}", If(l Is Nothing, "", l.VNAM_Name))),
+        '                          HttpUtility.HtmlAttributeEncode(name)))
 
-        End Function
+        'End Function
 
         ''' <summary>
         ''' ラジオボタンエディター
@@ -272,68 +272,68 @@ Namespace Helpers
 
         End Function
 
-        ''' <summary>
-        ''' 単位マスタ
-        ''' </summary>
-        ''' <param name="obj"></param>
-        ''' <param name="name"></param>
-        ''' <param name="mdlsUnit"></param>
-        ''' <param name="mdlsNames"></param>
-        ''' <returns></returns>
-        Public Shared Function DropDownEditor(obj As Object, name As String, mdlsUnit As IEnumerable(Of Object), mdlsNames As IEnumerable(Of Object)) As IHtmlString
-            If mdlsUnit Is Nothing Then
-                Return MvcHtmlString.Create("値リストが設定されていません。")
-            End If
-            Dim sb As New StringBuilder
-            sb.AppendFormat("<Select class=""form-control"" name=""{0}"" id=""{0}"">", HttpUtility.HtmlAttributeEncode(name))
-            '項目の生成
-            If TypeOf mdlsUnit Is List(Of M_DrugUnit) Then
-                For Each Data As M_DrugUnit In mdlsUnit
-                    Dim strSelected As String = If(obj = Data.MDUT_UnitNo, "selected", String.Empty)
-                    sb.AppendFormat("<option value=""{0}"" {1}>",
-                                    HttpUtility.HtmlAttributeEncode(Data.MDUT_UnitNo.ToString),
-                                    HttpUtility.HtmlAttributeEncode(strSelected))
-                    sb.AppendFormat("{0}</Option>", (From q As VM_Name In mdlsNames Where q.VNAM_NameCode = Data.MDUT_UnitCode Select q.VNAM_Name).FirstOrDefault)
-                Next
-            ElseIf TypeOf mdlsUnit Is List(Of GM_DrugUnit) Then
-                For Each Data As GM_DrugUnit In mdlsUnit
-                    Dim strSelected As String = If(obj = Data.GDUT_UnitNo, "selected", String.Empty)
-                    sb.AppendFormat("<option value=""{0}"" {1}>",
-                                    HttpUtility.HtmlAttributeEncode(Data.GDUT_UnitNo.ToString),
-                                    HttpUtility.HtmlAttributeEncode(strSelected))
-                    sb.AppendFormat("{0}</Option>", (From q In mdlsNames Where q.GNAM_NameCode = Data.GDUT_UnitCode Select q.GNAM_Name).FirstOrDefault)
-                Next
-            End If
+        '''' <summary>
+        '''' 単位マスタ
+        '''' </summary>
+        '''' <param name="obj"></param>
+        '''' <param name="name"></param>
+        '''' <param name="mdlsUnit"></param>
+        '''' <param name="mdlsNames"></param>
+        '''' <returns></returns>
+        'Public Shared Function DropDownEditor(obj As Object, name As String, mdlsUnit As IEnumerable(Of Object), mdlsNames As IEnumerable(Of Object)) As IHtmlString
+        '    If mdlsUnit Is Nothing Then
+        '        Return MvcHtmlString.Create("値リストが設定されていません。")
+        '    End If
+        '    Dim sb As New StringBuilder
+        '    sb.AppendFormat("<Select class=""form-control"" name=""{0}"" id=""{0}"">", HttpUtility.HtmlAttributeEncode(name))
+        '    '項目の生成
+        '    If TypeOf mdlsUnit Is List(Of M_DrugUnit) Then
+        '        For Each Data As M_DrugUnit In mdlsUnit
+        '            Dim strSelected As String = If(obj = Data.MDUT_UnitNo, "selected", String.Empty)
+        '            sb.AppendFormat("<option value=""{0}"" {1}>",
+        '                            HttpUtility.HtmlAttributeEncode(Data.MDUT_UnitNo.ToString),
+        '                            HttpUtility.HtmlAttributeEncode(strSelected))
+        '            sb.AppendFormat("{0}</Option>", (From q As VM_Name In mdlsNames Where q.VNAM_NameCode = Data.MDUT_UnitCode Select q.VNAM_Name).FirstOrDefault)
+        '        Next
+        '    ElseIf TypeOf mdlsUnit Is List(Of GM_DrugUnit) Then
+        '        For Each Data As GM_DrugUnit In mdlsUnit
+        '            Dim strSelected As String = If(obj = Data.GDUT_UnitNo, "selected", String.Empty)
+        '            sb.AppendFormat("<option value=""{0}"" {1}>",
+        '                            HttpUtility.HtmlAttributeEncode(Data.GDUT_UnitNo.ToString),
+        '                            HttpUtility.HtmlAttributeEncode(strSelected))
+        '            sb.AppendFormat("{0}</Option>", (From q In mdlsNames Where q.GNAM_NameCode = Data.GDUT_UnitCode Select q.GNAM_Name).FirstOrDefault)
+        '        Next
+        '    End If
 
-            sb.AppendFormat("</Select>")
-            Return MvcHtmlString.Create(sb.ToString)
+        '    sb.AppendFormat("</Select>")
+        '    Return MvcHtmlString.Create(sb.ToString)
 
-        End Function
+        'End Function
 
 
-        ''' <summary>
-        ''' 単位マスタ
-        ''' </summary>
-        ''' <param name="obj"></param>
-        ''' <param name="name"></param>
-        ''' <param name="mdls"></param>
-        ''' <param name="read_only"></param>
-        ''' <returns></returns>
-        Public Shared Function DropDownEditorUnit(obj As Object, name As String, mdls As List(Of VM_Name), Optional read_only As Boolean = False) As IHtmlString
-            If mdls Is Nothing Then
-                Return MvcHtmlString.Create("値リストが設定されていません。")
-            End If
-            Dim sb As New StringBuilder
-            sb.AppendFormat("<Select class=""form-control"" name=""{0}"" id=""{0}"" {1}>", HttpUtility.HtmlAttributeEncode(name), If(read_only, "readonly = 'true' ", ""))
-            For Each Data As VM_Name In mdls
-                Dim strSelected As String = If(obj = Data.VNAM_NameCode, "selected", String.Empty)
-                sb.AppendFormat("<option value=""{0}"" {1}>", HttpUtility.HtmlAttributeEncode(Data.VNAM_NameCode.ToString), HttpUtility.HtmlAttributeEncode(strSelected))
-                sb.AppendFormat("{0}</Option>", Data.VNAM_Name)
-            Next
-            sb.AppendFormat("</Select>")
-            Return MvcHtmlString.Create(sb.ToString)
+        '''' <summary>
+        '''' 単位マスタ
+        '''' </summary>
+        '''' <param name="obj"></param>
+        '''' <param name="name"></param>
+        '''' <param name="mdls"></param>
+        '''' <param name="read_only"></param>
+        '''' <returns></returns>
+        'Public Shared Function DropDownEditorUnit(obj As Object, name As String, mdls As List(Of VM_Name), Optional read_only As Boolean = False) As IHtmlString
+        '    If mdls Is Nothing Then
+        '        Return MvcHtmlString.Create("値リストが設定されていません。")
+        '    End If
+        '    Dim sb As New StringBuilder
+        '    sb.AppendFormat("<Select class=""form-control"" name=""{0}"" id=""{0}"" {1}>", HttpUtility.HtmlAttributeEncode(name), If(read_only, "readonly = 'true' ", ""))
+        '    For Each Data As VM_Name In mdls
+        '        Dim strSelected As String = If(obj = Data.VNAM_NameCode, "selected", String.Empty)
+        '        sb.AppendFormat("<option value=""{0}"" {1}>", HttpUtility.HtmlAttributeEncode(Data.VNAM_NameCode.ToString), HttpUtility.HtmlAttributeEncode(strSelected))
+        '        sb.AppendFormat("{0}</Option>", Data.VNAM_Name)
+        '    Next
+        '    sb.AppendFormat("</Select>")
+        '    Return MvcHtmlString.Create(sb.ToString)
 
-        End Function
+        'End Function
 
 
 

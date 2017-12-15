@@ -10,6 +10,12 @@ Public Module BundleConfig
         bundles.Add(New ScriptBundle("~/bundles/jqueryval").Include(
                     "~/Scripts/jquery.validate*"))
 
+        bundles.Add(New ScriptBundle("~/bundles/jqueryui").Include(
+                    "~/Scripts/jquery-ui-{version}.js"))
+
+        bundles.Add(New StyleBundle("~/Content/jqueryui").Include(
+                    "~/Content/themes/base/jquery-ui.css"))
+
         ' 開発と学習には、Modernizr の開発バージョンを使用します。次に、実稼働の準備が
         ' ready for production, use the build tool at https://modernizr.com to pick only the tests you need.
         bundles.Add(New ScriptBundle("~/bundles/modernizr").Include(
@@ -21,7 +27,13 @@ Public Module BundleConfig
 
         bundles.Add(New StyleBundle("~/Content/css").Include(
                   "~/Content/bootstrap.css",
-                  "~/Content/site.css"))
+                  "~/Content/site.css",
+                  "~/Content/font-awesome.css"))
+
+        bundles.Add(New ScriptBundle("~/bundles/script").Include(
+                  "~/Scripts/Script.js"))
+
+
     End Sub
 End Module
 

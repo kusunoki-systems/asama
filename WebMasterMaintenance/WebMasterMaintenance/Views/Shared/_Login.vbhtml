@@ -1,9 +1,9 @@
 ﻿@Modeltype UserModel
-@imports kusunoki.Helpers
+@imports WebMasterMaintenance.Helpers
 <h2></h2>
 @Using (Html.BeginForm("Login", "User"))
     @<div class="form-horizontal">
-        <h4>ログイン</h4>
+        <h4>Asamaログイン</h4>
         <hr />
         @Html.ValidationSummary(True, "", New With {.class = "text-danger"})
 

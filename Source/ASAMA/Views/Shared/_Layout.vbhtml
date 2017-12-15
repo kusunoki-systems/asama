@@ -21,77 +21,68 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("アプリケーション名", "Index", "Home", New With { .area = "" }, New With { .class = "navbar-brand" })
+                @Html.ActionLink("Acchito Sales Management System.", "Index", "Home", New With {.area = ""}, New With {.class = "navbar-brand"})
             </div>
             @If User.Identity.IsAuthenticated Then
                 @<div id="gnavi" Class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <!--医薬品マスタ 操作権限の判定-->
-                        @if ViewBag.View_M_Drug = 1 Or ViewBag.View_GM_Drug = 1 Or ViewBag.View_CM_Drug = 1 Then
-                        @<li Class="dropdown @ViewBag.ActiveMenu_Type1">
-                            <a href = "#" Class="dropdown-toggle" data-toggle="dropdown" role="button">医薬品マスタ <span Class="caret"></span></a>
+                        <li Class="dropdown">
+                            <a href="#" Class="dropdown-toggle" data-toggle="dropdown" role="button"><span class="fa fa-fax"></span> 受注 <span Class="caret"></span></a>
                             <ul Class="dropdown-menu" role="menu">
-                                @If ViewBag.View_M_Drug = 1 Then
-                                    @<li>@Html.ActionLink("病院限定薬品マスタ", "Index", "M_Drug", New With {.id = "1"}, New With {.class = ""})</li>
-                                End If
-                                @If ViewBag.View_GM_Drug = 1 Then
-                                    @<li>@Html.ActionLink("グループ統一薬マスタ", "Index", "GM_Drug", New With {.id = "1"}, New With {.class = ""})</li>
-                                End If
-                                @If ViewBag.View_CM_Drug = 1 Then
-                                    @*<li>@Html.ActionLink("標準医薬品", "Index", "CM_Drug", New With {.id = "1"}, New With {.class = ""})</li>*@
-                                End If
+                                <li>@Html.ActionLink("受注入力", "Index", "M_Drug", New With {.id = "1"}, New With {.class = ""})</li>
                             </ul>
                         </li>
-                        End If
-                        <!--医療材料マスタ 操作権限の判定-->
-                        @If ViewBag.View_M_Drug_Material = 1 Or ViewBag.View_GM_Drug_Material = 1 Then
-                            @<li Class="dropdown @ViewBag.ActiveMenu_Type2">
-                                <a href = "#" Class="dropdown-toggle" data-toggle="dropdown" role="button">処方用医療材料マスタ <span Class="caret"></span></a>
-                                <ul Class="dropdown-menu" role="menu">
-                                    @If ViewBag.View_M_Drug_Material = 1 Then
-                                        @<li>@Html.ActionLink("病院限定処方用医療材料マスタ", "Index", "M_Drug", New With {.id = "2"}, New With {.class = ""})</li>
-                                    End If
-                                    @If ViewBag.View_GM_Drug_Material = 1 Then
-                                        @<li>@Html.ActionLink("グループ統一処方用医療材料マスタ", "Index", "GM_Drug", New With {.id = "2"}, New With {.class = ""})</li>
-                                    End If
-                                    @If ViewBag.View_CM_Drug_Material = 1 Then
-                                        @*<li>@Html.ActionLink("標準医薬品", "Index", "CM_Drug", New With {.id = "2"}, New With {.class = ""})</li>*@
-                                    End If
-                                </ul>
-                            </li>
-                        End If
-                        <!--血液製剤マスタ 操作権限の判定-->
-                        @if ViewBag.View_M_Drug_Blood = 1 Or ViewBag.View_GM_Drug_Blood = 1 Or ViewBag.View_CM_Drug_Blood = 1 Then
-                            @<li Class="dropdown @ViewBag.ActiveMenu_Type3">
-                                <a href = "#" Class="dropdown-toggle" data-toggle="dropdown" role="button">血液製剤マスタ <span Class="caret"></span></a>
-                                <ul Class="dropdown-menu" role="menu">
-                                    @If ViewBag.View_M_Drug_Blood = 1 Then
-                                        @<li>@Html.ActionLink("病院限定輸血製剤マスタ", "Index", "M_Drug", New With {.id = "3"}, New With {.class = ""})</li>
-                                    End If
-                                    @If ViewBag.View_GM_Drug_Blood = 1 Then
-                                        @<li>@Html.ActionLink("グループ統一輸血製剤マスタ", "Index", "GM_Drug", New With {.id = "3"}, New With {.class = ""})</li>
-                                    End If
-                                    @If ViewBag.View_CM_Drug_Blood = 1 Then
-                                        @*<li>@Html.ActionLink("標準医薬品", "Index", "CM_Drug", New With {.id = "3"}, New With {.class = ""})</li>*@
-                                    End If
-                                </ul>
-                            </li>
-                        End If
-                        </ul>
-                        <ul Class="nav navbar-nav navbar-right">
-                            <li>
-                                @Html.ActionLink("ログアウト（" & ViewBag.FacilityName.ToString & ":" & ViewBag.StaffName.ToString & "）", "Logout", "User")
-                            </li>
-                        </ul>
+                        <li Class="dropdown">
+                            <a href="#" Class="dropdown-toggle" data-toggle="dropdown" role="button"><span class="fa fa-plane"></span> 発注 <span Class="caret"></span></a>
+                            <ul Class="dropdown-menu" role="menu">
+                                <li>@Html.ActionLink("発注入力", "Index", "M_Drug", New With {.id = "1"}, New With {.class = ""})</li>
+                            </ul>
+                        </li>
+                        <li Class="dropdown">
+                            <a href="#" Class="dropdown-toggle" data-toggle="dropdown" role="button"><span class="fa fa-ship"></span> 入荷 <span Class="caret"></span></a>
+                            <ul Class="dropdown-menu" role="menu">
+                                <li>@Html.ActionLink("入荷入力", "Index", "M_Drug", New With {.id = "2"}, New With {.class = ""})</li>
+                            </ul>
+                        </li>
+                        <li Class="dropdown">
+                            <a href="#" Class="dropdown-toggle" data-toggle="dropdown" role="button"><span class="fa fa-truck"></span> 出荷 <span Class="caret"></span></a>
+                            <ul Class="dropdown-menu" role="menu">
+                                <li>@Html.ActionLink("出荷入力", "Index", "M_Drug", New With {.id = "2"}, New With {.class = ""})</li>
+                            </ul>
+                        </li>
+                        <li Class="dropdown">
+                            <a href="#" Class="dropdown-toggle" data-toggle="dropdown" role="button"><span class="fa fa-print"></span> 請求 <span Class="caret"></span></a>
+                            <ul Class="dropdown-menu" role="menu">
+                                <li>@Html.ActionLink("請求入力", "Index", "M_Drug", New With {.id = "2"}, New With {.class = ""})</li>
+                            </ul>
+                        </li>
+                        <li Class="dropdown">
+                            <a href="#" Class="dropdown-toggle" data-toggle="dropdown" role="button"><span class="fa fa-jpy"></span> 入金 <span Class="caret"></span></a>
+                            <ul Class="dropdown-menu" role="menu">
+                                <li>@Html.ActionLink("入金入力", "Index", "M_Drug", New With {.id = "2"}, New With {.class = ""})</li>
+                            </ul>
+                        </li>
+                        <li Class="dropdown">
+                            <a href="#" Class="dropdown-toggle" data-toggle="dropdown" role="button"><span class="fa fa-gear"></span> システム管理 <span Class="caret"></span></a>
+                            <ul Class="dropdown-menu" role="menu">
+                                <li>@Html.ActionLink("マスター", "Index", "system", New With {.id = "2"}, New With {.class = ""})</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul Class="nav navbar-nav navbar-right">
+                        <li>
+                            @Html.ActionLink("ログアウト（" & ViewBag.StaffName.ToString & "）", "Logout", "User")
+                        </li>
+                    </ul>
              </div>
             Else
                     @<ul Class="nav navbar-nav navbar-right">
                         <li>
-                            @Html.ActionLink("ログイン", "Login", "User")
+                            @Html.ActionLink("ログイン", "Login", "Account")
                         </li>
                     </ul>
 
-                End If
+            End If
                        
         </div>
     </nav>
@@ -106,7 +97,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - ASaMa Acchito Sales Management System.</p>
+            <p>&copy; @DateTime.Now.Year - Asama Project.</p>
         </footer>
     </div>
 

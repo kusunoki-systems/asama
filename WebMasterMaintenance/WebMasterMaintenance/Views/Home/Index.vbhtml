@@ -4,8 +4,8 @@
 End Code
 
 <div class="jumbotron">
-    <h1>ASaMa</h1>
-    <p class="lead">Acchito Sales Management System.</p>
+    <h1>Asama </h1>
+    <p class="lead">Asama </p>
 </div>
 
 <div class="row">

@@ -27,12 +27,10 @@ Public Module BundleConfig
 
         bundles.Add(New StyleBundle("~/Content/css").Include(
                   "~/Content/bootstrap.css",
-                  "~/Content/site.css",
-                  "~/Content/font-awesome.css"))
+                  "~/Content/site.css"))
 
         bundles.Add(New ScriptBundle("~/bundles/script").Include(
                   "~/Scripts/Script.js"))
-
 
     End Sub
 End Module

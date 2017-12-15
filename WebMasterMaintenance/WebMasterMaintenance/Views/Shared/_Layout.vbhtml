@@ -1,4 +1,4 @@
-﻿@Imports kusunoki.Helpers
+﻿@Imports WebMasterMaintenance.Helpers
 
 <!DOCTYPE html>
 <html>
@@ -6,7 +6,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Acchito Sales Management System.</title>
+    <title>@ViewBag.Title - ASaMa Acchito Sales Management System.</title>
     @Styles.Render("~/Content/css")
     @Styles.Render("~/Content/jqueryui")
     @Scripts.Render("~/bundles/modernizr")
@@ -22,7 +22,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("TOP", "Index", "Home", New With {.area = ""}, New With {.class = "navbar-brand"})
+                @Html.ActionLink("Acchito Sales Management System.", "Index", "Home", New With {.area = ""}, New With {.class = "navbar-brand"})
             </div>
             @If User.Identity.IsAuthenticated Then
                 @<div id="gnavi" Class="collapse navbar-collapse">
@@ -66,15 +66,15 @@
                         <li Class="dropdown">
                             <a href="#" Class="dropdown-toggle" data-toggle="dropdown" role="button"><span class="fa fa-gear"></span> システム管理 <span Class="caret"></span></a>
                             <ul Class="dropdown-menu" role="menu">
-                                <li>@Html.ActionLink("マスター", "Index", "M_Drug", New With {.id = "2"}, New With {.class = ""})</li>
+                                <li>@Html.ActionLink("マスター", "Index", "system", New With {.id = "2"}, New With {.class = ""})</li>
                             </ul>
                         </li>
-                    </ul>
-                    <ul Class="nav navbar-nav navbar-right">
-                        <li>
-                            @Html.ActionLink("ログアウト（" & ViewBag.StaffName.ToString & "）", "Logout", "User")
-                        </li>
-                    </ul>
+                        </ul>
+                        <ul Class="nav navbar-nav navbar-right">
+                            <li>
+                                @Html.ActionLink("ログアウト:（" & ViewBag.StaffName.ToString & "）", "Logout", "User")
+                            </li>
+                        </ul>
              </div>
             Else
                     @<ul Class="nav navbar-nav navbar-right">
@@ -82,7 +82,9 @@
                             @Html.ActionLink("ログイン", "Login", "User")
                         </li>
                     </ul>
-            End If
+
+                End If
+                       
         </div>
     </nav>
 
@@ -96,7 +98,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Kusunoki Systems Co., Ltd.</p>
+            <p>&copy; @DateTime.Now.Year - Medis Co., Ltd.</p>
         </footer>
     </div>
 

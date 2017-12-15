@@ -1,5 +1,8 @@
-﻿Public Class HomeController
-    Inherits System.Web.Mvc.Controller
+﻿Namespace Controllers
+
+    <AllowAnonymous>
+    Public Class HomeController
+        Inherits Controllers.BaseController
 
     Function Index() As ActionResult
         Return View()
@@ -17,3 +20,4 @@
         Return View()
     End Function
 End Class
+End Namespace

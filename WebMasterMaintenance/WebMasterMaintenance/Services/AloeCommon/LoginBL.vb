@@ -1,5 +1,5 @@
 ﻿'******************************************************************
-'*	システム名	：	Aloe
+'*	システム名	：	Asama
 '*	ファイル名	：	UclLoginBL
 '*	概要		：	ログインユーザコントロールビジネスロジック
 '*
@@ -35,18 +35,18 @@ Public Class UclLoginBL
     '''  日付    担当    Ver. チケット# 変更理由
     '''  ----------------------------------------------------------------
     ''' </remarks>
-    Public Function DoMain(db As AloeEntities, LoginAppData As LoginAD) As LoginAD
+    Public Function DoMain(db As AsamaEntities, LoginAppData As LoginAD) As LoginAD
         Try
             Const l_PASSWORDINPUTALLOWTIMES As String = "PasswordInputAllowTimes"
             Const l_PASSWORDVALIDDAYS As String = "PasswordValidDays"
 
             Dim blEof As Boolean = True
-            Dim intPasswordInputAllowTimes As Integer = 99999
-            Dim intPasswordValidDays As Integer = 0
+            Dim intPasswordInputAllowTimes As Integer = 99
+            Dim intPasswordValidDays As Integer = 9999
             Dim isValidDate As Boolean = True
             Dim isAllowTime As Boolean = True
             Dim isWorkCodeSelect As Boolean = True
-            'Dim strGetFacilityID As String = String.Empty
+            Dim strGetFacilityID As String = String.Empty
             Dim staffJobList As List(Of String) = New List(Of String)
             Dim dicControlInfo As Dictionary(Of String, String) = New Dictionary(Of String, String)
 
@@ -66,29 +66,61 @@ Public Class UclLoginBL
             ''パスワード制限日数
             'Integer.TryParse(controlInfoDictionary(l_PASSWORDVALIDDAYS), intPasswordValidDays)
 
-            '******************* M_STAFFBASE ********************
+            ''******************* M_STAFFBASE ********************
+            ''最新LogNoを取得
+            'Dim maxlogno = (From e As M_StaffBase In db.M_StaffBase
+            '                Where e.MSTB_StaffID = LoginAppData.StaffID And
+            '                    e.MSTB_FacilityID = LoginAppData.FacilityID
+            '                Select e.MSTB_LogNo).Max
+
             '有効なユーザーの取得
+            'Dim staffbase = (From e As M_StaffBase In db.M_StaffBase
+            '                 Where e.MSTB_DisplayStaffID = LoginAppData.StaffID And
+            '                    e.MSTB_DelFlag = 0 And
+            '                    e.MSTB_ValidDateFrom <= Now() And
+            '                    Now() <= e.MSTB_ValidDateTo And
+            '                    e.MSTB_LogNo = maxlogno And
+            '                    e.MSTB_FacilityID = LoginAppData.FacilityID
+            '                 Select e).FirstOrDefault
             Dim staffbase = (From e As M_StaffBase In db.M_StaffBase
                              Where e.MSTB_StaffID = LoginAppData.StaffID And
                                 e.MSTB_DelFlag = 0 And
                                 e.MSTB_LogNo = 0
                              Select e).FirstOrDefault
-
             If staffbase IsNot Nothing Then '有効なログインIDである時、職員基本情報の取得を行う。
                 LoginAppData.SexType = staffbase.MSTB_SexType
                 LoginAppData.BirthDate = CDate(staffbase.MSTB_BirthDate)
-                LoginAppData.FirstName = staffbase.MSTB_Name
-                LoginAppData.KanaFirstName = staffbase.MSTB_NameKana
-                LoginAppData.RitireDate = Common.NVL(staffbase.MSTB_RetireDate, AloeConst.UndefDateMin)
-                LoginAppData.EnterDate = Common.NVL(staffbase.MSTB_EnterDate, AloeConst.UndefDateMin)
+                'LoginAppData.FirstName = staffbase.MSTB_FirstName
+                'LoginAppData.MiddleName = staffbase.MSTB_MiddleName
+                'LoginAppData.LastName = staffbase.MSTB_LastName
+                'LoginAppData.KanaFirstName = staffbase.MSTB_FirstNameKana
+                'LoginAppData.KanaMiddleName = staffbase.MSTB_MiddleNameKana
+                'LoginAppData.KanaLastName = staffbase.MSTB_LastNameKana
+                LoginAppData.RitireDate = Common.NVL(staffbase.MSTB_RetireDate, AsamaConst.UndefDateMin)
+                LoginAppData.EnterDate = Common.NVL(staffbase.MSTB_EnterDate, AsamaConst.UndefDateMin)
+                'If staffbase.MSTB_ValidType = "2" Then
+                '    LoginAppData.HasError = True
+                '    Return LoginAppData
+                'End If
             Else
                 '存在しないログインIDです。
                 LoginAppData.HasError = True
                 Return LoginAppData
             End If
 
-            '******************* PASSWORD ********************
+            ''******************* PASSWORD ********************
+            ''最新LogNoを取得
+            'maxlogno = (From e As M_StaffPassword In db.M_StaffPassword
+            '            Where e.MSTP_StaffID = LoginAppData.StaffID And
+            '                e.MSTP_FacilityID = LoginAppData.FacilityID
+            '            Select e.MSTP_LogNo).Max
+
             '上記最新LogNoの要素を取得
+            'Dim staffPassword = (From e As M_StaffPassword In db.M_StaffPassword
+            '                     Where e.MSTP_StaffID = LoginAppData.StaffID And
+            '                     e.MSTP_LogNo = (maxlogno) And
+            '                     e.MSTP_FacilityID = LoginAppData.FacilityID
+            '                     Select e).FirstOrDefault
             Dim staffPassword = (From e As M_StaffPassword In db.M_StaffPassword
                                  Where e.MSTP_StaffID = LoginAppData.StaffID And
                                  e.MSTP_LogNo = 0
@@ -110,9 +142,9 @@ Public Class UclLoginBL
                     'ここでログイン情報をゲットする
 
                     '有効期限切れのチェック
-                    'If DateTime.Compare(staffPassword.MSTP_UpdateDate.AddDays(intPasswordValidDays), DateTime.Now) < 0 Then
-                    '    isValidDate = False
-                    'End If
+                    If DateTime.Compare(staffPassword.MSTP_UpdateDate.AddDays(intPasswordValidDays), DateTime.Now) < 0 Then
+                        isValidDate = False
+                    End If
 
 
                     '有効期限切れの判定を行う
@@ -128,9 +160,9 @@ Public Class UclLoginBL
                     LoginAppData.HasError = True
                 End If
 
-                '職種コードの取得
+                ''職種コードの取得
 
-                'JOBコードでGroupBy
+                ''JOBコードでGroupBy
                 'Dim grp = From e As M_StaffJobType In db.M_StaffJobType
                 '          Group By e.MSJT_JobCode, e.MSJT_FacilityID, e.MSJT_StaffID, e.MSJT_LogNo
                 '                  Into jobgroup = Group
@@ -143,6 +175,7 @@ Public Class UclLoginBL
                 '                    e.MSJT_JobCode = g.jobcode And
                 '                    e.MSJT_LogNo = g.maxlogno And
                 '                    e.MSJT_StaffID = LoginAppData.StaffID And
+                '                    e.MSJT_FacilityID = LoginAppData.FacilityID And
                 '                    e.MSJT_DelFlag = 0
                 '            Select e
 
@@ -251,58 +284,68 @@ Public Class UclLoginBL
         Return accessAuthDictionary
     End Function
 
-    ''' <summary>
-    ''' <para>現在保持している情報の現任種別を変更して、履歴番号を採番してInsertする</para>
-    ''' <para>（編集履歴を保持するためUpdateは行いません）</para>
-    ''' <para>ValidType=0(有効)ならば2(停止)のレコードを物理削除。但し変更前が0(有効),1(退職)の場合はエラー(HasError=True)</para>
-    ''' <para>ValidType=1(退職)ならば現在の有効期間のまま現任種別を1で更新</para>
-    ''' <para>ValidType=2(停止)ならば有効期間min-maxで停止レコードをInsert。但し変更前が2(停止)の場合はエラー(HasError=True)</para>
-    ''' </summary>
-    ''' <param name="db">context</param>
-    ''' <param name="LoginAppData">エラー受渡し用AloeADBase</param>
-    ''' <param name="strValidType">現任種別 0:有効、1:退職、2:停止</param>
-    ''' <returns>AloeADBase</returns>
-    ''' <remarks></remarks>
-    Public Function UpdateValidType(ByVal db As AloeEntities, LoginAppData As LoginAD, ByVal strValidType As String) As Boolean
-        Try
-            Dim mdl As M_StaffBase = (From e As M_StaffBase In db.M_StaffBase
-                                      Where e.MSTB_StaffID = LoginAppData.StaffID
-                                      Select e
-                                        ).FirstOrDefault
-            If mdl Is Nothing Then Throw New Exception("対象データがありません")
+    '''' <summary>
+    '''' <para>現在保持している情報の現任種別を変更して、履歴番号を採番してInsertする</para>
+    '''' <para>（編集履歴を保持するためUpdateは行いません）</para>
+    '''' <para>ValidType=0(有効)ならば2(停止)のレコードを物理削除。但し変更前が0(有効),1(退職)の場合はエラー(HasError=True)</para>
+    '''' <para>ValidType=1(退職)ならば現在の有効期間のまま現任種別を1で更新</para>
+    '''' <para>ValidType=2(停止)ならば有効期間min-maxで停止レコードをInsert。但し変更前が2(停止)の場合はエラー(HasError=True)</para>
+    '''' </summary>
+    '''' <param name="db">context</param>
+    '''' <param name="LoginAppData">エラー受渡し用AsamaADBase</param>
+    '''' <param name="strValidType">現任種別 0:有効、1:退職、2:停止</param>
+    '''' <returns>AsamaADBase</returns>
+    '''' <remarks></remarks>
+    'Public Function UpdateValidType(ByVal db As AsamaEntities, LoginAppData As LoginAD, ByVal strValidType As String) As Boolean
+    '    Try
+    '        Dim mdl As M_StaffBase = (From e As M_StaffBase In db.M_StaffBase
+    '                                  Where e.MSTB_StaffID = LoginAppData.StaffID
+    '                                  Select e
+    '                                    ).FirstOrDefault
+    '        If mdl Is Nothing Then Throw New Exception("対象データがありません")
 
-            Select Case strValidType
-                Case "0"    '有効
-                    '停止状態のデータを物理削除
+    '        '変更前データチェック
+    '        If ((mdl.MSTB_ValidType = "0" Or mdl.MSTB_ValidType = "1") And strValidType = "0") OrElse
+    '            (mdl.MSTB_ValidType = "2" And strValidType = "2") Then
+    '            Throw New Exception("ValidTypeエラー")
+    '        End If
 
-                    db.M_StaffBase.Remove(mdl)
+    '        Select Case strValidType
+    '            Case "0"    '有効
+    '                '停止状態のデータを物理削除
 
-                Case "1"    '退職
-                    '指定された値で現認種別を変更
+    '                db.M_StaffBase.Remove(mdl)
 
-                    '更新
-                    mdl.MSTB_UpdateDate = Now()
-                    db.Entry(mdl).State = EntityState.Modified
-                    db.SaveChanges()
+    '            Case "1"    '退職
+    '                '指定された値で現認種別を変更
 
-                Case "2"    '停止
-                    '更新
-                    'appData = SetData(appData)
-                    Dim newmdl As New M_StaffBase
-                    newmdl.MSTB_StaffID = mdl.MSTB_StaffID
-                    db.M_StaffBase.Add(newmdl)
-                    db.SaveChanges()
-                Case Else
+    '                '更新
+    '                mdl.MSTB_ValidType = strValidType
+    '                mdl.MSTB_UpdateDate = Now()
+    '                db.Entry(mdl).State = EntityState.Modified
+    '                db.SaveChanges()
 
-            End Select
+    '            Case "2"    '停止
+    '                '更新
+    '                'appData = SetData(appData)
+    '                Dim newmdl As New M_StaffBase
+    '                newmdl.MSTB_StaffID = mdl.MSTB_StaffID
+    '                newmdl.MSTB_ValidType = strValidType
+    '                newmdl.MSTB_ValidDateFrom = AsamaConst.UndefDateMin
+    '                newmdl.MSTB_ValidDateTo = AsamaConst.UndefDateMax
+    '                db.M_StaffBase.Add(newmdl)
+    '                db.SaveChanges()
+    '            Case Else
 
-        Catch ex As Exception
+    '        End Select
 
-        End Try
+    '    Catch ex As Exception
 
-        '更新
-        Return True
-    End Function
+    '    End Try
+
+    '    '更新
+    '    Return True
+    'End Function
 
 #End Region
 

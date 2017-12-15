@@ -1,11 +1,11 @@
 ﻿Option Strict On
 
 ''' <summary>
-''' Aloeジェネラルデータ
+''' Asamaジェネラルデータ
 ''' </summary>
 ''' <typeparam name="TData"></typeparam>
 ''' <remarks></remarks>
-Public Class AloeGeneralData(Of TData)
+Public Class AsamaGeneralData(Of TData)
     Private dict As Dictionary(Of String, TData) = New Dictionary(Of String, TData)
 
     Public Property Item(ByVal key As String) As TData

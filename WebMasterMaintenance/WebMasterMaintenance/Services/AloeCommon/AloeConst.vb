@@ -1,7 +1,7 @@
 ﻿'******************************************************************
-'*	システム名	：	Aloe
-'*	ファイル名	：	modAloeConst
-'*	概要		：	Aloeで使用する定数値を定義します。
+'*	システム名	：	Asama
+'*	ファイル名	：	modAsamaConst
+'*	概要		：	Asamaで使用する定数値を定義します。
 '*
 '*	Copyright  (c) 2014-2015 Medis Co., Ltd.
 '*
@@ -9,17 +9,17 @@
 
 
 ''' <summary>
-''' Aloe 共通定数
+''' Asama 共通定数
 ''' </summary>
 ''' <remarks>
 ''' <para>【履歴】</para>
 ''' <para>2017年08月時点のConstを移植</para>
 ''' </remarks>
-Public Module AloeConst
+Public Module AsamaConst
 
 #Region "DB接続"
     ''' <summary>DB接続文字列</summary>
-    Public Const ConnectionString As String = "AloeConnectionString"
+    Public Const ConnectionString As String = "AsamaConnectionString"
 #End Region
 
 #Region "DB無効値"
@@ -77,20 +77,20 @@ Public Module AloeConst
     Public Const FormatCreateDateTimeString As String = "作成日時 yyyy/MM/dd HH:mm"
 #End Region
 
-#Region "AloeGeneraDataキー"
-    ''' <summary>AloeGeneraDataキー・クライアントマシン名</summary>
+#Region "AsamaGeneraDataキー"
+    ''' <summary>AsamaGeneraDataキー・クライアントマシン名</summary>
     Public Const ClientID As String = "ClientID"
-    '''' <summary>AloeGeneraDataキー・施設ID</summary>
-    'Public Const FacilityID As String = "FacilityID"
-    ''' <summary>AloeGeneraDataキー・ログイン者職員情報</summary>
+    ''' <summary>AsamaGeneraDataキー・施設ID</summary>
+    Public Const FacilityID As String = "FacilityID"
+    ''' <summary>AsamaGeneraDataキー・ログイン者職員情報</summary>
     Public Const LoginStaffInfo As String = "LoginStaffInfo"
-    ''' <summary>AloeGeneraDataキー・代行職員情報</summary>
+    ''' <summary>AsamaGeneraDataキー・代行職員情報</summary>
     Public Const DeputyStaffInfo As String = "DeputyStaffInfo"
-    ''' <summary>AloeGeneraDataキー・患者表示情報</summary>
+    ''' <summary>AsamaGeneraDataキー・患者表示情報</summary>
     Public Const PatientDispInfo As String = "PatientDispInfo"
-    ''' <summary>AloeGeneraDataキー・患者モード情報</summary>
+    ''' <summary>AsamaGeneraDataキー・患者モード情報</summary>
     Public Const PatientModeInfo As String = "PatientModeInfo"
-    ''' <summary>AloeGeneraDataキー・機能情報</summary>
+    ''' <summary>AsamaGeneraDataキー・機能情報</summary>
     Public Const FunctionInfo As String = "FunctionInfo"
 #End Region
 

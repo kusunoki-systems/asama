@@ -7,10 +7,10 @@ Imports System.Runtime.InteropServices
 ' これらの属性値を変更します。
 
 ' アセンブリの属性値を確認します
-<Assembly: AssemblyTitle("kusunoki")>
+<Assembly: AssemblyTitle("WebMasterMaintenance")> 
 <Assembly: AssemblyDescription("")>
 <Assembly: AssemblyCompany("")>
-<Assembly: AssemblyProduct("kusunoki")>
+<Assembly: AssemblyProduct("WebMasterMaintenance")> 
 <Assembly: AssemblyCopyright("Copyright © Microsoft 2017")>
 <Assembly: AssemblyTrademark("")>
 

@@ -464,8 +464,8 @@ Public Class LogMessage
         GetMstMessage = 0
 
         Try
-            Dim clsAloeADBase As New AloeEntities
-            Dim clsLogData As New LogMessageTbl.LogMessageData(clsAloeADBase, strMessageID)
+            Dim clsAsamaADBase As New AsamaEntities
+            Dim clsLogData As New LogMessageTbl.LogMessageData(clsAsamaADBase, strMessageID)
             If clsLogData.HasData = True Then
                 LogMessage = clsLogData
             Else

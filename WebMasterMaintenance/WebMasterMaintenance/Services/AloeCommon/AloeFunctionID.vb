@@ -1,7 +1,7 @@
 ﻿''' <summary>
 ''' 機能ID
 ''' </summary>
-Public Class AloeFunctionID
+Public Class AsamaFunctionID
 
     ''' <summary>
     ''' 施設用薬品マスタメンテナンス

@@ -75,13 +75,6 @@ C:\Git_develop\Aloe\WebMasterMaintenance\WebMasterMaintenance\obj\Debug\WebMaste
 C:\Git_develop\Aloe\WebMasterMaintenance\WebMasterMaintenance\obj\Debug\WebMasterMaintenance.xml
 C:\Git_develop\Aloe\WebMasterMaintenance\WebMasterMaintenance\obj\Debug\WebMasterMaintenance.pdb
 C:\nakamura\ASAMA\WebMasterMaintenance\WebMasterMaintenance\bin\ApplicationInsights.config
-C:\nakamura\ASAMA\WebMasterMaintenance\WebMasterMaintenance\bin\Models\AloeModels.Context.tt
-C:\nakamura\ASAMA\WebMasterMaintenance\WebMasterMaintenance\bin\Models\AloeModels.tt
-C:\nakamura\ASAMA\WebMasterMaintenance\WebMasterMaintenance\bin\Models\AloeModels.Context.vb
-C:\nakamura\ASAMA\WebMasterMaintenance\WebMasterMaintenance\bin\Models\AloeModels.Designer.vb
-C:\nakamura\ASAMA\WebMasterMaintenance\WebMasterMaintenance\bin\Models\AloeModels.vb
-C:\nakamura\ASAMA\WebMasterMaintenance\WebMasterMaintenance\bin\Models\M_StaffBase.vb
-C:\nakamura\ASAMA\WebMasterMaintenance\WebMasterMaintenance\bin\Models\M_StaffPassword.vb
 C:\nakamura\ASAMA\WebMasterMaintenance\WebMasterMaintenance\bin\WebMasterMaintenance.dll.config
 C:\nakamura\ASAMA\WebMasterMaintenance\WebMasterMaintenance\bin\WebMasterMaintenance.dll
 C:\nakamura\ASAMA\WebMasterMaintenance\WebMasterMaintenance\bin\WebMasterMaintenance.pdb
@@ -136,4 +129,3 @@ C:\nakamura\ASAMA\WebMasterMaintenance\WebMasterMaintenance\obj\Debug\WebMasterM
 C:\nakamura\ASAMA\WebMasterMaintenance\WebMasterMaintenance\obj\Debug\WebMasterMaintenance.dll
 C:\nakamura\ASAMA\WebMasterMaintenance\WebMasterMaintenance\obj\Debug\WebMasterMaintenance.xml
 C:\nakamura\ASAMA\WebMasterMaintenance\WebMasterMaintenance\obj\Debug\WebMasterMaintenance.pdb
-C:\nakamura\ASAMA\WebMasterMaintenance\WebMasterMaintenance\obj\Debug\WebMasterMaintenance.vbprojResolveAssemblyReference.cache

@@ -12,7 +12,7 @@ Public Class UserService
     '''' </summary>
     '''' <param name="db"></param>
     '''' <returns></returns>
-    'Public Function GetGroupFacility(db As AloeEntities) As List(Of S_GroupFacility)
+    'Public Function GetGroupFacility(db As AsamaEntities) As List(Of S_GroupFacility)
 
     '    Dim mdls = From e In db.S_GroupFacility
     '               Where e.SGFA_DelFlag = 0
@@ -27,7 +27,7 @@ Public Class UserService
     ''' 認証
     ''' </summary>
     ''' <returns></returns>
-    Public Function LoginAuthority(db As AloeEntities, model As UserModel, ErrorCount As Object) As LoginAD
+    Public Function LoginAuthority(db As AsamaEntities, model As UserModel, ErrorCount As Object) As LoginAD
 
         'If model.Id = "hoge" AndAlso model.Password = "hoge" Then
         '    Return Nothing
@@ -44,11 +44,12 @@ Public Class UserService
         '認証処理
         Dim bl As New UclLoginBL
         Dim appdata As New LoginAD
+        'appdata.FacilityID = model.FacilityID
         appdata.StaffID = model.Id
         appdata.Password = model.Password
         'ログイン処理
         appdata = bl.DoMain(db, appdata)
-        'model.JobCodes = appdata.JobCodes
+        model.JobCodes = appdata.JobCodes
 
         If appdata.HasError Then
             Return appdata
@@ -60,7 +61,7 @@ Public Class UserService
 
 
 
-    Public Function GetUserInfo(db As AloeEntities, id As String) As M_StaffBase
+    Public Function GetUserInfo(db As AsamaEntities, id As String) As M_StaffBase
 
         Dim model = (From e In db.M_StaffBase
                      Where e.MSTB_StaffID = id And e.MSTB_DelFlag = 0

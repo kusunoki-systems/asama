@@ -1,4 +1,4 @@
-﻿Public Class AloeHotCode
+﻿Public Class AsamaHotCode
 
     Const MDrug_PREFIX As String = "U3"
     Const GMDrug_PREFIX As String = "Z3"
@@ -9,7 +9,7 @@
     '''' </summary>
     '''' <param name="db"></param>
     '''' <returns></returns>
-    'Public Shared Function GetHotCode_MDrug_Material(db As AloeEntities) As String
+    'Public Shared Function GetHotCode_MDrug_Material(db As AsamaEntities) As String
 
     '    '件数取得
     '    Dim cnt = (From e In db.M_Drug
@@ -26,7 +26,7 @@
     '''' </summary>
     '''' <param name="db"></param>
     '''' <returns></returns>
-    'Public Shared Function GetHotCode_GMDrug_Material(db As AloeEntities) As String
+    'Public Shared Function GetHotCode_GMDrug_Material(db As AsamaEntities) As String
 
     '    '件数取得
     '    Dim cnt = (From e In db.GM_Drug

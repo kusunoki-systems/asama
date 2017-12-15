@@ -30,7 +30,7 @@ Public Class LogMessageTbl
     ''' <remarks>
     ''' <para>Messageの列をプロパティで公開する。</para>
     ''' <para>テーブルアダプタとプロパティとの連携を行う。</para>
-    ''' <para>(メンバの初期値がAloeConst.UndefXXX未使用だが、使用するのがLogMessage内のみで他に影響ないためそのままとする)</para>
+    ''' <para>(メンバの初期値がAsamaConst.UndefXXX未使用だが、使用するのがLogMessage内のみで他に影響ないためそのままとする)</para>
     ''' </remarks>
     Public MustInherit Class LogMessageMember
 
@@ -124,7 +124,7 @@ Public Class LogMessageTbl
             End Get
             Set(value As String)
                 If value Is Nothing Then
-                    m_MessageDetail = AloeConst.UndefString
+                    m_MessageDetail = AsamaConst.UndefString
                 Else
                     m_MessageDetail = value
                 End If
@@ -161,7 +161,7 @@ Public Class LogMessageTbl
 
 #Region "LogMessageData"
     ''' <summary>
-    ''' Messageの1データを取り扱うクラス【AloeGeneralData使用】
+    ''' Messageの1データを取り扱うクラス【AsamaGeneralData使用】
     ''' </summary>
     ''' <remarks></remarks>
     Public Class LogMessageData
@@ -178,10 +178,10 @@ Public Class LogMessageTbl
         ''' <summary>
         ''' コンストラクタ（キー指定で対象データを取得）
         ''' </summary>
-        ''' <param name="appData">エラー受渡し用AloeADBase</param>
+        ''' <param name="appData">エラー受渡し用AsamaADBase</param>
         ''' <param name="strMessageID">メッセージID</param>
         ''' <remarks></remarks>
-        Public Sub New(ByRef appData As AloeEntities, ByVal strMessageID As String)
+        Public Sub New(ByRef appData As AsamaEntities, ByVal strMessageID As String)
             '最初に基本クラスのコンストラクタを呼び出す
             MyBase.New()
 
@@ -189,12 +189,12 @@ Public Class LogMessageTbl
         End Sub
 
         ''' <summary>
-        ''' <para>指定条件のデータをAloeGeneralDataから取得する</para>
+        ''' <para>指定条件のデータをAsamaGeneralDataから取得する</para>
         ''' </summary>
-        ''' <param name="appData">エラー受渡し用AloeADBase</param>
+        ''' <param name="appData">エラー受渡し用AsamaADBase</param>
         ''' <param name="strMessageID">メッセージID</param>
         ''' <remarks></remarks>
-        Private Sub GetData(ByVal appData As AloeEntities, ByVal strMessageID As String)
+        Private Sub GetData(ByVal appData As AsamaEntities, ByVal strMessageID As String)
             Try
 
             Catch ex As Exception

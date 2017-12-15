@@ -9,7 +9,7 @@ Namespace Controllers
         ''' <summary>
         ''' DBコンテキスト
         ''' </summary>
-        Protected db As New AloeEntities
+        Protected db As New AsamaEntities
 
         ''' <summary>
         ''' DB接続エラー
@@ -33,11 +33,11 @@ Namespace Controllers
         Protected ReadOnly COOKIE_MASTER_TYPE As String = "MasterType"
         Protected MasterType As enmMasterType
 
-        '''' <summary>
-        '''' 施設ID
-        '''' </summary>
-        'Protected ReadOnly COOKIE_FACILITY_ID As String = "FacilityId"
-        'Protected FacilityId As String
+        ''' <summary>
+        ''' 施設ID
+        ''' </summary>
+        Protected ReadOnly COOKIE_FACILITY_ID As String = "FacilityId"
+        Protected FacilityId As String
 
         ''' <summary>
         ''' 職種コード
@@ -48,7 +48,7 @@ Namespace Controllers
         ''' <summary>
         ''' アクセス権
         ''' </summary>
-        Protected AloeGeneralData As New AloeGeneralData(Of XElement)
+        Protected AsamaGeneralData As New AsamaGeneralData(Of XElement)
 
 
         ''' <summary>
@@ -145,6 +145,7 @@ Namespace Controllers
             Dim svc As New UserService
             If User IsNot Nothing AndAlso User.Identity.IsAuthenticated Then
                 mStaffbase = svc.GetUserInfo(db, User.Identity.Name)
+                'If mStaffbase IsNot Nothing Then ViewBag.StaffName = mStaffbase.MSTB_LastName & Replace(" " & mStaffbase.MSTB_MiddleName & " ", "  ", " ") & mStaffbase.MSTB_FirstName
                 If mStaffbase IsNot Nothing Then ViewBag.StaffName = mStaffbase.MSTB_Name
             End If
 
@@ -204,66 +205,66 @@ Namespace Controllers
             Dim xml As New XMLControlInfo
 
             ''病院限定薬品
-            'xml.GetXMLAccessAuth(db, AloeGeneralData, Me.FacilityId, Jobcode, Me.mStaffbase.MSTB_StaffID, Auth_M_DRUG, AloeFunctionID.MasterMainte_M_Drug)
+            'xml.GetXMLAccessAuth(db, AsamaGeneralData, Me.FacilityId, Jobcode, Me.mStaffbase.MSTB_StaffID, Auth_M_DRUG, AsamaFunctionID.MasterMainte_M_Drug)
             'If Auth_M_DRUG.AuthSelect Then
             '    '病院薬品参照権限有
             '    ViewBag.View_M_Drug = 1
             'End If
 
             ''グループ統一薬品
-            'xml.GetXMLAccessAuth(db, AloeGeneralData, Me.FacilityId, Jobcode, Me.mStaffbase.MSTB_StaffID, Auth_GM_DRUG, AloeFunctionID.MasterMainte_GM_Drug)
+            'xml.GetXMLAccessAuth(db, AsamaGeneralData, Me.FacilityId, Jobcode, Me.mStaffbase.MSTB_StaffID, Auth_GM_DRUG, AsamaFunctionID.MasterMainte_GM_Drug)
             'If Auth_GM_DRUG.AuthSelect Then
             '    '病院薬品参照権限有
             '    ViewBag.View_GM_Drug = 1
             'End If
 
             ''病院限定輸血製剤
-            'xml.GetXMLAccessAuth(db, AloeGeneralData, Me.FacilityId, Jobcode, Me.mStaffbase.MSTB_StaffID, Auth_M_DRUG_BLOOD, AloeFunctionID.MasterMainte_M_Drug_Blood)
+            'xml.GetXMLAccessAuth(db, AsamaGeneralData, Me.FacilityId, Jobcode, Me.mStaffbase.MSTB_StaffID, Auth_M_DRUG_BLOOD, AsamaFunctionID.MasterMainte_M_Drug_Blood)
             'If Auth_M_DRUG_BLOOD.AuthSelect Then
             '    '病院薬品参照権限有
             '    ViewBag.View_M_Drug_Blood = 1
             'End If
 
             ''グループ統一輸血製剤
-            'xml.GetXMLAccessAuth(db, AloeGeneralData, Me.FacilityId, Jobcode, Me.mStaffbase.MSTB_StaffID, Auth_GM_DRUG_BLOO, AloeFunctionID.MasterMainte_GM_Drug_Blood)
+            'xml.GetXMLAccessAuth(db, AsamaGeneralData, Me.FacilityId, Jobcode, Me.mStaffbase.MSTB_StaffID, Auth_GM_DRUG_BLOO, AsamaFunctionID.MasterMainte_GM_Drug_Blood)
             'If Auth_GM_DRUG_BLOO.AuthSelect Then
             '    '病院薬品参照権限有
             '    ViewBag.View_GM_Drug_Blood = 1
             'End If
 
             ''病院限定処方用医療材料
-            'xml.GetXMLAccessAuth(db, AloeGeneralData, Me.FacilityId, Jobcode, Me.mStaffbase.MSTB_StaffID, Auth_M_DRUG_MATE, AloeFunctionID.MasterMainte_M_Drug_Material)
+            'xml.GetXMLAccessAuth(db, AsamaGeneralData, Me.FacilityId, Jobcode, Me.mStaffbase.MSTB_StaffID, Auth_M_DRUG_MATE, AsamaFunctionID.MasterMainte_M_Drug_Material)
             'If Auth_M_DRUG_MATE.AuthSelect Then
             '    ViewBag.View_M_Drug_Material = 1
             'End If
 
             ''グループ統一処方用医療材料
-            'xml.GetXMLAccessAuth(db, AloeGeneralData, Me.FacilityId, Jobcode, Me.mStaffbase.MSTB_StaffID, Auth_GM_DRUG_MATE, AloeFunctionID.MasterMainte_GM_Drug_Material)
+            'xml.GetXMLAccessAuth(db, AsamaGeneralData, Me.FacilityId, Jobcode, Me.mStaffbase.MSTB_StaffID, Auth_GM_DRUG_MATE, AsamaFunctionID.MasterMainte_GM_Drug_Material)
             'If Auth_GM_DRUG_MATE.AuthSelect Then
             '    ViewBag.View_GM_Drug_Material = 1
             'End If
 
-            ''現在のページの権限
-            'Select Case ViewBag.ControllerName
-            '    Case "GM_Drug"
-            '        Select Case MasterType
-            '            Case enmMasterType.Drug
-            '                ViewBag.Auth = Auth_GM_DRUG
-            '            Case enmMasterType.Material
-            '                ViewBag.Auth = Auth_GM_DRUG_MATE
-            '            Case enmMasterType.Blood
-            '                ViewBag.Auth = Auth_GM_DRUG_BLOO
-            '        End Select
-            '    Case "M_Drug"
-            '        Select Case MasterType
-            '            Case enmMasterType.Drug
-            '                ViewBag.Auth = Auth_M_DRUG
-            '            Case enmMasterType.Material
-            '                ViewBag.Auth = Auth_M_DRUG_MATE
-            '            Case enmMasterType.Blood
-            '                ViewBag.Auth = Auth_M_DRUG_BLOOD
-            '        End Select
-            'End Select
+            '現在のページの権限
+            Select Case ViewBag.ControllerName
+                Case "GM_Drug"
+                    Select Case MasterType
+                        Case enmMasterType.Drug
+                            ViewBag.Auth = Auth_GM_DRUG
+                        Case enmMasterType.Material
+                            ViewBag.Auth = Auth_GM_DRUG_MATE
+                        Case enmMasterType.Blood
+                            ViewBag.Auth = Auth_GM_DRUG_BLOO
+                    End Select
+                Case "M_Drug"
+                    Select Case MasterType
+                        Case enmMasterType.Drug
+                            ViewBag.Auth = Auth_M_DRUG
+                        Case enmMasterType.Material
+                            ViewBag.Auth = Auth_M_DRUG_MATE
+                        Case enmMasterType.Blood
+                            ViewBag.Auth = Auth_M_DRUG_BLOOD
+                    End Select
+            End Select
 
 
         End Sub

@@ -1,6 +1,6 @@
 ﻿Option Strict On
 '******************************************************************
-'*	システム名	：	Aloe
+'*	システム名	：	Asama
 '*	ファイル名	：	LoginAD
 '*	概要		：	ログインユーザコントロールアプリケーションデータ
 '*
@@ -16,8 +16,8 @@ Public Class LoginAD
 
     Public HasError As Boolean = False
 
-    ''施設情報
-    'Public Property FacilityList As New SortedList(Of String, String)
+    '施設情報
+    Public Property FacilityList As New SortedList(Of String, String)
 
     Public Property MinPasswordList As New List(Of Integer)
 
@@ -26,6 +26,7 @@ Public Class LoginAD
     Public Property LoginID As String
     Public Property StaffID As String
     Public Property Password As String
+    Public Property FacilityID As String
     Public Property LastName As String
     Public Property MiddleName As String
     Public Property FirstName As String
@@ -39,6 +40,8 @@ Public Class LoginAD
 
     '職種情報
     Public Property JobCodes As String()
+    'Public Property JobName As String
+    'Public Property JobShortName As String
 
     '診療情報
     Public Property DepartmentCode As String
@@ -50,11 +53,28 @@ Public Class LoginAD
     Public Property LicenseClass As String
     Public Property LicenseNo As String
 
+    'エラー情報
+    'Public Property HasError As Boolean
+
+    'メッセージID
+    'Public Property MessageID As String
+
     'パスワード情報
     Public Property OldPassword As String
     Public Property NewPassword As String
     Public Property Result As Integer
 
+
+    'コントロールマスタ
+    'Public Shared Property vmControl As Medis.Common.XMLControlInfo.Control.ControlDataAll_Group
+
+    '''' <summary>
+    '''' ログメッセージ
+    '''' </summary>
+    '''' <value></value>
+    '''' <returns></returns>
+    '''' <remarks></remarks>
+    'Public Property clsMessage As New LogMessage
     ''' <summary>
     ''' 機能名
     ''' </summary>

@@ -16,8 +16,8 @@ Namespace Helpers
             If UnDefDisp Then
                 sb.Append(HttpUtility.HtmlAttributeEncode(sDate))
             Else
-                If CDate(obj) = AloeConst.UndefDateMin OrElse
-                 CDate(obj) = AloeConst.UndefDateMax Then
+                If CDate(obj) = AsamaConst.UndefDateMin OrElse
+                 CDate(obj) = AsamaConst.UndefDateMax Then
                     sb.Append("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;")
                 Else
                     sb.Append(HttpUtility.HtmlAttributeEncode(sDate))

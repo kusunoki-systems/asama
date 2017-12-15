@@ -9,12 +9,12 @@ Public Class UserModel
     Public Property Password As String
     <DisplayName("パスワードを記憶")>
     Public Property RememberMe As Boolean
-    '<DisplayName("施設")>
-    'Public Property FacilityID As String
-    '<DisplayName("施設")>
-    'Public Property FacilityModels As New Dictionary(Of String, String)
-    '<DisplayName("職種コード（配列）")>
-    'Public Property JobCodes As String()
+    <DisplayName("施設")>
+    Public Property FacilityID As String
+    <DisplayName("施設")>
+    Public Property FacilityModels As New Dictionary(Of String, String)
+    <DisplayName("職種コード（配列）")>
+    Public Property JobCodes As String()
 
     '''' <summary>
     '''' 施設格納
