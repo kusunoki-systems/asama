@@ -1,6 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<parameters>
-  <parameter name="AloeEntities-Web.config Connection String" description="AloeEntities データベースに接続するためにアプリケーションによって web.config で使用される接続文字列。" defaultValue="metadata=res://*/Models.AloeModels.csdl|res://*/Models.AloeModels.ssdl|res://*/Models.AloeModels.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=fsiuser1-pc\Aloe;initial catalog=Aloe;persist security info=True;user id=sa;password=fsiuser1;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="C:\\Git_develop\\Aloe\\WebMasterMaintenance\\WebMasterMaintenance\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='AloeEntities']/@connectionString" />
-  </parameter>
-</parameters>
