@@ -1,0 +1,515 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+    <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+    <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+  </EntityType>
+  <EntityType Name="M_Color">
+    <Key>
+      <PropertyRef Name="ColorCd" />
+    </Key>
+    <Property Name="ColorCd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ColorName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ColorTypeCd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="InsertedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="InsertedAt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="M_ColorType" Relationship="Self.FK_M_Color_M_ColorType" FromRole="M_Color" ToRole="M_ColorType" />
+  </EntityType>
+  <EntityType Name="M_ColorType">
+    <Key>
+      <PropertyRef Name="ColorTypeCd" />
+    </Key>
+    <Property Name="ColorTypeCd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ColorTypeName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="InsertedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="InsertedAt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="M_Color" Relationship="Self.FK_M_Color_M_ColorType" FromRole="M_ColorType" ToRole="M_Color" />
+    <NavigationProperty Name="M_Item" Relationship="Self.FK_M_PRODUCT_M_ColorType" FromRole="M_ColorType" ToRole="M_Item" />
+  </EntityType>
+  <EntityType Name="M_Customer">
+    <Key>
+      <PropertyRef Name="CustomerCd" />
+    </Key>
+    <Property Name="CustomerCd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CustomerName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CustomerContact" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InsertedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="InsertedAt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="M_Item">
+    <Key>
+      <PropertyRef Name="ItemCd" />
+    </Key>
+    <Property Name="ItemCd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ItemName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Season" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="MakerCd" Type="String" MaxLength="6" FixedLength="true" Unicode="false" />
+    <Property Name="SizeTypeCd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ColorTypeCd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="RetailPrice" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="CostPrice" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="InsertedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="InsertedAt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="M_ColorType" Relationship="Self.FK_M_PRODUCT_M_ColorType" FromRole="M_Item" ToRole="M_ColorType" />
+    <NavigationProperty Name="M_SizeType" Relationship="Self.FK_M_PRODUCT_M_SizeType" FromRole="M_Item" ToRole="M_SizeType" />
+  </EntityType>
+  <EntityType Name="M_Maker">
+    <Key>
+      <PropertyRef Name="MakerCd" />
+    </Key>
+    <Property Name="MakerCd" Type="String" MaxLength="6" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="MakerName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="MakerContact" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InsertedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="InsertedAt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="M_Size">
+    <Key>
+      <PropertyRef Name="SizeCd" />
+    </Key>
+    <Property Name="SizeCd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SizeName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="SizeTypeCd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="InsertedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="InsertedAt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="M_SizeType" Relationship="Self.FK_M_Size_M_SizeType" FromRole="M_Size" ToRole="M_SizeType" />
+  </EntityType>
+  <EntityType Name="M_SizeType">
+    <Key>
+      <PropertyRef Name="SizeTypeCd" />
+    </Key>
+    <Property Name="SizeTypeCd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SizeTypeName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="InsertedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="InsertedAt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="M_Item" Relationship="Self.FK_M_PRODUCT_M_SizeType" FromRole="M_SizeType" ToRole="M_Item" />
+    <NavigationProperty Name="M_Size" Relationship="Self.FK_M_Size_M_SizeType" FromRole="M_SizeType" ToRole="M_Size" />
+  </EntityType>
+  <EntityType Name="M_StaffBase">
+    <Key>
+      <PropertyRef Name="MSTB_StaffID" />
+    </Key>
+    <Property Name="MSTB_StaffID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MSTB_LogNo" Type="Int32" Nullable="false" />
+    <Property Name="MSTB_UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="MSTB_UpdateClientName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MSTB_UpdateStaffID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MSTB_DelFlag" Type="Int32" Nullable="false" />
+    <Property Name="MSTB_NameKana" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MSTB_Name" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MSTB_BirthDate" Type="DateTime" Precision="3" />
+    <Property Name="MSTB_SexType" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="MSTB_EnterDate" Type="DateTime" Precision="3" />
+    <Property Name="MSTB_RetireDate" Type="DateTime" Precision="3" />
+    <Property Name="MSTB_Remarks" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="M_StaffPassword">
+    <Key>
+      <PropertyRef Name="MSTP_StaffID" />
+      <PropertyRef Name="MSTP_LogNo" />
+    </Key>
+    <Property Name="MSTP_StaffID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MSTP_LogNo" Type="Int32" Nullable="false" />
+    <Property Name="MSTP_UpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="MSTP_UpdateClientName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MSTP_UpdateStaffID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MSTP_Password" Type="String" MaxLength="64" FixedLength="true" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="M_Supplier">
+    <Key>
+      <PropertyRef Name="SupplierCd" />
+    </Key>
+    <Property Name="SupplierCd" Type="String" MaxLength="6" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="SupplierName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SupplierContact" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="InsertedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="InsertedAt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="T_ArrivalBody">
+    <Key>
+      <PropertyRef Name="ArrivalNo" />
+      <PropertyRef Name="ArrivalBodyID" />
+    </Key>
+    <Property Name="ArrivalNo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ArrivalBodyID" Type="Int32" Nullable="false" />
+    <Property Name="ProductCd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ProductName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Size" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="Color" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RetailPrice" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="InsertedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="InsertedAt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="T_ArrivalHeader">
+    <Key>
+      <PropertyRef Name="ArrivalNo" />
+    </Key>
+    <Property Name="ArrivalNo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SupplierCd" Type="String" MaxLength="6" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="ArrivalDate" Type="DateTime" Precision="0" />
+    <Property Name="ArrivalAmount" Type="Decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="T_DeliverBody">
+    <Key>
+      <PropertyRef Name="DeliverNo" />
+      <PropertyRef Name="DeliverBodyID" />
+    </Key>
+    <Property Name="DeliverNo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DeliverBodyID" Type="Int32" Nullable="false" />
+    <Property Name="ProductCd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ProductName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Size" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="Color" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RetailPrice" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="InsertedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="InsertedAt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="T_DeliverHeader">
+    <Key>
+      <PropertyRef Name="DeliverNo" />
+    </Key>
+    <Property Name="DeliverNo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CustomerCd" Type="String" MaxLength="6" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="DeliverDate" Type="DateTime" Precision="0" />
+    <Property Name="InsertedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="InsertedAt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="T_HachuBody">
+    <Key>
+      <PropertyRef Name="HachuNo" />
+      <PropertyRef Name="HachuBodyID" />
+    </Key>
+    <Property Name="HachuNo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="HachuBodyID" Type="Int32" Nullable="false" />
+    <Property Name="ProductCd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ProductName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Size" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="Color" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RetailPrice" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="InsertedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="InsertedAt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="T_HachuHeader">
+    <Key>
+      <PropertyRef Name="HachuNo" />
+    </Key>
+    <Property Name="HachuNo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SupplierCd" Type="String" MaxLength="6" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="HachuDate" Type="DateTime" Precision="0" />
+    <Property Name="HachuAmount" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="OrderNo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="T_InvoiceBody">
+    <Key>
+      <PropertyRef Name="HachuNo" />
+      <PropertyRef Name="HachuBodyID" />
+    </Key>
+    <Property Name="HachuNo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="HachuBodyID" Type="Int32" Nullable="false" />
+    <Property Name="ProductCd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ProductName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Size" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="Color" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RetailPrice" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="InsertedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="InsertedAt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="T_InvoiceHeader">
+    <Key>
+      <PropertyRef Name="InvoiceNo" />
+    </Key>
+    <Property Name="InvoiceNo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CustomerCd" Type="String" MaxLength="6" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="InvoiceDate" Type="DateTime" Precision="0" />
+    <Property Name="InsertedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="InsertedAt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="T_JuchuBody">
+    <Key>
+      <PropertyRef Name="JuchuNo" />
+      <PropertyRef Name="JuchuBodyID" />
+    </Key>
+    <Property Name="JuchuNo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="JuchuBodyID" Type="Int32" Nullable="false" />
+    <Property Name="ProductCd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ProductName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Size" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+    <Property Name="Color" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RetailPrice" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="InsertedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="InsertedAt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="T_JuchuHeader">
+    <Key>
+      <PropertyRef Name="JuchuNo" />
+    </Key>
+    <Property Name="JuchuNo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CustomerCd" Type="String" MaxLength="6" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="JuchuDate" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="T_Nyukin">
+    <Key>
+      <PropertyRef Name="NyukinNo" />
+    </Key>
+    <Property Name="NyukinNo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CustomerCd" Type="String" MaxLength="6" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="Amount" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="NyukinDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="NyukinMethod" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="InsertedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="InsertedAt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="T_PaymentBody">
+    <Key>
+      <PropertyRef Name="PaymentlNo" />
+      <PropertyRef Name="PaymentBodyID" />
+    </Key>
+    <Property Name="PaymentlNo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PaymentBodyID" Type="Int32" Nullable="false" />
+    <Property Name="ArrivalNo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Arrival" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="InsertedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="InsertedAt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="T_PaymentHeader">
+    <Key>
+      <PropertyRef Name="PaymentNo" />
+    </Key>
+    <Property Name="PaymentNo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SupplierCd" Type="String" MaxLength="6" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="PaymentDate" Type="DateTime" Precision="0" />
+    <Property Name="InvoiceAmount" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="PaymentAmount" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Deduction" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="InsertedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="InsertedAt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+  </EntityType>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_M_Color_M_ColorType">
+    <End Role="M_ColorType" Type="Self.M_ColorType" Multiplicity="0..1" />
+    <End Role="M_Color" Type="Self.M_Color" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="M_ColorType">
+        <PropertyRef Name="ColorTypeCd" />
+      </Principal>
+      <Dependent Role="M_Color">
+        <PropertyRef Name="ColorTypeCd" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_M_PRODUCT_M_ColorType">
+    <End Role="M_ColorType" Type="Self.M_ColorType" Multiplicity="0..1" />
+    <End Role="M_Item" Type="Self.M_Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="M_ColorType">
+        <PropertyRef Name="ColorTypeCd" />
+      </Principal>
+      <Dependent Role="M_Item">
+        <PropertyRef Name="ColorTypeCd" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_M_PRODUCT_M_SizeType">
+    <End Role="M_SizeType" Type="Self.M_SizeType" Multiplicity="0..1" />
+    <End Role="M_Item" Type="Self.M_Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="M_SizeType">
+        <PropertyRef Name="SizeTypeCd" />
+      </Principal>
+      <Dependent Role="M_Item">
+        <PropertyRef Name="SizeTypeCd" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_M_Size_M_SizeType">
+    <End Role="M_SizeType" Type="Self.M_SizeType" Multiplicity="0..1" />
+    <End Role="M_Size" Type="Self.M_Size" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="M_SizeType">
+        <PropertyRef Name="SizeTypeCd" />
+      </Principal>
+      <Dependent Role="M_Size">
+        <PropertyRef Name="SizeTypeCd" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AspNetUserRoles">
+    <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="*" />
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="AsamaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" />
+    <EntitySet Name="M_Color" EntityType="Self.M_Color" />
+    <EntitySet Name="M_ColorType" EntityType="Self.M_ColorType" />
+    <EntitySet Name="M_Customer" EntityType="Self.M_Customer" />
+    <EntitySet Name="M_Item" EntityType="Self.M_Item" />
+    <EntitySet Name="M_Maker" EntityType="Self.M_Maker" />
+    <EntitySet Name="M_Size" EntityType="Self.M_Size" />
+    <EntitySet Name="M_SizeType" EntityType="Self.M_SizeType" />
+    <EntitySet Name="M_StaffBase" EntityType="Self.M_StaffBase" />
+    <EntitySet Name="M_StaffPassword" EntityType="Self.M_StaffPassword" />
+    <EntitySet Name="M_Supplier" EntityType="Self.M_Supplier" />
+    <EntitySet Name="T_ArrivalBody" EntityType="Self.T_ArrivalBody" />
+    <EntitySet Name="T_ArrivalHeader" EntityType="Self.T_ArrivalHeader" />
+    <EntitySet Name="T_DeliverBody" EntityType="Self.T_DeliverBody" />
+    <EntitySet Name="T_DeliverHeader" EntityType="Self.T_DeliverHeader" />
+    <EntitySet Name="T_HachuBody" EntityType="Self.T_HachuBody" />
+    <EntitySet Name="T_HachuHeader" EntityType="Self.T_HachuHeader" />
+    <EntitySet Name="T_InvoiceBody" EntityType="Self.T_InvoiceBody" />
+    <EntitySet Name="T_InvoiceHeader" EntityType="Self.T_InvoiceHeader" />
+    <EntitySet Name="T_JuchuBody" EntityType="Self.T_JuchuBody" />
+    <EntitySet Name="T_JuchuHeader" EntityType="Self.T_JuchuHeader" />
+    <EntitySet Name="T_Nyukin" EntityType="Self.T_Nyukin" />
+    <EntitySet Name="T_PaymentBody" EntityType="Self.T_PaymentBody" />
+    <EntitySet Name="T_PaymentHeader" EntityType="Self.T_PaymentHeader" />
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_M_Color_M_ColorType" Association="Self.FK_M_Color_M_ColorType">
+      <End Role="M_ColorType" EntitySet="M_ColorType" />
+      <End Role="M_Color" EntitySet="M_Color" />
+    </AssociationSet>
+    <AssociationSet Name="FK_M_PRODUCT_M_ColorType" Association="Self.FK_M_PRODUCT_M_ColorType">
+      <End Role="M_ColorType" EntitySet="M_ColorType" />
+      <End Role="M_Item" EntitySet="M_Item" />
+    </AssociationSet>
+    <AssociationSet Name="FK_M_PRODUCT_M_SizeType" Association="Self.FK_M_PRODUCT_M_SizeType">
+      <End Role="M_SizeType" EntitySet="M_SizeType" />
+      <End Role="M_Item" EntitySet="M_Item" />
+    </AssociationSet>
+    <AssociationSet Name="FK_M_Size_M_SizeType" Association="Self.FK_M_Size_M_SizeType">
+      <End Role="M_SizeType" EntitySet="M_SizeType" />
+      <End Role="M_Size" EntitySet="M_Size" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
