@@ -3,10 +3,10 @@
     ViewData("Title") = "Details"
 End Code
 
-<h2>Details</h2>
+<h2>詳細</h2>
 
 <div>
-    <h4>M_ColorType</h4>
+    <h4>色種類マスタ</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -15,6 +15,14 @@ End Code
 
         <dd>
             @Html.DisplayFor(Function(model) model.ColorTypeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(Function(model) model.SortNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(Function(model) model.SortNo)
         </dd>
 
         <dt>
@@ -52,6 +60,6 @@ End Code
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", New With { .id = Model.ColorTypeCd }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("変更", "Edit", New With { .id = Model.ColorTypeCd }) |
+    @Html.ActionLink("一覧へ戻る", "Index")
 </p>

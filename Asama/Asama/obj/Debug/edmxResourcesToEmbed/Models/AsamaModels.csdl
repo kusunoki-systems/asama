@@ -54,13 +54,14 @@
       <PropertyRef Name="ColorCd" />
     </Key>
     <Property Name="ColorCd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="ColorName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ColorName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="ColorTypeCd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="InsertedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="InsertedAt" Type="DateTime" Precision="3" />
     <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
     <NavigationProperty Name="M_ColorType" Relationship="Self.FK_M_Color_M_ColorType" FromRole="M_Color" ToRole="M_ColorType" />
+    <Property Name="SortNo" Type="Byte" />
   </EntityType>
   <EntityType Name="M_ColorType">
     <Key>
@@ -74,6 +75,7 @@
     <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
     <NavigationProperty Name="M_Color" Relationship="Self.FK_M_Color_M_ColorType" FromRole="M_ColorType" ToRole="M_Color" />
     <NavigationProperty Name="M_Item" Relationship="Self.FK_M_PRODUCT_M_ColorType" FromRole="M_ColorType" ToRole="M_Item" />
+    <Property Name="SortNo" Type="Byte" />
   </EntityType>
   <EntityType Name="M_Customer">
     <Key>
@@ -86,6 +88,7 @@
     <Property Name="InsertedAt" Type="DateTime" Precision="3" />
     <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+    <Property Name="SortNo" Type="Byte" />
   </EntityType>
   <EntityType Name="M_Item">
     <Key>
@@ -94,7 +97,7 @@
     <Property Name="ItemCd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="ItemName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="Season" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="MakerCd" Type="String" MaxLength="6" FixedLength="true" Unicode="false" />
+    <Property Name="MakerCd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="SizeTypeCd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="ColorTypeCd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="RetailPrice" Type="Decimal" Precision="18" Scale="0" />
@@ -105,18 +108,20 @@
     <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
     <NavigationProperty Name="M_ColorType" Relationship="Self.FK_M_PRODUCT_M_ColorType" FromRole="M_Item" ToRole="M_ColorType" />
     <NavigationProperty Name="M_SizeType" Relationship="Self.FK_M_PRODUCT_M_SizeType" FromRole="M_Item" ToRole="M_SizeType" />
+    <Property Name="SortNo" Type="Byte" />
   </EntityType>
   <EntityType Name="M_Maker">
     <Key>
       <PropertyRef Name="MakerCd" />
     </Key>
-    <Property Name="MakerCd" Type="String" MaxLength="6" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="MakerCd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="MakerName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="MakerContact" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="InsertedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="InsertedAt" Type="DateTime" Precision="3" />
     <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+    <Property Name="SortNo" Type="Byte" />
   </EntityType>
   <EntityType Name="M_Size">
     <Key>
@@ -130,6 +135,7 @@
     <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
     <NavigationProperty Name="M_SizeType" Relationship="Self.FK_M_Size_M_SizeType" FromRole="M_Size" ToRole="M_SizeType" />
+    <Property Name="SortNo" Type="Byte" />
   </EntityType>
   <EntityType Name="M_SizeType">
     <Key>
@@ -143,6 +149,7 @@
     <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
     <NavigationProperty Name="M_Item" Relationship="Self.FK_M_PRODUCT_M_SizeType" FromRole="M_SizeType" ToRole="M_Item" />
     <NavigationProperty Name="M_Size" Relationship="Self.FK_M_Size_M_SizeType" FromRole="M_SizeType" ToRole="M_Size" />
+    <Property Name="SortNo" Type="Byte" />
   </EntityType>
   <EntityType Name="M_StaffBase">
     <Key>
@@ -178,13 +185,14 @@
     <Key>
       <PropertyRef Name="SupplierCd" />
     </Key>
-    <Property Name="SupplierCd" Type="String" MaxLength="6" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="SupplierCd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="SupplierName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="SupplierContact" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="InsertedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="InsertedAt" Type="DateTime" Precision="3" />
     <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+    <Property Name="SortNo" Type="Byte" />
   </EntityType>
   <EntityType Name="T_ArrivalBody">
     <Key>

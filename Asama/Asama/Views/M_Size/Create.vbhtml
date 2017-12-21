@@ -37,16 +37,24 @@ End Code
             </div>
         </div>
 
+         <div class="form-group">
+             @Html.LabelFor(Function(model) model.SortNo, "SortNo", htmlAttributes:=New With {.class = "control-label col-md-2"})
+             <div class="col-md-10">
+                 @Html.EditorFor(Function(model) model.SortNo, New With {.htmlAttributes = New With {.class = "form-control"}})
+                 @Html.ValidationMessageFor(Function(model) model.SortNo, "", New With {.class = "text-danger"})
+             </div>
+         </div>
+
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="登録" class="btn btn-default" />
             </div>
         </div>
     </div>
 End Using
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("一覧へ戻る", "Index")
 </div>
 
 @Section Scripts 

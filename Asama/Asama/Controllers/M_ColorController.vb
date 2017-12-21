@@ -9,13 +9,15 @@ Imports System.Web.Mvc
 Imports Asama
 
 Namespace Controllers
+    <Authorize>
     Public Class M_ColorController
         Inherits BaseController
 
         ' GET: M_Color
         Function Index() As ActionResult
-            Dim m_Color = db.M_Color.Include(Function(m) m.M_ColorType)
-            Return View(m_Color.ToList())
+            Dim m_Color = (db.M_Color.Include(Function(m) m.M_ColorType))
+            Dim color = m_Color.OrderBy(Function(m) m.SortNo)
+            Return View(color.ToList())
         End Function
 
         ' GET: M_Color/Details/5
@@ -41,7 +43,7 @@ Namespace Controllers
         '詳細については、https://go.microsoft.com/fwlink/?LinkId=317598 を参照してください。
         <HttpPost()>
         <ValidateAntiForgeryToken()>
-        Function Create(<Bind(Include:="ColorCd,ColorName,ColorTypeCd,InsertedBy,InsertedAt,UpdatedBy,UpdatedAt")> ByVal m_Color As M_Color) As ActionResult
+        Function Create(<Bind(Include:="ColorCd,ColorName,ColorTypeCd,SortNo,InsertedBy,InsertedAt,UpdatedBy,UpdatedAt")> ByVal m_Color As M_Color) As ActionResult
             If ModelState.IsValid Then
                 m_Color.InsertedAt = Date.Now()
                 m_Color.UpdatedAt = Date.Now()
@@ -73,7 +75,7 @@ Namespace Controllers
         '詳細については、https://go.microsoft.com/fwlink/?LinkId=317598 を参照してください。
         <HttpPost()>
         <ValidateAntiForgeryToken()>
-        Function Edit(<Bind(Include:="ColorCd,ColorName,ColorTypeCd,InsertedBy,InsertedAt,UpdatedBy,UpdatedAt")> ByVal m_Color As M_Color) As ActionResult
+        Function Edit(<Bind(Include:="ColorCd,ColorName,ColorTypeCd,SortNo,InsertedBy,InsertedAt,UpdatedBy,UpdatedAt")> ByVal m_Color As M_Color) As ActionResult
             If ModelState.IsValid Then
                 m_Color.UpdatedAt = Date.Now()
                 m_Color.UpdatedBy = User.Identity.Name

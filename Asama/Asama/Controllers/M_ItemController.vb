@@ -9,6 +9,7 @@ Imports System.Web.Mvc
 Imports Asama
 
 Namespace Controllers
+    <Authorize>
     Public Class M_ItemController
         Inherits BaseController
 
@@ -42,7 +43,7 @@ Namespace Controllers
         '詳細については、https://go.microsoft.com/fwlink/?LinkId=317598 を参照してください。
         <HttpPost()>
         <ValidateAntiForgeryToken()>
-        Function Create(<Bind(Include:="ItemCd,ItemName,Season,MakerCd,SizeTypeCd,ColorTypeCd,RetailPrice,CostPrice,InsertedBy,InsertedAt,UpdatedBy,UpdatedAt")> ByVal m_Item As M_Item) As ActionResult
+        Function Create(<Bind(Include:="ItemCd,ItemName,Season,MakerCd,SizeTypeCd,ColorTypeCd,RetailPrice,CostPrice,SortNo,InsertedBy,InsertedAt,UpdatedBy,UpdatedAt")> ByVal m_Item As M_Item) As ActionResult
             If ModelState.IsValid Then
                 m_Item.InsertedAt = Date.Now()
                 m_Item.UpdatedAt = Date.Now()
@@ -76,7 +77,7 @@ Namespace Controllers
         '詳細については、https://go.microsoft.com/fwlink/?LinkId=317598 を参照してください。
         <HttpPost()>
         <ValidateAntiForgeryToken()>
-        Function Edit(<Bind(Include:="ItemCd,ItemName,Season,MakerCd,SizeTypeCd,ColorTypeCd,RetailPrice,CostPrice,InsertedBy,InsertedAt,UpdatedBy,UpdatedAt")> ByVal m_Item As M_Item) As ActionResult
+        Function Edit(<Bind(Include:="ItemCd,ItemName,Season,MakerCd,SizeTypeCd,ColorTypeCd,RetailPrice,CostPrice,SortNo,InsertedBy,InsertedAt,UpdatedBy,UpdatedAt")> ByVal m_Item As M_Item) As ActionResult
             If ModelState.IsValid Then
                 m_Item.UpdatedAt = Date.Now()
                 m_Item.UpdatedBy = User.Identity.Name

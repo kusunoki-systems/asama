@@ -23,6 +23,7 @@ Partial Public Class M_Item
     Public Property InsertedAt As Nullable(Of Date)
     Public Property UpdatedBy As String
     Public Property UpdatedAt As Nullable(Of Date)
+    Public Property SortNo As Nullable(Of Byte)
 
     Public Overridable Property M_ColorType As M_ColorType
     Public Overridable Property M_SizeType As M_SizeType

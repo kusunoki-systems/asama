@@ -18,5 +18,6 @@ Partial Public Class M_Maker
     Public Property InsertedAt As Nullable(Of Date)
     Public Property UpdatedBy As String
     Public Property UpdatedAt As Nullable(Of Date)
+    Public Property SortNo As Nullable(Of Byte)
 
 End Class

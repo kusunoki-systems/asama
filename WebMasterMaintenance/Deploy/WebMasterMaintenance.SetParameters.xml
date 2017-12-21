@@ -1,5 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<parameters>
-  <setParameter name="IIS Web Application Name" value="WebAloe" />
-  <setParameter name="AloeEntities-Web.config Connection String" value="metadata=res://*/Models.AloeModels.csdl|res://*/Models.AloeModels.ssdl|res://*/Models.AloeModels.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=FSIUSER1-PC\ALOE;initial catalog=Aloe;persist security info=True;user id=sa;password=fsiuser1;MultipleActiveResultSets=True;App=EntityFramework&quot;" />
-</parameters>

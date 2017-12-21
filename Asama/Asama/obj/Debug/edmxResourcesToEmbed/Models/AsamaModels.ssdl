@@ -56,12 +56,13 @@
       <PropertyRef Name="ColorCd" />
     </Key>
     <Property Name="ColorCd" Type="varchar" MaxLength="20" Nullable="false" />
-    <Property Name="ColorName" Type="varchar" MaxLength="20" />
+    <Property Name="ColorName" Type="varchar" MaxLength="100" />
     <Property Name="ColorTypeCd" Type="varchar" MaxLength="20" />
     <Property Name="InsertedBy" Type="nvarchar" MaxLength="100" />
     <Property Name="InsertedAt" Type="datetime" />
     <Property Name="UpdatedBy" Type="nvarchar" MaxLength="100" />
     <Property Name="UpdatedAt" Type="datetime" />
+    <Property Name="SortNo" Type="tinyint" />
   </EntityType>
   <EntityType Name="M_ColorType">
     <Key>
@@ -73,6 +74,7 @@
     <Property Name="InsertedAt" Type="datetime" />
     <Property Name="UpdatedBy" Type="nvarchar" MaxLength="100" />
     <Property Name="UpdatedAt" Type="datetime" />
+    <Property Name="SortNo" Type="tinyint" />
   </EntityType>
   <EntityType Name="M_Customer">
     <Key>
@@ -85,6 +87,7 @@
     <Property Name="InsertedAt" Type="datetime" />
     <Property Name="UpdatedBy" Type="nvarchar" MaxLength="100" />
     <Property Name="UpdatedAt" Type="datetime" />
+    <Property Name="SortNo" Type="tinyint" />
   </EntityType>
   <EntityType Name="M_Item">
     <Key>
@@ -93,7 +96,7 @@
     <Property Name="ItemCd" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="ItemName" Type="nvarchar" MaxLength="100" />
     <Property Name="Season" Type="nvarchar" MaxLength="100" />
-    <Property Name="MakerCd" Type="char" MaxLength="6" />
+    <Property Name="MakerCd" Type="varchar" MaxLength="20" />
     <Property Name="SizeTypeCd" Type="varchar" MaxLength="20" />
     <Property Name="ColorTypeCd" Type="varchar" MaxLength="20" />
     <Property Name="RetailPrice" Type="decimal" Precision="18" Scale="0" />
@@ -102,18 +105,20 @@
     <Property Name="InsertedAt" Type="datetime" />
     <Property Name="UpdatedBy" Type="nvarchar" MaxLength="100" />
     <Property Name="UpdatedAt" Type="datetime" />
+    <Property Name="SortNo" Type="tinyint" />
   </EntityType>
   <EntityType Name="M_Maker">
     <Key>
       <PropertyRef Name="MakerCd" />
     </Key>
-    <Property Name="MakerCd" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="MakerCd" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="MakerName" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="MakerContact" Type="nvarchar(max)" />
     <Property Name="InsertedBy" Type="nvarchar" MaxLength="100" />
     <Property Name="InsertedAt" Type="datetime" />
     <Property Name="UpdatedBy" Type="nvarchar" MaxLength="100" />
     <Property Name="UpdatedAt" Type="datetime" />
+    <Property Name="SortNo" Type="tinyint" />
   </EntityType>
   <EntityType Name="M_Size">
     <Key>
@@ -126,6 +131,7 @@
     <Property Name="InsertedAt" Type="datetime" />
     <Property Name="UpdatedBy" Type="nvarchar" MaxLength="100" />
     <Property Name="UpdatedAt" Type="datetime" />
+    <Property Name="SortNo" Type="tinyint" />
   </EntityType>
   <EntityType Name="M_SizeType">
     <Key>
@@ -137,6 +143,7 @@
     <Property Name="InsertedAt" Type="datetime" />
     <Property Name="UpdatedBy" Type="varchar" MaxLength="20" />
     <Property Name="UpdatedAt" Type="datetime" />
+    <Property Name="SortNo" Type="tinyint" />
   </EntityType>
   <EntityType Name="M_StaffBase">
     <Key>
@@ -172,13 +179,14 @@
     <Key>
       <PropertyRef Name="SupplierCd" />
     </Key>
-    <Property Name="SupplierCd" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="SupplierCd" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="SupplierName" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="SupplierContact" Type="nvarchar(max)" />
     <Property Name="InsertedBy" Type="nvarchar" MaxLength="100" />
     <Property Name="InsertedAt" Type="datetime" />
     <Property Name="UpdatedBy" Type="nvarchar" MaxLength="100" />
     <Property Name="UpdatedAt" Type="datetime" />
+    <Property Name="SortNo" Type="tinyint" />
   </EntityType>
   <EntityType Name="T_ArrivalBody">
     <Key>

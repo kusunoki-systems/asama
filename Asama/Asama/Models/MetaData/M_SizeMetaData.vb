@@ -29,6 +29,11 @@ Public Class M_SizeMetaData
     <DisplayName("サイズ種類")>
     Public Overridable Property M_SizeType As M_SizeType
 
+    <DisplayName("表示順")>
+    <Required(ErrorMessage:="{0}を入力して下さい")>
+    <RegularExpression("[0-9]+", ErrorMessage:="{0}は数字で入力して下さい")>
+    Public Property SortNo As Byte?
+
     <DisplayName("作成者")>
     Public Property InsertedBy As String
     <DisplayName("作成日時")>

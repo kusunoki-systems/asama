@@ -9,6 +9,7 @@ Imports System.Web.Mvc
 Imports Asama
 
 Namespace Controllers
+    <Authorize>
     Public Class M_MakerController
         Inherits BaseController
 
@@ -39,7 +40,7 @@ Namespace Controllers
         '詳細については、https://go.microsoft.com/fwlink/?LinkId=317598 を参照してください。
         <HttpPost()>
         <ValidateAntiForgeryToken()>
-        Function Create(<Bind(Include:="MakerCd,MakerName,MakerContact,InsertedBy,InsertedAt,UpdatedBy,UpdatedAt")> ByVal m_Maker As M_Maker) As ActionResult
+        Function Create(<Bind(Include:="MakerCd,MakerName,MakerContact,SortNo,InsertedBy,InsertedAt,UpdatedBy,UpdatedAt")> ByVal m_Maker As M_Maker) As ActionResult
             If ModelState.IsValid Then
                 m_Maker.InsertedAt = Date.Now()
                 m_Maker.UpdatedAt = Date.Now()
@@ -69,7 +70,7 @@ Namespace Controllers
         '詳細については、https://go.microsoft.com/fwlink/?LinkId=317598 を参照してください。
         <HttpPost()>
         <ValidateAntiForgeryToken()>
-        Function Edit(<Bind(Include:="MakerCd,MakerName,MakerContact,InsertedBy,InsertedAt,UpdatedBy,UpdatedAt")> ByVal m_Maker As M_Maker) As ActionResult
+        Function Edit(<Bind(Include:="MakerCd,MakerName,MakerContact,SortNo,InsertedBy,InsertedAt,UpdatedBy,UpdatedAt")> ByVal m_Maker As M_Maker) As ActionResult
             If ModelState.IsValid Then
                 m_Maker.UpdatedAt = Date.Now()
                 m_Maker.UpdatedBy = User.Identity.Name

@@ -9,6 +9,7 @@ Imports System.Web.Mvc
 Imports Asama
 
 Namespace Controllers
+    <Authorize>
     Public Class M_SizeTypeController
         Inherits BaseController
 
@@ -39,7 +40,7 @@ Namespace Controllers
         '詳細については、https://go.microsoft.com/fwlink/?LinkId=317598 を参照してください。
         <HttpPost()>
         <ValidateAntiForgeryToken()>
-        Function Create(<Bind(Include:="SizeTypeCd,SizeTypeName,InsertedBy,InsertedAt,UpdatedBy,UpdateAt")> ByVal m_SizeType As M_SizeType) As ActionResult
+        Function Create(<Bind(Include:="SizeTypeCd,SizeTypeName,SortNo,InsertedBy,InsertedAt,UpdatedBy,UpdateAt")> ByVal m_SizeType As M_SizeType) As ActionResult
             If ModelState.IsValid Then
                 m_SizeType.InsertedAt = Date.Now()
                 m_SizeType.UpdatedAt = Date.Now()
@@ -69,7 +70,7 @@ Namespace Controllers
         '詳細については、https://go.microsoft.com/fwlink/?LinkId=317598 を参照してください。
         <HttpPost()>
         <ValidateAntiForgeryToken()>
-        Function Edit(<Bind(Include:="SizeTypeCd,SizeTypeName,InsertedBy,InsertedAt,UpdatedBy,UpdateAt")> ByVal m_SizeType As M_SizeType) As ActionResult
+        Function Edit(<Bind(Include:="SizeTypeCd,SizeTypeName,SortNo,InsertedBy,InsertedAt,UpdatedBy,UpdateAt")> ByVal m_SizeType As M_SizeType) As ActionResult
             If ModelState.IsValid Then
                 m_SizeType.UpdatedAt = Date.Now()
                 m_SizeType.UpdatedBy = User.Identity.Name

@@ -20,6 +20,11 @@ Public Class M_SizeTypeMetaData
     <MaxLength(100, ErrorMessage:="100字以内で入力して下さい")>
     Public Property SizeTypeName As String
 
+    <DisplayName("表示順")>
+    <Required(ErrorMessage:="{0}を入力して下さい")>
+    <RegularExpression("[0-9]+", ErrorMessage:="{0}は数字で入力して下さい")>
+    Public Property SortNo As Byte?
+
     <DisplayName("作成者")>
     Public Property InsertedBy As String
     <DisplayName("作成日時")>

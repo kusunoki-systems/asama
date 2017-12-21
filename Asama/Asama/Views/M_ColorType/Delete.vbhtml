@@ -3,11 +3,11 @@
     ViewData("Title") = "Delete"
 End Code
 
-<h2>Delete</h2>
+<h2>削除</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>削除しますか？</h3>
 <div>
-    <h4>M_ColorType</h4>
+    <h4>色種類マスタ</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -16,6 +16,14 @@ End Code
 
         <dd>
             @Html.DisplayFor(Function(model) model.ColorTypeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(Function(model) model.SortNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(Function(model) model.SortNo)
         </dd>
 
         <dt>
@@ -55,8 +63,8 @@ End Code
         @Html.AntiForgeryToken()
 
         @<div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="削除" class="btn btn-default" /> |
+            @Html.ActionLink("一覧へ戻る", "Index")
         </div>
     End Using
 </div>

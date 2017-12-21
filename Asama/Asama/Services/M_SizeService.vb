@@ -10,7 +10,7 @@ Public Class M_SizeService
     ''' <returns></returns>
     Public Function search(db As AsamaEntities) As List(Of M_Size)
 
-        Return db.M_Size.ToList()
+        Return db.M_Size.OrderBy(Function(m) m.SortNo).ToList()
 
     End Function
 End Class

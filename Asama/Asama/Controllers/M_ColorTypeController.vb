@@ -9,6 +9,7 @@ Imports System.Web.Mvc
 Imports Asama
 
 Namespace Controllers
+    <Authorize>
     Public Class M_ColorTypeController
         Inherits BaseController
 
@@ -39,7 +40,7 @@ Namespace Controllers
         '詳細については、https://go.microsoft.com/fwlink/?LinkId=317598 を参照してください。
         <HttpPost()>
         <ValidateAntiForgeryToken()>
-        Function Create(<Bind(Include:="ColorTypeCd,ColorTypeName,InsertedBy,InsertedAt,UpdatedBy,UpdatedAt")> ByVal m_ColorType As M_ColorType) As ActionResult
+        Function Create(<Bind(Include:="ColorTypeCd,ColorTypeName,SortNo,InsertedBy,InsertedAt,UpdatedBy,UpdatedAt")> ByVal m_ColorType As M_ColorType) As ActionResult
             If ModelState.IsValid Then
                 m_ColorType.InsertedAt = Date.Now()
                 m_ColorType.UpdatedAt = Date.Now()
@@ -69,7 +70,7 @@ Namespace Controllers
         '詳細については、https://go.microsoft.com/fwlink/?LinkId=317598 を参照してください。
         <HttpPost()>
         <ValidateAntiForgeryToken()>
-        Function Edit(<Bind(Include:="ColorTypeCd,ColorTypeName,InsertedBy,InsertedAt,UpdatedBy,UpdatedAt")> ByVal m_ColorType As M_ColorType) As ActionResult
+        Function Edit(<Bind(Include:="ColorTypeCd,ColorTypeName,SortNo,InsertedBy,InsertedAt,UpdatedBy,UpdatedAt")> ByVal m_ColorType As M_ColorType) As ActionResult
             If ModelState.IsValid Then
                 m_ColorType.UpdatedAt = Date.Now()
                 m_ColorType.UpdatedBy = User.Identity.Name

@@ -130,7 +130,7 @@ Public Module AsamaConst
     ''' <summary>状態表示値：新規</summary>
     Public Const OrderStatusNew As String = "新規"
     ''' <summary>状態表示値：修正</summary>
-    Public Const OrderStatusEdit As String = "修正"
+    Public Const OrderStatusEdit As String = "変更"
     ''' <summary>状態表示値：修正</summary>
     Public Const OrderStatusEditStop As String = "修正(途中中止)"
     ''' <summary>ダミーオーダID</summary>

@@ -3,15 +3,18 @@
 ViewData("Title") = "Index"
 End Code
 
-<h2>Index</h2>
+<h2>色一覧</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("新色追加", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(Function(model) model.ColorName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(Function(model) model.SortNo)
         </th>
         <th>
             @Html.DisplayNameFor(Function(model) model.InsertedBy)
@@ -33,9 +36,12 @@ End Code
 
 @For Each item In Model
     @<tr>
-        <td>
-            @Html.DisplayFor(Function(modelItem) item.ColorName)
-        </td>
+         <td>
+             @Html.DisplayFor(Function(modelItem) item.ColorName)
+         </td>
+         <td>
+             @Html.DisplayFor(Function(modelItem) item.SortNo)
+         </td>
         <td>
             @Html.DisplayFor(Function(modelItem) item.InsertedBy)
         </td>
@@ -52,9 +58,9 @@ End Code
             @Html.DisplayFor(Function(modelItem) item.M_ColorType.ColorTypeName)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", New With {.id = item.ColorCd }) |
-            @Html.ActionLink("Details", "Details", New With {.id = item.ColorCd }) |
-            @Html.ActionLink("Delete", "Delete", New With {.id = item.ColorCd })
+            @Html.ActionLink("変更", "Edit", New With {.id = item.ColorCd}) |
+            @Html.ActionLink("詳細", "Details", New With {.id = item.ColorCd}) |
+            @Html.ActionLink("削除", "Delete", New With {.id = item.ColorCd})
         </td>
     </tr>
 Next

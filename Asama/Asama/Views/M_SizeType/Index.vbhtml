@@ -14,6 +14,9 @@ End Code
             @Html.DisplayNameFor(Function(model) model.SizeTypeName)
         </th>
         <th>
+            @Html.DisplayNameFor(Function(model) model.SortNo)
+        </th>
+        <th>
             @Html.DisplayNameFor(Function(model) model.InsertedBy)
         </th>
         <th>
@@ -30,9 +33,12 @@ End Code
 
 @For Each item In Model
     @<tr>
-        <td>
-            @Html.DisplayFor(Function(modelItem) item.SizeTypeName)
-        </td>
+         <td>
+             @Html.DisplayFor(Function(modelItem) item.SizeTypeName)
+         </td>
+         <td>
+             @Html.DisplayFor(Function(modelItem) item.SortNo)
+         </td>
         <td>
             @Html.DisplayFor(Function(modelItem) item.InsertedBy)
         </td>
@@ -46,7 +52,7 @@ End Code
             @Html.DisplayFor(Function(modelItem) item.UpdatedAt)
         </td>
         <td>
-            @Html.ActionLink("修正", "Edit", New With {.id = item.SizeTypeCd}) |
+            @Html.ActionLink("変更", "Edit", New With {.id = item.SizeTypeCd}) |
             @Html.ActionLink("詳細", "Details", New With {.id = item.SizeTypeCd}) |
             @Html.ActionLink("削除", "Delete", New With {.id = item.SizeTypeCd})
         </td>

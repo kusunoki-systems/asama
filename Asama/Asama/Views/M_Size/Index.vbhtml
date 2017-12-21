@@ -11,10 +11,16 @@ End Code
 <table class="table">
     <tr>
         <th>
+            @Html.DisplayNameFor(Function(model) model.M_SizeType.SizeTypeName)
+        </th>
+        <th>
             @Html.DisplayNameFor(Function(model) model.SizeCd)
         </th>
         <th>
             @Html.DisplayNameFor(Function(model) model.SizeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(Function(model) model.SortNo)
         </th>
         <th>
             @Html.DisplayNameFor(Function(model) model.InsertedBy)
@@ -28,19 +34,22 @@ End Code
         <th>
             @Html.DisplayNameFor(Function(model) model.UpdatedAt)
         </th>
-        <th>
-            @Html.DisplayNameFor(Function(model) model.M_SizeType.SizeTypeName)
-        </th>
         <th></th>
     </tr>
 
 @For Each item In Model
     @<tr>
          <td>
+             @Html.DisplayFor(Function(modelItem) item.M_SizeType.SizeTypeName)
+         </td>
+         <td>
              @Html.DisplayFor(Function(modelItem) item.SizeCd)
          </td>
          <td>
              @Html.DisplayFor(Function(modelItem) item.SizeName)
+         </td>
+         <td>
+             @Html.DisplayFor(Function(modelItem) item.SortNo)
          </td>
         <td>
             @Html.DisplayFor(Function(modelItem) item.InsertedBy)
@@ -55,10 +64,7 @@ End Code
             @Html.DisplayFor(Function(modelItem) item.UpdatedAt)
         </td>
         <td>
-            @Html.DisplayFor(Function(modelItem) item.M_SizeType.SizeTypeName)
-        </td>
-        <td>
-            @Html.ActionLink("修正", "Edit", New With {.id = item.SizeCd}) |
+            @Html.ActionLink("変更", "Edit", New With {.id = item.SizeCd}) |
             @Html.ActionLink("詳細", "Details", New With {.id = item.SizeCd}) |
             @Html.ActionLink("削除", "Delete", New With {.id = item.SizeCd})
         </td>

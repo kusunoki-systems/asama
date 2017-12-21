@@ -3,10 +3,10 @@
     ViewData("Title") = "Details"
 End Code
 
-<h2>Details</h2>
+<h2>詳細</h2>
 
 <div>
-    <h4>M_Size</h4>
+    <h4>サイズマスタ</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -60,6 +60,6 @@ End Code
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", New With { .id = Model.SizeCd }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("変更", "Edit", New With { .id = Model.SizeCd }) |
+    @Html.ActionLink("一覧へ戻る", "Index")
 </p>

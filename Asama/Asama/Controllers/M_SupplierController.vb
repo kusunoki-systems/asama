@@ -9,6 +9,7 @@ Imports System.Web.Mvc
 Imports Asama
 
 Namespace Controllers
+    <Authorize>
     Public Class M_SupplierController
         Inherits BaseController
 
@@ -39,7 +40,7 @@ Namespace Controllers
         '詳細については、https://go.microsoft.com/fwlink/?LinkId=317598 を参照してください。
         <HttpPost()>
         <ValidateAntiForgeryToken()>
-        Function Create(<Bind(Include:="SupplierCd,SupplierName,SupplierContact,InsertedBy,InsertedAt,UpdatedBy,UpdatedAt")> ByVal m_Supplier As M_Supplier) As ActionResult
+        Function Create(<Bind(Include:="SupplierCd,SupplierName,SupplierContact,SortNo,InsertedBy,InsertedAt,UpdatedBy,UpdatedAt")> ByVal m_Supplier As M_Supplier) As ActionResult
             If ModelState.IsValid Then
                 m_Supplier.InsertedAt = Date.Now()
                 m_Supplier.UpdatedAt = Date.Now()
@@ -69,7 +70,7 @@ Namespace Controllers
         '詳細については、https://go.microsoft.com/fwlink/?LinkId=317598 を参照してください。
         <HttpPost()>
         <ValidateAntiForgeryToken()>
-        Function Edit(<Bind(Include:="SupplierCd,SupplierName,SupplierContact,InsertedBy,InsertedAt,UpdatedBy,UpdatedAt")> ByVal m_Supplier As M_Supplier) As ActionResult
+        Function Edit(<Bind(Include:="SupplierCd,SupplierName,SupplierContact,SortNo,InsertedBy,InsertedAt,UpdatedBy,UpdatedAt")> ByVal m_Supplier As M_Supplier) As ActionResult
             If ModelState.IsValid Then
                 m_Supplier.UpdatedAt = Date.Now()
                 m_Supplier.UpdatedBy = User.Identity.Name

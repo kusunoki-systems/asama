@@ -3,10 +3,10 @@
 ViewData("Title") = "Index"
 End Code
 
-<h2>Index</h2>
+<h2>一覧</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("新規作成", "Create")
 </p>
 <table class="table">
     <tr>
@@ -24,6 +24,9 @@ End Code
         </th>
         <th>
             @Html.DisplayNameFor(Function(model) model.CostPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(Function(model) model.SortNo)
         </th>
         <th>
             @Html.DisplayNameFor(Function(model) model.InsertedBy)
@@ -60,9 +63,12 @@ End Code
         <td>
             @Html.DisplayFor(Function(modelItem) item.RetailPrice)
         </td>
-        <td>
-            @Html.DisplayFor(Function(modelItem) item.CostPrice)
-        </td>
+         <td>
+             @Html.DisplayFor(Function(modelItem) item.CostPrice)
+         </td>
+         <td>
+             @Html.DisplayFor(Function(modelItem) item.SortNo)
+         </td>
         <td>
             @Html.DisplayFor(Function(modelItem) item.InsertedBy)
         </td>
@@ -82,9 +88,9 @@ End Code
             @Html.DisplayFor(Function(modelItem) item.M_SizeType.SizeTypeName)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", New With {.id = item.ItemCd }) |
-            @Html.ActionLink("Details", "Details", New With {.id = item.ItemCd }) |
-            @Html.ActionLink("Delete", "Delete", New With {.id = item.ItemCd })
+            @Html.ActionLink("変更", "Edit", New With {.id = item.ItemCd}) |
+            @Html.ActionLink("詳細", "Details", New With {.id = item.ItemCd}) |
+            @Html.ActionLink("削除", "Delete", New With {.id = item.ItemCd})
         </td>
     </tr>
 Next
