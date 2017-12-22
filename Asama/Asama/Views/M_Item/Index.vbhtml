@@ -3,10 +3,10 @@
 ViewData("Title") = "Index"
 End Code
 
-<h2>一覧</h2>
+<h2>商品一覧</h2>
 
 <p>
-    @Html.ActionLink("新規作成", "Create")
+    <input type="button" value="新規作成" class="btn btn-default" onclick="location.href='@Url.Action("Create", "M_Item")'" />
 </p>
 <table class="table">
     <tr>
@@ -14,10 +14,10 @@ End Code
             @Html.DisplayNameFor(Function(model) model.ItemName)
         </th>
         <th>
-            @Html.DisplayNameFor(Function(model) model.Season)
+            @Html.DisplayNameFor(Function(model) model.M_Season.SeasonName)
         </th>
         <th>
-            @Html.DisplayNameFor(Function(model) model.MakerCd)
+            @Html.DisplayNameFor(Function(model) model.M_Maker.MakerCd)
         </th>
         <th>
             @Html.DisplayNameFor(Function(model) model.RetailPrice)
@@ -55,10 +55,10 @@ End Code
             @Html.DisplayFor(Function(modelItem) item.ItemName)
         </td>
         <td>
-            @Html.DisplayFor(Function(modelItem) item.Season)
+            @Html.DisplayFor(Function(modelItem) item.M_Season.SeasonName)
         </td>
         <td>
-            @Html.DisplayFor(Function(modelItem) item.MakerCd)
+            @Html.DisplayFor(Function(modelItem) item.M_Maker.MakerName)
         </td>
         <td>
             @Html.DisplayFor(Function(modelItem) item.RetailPrice)

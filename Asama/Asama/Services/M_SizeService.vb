@@ -8,7 +8,7 @@ Public Class M_SizeService
     ''' </summary>
     ''' <param name="db"></param>
     ''' <returns></returns>
-    Public Function search(db As AsamaEntities) As List(Of M_Size)
+    Public Function search(db As Entities) As List(Of M_Size)
 
         Return db.M_Size.OrderBy(Function(m) m.SortNo).ToList()
 

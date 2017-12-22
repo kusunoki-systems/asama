@@ -23,17 +23,17 @@ End Code
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(Function(model) model.Season, htmlAttributes:= New With { .class = "control-label col-md-2" })
+            @Html.LabelFor(Function(model) model.SeasonCd, htmlAttributes:=New With {.class = "control-label col-md-2"})
             <div class="col-md-10">
-                @Html.EditorFor(Function(model) model.Season, New With { .htmlAttributes = New With { .class = "form-control" } })
-                @Html.ValidationMessageFor(Function(model) model.Season, "", New With { .class = "text-danger" })
+                @Html.DropDownList("SeasonCd", Nothing, htmlAttributes:=New With {.class = "form-control"})
+                @Html.ValidationMessageFor(Function(model) model.SeasonCd, "", New With {.class = "text-danger"})
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(Function(model) model.MakerCd, htmlAttributes:= New With { .class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(Function(model) model.MakerCd, New With { .htmlAttributes = New With { .class = "form-control" } })
+                @Html.DropDownList("MakerCd", Nothing, htmlAttributes:=New With {.class = "form-control"})
                 @Html.ValidationMessageFor(Function(model) model.MakerCd, "", New With { .class = "text-danger" })
             </div>
         </div>

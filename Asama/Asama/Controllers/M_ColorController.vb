@@ -45,6 +45,7 @@ Namespace Controllers
         <ValidateAntiForgeryToken()>
         Function Create(<Bind(Include:="ColorCd,ColorName,ColorTypeCd,SortNo,InsertedBy,InsertedAt,UpdatedBy,UpdatedAt")> ByVal m_Color As M_Color) As ActionResult
             If ModelState.IsValid Then
+                m_Color.ColorCd = StrConv("m_Color.ColorCd", VbStrConv.Narrow)
                 m_Color.InsertedAt = Date.Now()
                 m_Color.UpdatedAt = Date.Now()
                 m_Color.InsertedBy = User.Identity.Name
@@ -77,6 +78,7 @@ Namespace Controllers
         <ValidateAntiForgeryToken()>
         Function Edit(<Bind(Include:="ColorCd,ColorName,ColorTypeCd,SortNo,InsertedBy,InsertedAt,UpdatedBy,UpdatedAt")> ByVal m_Color As M_Color) As ActionResult
             If ModelState.IsValid Then
+                m_Color.ColorCd = StrConv("m_Color.ColorCd", VbStrConv.Narrow)
                 m_Color.UpdatedAt = Date.Now()
                 m_Color.UpdatedBy = User.Identity.Name
                 db.Entry(m_Color).State = EntityState.Modified

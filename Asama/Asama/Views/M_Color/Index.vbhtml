@@ -6,7 +6,7 @@ End Code
 <h2>色一覧</h2>
 
 <p>
-    @Html.ActionLink("新色追加", "Create")
+    <input type="button" value="新規作成" class="btn btn-default" onclick="location.href='@Url.Action("Create", "M_Color")'" />
 </p>
 <table class="table">
     <tr>

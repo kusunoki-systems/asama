@@ -9,7 +9,7 @@ Namespace Controllers
         ''' <summary>
         ''' DBコンテキスト
         ''' </summary>
-        Protected db As New AsamaEntities
+        Protected db As New Entities
 
         ''' <summary>
         ''' DB接続エラー

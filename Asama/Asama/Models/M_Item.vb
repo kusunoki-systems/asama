@@ -13,7 +13,7 @@ Imports System.Collections.Generic
 Partial Public Class M_Item
     Public Property ItemCd As String
     Public Property ItemName As String
-    Public Property Season As String
+    Public Property SeasonCd As String
     Public Property MakerCd As String
     Public Property SizeTypeCd As String
     Public Property ColorTypeCd As String
@@ -26,6 +26,8 @@ Partial Public Class M_Item
     Public Property SortNo As Nullable(Of Byte)
 
     Public Overridable Property M_ColorType As M_ColorType
+    Public Overridable Property M_Maker As M_Maker
+    Public Overridable Property M_Season As M_Season
     Public Overridable Property M_SizeType As M_SizeType
 
 End Class

@@ -3,10 +3,10 @@
 ViewData("Title") = "Index"
 End Code
 
-<h2>一覧</h2>
+<h2>メーカー一覧</h2>
 
 <p>
-    @Html.ActionLink("新規作成", "Create")
+    <input type="button" value="新規作成" class="btn btn-default" onclick="location.href='@Url.Action("Create", "M_Maker")'" />
 </p>
 <table class="table">
     <tr>

@@ -6,7 +6,7 @@ End Code
 <h2>サイズ一覧</h2>
 
 <p>
-    @Html.ActionLink("新サイズ", "Create")
+    <input type="button" value="新規作成" class="btn btn-default" onclick="location.href='@Url.Action("Create", "M_Size")'" />
 </p>
 <table class="table">
     <tr>

@@ -1,5 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+    <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+  </EntityType>
   <EntityType Name="AspNetRoles">
     <Key>
       <PropertyRef Name="Id" />
@@ -56,7 +66,7 @@
       <PropertyRef Name="ColorCd" />
     </Key>
     <Property Name="ColorCd" Type="varchar" MaxLength="20" Nullable="false" />
-    <Property Name="ColorName" Type="varchar" MaxLength="100" />
+    <Property Name="ColorName" Type="nvarchar" MaxLength="100" />
     <Property Name="ColorTypeCd" Type="varchar" MaxLength="20" />
     <Property Name="InsertedBy" Type="nvarchar" MaxLength="100" />
     <Property Name="InsertedAt" Type="datetime" />
@@ -69,7 +79,7 @@
       <PropertyRef Name="ColorTypeCd" />
     </Key>
     <Property Name="ColorTypeCd" Type="varchar" MaxLength="20" Nullable="false" />
-    <Property Name="ColorTypeName" Type="varchar" MaxLength="100" />
+    <Property Name="ColorTypeName" Type="nvarchar" MaxLength="100" />
     <Property Name="InsertedBy" Type="nvarchar" MaxLength="100" />
     <Property Name="InsertedAt" Type="datetime" />
     <Property Name="UpdatedBy" Type="nvarchar" MaxLength="100" />
@@ -95,7 +105,7 @@
     </Key>
     <Property Name="ItemCd" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="ItemName" Type="nvarchar" MaxLength="100" />
-    <Property Name="Season" Type="nvarchar" MaxLength="100" />
+    <Property Name="SeasonCd" Type="varchar" MaxLength="20" />
     <Property Name="MakerCd" Type="varchar" MaxLength="20" />
     <Property Name="SizeTypeCd" Type="varchar" MaxLength="20" />
     <Property Name="ColorTypeCd" Type="varchar" MaxLength="20" />
@@ -114,6 +124,18 @@
     <Property Name="MakerCd" Type="varchar" MaxLength="20" Nullable="false" />
     <Property Name="MakerName" Type="nvarchar" MaxLength="100" Nullable="false" />
     <Property Name="MakerContact" Type="nvarchar(max)" />
+    <Property Name="InsertedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="InsertedAt" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="UpdatedAt" Type="datetime" />
+    <Property Name="SortNo" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="M_Season">
+    <Key>
+      <PropertyRef Name="SeasonCd" />
+    </Key>
+    <Property Name="SeasonCd" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="SeasonName" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="InsertedBy" Type="nvarchar" MaxLength="100" />
     <Property Name="InsertedAt" Type="datetime" />
     <Property Name="UpdatedBy" Type="nvarchar" MaxLength="100" />
@@ -445,7 +467,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_M_PRODUCT_M_ColorType">
+  <Association Name="FK_M_Item_M_ColorType">
     <End Role="M_ColorType" Type="Self.M_ColorType" Multiplicity="0..1" />
     <End Role="M_Item" Type="Self.M_Item" Multiplicity="*" />
     <ReferentialConstraint>
@@ -457,7 +479,31 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_M_PRODUCT_M_SizeType">
+  <Association Name="FK_M_Item_M_Maker">
+    <End Role="M_Maker" Type="Self.M_Maker" Multiplicity="0..1" />
+    <End Role="M_Item" Type="Self.M_Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="M_Maker">
+        <PropertyRef Name="MakerCd" />
+      </Principal>
+      <Dependent Role="M_Item">
+        <PropertyRef Name="SeasonCd" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_M_Item_M_Season">
+    <End Role="M_Season" Type="Self.M_Season" Multiplicity="0..1" />
+    <End Role="M_Item" Type="Self.M_Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="M_Season">
+        <PropertyRef Name="SeasonCd" />
+      </Principal>
+      <Dependent Role="M_Item">
+        <PropertyRef Name="SeasonCd" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_M_Item_M_SizeType">
     <End Role="M_SizeType" Type="Self.M_SizeType" Multiplicity="0..1" />
     <End Role="M_Item" Type="Self.M_Item" Multiplicity="*" />
     <ReferentialConstraint>
@@ -482,6 +528,7 @@
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
@@ -492,6 +539,7 @@
     <EntitySet Name="M_Customer" EntityType="Self.M_Customer" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="M_Item" EntityType="Self.M_Item" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="M_Maker" EntityType="Self.M_Maker" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="M_Season" EntityType="Self.M_Season" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="M_Size" EntityType="Self.M_Size" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="M_SizeType" EntityType="Self.M_SizeType" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="M_StaffBase" EntityType="Self.M_StaffBase" Schema="dbo" store:Type="Tables" />
@@ -530,11 +578,19 @@
       <End Role="M_ColorType" EntitySet="M_ColorType" />
       <End Role="M_Color" EntitySet="M_Color" />
     </AssociationSet>
-    <AssociationSet Name="FK_M_PRODUCT_M_ColorType" Association="Self.FK_M_PRODUCT_M_ColorType">
+    <AssociationSet Name="FK_M_Item_M_ColorType" Association="Self.FK_M_Item_M_ColorType">
       <End Role="M_ColorType" EntitySet="M_ColorType" />
       <End Role="M_Item" EntitySet="M_Item" />
     </AssociationSet>
-    <AssociationSet Name="FK_M_PRODUCT_M_SizeType" Association="Self.FK_M_PRODUCT_M_SizeType">
+    <AssociationSet Name="FK_M_Item_M_Maker" Association="Self.FK_M_Item_M_Maker">
+      <End Role="M_Maker" EntitySet="M_Maker" />
+      <End Role="M_Item" EntitySet="M_Item" />
+    </AssociationSet>
+    <AssociationSet Name="FK_M_Item_M_Season" Association="Self.FK_M_Item_M_Season">
+      <End Role="M_Season" EntitySet="M_Season" />
+      <End Role="M_Item" EntitySet="M_Item" />
+    </AssociationSet>
+    <AssociationSet Name="FK_M_Item_M_SizeType" Association="Self.FK_M_Item_M_SizeType">
       <End Role="M_SizeType" EntitySet="M_SizeType" />
       <End Role="M_Item" EntitySet="M_Item" />
     </AssociationSet>

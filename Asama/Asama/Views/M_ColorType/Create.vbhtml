@@ -3,7 +3,7 @@
     ViewData("Title") = "Create"
 End Code
 
-<h2>新色種類追加</h2>
+<h2>新規作成</h2>
 
 @Using (Html.BeginForm()) 
     @Html.AntiForgeryToken()

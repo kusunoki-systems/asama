@@ -4,7 +4,17 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
         <EntityType Name="AspNetRoles">
           <Key>
             <PropertyRef Name="Id" />
@@ -61,7 +71,7 @@
             <PropertyRef Name="ColorCd" />
           </Key>
           <Property Name="ColorCd" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="ColorName" Type="varchar" MaxLength="100" />
+          <Property Name="ColorName" Type="nvarchar" MaxLength="100" />
           <Property Name="ColorTypeCd" Type="varchar" MaxLength="20" />
           <Property Name="InsertedBy" Type="nvarchar" MaxLength="100" />
           <Property Name="InsertedAt" Type="datetime" />
@@ -74,7 +84,7 @@
             <PropertyRef Name="ColorTypeCd" />
           </Key>
           <Property Name="ColorTypeCd" Type="varchar" MaxLength="20" Nullable="false" />
-          <Property Name="ColorTypeName" Type="varchar" MaxLength="100" />
+          <Property Name="ColorTypeName" Type="nvarchar" MaxLength="100" />
           <Property Name="InsertedBy" Type="nvarchar" MaxLength="100" />
           <Property Name="InsertedAt" Type="datetime" />
           <Property Name="UpdatedBy" Type="nvarchar" MaxLength="100" />
@@ -100,7 +110,7 @@
           </Key>
           <Property Name="ItemCd" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="ItemName" Type="nvarchar" MaxLength="100" />
-          <Property Name="Season" Type="nvarchar" MaxLength="100" />
+          <Property Name="SeasonCd" Type="varchar" MaxLength="20" />
           <Property Name="MakerCd" Type="varchar" MaxLength="20" />
           <Property Name="SizeTypeCd" Type="varchar" MaxLength="20" />
           <Property Name="ColorTypeCd" Type="varchar" MaxLength="20" />
@@ -119,6 +129,18 @@
           <Property Name="MakerCd" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="MakerName" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="MakerContact" Type="nvarchar(max)" />
+          <Property Name="InsertedBy" Type="nvarchar" MaxLength="100" />
+          <Property Name="InsertedAt" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="100" />
+          <Property Name="UpdatedAt" Type="datetime" />
+          <Property Name="SortNo" Type="tinyint" />
+        </EntityType>
+        <EntityType Name="M_Season">
+          <Key>
+            <PropertyRef Name="SeasonCd" />
+          </Key>
+          <Property Name="SeasonCd" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="SeasonName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="InsertedBy" Type="nvarchar" MaxLength="100" />
           <Property Name="InsertedAt" Type="datetime" />
           <Property Name="UpdatedBy" Type="nvarchar" MaxLength="100" />
@@ -450,7 +472,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_M_PRODUCT_M_ColorType">
+        <Association Name="FK_M_Item_M_ColorType">
           <End Role="M_ColorType" Type="Self.M_ColorType" Multiplicity="0..1" />
           <End Role="M_Item" Type="Self.M_Item" Multiplicity="*" />
           <ReferentialConstraint>
@@ -462,7 +484,31 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_M_PRODUCT_M_SizeType">
+        <Association Name="FK_M_Item_M_Maker">
+          <End Role="M_Maker" Type="Self.M_Maker" Multiplicity="0..1" />
+          <End Role="M_Item" Type="Self.M_Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_Maker">
+              <PropertyRef Name="MakerCd" />
+            </Principal>
+            <Dependent Role="M_Item">
+              <PropertyRef Name="SeasonCd" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_M_Item_M_Season">
+          <End Role="M_Season" Type="Self.M_Season" Multiplicity="0..1" />
+          <End Role="M_Item" Type="Self.M_Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_Season">
+              <PropertyRef Name="SeasonCd" />
+            </Principal>
+            <Dependent Role="M_Item">
+              <PropertyRef Name="SeasonCd" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_M_Item_M_SizeType">
           <End Role="M_SizeType" Type="Self.M_SizeType" Multiplicity="0..1" />
           <End Role="M_Item" Type="Self.M_Item" Multiplicity="*" />
           <ReferentialConstraint>
@@ -487,6 +533,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
@@ -497,6 +544,7 @@
           <EntitySet Name="M_Customer" EntityType="Self.M_Customer" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="M_Item" EntityType="Self.M_Item" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="M_Maker" EntityType="Self.M_Maker" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="M_Season" EntityType="Self.M_Season" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="M_Size" EntityType="Self.M_Size" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="M_SizeType" EntityType="Self.M_SizeType" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="M_StaffBase" EntityType="Self.M_StaffBase" Schema="dbo" store:Type="Tables" />
@@ -535,11 +583,19 @@
             <End Role="M_ColorType" EntitySet="M_ColorType" />
             <End Role="M_Color" EntitySet="M_Color" />
           </AssociationSet>
-          <AssociationSet Name="FK_M_PRODUCT_M_ColorType" Association="Self.FK_M_PRODUCT_M_ColorType">
+          <AssociationSet Name="FK_M_Item_M_ColorType" Association="Self.FK_M_Item_M_ColorType">
             <End Role="M_ColorType" EntitySet="M_ColorType" />
             <End Role="M_Item" EntitySet="M_Item" />
           </AssociationSet>
-          <AssociationSet Name="FK_M_PRODUCT_M_SizeType" Association="Self.FK_M_PRODUCT_M_SizeType">
+          <AssociationSet Name="FK_M_Item_M_Maker" Association="Self.FK_M_Item_M_Maker">
+            <End Role="M_Maker" EntitySet="M_Maker" />
+            <End Role="M_Item" EntitySet="M_Item" />
+          </AssociationSet>
+          <AssociationSet Name="FK_M_Item_M_Season" Association="Self.FK_M_Item_M_Season">
+            <End Role="M_Season" EntitySet="M_Season" />
+            <End Role="M_Item" EntitySet="M_Item" />
+          </AssociationSet>
+          <AssociationSet Name="FK_M_Item_M_SizeType" Association="Self.FK_M_Item_M_SizeType">
             <End Role="M_SizeType" EntitySet="M_SizeType" />
             <End Role="M_Item" EntitySet="M_Item" />
           </AssociationSet>
@@ -548,10 +604,21 @@
             <End Role="M_Size" EntitySet="M_Size" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
         <EntityType Name="AspNetRoles">
           <Key>
             <PropertyRef Name="Id" />
@@ -606,28 +673,28 @@
             <PropertyRef Name="ColorCd" />
           </Key>
           <Property Name="ColorCd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ColorName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ColorName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="ColorTypeCd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="InsertedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="InsertedAt" Type="DateTime" Precision="3" />
           <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="M_ColorType" Relationship="Self.FK_M_Color_M_ColorType" FromRole="M_Color" ToRole="M_ColorType" />
           <Property Name="SortNo" Type="Byte" />
+          <NavigationProperty Name="M_ColorType" Relationship="Self.FK_M_Color_M_ColorType" FromRole="M_Color" ToRole="M_ColorType" />
         </EntityType>
         <EntityType Name="M_ColorType">
           <Key>
             <PropertyRef Name="ColorTypeCd" />
           </Key>
           <Property Name="ColorTypeCd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ColorTypeName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ColorTypeName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="InsertedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="InsertedAt" Type="DateTime" Precision="3" />
           <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="M_Color" Relationship="Self.FK_M_Color_M_ColorType" FromRole="M_ColorType" ToRole="M_Color" />
-          <NavigationProperty Name="M_Item" Relationship="Self.FK_M_PRODUCT_M_ColorType" FromRole="M_ColorType" ToRole="M_Item" />
           <Property Name="SortNo" Type="Byte" />
+          <NavigationProperty Name="M_Color" Relationship="Self.FK_M_Color_M_ColorType" FromRole="M_ColorType" ToRole="M_Color" />
+          <NavigationProperty Name="M_Item" Relationship="Self.FK_M_Item_M_ColorType" FromRole="M_ColorType" ToRole="M_Item" />
         </EntityType>
         <EntityType Name="M_Customer">
           <Key>
@@ -648,7 +715,7 @@
           </Key>
           <Property Name="ItemCd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="ItemName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Season" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SeasonCd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="MakerCd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="SizeTypeCd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="ColorTypeCd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
@@ -658,9 +725,11 @@
           <Property Name="InsertedAt" Type="DateTime" Precision="3" />
           <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="M_ColorType" Relationship="Self.FK_M_PRODUCT_M_ColorType" FromRole="M_Item" ToRole="M_ColorType" />
-          <NavigationProperty Name="M_SizeType" Relationship="Self.FK_M_PRODUCT_M_SizeType" FromRole="M_Item" ToRole="M_SizeType" />
           <Property Name="SortNo" Type="Byte" />
+          <NavigationProperty Name="M_ColorType" Relationship="Self.FK_M_Item_M_ColorType" FromRole="M_Item" ToRole="M_ColorType" />
+          <NavigationProperty Name="M_Maker" Relationship="Self.FK_M_Item_M_Maker" FromRole="M_Item" ToRole="M_Maker" />
+          <NavigationProperty Name="M_Season" Relationship="Self.FK_M_Item_M_Season" FromRole="M_Item" ToRole="M_Season" />
+          <NavigationProperty Name="M_SizeType" Relationship="Self.FK_M_Item_M_SizeType" FromRole="M_Item" ToRole="M_SizeType" />
         </EntityType>
         <EntityType Name="M_Maker">
           <Key>
@@ -674,6 +743,20 @@
           <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
           <Property Name="SortNo" Type="Byte" />
+          <NavigationProperty Name="M_Item" Relationship="Self.FK_M_Item_M_Maker" FromRole="M_Maker" ToRole="M_Item" />
+        </EntityType>
+        <EntityType Name="M_Season">
+          <Key>
+            <PropertyRef Name="SeasonCd" />
+          </Key>
+          <Property Name="SeasonCd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SeasonName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="InsertedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="InsertedAt" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+          <Property Name="SortNo" Type="Byte" />
+          <NavigationProperty Name="M_Item" Relationship="Self.FK_M_Item_M_Season" FromRole="M_Season" ToRole="M_Item" />
         </EntityType>
         <EntityType Name="M_Size">
           <Key>
@@ -686,8 +769,8 @@
           <Property Name="InsertedAt" Type="DateTime" Precision="3" />
           <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="M_SizeType" Relationship="Self.FK_M_Size_M_SizeType" FromRole="M_Size" ToRole="M_SizeType" />
           <Property Name="SortNo" Type="Byte" />
+          <NavigationProperty Name="M_SizeType" Relationship="Self.FK_M_Size_M_SizeType" FromRole="M_Size" ToRole="M_SizeType" />
         </EntityType>
         <EntityType Name="M_SizeType">
           <Key>
@@ -699,9 +782,9 @@
           <Property Name="InsertedAt" Type="DateTime" Precision="3" />
           <Property Name="UpdatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="M_Item" Relationship="Self.FK_M_PRODUCT_M_SizeType" FromRole="M_SizeType" ToRole="M_Item" />
-          <NavigationProperty Name="M_Size" Relationship="Self.FK_M_Size_M_SizeType" FromRole="M_SizeType" ToRole="M_Size" />
           <Property Name="SortNo" Type="Byte" />
+          <NavigationProperty Name="M_Item" Relationship="Self.FK_M_Item_M_SizeType" FromRole="M_SizeType" ToRole="M_Item" />
+          <NavigationProperty Name="M_Size" Relationship="Self.FK_M_Size_M_SizeType" FromRole="M_SizeType" ToRole="M_Size" />
         </EntityType>
         <EntityType Name="M_StaffBase">
           <Key>
@@ -975,7 +1058,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_M_PRODUCT_M_ColorType">
+        <Association Name="FK_M_Item_M_ColorType">
           <End Role="M_ColorType" Type="Self.M_ColorType" Multiplicity="0..1" />
           <End Role="M_Item" Type="Self.M_Item" Multiplicity="*" />
           <ReferentialConstraint>
@@ -987,7 +1070,31 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_M_PRODUCT_M_SizeType">
+        <Association Name="FK_M_Item_M_Maker">
+          <End Role="M_Maker" Type="Self.M_Maker" Multiplicity="0..1" />
+          <End Role="M_Item" Type="Self.M_Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_Maker">
+              <PropertyRef Name="MakerCd" />
+            </Principal>
+            <Dependent Role="M_Item">
+              <PropertyRef Name="SeasonCd" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_M_Item_M_Season">
+          <End Role="M_Season" Type="Self.M_Season" Multiplicity="0..1" />
+          <End Role="M_Item" Type="Self.M_Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_Season">
+              <PropertyRef Name="SeasonCd" />
+            </Principal>
+            <Dependent Role="M_Item">
+              <PropertyRef Name="SeasonCd" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_M_Item_M_SizeType">
           <End Role="M_SizeType" Type="Self.M_SizeType" Multiplicity="0..1" />
           <End Role="M_Item" Type="Self.M_Item" Multiplicity="*" />
           <ReferentialConstraint>
@@ -1015,7 +1122,8 @@
           <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="*" />
           <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="AsamaEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
           <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" />
           <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" />
           <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" />
@@ -1025,6 +1133,7 @@
           <EntitySet Name="M_Customer" EntityType="Self.M_Customer" />
           <EntitySet Name="M_Item" EntityType="Self.M_Item" />
           <EntitySet Name="M_Maker" EntityType="Self.M_Maker" />
+          <EntitySet Name="M_Season" EntityType="Self.M_Season" />
           <EntitySet Name="M_Size" EntityType="Self.M_Size" />
           <EntitySet Name="M_SizeType" EntityType="Self.M_SizeType" />
           <EntitySet Name="M_StaffBase" EntityType="Self.M_StaffBase" />
@@ -1055,11 +1164,19 @@
             <End Role="M_ColorType" EntitySet="M_ColorType" />
             <End Role="M_Color" EntitySet="M_Color" />
           </AssociationSet>
-          <AssociationSet Name="FK_M_PRODUCT_M_ColorType" Association="Self.FK_M_PRODUCT_M_ColorType">
+          <AssociationSet Name="FK_M_Item_M_ColorType" Association="Self.FK_M_Item_M_ColorType">
             <End Role="M_ColorType" EntitySet="M_ColorType" />
             <End Role="M_Item" EntitySet="M_Item" />
           </AssociationSet>
-          <AssociationSet Name="FK_M_PRODUCT_M_SizeType" Association="Self.FK_M_PRODUCT_M_SizeType">
+          <AssociationSet Name="FK_M_Item_M_Maker" Association="Self.FK_M_Item_M_Maker">
+            <End Role="M_Maker" EntitySet="M_Maker" />
+            <End Role="M_Item" EntitySet="M_Item" />
+          </AssociationSet>
+          <AssociationSet Name="FK_M_Item_M_Season" Association="Self.FK_M_Item_M_Season">
+            <End Role="M_Season" EntitySet="M_Season" />
+            <End Role="M_Item" EntitySet="M_Item" />
+          </AssociationSet>
+          <AssociationSet Name="FK_M_Item_M_SizeType" Association="Self.FK_M_Item_M_SizeType">
             <End Role="M_SizeType" EntitySet="M_SizeType" />
             <End Role="M_Item" EntitySet="M_Item" />
           </AssociationSet>
@@ -1077,7 +1194,17 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="AsamaEntities">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="Model.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="AspNetRoles">
             <EntityTypeMapping TypeName="Model.AspNetRoles">
               <MappingFragment StoreEntitySet="AspNetRoles">
@@ -1126,7 +1253,6 @@
           <EntitySetMapping Name="M_Color">
             <EntityTypeMapping TypeName="Model.M_Color">
               <MappingFragment StoreEntitySet="M_Color">
-                <ScalarProperty Name="SortNo" ColumnName="SortNo" />
                 <ScalarProperty Name="ColorCd" ColumnName="ColorCd" />
                 <ScalarProperty Name="ColorName" ColumnName="ColorName" />
                 <ScalarProperty Name="ColorTypeCd" ColumnName="ColorTypeCd" />
@@ -1134,26 +1260,26 @@
                 <ScalarProperty Name="InsertedAt" ColumnName="InsertedAt" />
                 <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
                 <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="SortNo" ColumnName="SortNo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="M_ColorType">
             <EntityTypeMapping TypeName="Model.M_ColorType">
               <MappingFragment StoreEntitySet="M_ColorType">
-                <ScalarProperty Name="SortNo" ColumnName="SortNo" />
                 <ScalarProperty Name="ColorTypeCd" ColumnName="ColorTypeCd" />
                 <ScalarProperty Name="ColorTypeName" ColumnName="ColorTypeName" />
                 <ScalarProperty Name="InsertedBy" ColumnName="InsertedBy" />
                 <ScalarProperty Name="InsertedAt" ColumnName="InsertedAt" />
                 <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
                 <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="SortNo" ColumnName="SortNo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="M_Customer">
             <EntityTypeMapping TypeName="Model.M_Customer">
               <MappingFragment StoreEntitySet="M_Customer">
-                <ScalarProperty Name="SortNo" ColumnName="SortNo" />
                 <ScalarProperty Name="CustomerCd" ColumnName="CustomerCd" />
                 <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
                 <ScalarProperty Name="CustomerContact" ColumnName="CustomerContact" />
@@ -1161,16 +1287,16 @@
                 <ScalarProperty Name="InsertedAt" ColumnName="InsertedAt" />
                 <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
                 <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="SortNo" ColumnName="SortNo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="M_Item">
             <EntityTypeMapping TypeName="Model.M_Item">
               <MappingFragment StoreEntitySet="M_Item">
-                <ScalarProperty Name="SortNo" ColumnName="SortNo" />
                 <ScalarProperty Name="ItemCd" ColumnName="ItemCd" />
                 <ScalarProperty Name="ItemName" ColumnName="ItemName" />
-                <ScalarProperty Name="Season" ColumnName="Season" />
+                <ScalarProperty Name="SeasonCd" ColumnName="SeasonCd" />
                 <ScalarProperty Name="MakerCd" ColumnName="MakerCd" />
                 <ScalarProperty Name="SizeTypeCd" ColumnName="SizeTypeCd" />
                 <ScalarProperty Name="ColorTypeCd" ColumnName="ColorTypeCd" />
@@ -1180,13 +1306,13 @@
                 <ScalarProperty Name="InsertedAt" ColumnName="InsertedAt" />
                 <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
                 <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="SortNo" ColumnName="SortNo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="M_Maker">
             <EntityTypeMapping TypeName="Model.M_Maker">
               <MappingFragment StoreEntitySet="M_Maker">
-                <ScalarProperty Name="SortNo" ColumnName="SortNo" />
                 <ScalarProperty Name="MakerCd" ColumnName="MakerCd" />
                 <ScalarProperty Name="MakerName" ColumnName="MakerName" />
                 <ScalarProperty Name="MakerContact" ColumnName="MakerContact" />
@@ -1194,13 +1320,26 @@
                 <ScalarProperty Name="InsertedAt" ColumnName="InsertedAt" />
                 <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
                 <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="SortNo" ColumnName="SortNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="M_Season">
+            <EntityTypeMapping TypeName="Model.M_Season">
+              <MappingFragment StoreEntitySet="M_Season">
+                <ScalarProperty Name="SeasonCd" ColumnName="SeasonCd" />
+                <ScalarProperty Name="SeasonName" ColumnName="SeasonName" />
+                <ScalarProperty Name="InsertedBy" ColumnName="InsertedBy" />
+                <ScalarProperty Name="InsertedAt" ColumnName="InsertedAt" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="SortNo" ColumnName="SortNo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="M_Size">
             <EntityTypeMapping TypeName="Model.M_Size">
               <MappingFragment StoreEntitySet="M_Size">
-                <ScalarProperty Name="SortNo" ColumnName="SortNo" />
                 <ScalarProperty Name="SizeCd" ColumnName="SizeCd" />
                 <ScalarProperty Name="SizeName" ColumnName="SizeName" />
                 <ScalarProperty Name="SizeTypeCd" ColumnName="SizeTypeCd" />
@@ -1208,19 +1347,20 @@
                 <ScalarProperty Name="InsertedAt" ColumnName="InsertedAt" />
                 <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
                 <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="SortNo" ColumnName="SortNo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="M_SizeType">
             <EntityTypeMapping TypeName="Model.M_SizeType">
               <MappingFragment StoreEntitySet="M_SizeType">
-                <ScalarProperty Name="SortNo" ColumnName="SortNo" />
                 <ScalarProperty Name="SizeTypeCd" ColumnName="SizeTypeCd" />
                 <ScalarProperty Name="SizeTypeName" ColumnName="SizeTypeName" />
                 <ScalarProperty Name="InsertedBy" ColumnName="InsertedBy" />
                 <ScalarProperty Name="InsertedAt" ColumnName="InsertedAt" />
                 <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
                 <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="SortNo" ColumnName="SortNo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1258,7 +1398,6 @@
           <EntitySetMapping Name="M_Supplier">
             <EntityTypeMapping TypeName="Model.M_Supplier">
               <MappingFragment StoreEntitySet="M_Supplier">
-                <ScalarProperty Name="SortNo" ColumnName="SortNo" />
                 <ScalarProperty Name="SupplierCd" ColumnName="SupplierCd" />
                 <ScalarProperty Name="SupplierName" ColumnName="SupplierName" />
                 <ScalarProperty Name="SupplierContact" ColumnName="SupplierContact" />
@@ -1266,6 +1405,7 @@
                 <ScalarProperty Name="InsertedAt" ColumnName="InsertedAt" />
                 <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
                 <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+                <ScalarProperty Name="SortNo" ColumnName="SortNo" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

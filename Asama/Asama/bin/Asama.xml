@@ -1859,7 +1859,7 @@ Asama
  </summary>
  <remarks></remarks>
 </member>
-<member name="M:Asama.UclLoginBL.DoMain(Asama.AsamaEntities,Asama.LoginAD)">
+<member name="M:Asama.UclLoginBL.DoMain(Asama.Entities,Asama.LoginAD)">
  <summary>
  DoMain
  </summary>
@@ -2103,7 +2103,7 @@ Asama
  </summary>
  <remarks></remarks>
 </member>
-<member name="M:Asama.LogMessageTbl.LogMessageData.#ctor(Asama.AsamaEntities@,System.String)">
+<member name="M:Asama.LogMessageTbl.LogMessageData.#ctor(Asama.Entities@,System.String)">
  <summary>
  コンストラクタ（キー指定で対象データを取得）
  </summary>
@@ -2111,7 +2111,7 @@ Asama
  <param name="strMessageID">メッセージID</param>
  <remarks></remarks>
 </member>
-<member name="M:Asama.LogMessageTbl.LogMessageData.GetData(Asama.AsamaEntities,System.String)">
+<member name="M:Asama.LogMessageTbl.LogMessageData.GetData(Asama.Entities,System.String)">
  <summary>
  <para>指定条件のデータをAsamaGeneralDataから取得する</para>
  </summary>
@@ -2380,7 +2380,7 @@ Asama
  サイズサービス
  </summary>
 </member>
-<member name="M:Asama.M_SizeService.search(Asama.AsamaEntities)">
+<member name="M:Asama.M_SizeService.search(Asama.Entities)">
  <summary>
  検索
  </summary>
@@ -2392,7 +2392,7 @@ Asama
  ユーザーサービス
  </summary>
 </member>
-<member name="M:Asama.UserService.LoginAuthority(Asama.AsamaEntities,Asama.UserModel,System.Object)">
+<member name="M:Asama.UserService.LoginAuthority(Asama.Entities,Asama.UserModel,System.Object)">
  <summary>
  認証
  </summary>

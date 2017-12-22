@@ -193,6 +193,7 @@
     <Compile Include="Controllers\M_CustomerController.vb" />
     <Compile Include="Controllers\M_ItemController.vb" />
     <Compile Include="Controllers\M_MakerController.vb" />
+    <Compile Include="Controllers\M_SeasonController.vb" />
     <Compile Include="Controllers\M_SizeController.vb" />
     <Compile Include="Controllers\M_SizeTypeController.vb" />
     <Compile Include="Controllers\M_SupplierController.vb" />
@@ -229,8 +230,12 @@
     <Compile Include="Models\AspNetUsers.vb">
       <DependentUpon>AsamaModels.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\C__MigrationHistory.vb">
+      <DependentUpon>AsamaModels.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\LoginAD.vb" />
     <Compile Include="Models\LoginStaffInfo.vb" />
+    <Compile Include="Models\MetaData\M_SeasonMetaData.vb" />
     <Compile Include="Models\MetaData\M_ColorMetaData.vb" />
     <Compile Include="Models\MetaData\M_ColorTypeMetaData.vb" />
     <Compile Include="Models\MetaData\M_CustomerMetaData.vb" />
@@ -259,6 +264,9 @@
       <DependentUpon>AsamaModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\M_MakerEx.vb" />
+    <Compile Include="Models\M_Season.vb">
+      <DependentUpon>AsamaModels.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\M_Size.vb">
       <DependentUpon>AsamaModels.tt</DependentUpon>
     </Compile>
@@ -444,8 +452,8 @@
     <Content Include="images\loading.gif" />
     <Content Include="Models\AsamaModels.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>AsamaModels.Context.vb</LastGenOutput>
       <DependentUpon>AsamaModels.edmx</DependentUpon>
+      <LastGenOutput>AsamaModels.Context.vb</LastGenOutput>
     </Content>
     <Content Include="Models\AsamaModels.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -499,7 +507,7 @@
     <Content Include="Views\M_SizeType\Edit.vbhtml" />
     <Content Include="Views\M_SizeType\Index.vbhtml" />
     <Content Include="Views\User\Login.vbhtml" />
-    <Content Include="Views\Shared\EditorTemplates\DateTime.vbhtml" />
+    <Content Include="Views\Shared\EditorTemplates\Calendar.vbhtml" />
     <Content Include="Views\Shared\EditorTemplates\Number.vbhtml" />
     <Content Include="Views\Shared\_Login.vbhtml" />
     <Content Include="Views\M_Supplier\Create.vbhtml" />
@@ -507,6 +515,12 @@
     <Content Include="Views\M_Supplier\Details.vbhtml" />
     <Content Include="Views\M_Supplier\Edit.vbhtml" />
     <Content Include="Views\M_Supplier\Index.vbhtml" />
+    <Content Include="Views\M_Season\Create.vbhtml" />
+    <Content Include="Views\M_Season\Delete.vbhtml" />
+    <Content Include="Views\M_Season\Details.vbhtml" />
+    <Content Include="Views\M_Season\Edit.vbhtml" />
+    <Content Include="Views\M_Season\Index.vbhtml" />
+    <Content Include="Views\Shared\EditorTemplates\SortNo.vbhtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />

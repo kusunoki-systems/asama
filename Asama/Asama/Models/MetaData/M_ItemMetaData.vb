@@ -4,6 +4,7 @@ Imports System.ComponentModel.DataAnnotations
 Partial Public Class M_Item
 End Class
 
+
 Public Class M_ItemMetaData
 
     <DisplayName("商品コード")>
@@ -19,17 +20,27 @@ Public Class M_ItemMetaData
     <DisplayName("シーズン")>
     <Required(ErrorMessage:="{0}を入力して下さい")>
     <MaxLength(100, ErrorMessage:="100字以内で入力して下さい")>
-    Public Property Season As String
+    Public Property SeasonCd As String
+
+    <DisplayName("シーズン")>
+    Public Overridable Property M_Season As M_Season
 
     <DisplayName("メーカーコード")>
     <Required(ErrorMessage:="{0}を入力して下さい")>
     <MaxLength(20, ErrorMessage:="20字以内で入力して下さい")>
     Public Property MakerCd As String
 
+    <DisplayName("サイズ")>
+    Public Overridable Property M_SizeType As M_SizeType
+
     <DisplayName("サイズ種類コード")>
     <Required(ErrorMessage:="{0}を入力して下さい")>
     <MaxLength(20, ErrorMessage:="20字以内で入力して下さい")>
     Public Property SizeTypeCd As String
+
+    <DisplayName("色種類")>
+    Public Overridable Property M_ColorType As M_ColorType
+
     <DisplayName("色種類コード")>
     <Required(ErrorMessage:="{0}を入力して下さい")>
     <MaxLength(20, ErrorMessage:="20字以内で入力して下さい")>

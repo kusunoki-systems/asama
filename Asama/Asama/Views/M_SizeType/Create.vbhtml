@@ -29,7 +29,7 @@ End Code
         </div>
 
          <div class="form-group">
-             @Html.LabelFor(Function(model) model.SortNo, "SortNo", htmlAttributes:=New With {.class = "control-label col-md-2"})
+             @Html.LabelFor(Function(model) model.SortNo, htmlAttributes:=New With {.class = "control-label col-md-2"})
              <div class="col-md-10">
                  @Html.EditorFor(Function(model) model.SortNo, New With {.htmlAttributes = New With {.class = "form-control"}})
                  @Html.ValidationMessageFor(Function(model) model.SortNo, "", New With {.class = "text-danger"})

@@ -181,7 +181,7 @@ Public Class LogMessageTbl
         ''' <param name="appData">エラー受渡し用AsamaADBase</param>
         ''' <param name="strMessageID">メッセージID</param>
         ''' <remarks></remarks>
-        Public Sub New(ByRef appData As AsamaEntities, ByVal strMessageID As String)
+        Public Sub New(ByRef appData As Entities, ByVal strMessageID As String)
             '最初に基本クラスのコンストラクタを呼び出す
             MyBase.New()
 
@@ -194,7 +194,7 @@ Public Class LogMessageTbl
         ''' <param name="appData">エラー受渡し用AsamaADBase</param>
         ''' <param name="strMessageID">メッセージID</param>
         ''' <remarks></remarks>
-        Private Sub GetData(ByVal appData As AsamaEntities, ByVal strMessageID As String)
+        Private Sub GetData(ByVal appData As Entities, ByVal strMessageID As String)
             Try
 
             Catch ex As Exception

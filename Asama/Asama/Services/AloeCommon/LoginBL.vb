@@ -35,7 +35,7 @@ Public Class UclLoginBL
     '''  日付    担当    Ver. チケット# 変更理由
     '''  ----------------------------------------------------------------
     ''' </remarks>
-    Public Function DoMain(db As AsamaEntities, LoginAppData As LoginAD) As LoginAD
+    Public Function DoMain(db As Entities, LoginAppData As LoginAD) As LoginAD
         Try
             'Const l_PASSWORDINPUTALLOWTIMES As String = "PasswordInputAllowTimes"
             'Const l_PASSWORDVALIDDAYS As String = "PasswordValidDays"

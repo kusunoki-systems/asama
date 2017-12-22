@@ -11,17 +11,18 @@ Imports System
 Imports System.Data.Entity
 Imports System.Data.Entity.Infrastructure
 
-Partial Public Class AsamaEntities
+Partial Public Class Entities
     Inherits DbContext
 
     Public Sub New()
-        MyBase.New("name=AsamaEntities")
+        MyBase.New("name=Entities")
     End Sub
 
     Protected Overrides Sub OnModelCreating(modelBuilder As DbModelBuilder)
         Throw New UnintentionalCodeFirstException()
     End Sub
 
+    Public Overridable Property C__MigrationHistory() As DbSet(Of C__MigrationHistory)
     Public Overridable Property AspNetRoles() As DbSet(Of AspNetRoles)
     Public Overridable Property AspNetUserClaims() As DbSet(Of AspNetUserClaims)
     Public Overridable Property AspNetUserLogins() As DbSet(Of AspNetUserLogins)
@@ -31,6 +32,7 @@ Partial Public Class AsamaEntities
     Public Overridable Property M_Customer() As DbSet(Of M_Customer)
     Public Overridable Property M_Item() As DbSet(Of M_Item)
     Public Overridable Property M_Maker() As DbSet(Of M_Maker)
+    Public Overridable Property M_Season() As DbSet(Of M_Season)
     Public Overridable Property M_Size() As DbSet(Of M_Size)
     Public Overridable Property M_SizeType() As DbSet(Of M_SizeType)
     Public Overridable Property M_StaffBase() As DbSet(Of M_StaffBase)

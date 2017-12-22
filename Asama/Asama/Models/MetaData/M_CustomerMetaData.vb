@@ -11,7 +11,7 @@ Public Class M_CustomerMetaData
     <MaxLength(20, ErrorMessage:="20字以内で入力して下さい")>
     Public Property CustomerCd As String
 
-    <DisplayName("取引先名コード")>
+    <DisplayName("取引先名")>
     <Required(ErrorMessage:="{0}を入力して下さい")>
     <MaxLength(20, ErrorMessage:="100字以内で入力して下さい")>
     Public Property CustomerName As String

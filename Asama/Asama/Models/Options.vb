@@ -1,11 +1,11 @@
 ﻿Public Class Options
 
-    Public Property db As AsamaEntities
+    Public Property db As Entities
 
     Public Sub New()
         MyBase.New()
     End Sub
-    Public Sub New(_db As AsamaEntities)
+    Public Sub New(_db As Entities)
         MyBase.New()
         Me.db = _db
     End Sub

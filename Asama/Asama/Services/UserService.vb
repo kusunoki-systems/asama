@@ -27,7 +27,7 @@ Public Class UserService
     ''' 認証
     ''' </summary>
     ''' <returns></returns>
-    Public Function LoginAuthority(db As AsamaEntities, model As UserModel, ErrorCount As Object) As LoginAD
+    Public Function LoginAuthority(db As Entities, model As UserModel, ErrorCount As Object) As LoginAD
 
         'If model.Id = "hoge" AndAlso model.Password = "hoge" Then
         '    Return Nothing
@@ -61,7 +61,7 @@ Public Class UserService
 
 
 
-    Public Function GetUserInfo(db As AsamaEntities, id As String) As M_StaffBase
+    Public Function GetUserInfo(db As Entities, id As String) As M_StaffBase
 
         Dim model = (From e In db.M_StaffBase
                      Where e.MSTB_StaffID = id And e.MSTB_DelFlag = 0

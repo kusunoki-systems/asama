@@ -1,6 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="AsamaEntities">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="C__MigrationHistory">
+      <EntityTypeMapping TypeName="Model.C__MigrationHistory">
+        <MappingFragment StoreEntitySet="__MigrationHistory">
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="AspNetRoles">
       <EntityTypeMapping TypeName="Model.AspNetRoles">
         <MappingFragment StoreEntitySet="AspNetRoles">
@@ -49,7 +59,6 @@
     <EntitySetMapping Name="M_Color">
       <EntityTypeMapping TypeName="Model.M_Color">
         <MappingFragment StoreEntitySet="M_Color">
-          <ScalarProperty Name="SortNo" ColumnName="SortNo" />
           <ScalarProperty Name="ColorCd" ColumnName="ColorCd" />
           <ScalarProperty Name="ColorName" ColumnName="ColorName" />
           <ScalarProperty Name="ColorTypeCd" ColumnName="ColorTypeCd" />
@@ -57,26 +66,26 @@
           <ScalarProperty Name="InsertedAt" ColumnName="InsertedAt" />
           <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
           <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+          <ScalarProperty Name="SortNo" ColumnName="SortNo" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="M_ColorType">
       <EntityTypeMapping TypeName="Model.M_ColorType">
         <MappingFragment StoreEntitySet="M_ColorType">
-          <ScalarProperty Name="SortNo" ColumnName="SortNo" />
           <ScalarProperty Name="ColorTypeCd" ColumnName="ColorTypeCd" />
           <ScalarProperty Name="ColorTypeName" ColumnName="ColorTypeName" />
           <ScalarProperty Name="InsertedBy" ColumnName="InsertedBy" />
           <ScalarProperty Name="InsertedAt" ColumnName="InsertedAt" />
           <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
           <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+          <ScalarProperty Name="SortNo" ColumnName="SortNo" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="M_Customer">
       <EntityTypeMapping TypeName="Model.M_Customer">
         <MappingFragment StoreEntitySet="M_Customer">
-          <ScalarProperty Name="SortNo" ColumnName="SortNo" />
           <ScalarProperty Name="CustomerCd" ColumnName="CustomerCd" />
           <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
           <ScalarProperty Name="CustomerContact" ColumnName="CustomerContact" />
@@ -84,16 +93,16 @@
           <ScalarProperty Name="InsertedAt" ColumnName="InsertedAt" />
           <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
           <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+          <ScalarProperty Name="SortNo" ColumnName="SortNo" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="M_Item">
       <EntityTypeMapping TypeName="Model.M_Item">
         <MappingFragment StoreEntitySet="M_Item">
-          <ScalarProperty Name="SortNo" ColumnName="SortNo" />
           <ScalarProperty Name="ItemCd" ColumnName="ItemCd" />
           <ScalarProperty Name="ItemName" ColumnName="ItemName" />
-          <ScalarProperty Name="Season" ColumnName="Season" />
+          <ScalarProperty Name="SeasonCd" ColumnName="SeasonCd" />
           <ScalarProperty Name="MakerCd" ColumnName="MakerCd" />
           <ScalarProperty Name="SizeTypeCd" ColumnName="SizeTypeCd" />
           <ScalarProperty Name="ColorTypeCd" ColumnName="ColorTypeCd" />
@@ -103,13 +112,13 @@
           <ScalarProperty Name="InsertedAt" ColumnName="InsertedAt" />
           <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
           <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+          <ScalarProperty Name="SortNo" ColumnName="SortNo" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="M_Maker">
       <EntityTypeMapping TypeName="Model.M_Maker">
         <MappingFragment StoreEntitySet="M_Maker">
-          <ScalarProperty Name="SortNo" ColumnName="SortNo" />
           <ScalarProperty Name="MakerCd" ColumnName="MakerCd" />
           <ScalarProperty Name="MakerName" ColumnName="MakerName" />
           <ScalarProperty Name="MakerContact" ColumnName="MakerContact" />
@@ -117,13 +126,26 @@
           <ScalarProperty Name="InsertedAt" ColumnName="InsertedAt" />
           <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
           <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+          <ScalarProperty Name="SortNo" ColumnName="SortNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="M_Season">
+      <EntityTypeMapping TypeName="Model.M_Season">
+        <MappingFragment StoreEntitySet="M_Season">
+          <ScalarProperty Name="SeasonCd" ColumnName="SeasonCd" />
+          <ScalarProperty Name="SeasonName" ColumnName="SeasonName" />
+          <ScalarProperty Name="InsertedBy" ColumnName="InsertedBy" />
+          <ScalarProperty Name="InsertedAt" ColumnName="InsertedAt" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+          <ScalarProperty Name="SortNo" ColumnName="SortNo" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="M_Size">
       <EntityTypeMapping TypeName="Model.M_Size">
         <MappingFragment StoreEntitySet="M_Size">
-          <ScalarProperty Name="SortNo" ColumnName="SortNo" />
           <ScalarProperty Name="SizeCd" ColumnName="SizeCd" />
           <ScalarProperty Name="SizeName" ColumnName="SizeName" />
           <ScalarProperty Name="SizeTypeCd" ColumnName="SizeTypeCd" />
@@ -131,19 +153,20 @@
           <ScalarProperty Name="InsertedAt" ColumnName="InsertedAt" />
           <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
           <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+          <ScalarProperty Name="SortNo" ColumnName="SortNo" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="M_SizeType">
       <EntityTypeMapping TypeName="Model.M_SizeType">
         <MappingFragment StoreEntitySet="M_SizeType">
-          <ScalarProperty Name="SortNo" ColumnName="SortNo" />
           <ScalarProperty Name="SizeTypeCd" ColumnName="SizeTypeCd" />
           <ScalarProperty Name="SizeTypeName" ColumnName="SizeTypeName" />
           <ScalarProperty Name="InsertedBy" ColumnName="InsertedBy" />
           <ScalarProperty Name="InsertedAt" ColumnName="InsertedAt" />
           <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
           <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+          <ScalarProperty Name="SortNo" ColumnName="SortNo" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -181,7 +204,6 @@
     <EntitySetMapping Name="M_Supplier">
       <EntityTypeMapping TypeName="Model.M_Supplier">
         <MappingFragment StoreEntitySet="M_Supplier">
-          <ScalarProperty Name="SortNo" ColumnName="SortNo" />
           <ScalarProperty Name="SupplierCd" ColumnName="SupplierCd" />
           <ScalarProperty Name="SupplierName" ColumnName="SupplierName" />
           <ScalarProperty Name="SupplierContact" ColumnName="SupplierContact" />
@@ -189,6 +211,7 @@
           <ScalarProperty Name="InsertedAt" ColumnName="InsertedAt" />
           <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
           <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+          <ScalarProperty Name="SortNo" ColumnName="SortNo" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

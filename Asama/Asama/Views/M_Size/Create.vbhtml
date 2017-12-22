@@ -29,7 +29,7 @@ End Code
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(Function(model) model.SizeTypeCd, "SizeTypeCd", htmlAttributes:= New With { .class = "control-label col-md-2" })
+            @Html.LabelFor(Function(model) model.SizeTypeCd, htmlAttributes:=New With {.class = "control-label col-md-2"})
             <div class="col-md-10">
                 <!-- 2 つ目の引数を null にして ViewBag から SelectList を取得 -->
                 @Html.DropDownList("SizeTypeCd", Nothing, htmlAttributes:= New With { .class = "form-control" })
@@ -38,7 +38,7 @@ End Code
         </div>
 
          <div class="form-group">
-             @Html.LabelFor(Function(model) model.SortNo, "SortNo", htmlAttributes:=New With {.class = "control-label col-md-2"})
+             @Html.LabelFor(Function(model) model.SortNo, htmlAttributes:=New With {.class = "control-label col-md-2"})
              <div class="col-md-10">
                  @Html.EditorFor(Function(model) model.SortNo, New With {.htmlAttributes = New With {.class = "form-control"}})
                  @Html.ValidationMessageFor(Function(model) model.SortNo, "", New With {.class = "text-danger"})

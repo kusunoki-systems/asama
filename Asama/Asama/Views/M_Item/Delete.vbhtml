@@ -19,11 +19,11 @@ End Code
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(Function(model) model.Season)
+            @Html.DisplayNameFor(Function(model) model.SeasonCd)
         </dt>
 
         <dd>
-            @Html.DisplayFor(Function(model) model.Season)
+            @Html.DisplayFor(Function(model) model.SeasonCd)
         </dd>
 
         <dt>
