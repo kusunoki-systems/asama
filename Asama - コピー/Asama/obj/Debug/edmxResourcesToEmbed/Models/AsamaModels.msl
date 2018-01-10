@@ -1,0 +1,423 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="C__MigrationHistory">
+      <EntityTypeMapping TypeName="Model.C__MigrationHistory">
+        <MappingFragment StoreEntitySet="__MigrationHistory">
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="Model.AspNetRoles">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="Model.AspNetUserClaims">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="Model.AspNetUserLogins">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="Model.AspNetUsers">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="M_Color">
+      <EntityTypeMapping TypeName="Model.M_Color">
+        <MappingFragment StoreEntitySet="M_Color">
+          <ScalarProperty Name="ColorCd" ColumnName="ColorCd" />
+          <ScalarProperty Name="ColorName" ColumnName="ColorName" />
+          <ScalarProperty Name="ColorTypeCd" ColumnName="ColorTypeCd" />
+          <ScalarProperty Name="InsertedBy" ColumnName="InsertedBy" />
+          <ScalarProperty Name="InsertedAt" ColumnName="InsertedAt" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+          <ScalarProperty Name="SortNo" ColumnName="SortNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="M_ColorType">
+      <EntityTypeMapping TypeName="Model.M_ColorType">
+        <MappingFragment StoreEntitySet="M_ColorType">
+          <ScalarProperty Name="ColorTypeCd" ColumnName="ColorTypeCd" />
+          <ScalarProperty Name="ColorTypeName" ColumnName="ColorTypeName" />
+          <ScalarProperty Name="InsertedBy" ColumnName="InsertedBy" />
+          <ScalarProperty Name="InsertedAt" ColumnName="InsertedAt" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+          <ScalarProperty Name="SortNo" ColumnName="SortNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="M_Customer">
+      <EntityTypeMapping TypeName="Model.M_Customer">
+        <MappingFragment StoreEntitySet="M_Customer">
+          <ScalarProperty Name="CustomerCd" ColumnName="CustomerCd" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="CustomerContact" ColumnName="CustomerContact" />
+          <ScalarProperty Name="InsertedBy" ColumnName="InsertedBy" />
+          <ScalarProperty Name="InsertedAt" ColumnName="InsertedAt" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+          <ScalarProperty Name="SortNo" ColumnName="SortNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="M_Item">
+      <EntityTypeMapping TypeName="Model.M_Item">
+        <MappingFragment StoreEntitySet="M_Item">
+          <ScalarProperty Name="ItemCd" ColumnName="ItemCd" />
+          <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+          <ScalarProperty Name="SeasonCd" ColumnName="SeasonCd" />
+          <ScalarProperty Name="MakerCd" ColumnName="MakerCd" />
+          <ScalarProperty Name="SizeTypeCd" ColumnName="SizeTypeCd" />
+          <ScalarProperty Name="ColorTypeCd" ColumnName="ColorTypeCd" />
+          <ScalarProperty Name="RetailPrice" ColumnName="RetailPrice" />
+          <ScalarProperty Name="CostPrice" ColumnName="CostPrice" />
+          <ScalarProperty Name="InsertedBy" ColumnName="InsertedBy" />
+          <ScalarProperty Name="InsertedAt" ColumnName="InsertedAt" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+          <ScalarProperty Name="SortNo" ColumnName="SortNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="M_Maker">
+      <EntityTypeMapping TypeName="Model.M_Maker">
+        <MappingFragment StoreEntitySet="M_Maker">
+          <ScalarProperty Name="MakerCd" ColumnName="MakerCd" />
+          <ScalarProperty Name="MakerName" ColumnName="MakerName" />
+          <ScalarProperty Name="MakerContact" ColumnName="MakerContact" />
+          <ScalarProperty Name="InsertedBy" ColumnName="InsertedBy" />
+          <ScalarProperty Name="InsertedAt" ColumnName="InsertedAt" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+          <ScalarProperty Name="SortNo" ColumnName="SortNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="M_Season">
+      <EntityTypeMapping TypeName="Model.M_Season">
+        <MappingFragment StoreEntitySet="M_Season">
+          <ScalarProperty Name="SeasonCd" ColumnName="SeasonCd" />
+          <ScalarProperty Name="SeasonName" ColumnName="SeasonName" />
+          <ScalarProperty Name="InsertedBy" ColumnName="InsertedBy" />
+          <ScalarProperty Name="InsertedAt" ColumnName="InsertedAt" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+          <ScalarProperty Name="SortNo" ColumnName="SortNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="M_Size">
+      <EntityTypeMapping TypeName="Model.M_Size">
+        <MappingFragment StoreEntitySet="M_Size">
+          <ScalarProperty Name="SizeCd" ColumnName="SizeCd" />
+          <ScalarProperty Name="SizeName" ColumnName="SizeName" />
+          <ScalarProperty Name="SizeTypeCd" ColumnName="SizeTypeCd" />
+          <ScalarProperty Name="InsertedBy" ColumnName="InsertedBy" />
+          <ScalarProperty Name="InsertedAt" ColumnName="InsertedAt" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+          <ScalarProperty Name="SortNo" ColumnName="SortNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="M_SizeType">
+      <EntityTypeMapping TypeName="Model.M_SizeType">
+        <MappingFragment StoreEntitySet="M_SizeType">
+          <ScalarProperty Name="SizeTypeCd" ColumnName="SizeTypeCd" />
+          <ScalarProperty Name="SizeTypeName" ColumnName="SizeTypeName" />
+          <ScalarProperty Name="InsertedBy" ColumnName="InsertedBy" />
+          <ScalarProperty Name="InsertedAt" ColumnName="InsertedAt" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+          <ScalarProperty Name="SortNo" ColumnName="SortNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="M_StaffBase">
+      <EntityTypeMapping TypeName="Model.M_StaffBase">
+        <MappingFragment StoreEntitySet="M_StaffBase">
+          <ScalarProperty Name="MSTB_StaffID" ColumnName="MSTB_StaffID" />
+          <ScalarProperty Name="MSTB_LogNo" ColumnName="MSTB_LogNo" />
+          <ScalarProperty Name="MSTB_UpdateDate" ColumnName="MSTB_UpdateDate" />
+          <ScalarProperty Name="MSTB_UpdateClientName" ColumnName="MSTB_UpdateClientName" />
+          <ScalarProperty Name="MSTB_UpdateStaffID" ColumnName="MSTB_UpdateStaffID" />
+          <ScalarProperty Name="MSTB_DelFlag" ColumnName="MSTB_DelFlag" />
+          <ScalarProperty Name="MSTB_NameKana" ColumnName="MSTB_NameKana" />
+          <ScalarProperty Name="MSTB_Name" ColumnName="MSTB_Name" />
+          <ScalarProperty Name="MSTB_BirthDate" ColumnName="MSTB_BirthDate" />
+          <ScalarProperty Name="MSTB_SexType" ColumnName="MSTB_SexType" />
+          <ScalarProperty Name="MSTB_EnterDate" ColumnName="MSTB_EnterDate" />
+          <ScalarProperty Name="MSTB_RetireDate" ColumnName="MSTB_RetireDate" />
+          <ScalarProperty Name="MSTB_Remarks" ColumnName="MSTB_Remarks" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="M_StaffPassword">
+      <EntityTypeMapping TypeName="Model.M_StaffPassword">
+        <MappingFragment StoreEntitySet="M_StaffPassword">
+          <ScalarProperty Name="MSTP_StaffID" ColumnName="MSTP_StaffID" />
+          <ScalarProperty Name="MSTP_LogNo" ColumnName="MSTP_LogNo" />
+          <ScalarProperty Name="MSTP_UpdateDate" ColumnName="MSTP_UpdateDate" />
+          <ScalarProperty Name="MSTP_UpdateClientName" ColumnName="MSTP_UpdateClientName" />
+          <ScalarProperty Name="MSTP_UpdateStaffID" ColumnName="MSTP_UpdateStaffID" />
+          <ScalarProperty Name="MSTP_Password" ColumnName="MSTP_Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="M_Supplier">
+      <EntityTypeMapping TypeName="Model.M_Supplier">
+        <MappingFragment StoreEntitySet="M_Supplier">
+          <ScalarProperty Name="SupplierCd" ColumnName="SupplierCd" />
+          <ScalarProperty Name="SupplierName" ColumnName="SupplierName" />
+          <ScalarProperty Name="SupplierContact" ColumnName="SupplierContact" />
+          <ScalarProperty Name="InsertedBy" ColumnName="InsertedBy" />
+          <ScalarProperty Name="InsertedAt" ColumnName="InsertedAt" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+          <ScalarProperty Name="SortNo" ColumnName="SortNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_ArrivalBody">
+      <EntityTypeMapping TypeName="Model.T_ArrivalBody">
+        <MappingFragment StoreEntitySet="T_ArrivalBody">
+          <ScalarProperty Name="ArrivalNo" ColumnName="ArrivalNo" />
+          <ScalarProperty Name="ArrivalBodyID" ColumnName="ArrivalBodyID" />
+          <ScalarProperty Name="ProductCd" ColumnName="ProductCd" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Size" ColumnName="Size" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+          <ScalarProperty Name="RetailPrice" ColumnName="RetailPrice" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="InsertedBy" ColumnName="InsertedBy" />
+          <ScalarProperty Name="InsertedAt" ColumnName="InsertedAt" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_ArrivalHeader">
+      <EntityTypeMapping TypeName="Model.T_ArrivalHeader">
+        <MappingFragment StoreEntitySet="T_ArrivalHeader">
+          <ScalarProperty Name="ArrivalNo" ColumnName="ArrivalNo" />
+          <ScalarProperty Name="SupplierCd" ColumnName="SupplierCd" />
+          <ScalarProperty Name="ArrivalDate" ColumnName="ArrivalDate" />
+          <ScalarProperty Name="ArrivalAmount" ColumnName="ArrivalAmount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_DeliverBody">
+      <EntityTypeMapping TypeName="Model.T_DeliverBody">
+        <MappingFragment StoreEntitySet="T_DeliverBody">
+          <ScalarProperty Name="DeliverNo" ColumnName="DeliverNo" />
+          <ScalarProperty Name="DeliverBodyID" ColumnName="DeliverBodyID" />
+          <ScalarProperty Name="ProductCd" ColumnName="ProductCd" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Size" ColumnName="Size" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+          <ScalarProperty Name="RetailPrice" ColumnName="RetailPrice" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="InsertedBy" ColumnName="InsertedBy" />
+          <ScalarProperty Name="InsertedAt" ColumnName="InsertedAt" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_DeliverHeader">
+      <EntityTypeMapping TypeName="Model.T_DeliverHeader">
+        <MappingFragment StoreEntitySet="T_DeliverHeader">
+          <ScalarProperty Name="DeliverNo" ColumnName="DeliverNo" />
+          <ScalarProperty Name="CustomerCd" ColumnName="CustomerCd" />
+          <ScalarProperty Name="DeliverDate" ColumnName="DeliverDate" />
+          <ScalarProperty Name="InsertedBy" ColumnName="InsertedBy" />
+          <ScalarProperty Name="InsertedAt" ColumnName="InsertedAt" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_HachuBody">
+      <EntityTypeMapping TypeName="Model.T_HachuBody">
+        <MappingFragment StoreEntitySet="T_HachuBody">
+          <ScalarProperty Name="HachuNo" ColumnName="HachuNo" />
+          <ScalarProperty Name="HachuBodyID" ColumnName="HachuBodyID" />
+          <ScalarProperty Name="ProductCd" ColumnName="ProductCd" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Size" ColumnName="Size" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+          <ScalarProperty Name="RetailPrice" ColumnName="RetailPrice" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="InsertedBy" ColumnName="InsertedBy" />
+          <ScalarProperty Name="InsertedAt" ColumnName="InsertedAt" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_HachuHeader">
+      <EntityTypeMapping TypeName="Model.T_HachuHeader">
+        <MappingFragment StoreEntitySet="T_HachuHeader">
+          <ScalarProperty Name="HachuNo" ColumnName="HachuNo" />
+          <ScalarProperty Name="SupplierCd" ColumnName="SupplierCd" />
+          <ScalarProperty Name="HachuDate" ColumnName="HachuDate" />
+          <ScalarProperty Name="HachuAmount" ColumnName="HachuAmount" />
+          <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_InvoiceBody">
+      <EntityTypeMapping TypeName="Model.T_InvoiceBody">
+        <MappingFragment StoreEntitySet="T_InvoiceBody">
+          <ScalarProperty Name="HachuNo" ColumnName="HachuNo" />
+          <ScalarProperty Name="HachuBodyID" ColumnName="HachuBodyID" />
+          <ScalarProperty Name="ProductCd" ColumnName="ProductCd" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Size" ColumnName="Size" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+          <ScalarProperty Name="RetailPrice" ColumnName="RetailPrice" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="InsertedBy" ColumnName="InsertedBy" />
+          <ScalarProperty Name="InsertedAt" ColumnName="InsertedAt" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_InvoiceHeader">
+      <EntityTypeMapping TypeName="Model.T_InvoiceHeader">
+        <MappingFragment StoreEntitySet="T_InvoiceHeader">
+          <ScalarProperty Name="InvoiceNo" ColumnName="InvoiceNo" />
+          <ScalarProperty Name="CustomerCd" ColumnName="CustomerCd" />
+          <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+          <ScalarProperty Name="InsertedBy" ColumnName="InsertedBy" />
+          <ScalarProperty Name="InsertedAt" ColumnName="InsertedAt" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_JuchuBody">
+      <EntityTypeMapping TypeName="Model.T_JuchuBody">
+        <MappingFragment StoreEntitySet="T_JuchuBody">
+          <ScalarProperty Name="JuchuNo" ColumnName="JuchuNo" />
+          <ScalarProperty Name="JuchuBodyID" ColumnName="JuchuBodyID" />
+          <ScalarProperty Name="ProductCd" ColumnName="ProductCd" />
+          <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Size" ColumnName="Size" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+          <ScalarProperty Name="RetailPrice" ColumnName="RetailPrice" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="InsertedBy" ColumnName="InsertedBy" />
+          <ScalarProperty Name="InsertedAt" ColumnName="InsertedAt" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_JuchuHeader">
+      <EntityTypeMapping TypeName="Model.T_JuchuHeader">
+        <MappingFragment StoreEntitySet="T_JuchuHeader">
+          <ScalarProperty Name="JuchuNo" ColumnName="JuchuNo" />
+          <ScalarProperty Name="CustomerCd" ColumnName="CustomerCd" />
+          <ScalarProperty Name="JuchuDate" ColumnName="JuchuDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_Nyukin">
+      <EntityTypeMapping TypeName="Model.T_Nyukin">
+        <MappingFragment StoreEntitySet="T_Nyukin">
+          <ScalarProperty Name="NyukinNo" ColumnName="NyukinNo" />
+          <ScalarProperty Name="CustomerCd" ColumnName="CustomerCd" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="NyukinDate" ColumnName="NyukinDate" />
+          <ScalarProperty Name="NyukinMethod" ColumnName="NyukinMethod" />
+          <ScalarProperty Name="InsertedBy" ColumnName="InsertedBy" />
+          <ScalarProperty Name="InsertedAt" ColumnName="InsertedAt" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_PaymentBody">
+      <EntityTypeMapping TypeName="Model.T_PaymentBody">
+        <MappingFragment StoreEntitySet="T_PaymentBody">
+          <ScalarProperty Name="PaymentlNo" ColumnName="PaymentlNo" />
+          <ScalarProperty Name="PaymentBodyID" ColumnName="PaymentBodyID" />
+          <ScalarProperty Name="ArrivalNo" ColumnName="ArrivalNo" />
+          <ScalarProperty Name="Arrival" ColumnName="Arrival" />
+          <ScalarProperty Name="InsertedBy" ColumnName="InsertedBy" />
+          <ScalarProperty Name="InsertedAt" ColumnName="InsertedAt" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_PaymentHeader">
+      <EntityTypeMapping TypeName="Model.T_PaymentHeader">
+        <MappingFragment StoreEntitySet="T_PaymentHeader">
+          <ScalarProperty Name="PaymentNo" ColumnName="PaymentNo" />
+          <ScalarProperty Name="SupplierCd" ColumnName="SupplierCd" />
+          <ScalarProperty Name="PaymentDate" ColumnName="PaymentDate" />
+          <ScalarProperty Name="InvoiceAmount" ColumnName="InvoiceAmount" />
+          <ScalarProperty Name="PaymentAmount" ColumnName="PaymentAmount" />
+          <ScalarProperty Name="Deduction" ColumnName="Deduction" />
+          <ScalarProperty Name="InsertedBy" ColumnName="InsertedBy" />
+          <ScalarProperty Name="InsertedAt" ColumnName="InsertedAt" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+          <ScalarProperty Name="UpdatedAt" ColumnName="UpdatedAt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles" TypeName="Model.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+      <EndProperty Name="AspNetRoles">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+      <EndProperty Name="AspNetUsers">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,602 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+    <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ClaimType" Type="nvarchar(max)" />
+    <Property Name="ClaimValue" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserRoles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+    <Property Name="PasswordHash" Type="nvarchar(max)" />
+    <Property Name="SecurityStamp" Type="nvarchar(max)" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" />
+    <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="datetime" />
+    <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="M_Color">
+    <Key>
+      <PropertyRef Name="ColorCd" />
+    </Key>
+    <Property Name="ColorCd" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ColorName" Type="nvarchar" MaxLength="100" />
+    <Property Name="ColorTypeCd" Type="varchar" MaxLength="20" />
+    <Property Name="InsertedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="InsertedAt" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="UpdatedAt" Type="datetime" />
+    <Property Name="SortNo" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="M_ColorType">
+    <Key>
+      <PropertyRef Name="ColorTypeCd" />
+    </Key>
+    <Property Name="ColorTypeCd" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ColorTypeName" Type="nvarchar" MaxLength="100" />
+    <Property Name="InsertedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="InsertedAt" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="UpdatedAt" Type="datetime" />
+    <Property Name="SortNo" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="M_Customer">
+    <Key>
+      <PropertyRef Name="CustomerCd" />
+    </Key>
+    <Property Name="CustomerCd" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="CustomerName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="CustomerContact" Type="nvarchar(max)" />
+    <Property Name="InsertedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="InsertedAt" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="UpdatedAt" Type="datetime" />
+    <Property Name="SortNo" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="M_Item">
+    <Key>
+      <PropertyRef Name="ItemCd" />
+    </Key>
+    <Property Name="ItemCd" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ItemName" Type="nvarchar" MaxLength="100" />
+    <Property Name="SeasonCd" Type="varchar" MaxLength="20" />
+    <Property Name="MakerCd" Type="varchar" MaxLength="20" />
+    <Property Name="SizeTypeCd" Type="varchar" MaxLength="20" />
+    <Property Name="ColorTypeCd" Type="varchar" MaxLength="20" />
+    <Property Name="RetailPrice" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="CostPrice" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="InsertedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="InsertedAt" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="UpdatedAt" Type="datetime" />
+    <Property Name="SortNo" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="M_Maker">
+    <Key>
+      <PropertyRef Name="MakerCd" />
+    </Key>
+    <Property Name="MakerCd" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="MakerName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="MakerContact" Type="nvarchar(max)" />
+    <Property Name="InsertedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="InsertedAt" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="UpdatedAt" Type="datetime" />
+    <Property Name="SortNo" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="M_Season">
+    <Key>
+      <PropertyRef Name="SeasonCd" />
+    </Key>
+    <Property Name="SeasonCd" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="SeasonName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="InsertedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="InsertedAt" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="UpdatedAt" Type="datetime" />
+    <Property Name="SortNo" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="M_Size">
+    <Key>
+      <PropertyRef Name="SizeCd" />
+    </Key>
+    <Property Name="SizeCd" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="SizeName" Type="varchar" MaxLength="20" />
+    <Property Name="SizeTypeCd" Type="varchar" MaxLength="20" />
+    <Property Name="InsertedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="InsertedAt" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="UpdatedAt" Type="datetime" />
+    <Property Name="SortNo" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="M_SizeType">
+    <Key>
+      <PropertyRef Name="SizeTypeCd" />
+    </Key>
+    <Property Name="SizeTypeCd" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="SizeTypeName" Type="varchar" MaxLength="100" />
+    <Property Name="InsertedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="InsertedAt" Type="datetime" />
+    <Property Name="UpdatedBy" Type="varchar" MaxLength="20" />
+    <Property Name="UpdatedAt" Type="datetime" />
+    <Property Name="SortNo" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="M_StaffBase">
+    <Key>
+      <PropertyRef Name="MSTB_StaffID" />
+    </Key>
+    <Property Name="MSTB_StaffID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MSTB_LogNo" Type="int" Nullable="false" />
+    <Property Name="MSTB_UpdateDate" Type="datetime" Nullable="false" />
+    <Property Name="MSTB_UpdateClientName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MSTB_UpdateStaffID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MSTB_DelFlag" Type="int" Nullable="false" />
+    <Property Name="MSTB_NameKana" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="MSTB_Name" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="MSTB_BirthDate" Type="datetime" />
+    <Property Name="MSTB_SexType" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="MSTB_EnterDate" Type="datetime" />
+    <Property Name="MSTB_RetireDate" Type="datetime" />
+    <Property Name="MSTB_Remarks" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="M_StaffPassword">
+    <Key>
+      <PropertyRef Name="MSTP_StaffID" />
+      <PropertyRef Name="MSTP_LogNo" />
+    </Key>
+    <Property Name="MSTP_StaffID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MSTP_LogNo" Type="int" Nullable="false" />
+    <Property Name="MSTP_UpdateDate" Type="datetime" Nullable="false" />
+    <Property Name="MSTP_UpdateClientName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MSTP_UpdateStaffID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MSTP_Password" Type="char" MaxLength="64" Nullable="false" />
+  </EntityType>
+  <EntityType Name="M_Supplier">
+    <Key>
+      <PropertyRef Name="SupplierCd" />
+    </Key>
+    <Property Name="SupplierCd" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="SupplierName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="SupplierContact" Type="nvarchar(max)" />
+    <Property Name="InsertedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="InsertedAt" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="UpdatedAt" Type="datetime" />
+    <Property Name="SortNo" Type="tinyint" />
+  </EntityType>
+  <EntityType Name="T_ArrivalBody">
+    <Key>
+      <PropertyRef Name="ArrivalNo" />
+      <PropertyRef Name="ArrivalBodyID" />
+    </Key>
+    <Property Name="ArrivalNo" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="ArrivalBodyID" Type="int" Nullable="false" />
+    <Property Name="ProductCd" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ProductName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Size" Type="nvarchar" MaxLength="4" />
+    <Property Name="Color" Type="nvarchar" MaxLength="50" />
+    <Property Name="RetailPrice" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="InsertedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="InsertedAt" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="UpdatedAt" Type="datetime" />
+  </EntityType>
+  <EntityType Name="T_ArrivalHeader">
+    <Key>
+      <PropertyRef Name="ArrivalNo" />
+    </Key>
+    <Property Name="ArrivalNo" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="SupplierCd" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="ArrivalDate" Type="date" />
+    <Property Name="ArrivalAmount" Type="decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="T_DeliverBody">
+    <Key>
+      <PropertyRef Name="DeliverNo" />
+      <PropertyRef Name="DeliverBodyID" />
+    </Key>
+    <Property Name="DeliverNo" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="DeliverBodyID" Type="int" Nullable="false" />
+    <Property Name="ProductCd" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ProductName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Size" Type="nvarchar" MaxLength="4" />
+    <Property Name="Color" Type="nvarchar" MaxLength="50" />
+    <Property Name="RetailPrice" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="InsertedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="InsertedAt" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="UpdatedAt" Type="datetime" />
+  </EntityType>
+  <EntityType Name="T_DeliverHeader">
+    <Key>
+      <PropertyRef Name="DeliverNo" />
+    </Key>
+    <Property Name="DeliverNo" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="CustomerCd" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="DeliverDate" Type="date" />
+    <Property Name="InsertedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="InsertedAt" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="UpdatedAt" Type="datetime" />
+  </EntityType>
+  <EntityType Name="T_HachuBody">
+    <Key>
+      <PropertyRef Name="HachuNo" />
+      <PropertyRef Name="HachuBodyID" />
+    </Key>
+    <Property Name="HachuNo" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="HachuBodyID" Type="int" Nullable="false" />
+    <Property Name="ProductCd" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ProductName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Size" Type="nvarchar" MaxLength="4" />
+    <Property Name="Color" Type="nvarchar" MaxLength="50" />
+    <Property Name="RetailPrice" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="InsertedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="InsertedAt" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="UpdatedAt" Type="datetime" />
+  </EntityType>
+  <EntityType Name="T_HachuHeader">
+    <Key>
+      <PropertyRef Name="HachuNo" />
+    </Key>
+    <Property Name="HachuNo" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="SupplierCd" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="HachuDate" Type="date" />
+    <Property Name="HachuAmount" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="OrderNo" Type="varchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="T_InvoiceBody">
+    <Key>
+      <PropertyRef Name="HachuNo" />
+      <PropertyRef Name="HachuBodyID" />
+    </Key>
+    <Property Name="HachuNo" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="HachuBodyID" Type="int" Nullable="false" />
+    <Property Name="ProductCd" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ProductName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Size" Type="nvarchar" MaxLength="4" />
+    <Property Name="Color" Type="nvarchar" MaxLength="50" />
+    <Property Name="RetailPrice" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="InsertedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="InsertedAt" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="UpdatedAt" Type="datetime" />
+  </EntityType>
+  <EntityType Name="T_InvoiceHeader">
+    <Key>
+      <PropertyRef Name="InvoiceNo" />
+    </Key>
+    <Property Name="InvoiceNo" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="CustomerCd" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="InvoiceDate" Type="date" />
+    <Property Name="InsertedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="InsertedAt" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="UpdatedAt" Type="datetime" />
+  </EntityType>
+  <EntityType Name="T_JuchuBody">
+    <Key>
+      <PropertyRef Name="JuchuNo" />
+      <PropertyRef Name="JuchuBodyID" />
+    </Key>
+    <Property Name="JuchuNo" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="JuchuBodyID" Type="int" Nullable="false" />
+    <Property Name="ProductCd" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ProductName" Type="nvarchar" MaxLength="100" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Size" Type="nvarchar" MaxLength="4" />
+    <Property Name="Color" Type="nvarchar" MaxLength="50" />
+    <Property Name="RetailPrice" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Price" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="InsertedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="InsertedAt" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="UpdatedAt" Type="datetime" />
+  </EntityType>
+  <EntityType Name="T_JuchuHeader">
+    <Key>
+      <PropertyRef Name="JuchuNo" />
+    </Key>
+    <Property Name="JuchuNo" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="CustomerCd" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="JuchuDate" Type="date" />
+  </EntityType>
+  <EntityType Name="T_Nyukin">
+    <Key>
+      <PropertyRef Name="NyukinNo" />
+    </Key>
+    <Property Name="NyukinNo" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="CustomerCd" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="Amount" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="NyukinDate" Type="datetime" Nullable="false" />
+    <Property Name="NyukinMethod" Type="nvarchar" MaxLength="100" />
+    <Property Name="InsertedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="InsertedAt" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="UpdatedAt" Type="datetime" />
+  </EntityType>
+  <EntityType Name="T_PaymentBody">
+    <Key>
+      <PropertyRef Name="PaymentlNo" />
+      <PropertyRef Name="PaymentBodyID" />
+    </Key>
+    <Property Name="PaymentlNo" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="PaymentBodyID" Type="int" Nullable="false" />
+    <Property Name="ArrivalNo" Type="varchar" MaxLength="10" />
+    <Property Name="Arrival" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="InsertedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="InsertedAt" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="UpdatedAt" Type="datetime" />
+  </EntityType>
+  <EntityType Name="T_PaymentHeader">
+    <Key>
+      <PropertyRef Name="PaymentNo" />
+    </Key>
+    <Property Name="PaymentNo" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="SupplierCd" Type="char" MaxLength="6" Nullable="false" />
+    <Property Name="PaymentDate" Type="date" />
+    <Property Name="InvoiceAmount" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="PaymentAmount" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Deduction" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="InsertedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="InsertedAt" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="100" />
+    <Property Name="UpdatedAt" Type="datetime" />
+  </EntityType>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+    <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_M_Color_M_ColorType">
+    <End Role="M_ColorType" Type="Self.M_ColorType" Multiplicity="0..1" />
+    <End Role="M_Color" Type="Self.M_Color" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="M_ColorType">
+        <PropertyRef Name="ColorTypeCd" />
+      </Principal>
+      <Dependent Role="M_Color">
+        <PropertyRef Name="ColorTypeCd" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_M_Item_M_ColorType">
+    <End Role="M_ColorType" Type="Self.M_ColorType" Multiplicity="0..1" />
+    <End Role="M_Item" Type="Self.M_Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="M_ColorType">
+        <PropertyRef Name="ColorTypeCd" />
+      </Principal>
+      <Dependent Role="M_Item">
+        <PropertyRef Name="ColorTypeCd" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_M_Item_M_Maker">
+    <End Role="M_Maker" Type="Self.M_Maker" Multiplicity="0..1" />
+    <End Role="M_Item" Type="Self.M_Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="M_Maker">
+        <PropertyRef Name="MakerCd" />
+      </Principal>
+      <Dependent Role="M_Item">
+        <PropertyRef Name="SeasonCd" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_M_Item_M_Season">
+    <End Role="M_Season" Type="Self.M_Season" Multiplicity="0..1" />
+    <End Role="M_Item" Type="Self.M_Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="M_Season">
+        <PropertyRef Name="SeasonCd" />
+      </Principal>
+      <Dependent Role="M_Item">
+        <PropertyRef Name="SeasonCd" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_M_Item_M_SizeType">
+    <End Role="M_SizeType" Type="Self.M_SizeType" Multiplicity="0..1" />
+    <End Role="M_Item" Type="Self.M_Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="M_SizeType">
+        <PropertyRef Name="SizeTypeCd" />
+      </Principal>
+      <Dependent Role="M_Item">
+        <PropertyRef Name="SizeTypeCd" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_M_Size_M_SizeType">
+    <End Role="M_SizeType" Type="Self.M_SizeType" Multiplicity="0..1" />
+    <End Role="M_Size" Type="Self.M_Size" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="M_SizeType">
+        <PropertyRef Name="SizeTypeCd" />
+      </Principal>
+      <Dependent Role="M_Size">
+        <PropertyRef Name="SizeTypeCd" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ModelStoreContainer">
+    <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="M_Color" EntityType="Self.M_Color" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="M_ColorType" EntityType="Self.M_ColorType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="M_Customer" EntityType="Self.M_Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="M_Item" EntityType="Self.M_Item" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="M_Maker" EntityType="Self.M_Maker" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="M_Season" EntityType="Self.M_Season" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="M_Size" EntityType="Self.M_Size" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="M_SizeType" EntityType="Self.M_SizeType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="M_StaffBase" EntityType="Self.M_StaffBase" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="M_StaffPassword" EntityType="Self.M_StaffPassword" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="M_Supplier" EntityType="Self.M_Supplier" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_ArrivalBody" EntityType="Self.T_ArrivalBody" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_ArrivalHeader" EntityType="Self.T_ArrivalHeader" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_DeliverBody" EntityType="Self.T_DeliverBody" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_DeliverHeader" EntityType="Self.T_DeliverHeader" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_HachuBody" EntityType="Self.T_HachuBody" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_HachuHeader" EntityType="Self.T_HachuHeader" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_InvoiceBody" EntityType="Self.T_InvoiceBody" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_InvoiceHeader" EntityType="Self.T_InvoiceHeader" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_JuchuBody" EntityType="Self.T_JuchuBody" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_JuchuHeader" EntityType="Self.T_JuchuHeader" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_Nyukin" EntityType="Self.T_Nyukin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_PaymentBody" EntityType="Self.T_PaymentBody" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_PaymentHeader" EntityType="Self.T_PaymentHeader" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_M_Color_M_ColorType" Association="Self.FK_M_Color_M_ColorType">
+      <End Role="M_ColorType" EntitySet="M_ColorType" />
+      <End Role="M_Color" EntitySet="M_Color" />
+    </AssociationSet>
+    <AssociationSet Name="FK_M_Item_M_ColorType" Association="Self.FK_M_Item_M_ColorType">
+      <End Role="M_ColorType" EntitySet="M_ColorType" />
+      <End Role="M_Item" EntitySet="M_Item" />
+    </AssociationSet>
+    <AssociationSet Name="FK_M_Item_M_Maker" Association="Self.FK_M_Item_M_Maker">
+      <End Role="M_Maker" EntitySet="M_Maker" />
+      <End Role="M_Item" EntitySet="M_Item" />
+    </AssociationSet>
+    <AssociationSet Name="FK_M_Item_M_Season" Association="Self.FK_M_Item_M_Season">
+      <End Role="M_Season" EntitySet="M_Season" />
+      <End Role="M_Item" EntitySet="M_Item" />
+    </AssociationSet>
+    <AssociationSet Name="FK_M_Item_M_SizeType" Association="Self.FK_M_Item_M_SizeType">
+      <End Role="M_SizeType" EntitySet="M_SizeType" />
+      <End Role="M_Item" EntitySet="M_Item" />
+    </AssociationSet>
+    <AssociationSet Name="FK_M_Size_M_SizeType" Association="Self.FK_M_Size_M_SizeType">
+      <End Role="M_SizeType" EntitySet="M_SizeType" />
+      <End Role="M_Size" EntitySet="M_Size" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
