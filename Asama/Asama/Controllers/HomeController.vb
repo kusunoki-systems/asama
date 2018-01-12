@@ -9,13 +9,13 @@
             MyBase.RemoveCookie("Delete")
 
             If MyBase.dbError Then
-                Return View()
+                Return MyBase.View()
             End If
             Dim model As New UserModel
             Dim svc As New UserService
             '施設一覧取得
             'model.SetFacilityModels(svc.GetGroupFacility(db))
-            Return View(model)
+            Return MyBase.View(model)
 
         End Function
 

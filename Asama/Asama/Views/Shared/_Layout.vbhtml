@@ -42,7 +42,7 @@
                         <li Class="dropdown">
                             <a href="#" Class="dropdown-toggle" data-toggle="dropdown" role="button"><span class="fa fa-ship"></span> 入荷 <span Class="caret"></span></a>
                             <ul Class="dropdown-menu" role="menu">
-                                <li>@Html.ActionLink("入荷入力", "Index", "M_Drug", New With {.id = "2"}, New With {.class = ""})</li>
+                                <li>@Html.ActionLink("入荷入力", "Index", "TArrival", New With {.id = "2"}, New With {.class = ""})</li>
                             </ul>
                         </li>
                         <li Class="dropdown">

@@ -66,6 +66,40 @@ Namespace Controllers
 #Region "メソッド"
 
         ''' <summary>
+        ''' ビューの返却
+        ''' </summary>
+        ''' <param name="model"></param>
+        ''' <param name="ViewName"></param>
+        ''' <returns></returns>
+        Protected Friend Overloads Function View(ViewName As String, model As Object) As ViewResult
+
+            Dim ctrl As String = Me.[GetType]().Name.Replace("Controller", "")
+
+            If ctrl.Substring(0, 1) = "T" Then
+                Return MyBase.View(ViewName, String.Format("~/Views/Transaction/{0}/{1}.vbhtml", ctrl, ViewName).ToString, model)
+            Else
+                Return MyBase.View(ViewName, String.Format("~/Views/System/{0}/{1}.vbhtml", ctrl, ViewName).ToString, model)
+            End If
+
+        End Function
+        ''' <summary>
+        ''' モデル無しビュー
+        ''' </summary>
+        ''' <param name="ViewName"></param>
+        ''' <returns></returns>
+        Protected Friend Overloads Function View(ViewName As String) As ViewResult
+
+            Dim ctrl As String = Me.[GetType]().Name.Replace("Controller", "")
+
+            If ctrl.Substring(0, 1) = "T" Then
+                Return MyBase.View(ViewName, String.Format("~/Views/Transaction/{0}/{1}.vbhtml", ctrl, ViewName).ToString)
+            Else
+                Return MyBase.View(ViewName, String.Format("~/Views/System/{0}/{1}.vbhtml", ctrl, ViewName).ToString)
+            End If
+
+        End Function
+
+        ''' <summary>
         ''' ユーザー情報取得
         ''' </summary>
         Protected Overrides Sub Initialize(requestContext As RequestContext)

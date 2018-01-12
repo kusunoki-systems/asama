@@ -1,4 +1,7 @@
-﻿Public Class Common
+﻿''' <summary>
+''' 共通関数
+''' </summary>
+Public Class Common
 
     ''' <summary>
     ''' NVL　Nothingの場合に、rtnValueを返す

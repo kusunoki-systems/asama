@@ -8,7 +8,7 @@ Namespace Controllers
             Dim svc As New UserService
             Dim model As New UserModel
             'model.SetFacilityModels(svc.GetGroupFacility(db))
-            Return View(model)
+            Return MyBase.View(model)
         End Function
 
         ''' <summary>

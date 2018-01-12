@@ -51,6 +51,21 @@ Asama
  ホスト
  </summary>
 </member>
+<member name="M:Asama.Controllers.BaseController.View(System.String,System.Object)">
+ <summary>
+ ビューの返却
+ </summary>
+ <param name="model"></param>
+ <param name="ViewName"></param>
+ <returns></returns>
+</member>
+<member name="M:Asama.Controllers.BaseController.View(System.String)">
+ <summary>
+ モデル無しビュー
+ </summary>
+ <param name="ViewName"></param>
+ <returns></returns>
+</member>
 <member name="M:Asama.Controllers.BaseController.Initialize(System.Web.Routing.RequestContext)">
  <summary>
  ユーザー情報取得
@@ -2282,6 +2297,11 @@ Asama
  　日付	　　担当	　　Ver.	チケット#	変更理由
  ----------------------------------------------------------------
  </remarks>
+</member>
+<member name="T:Asama.Common">
+ <summary>
+ 共通関数
+ </summary>
 </member>
 <member name="M:Asama.Common.NVL(System.Nullable{System.DateTime},System.DateTime)">
  <summary>
