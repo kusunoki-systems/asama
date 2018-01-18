@@ -6,7 +6,7 @@ End Code
 <h2>シーズン一覧</h2>
 
 <p>
-    <input type="button" value="新規作成" class="btn btn-default" onclick="location.href='@Url.Action("Create", "M_Size")'" />
+    @Html.ActionLink("新規作成", "Create", "", New With {.class = "btn btn-default"})
 </p>
 <table class="table">
     <tr>

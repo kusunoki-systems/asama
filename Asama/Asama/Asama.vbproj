@@ -197,6 +197,12 @@
     <Compile Include="Controllers\System\M_SizeController.vb" />
     <Compile Include="Controllers\System\M_SizeTypeController.vb" />
     <Compile Include="Controllers\System\M_SupplierController.vb" />
+    <Compile Include="Controllers\Transaction\TPaymentController.vb" />
+    <Compile Include="Controllers\Transaction\TNyukinController.vb" />
+    <Compile Include="Controllers\Transaction\TJuchuController.vb" />
+    <Compile Include="Controllers\Transaction\TInvoiceController.vb" />
+    <Compile Include="Controllers\Transaction\THachuController.vb" />
+    <Compile Include="Controllers\Transaction\TDeliverController.vb" />
     <Compile Include="Controllers\Transaction\TArrivalController.vb" />
     <Compile Include="Controllers\UserController.vb" />
     <Compile Include="Global.asax.vb">
@@ -245,26 +251,27 @@
     <Compile Include="Models\MetaData\M_SizeMetaData.vb" />
     <Compile Include="Models\MetaData\M_SizeTypeMetaData.vb" />
     <Compile Include="Models\MetaData\M_SupplierMetaData.vb" />
+    <Compile Include="Models\MetaData\T_ArrivalHeader.vb" />
     <Compile Include="Models\M_Color.vb">
       <DependentUpon>AsamaModels.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\M_ColorEX.vb" />
+    <Compile Include="Models\Extention\M_ColorEX.vb" />
     <Compile Include="Models\M_ColorType.vb">
       <DependentUpon>AsamaModels.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\M_ColorTypeEX.vb" />
+    <Compile Include="Models\Extention\M_ColorTypeEX.vb" />
     <Compile Include="Models\M_Customer.vb">
       <DependentUpon>AsamaModels.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\M_CustomerEx.vb" />
+    <Compile Include="Models\Extention\M_CustomerEx.vb" />
     <Compile Include="Models\M_Item.vb">
       <DependentUpon>AsamaModels.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\M_ItemEx.vb" />
+    <Compile Include="Models\Extention\M_ItemEx.vb" />
     <Compile Include="Models\M_Maker.vb">
       <DependentUpon>AsamaModels.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\M_MakerEx.vb" />
+    <Compile Include="Models\Extention\M_MakerEx.vb" />
     <Compile Include="Models\M_Season.vb">
       <DependentUpon>AsamaModels.tt</DependentUpon>
     </Compile>
@@ -274,7 +281,7 @@
     <Compile Include="Models\M_SizeType.vb">
       <DependentUpon>AsamaModels.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\M_SizeTypeEX.vb" />
+    <Compile Include="Models\Extention\M_SizeTypeEX.vb" />
     <Compile Include="Models\M_StaffBase.vb">
       <DependentUpon>AsamaModels.tt</DependentUpon>
     </Compile>
@@ -284,7 +291,7 @@
     <Compile Include="Models\M_Supplier.vb">
       <DependentUpon>AsamaModels.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\M_SupplierEx.vb" />
+    <Compile Include="Models\Extention\M_SupplierEx.vb" />
     <Compile Include="Models\Options.vb" />
     <Compile Include="Models\T_ArrivalBody.vb">
       <DependentUpon>AsamaModels.tt</DependentUpon>
@@ -527,6 +534,36 @@
     <Content Include="Views\Transaction\TArrival\Details.vbhtml" />
     <Content Include="Views\Transaction\TArrival\Edit.vbhtml" />
     <Content Include="Views\Transaction\TArrival\Index.vbhtml" />
+    <Content Include="Views\Transaction\TDeliver\Create.vbhtml" />
+    <Content Include="Views\Transaction\TDeliver\Delete.vbhtml" />
+    <Content Include="Views\Transaction\TDeliver\Details.vbhtml" />
+    <Content Include="Views\Transaction\TDeliver\Edit.vbhtml" />
+    <Content Include="Views\Transaction\TDeliver\Index.vbhtml" />
+    <Content Include="Views\Transaction\THachu\Create.vbhtml" />
+    <Content Include="Views\Transaction\THachu\Delete.vbhtml" />
+    <Content Include="Views\Transaction\THachu\Details.vbhtml" />
+    <Content Include="Views\Transaction\THachu\Edit.vbhtml" />
+    <Content Include="Views\Transaction\THachu\Index.vbhtml" />
+    <Content Include="Views\Transaction\TInvoice\Create.vbhtml" />
+    <Content Include="Views\Transaction\TInvoice\Delete.vbhtml" />
+    <Content Include="Views\Transaction\TInvoice\Details.vbhtml" />
+    <Content Include="Views\Transaction\TInvoice\Edit.vbhtml" />
+    <Content Include="Views\Transaction\TInvoice\Index.vbhtml" />
+    <Content Include="Views\Transaction\TJuchu\Create.vbhtml" />
+    <Content Include="Views\Transaction\TJuchu\Delete.vbhtml" />
+    <Content Include="Views\Transaction\TJuchu\Details.vbhtml" />
+    <Content Include="Views\Transaction\TJuchu\Edit.vbhtml" />
+    <Content Include="Views\Transaction\TJuchu\Index.vbhtml" />
+    <Content Include="Views\Transaction\TNyukin\Create.vbhtml" />
+    <Content Include="Views\Transaction\TNyukin\Delete.vbhtml" />
+    <Content Include="Views\Transaction\TNyukin\Details.vbhtml" />
+    <Content Include="Views\Transaction\TNyukin\Edit.vbhtml" />
+    <Content Include="Views\Transaction\TNyukin\Index.vbhtml" />
+    <Content Include="Views\Transaction\TPayment\Create.vbhtml" />
+    <Content Include="Views\Transaction\TPayment\Delete.vbhtml" />
+    <Content Include="Views\Transaction\TPayment\Details.vbhtml" />
+    <Content Include="Views\Transaction\TPayment\Edit.vbhtml" />
+    <Content Include="Views\Transaction\TPayment\Index.vbhtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />

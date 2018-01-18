@@ -76,9 +76,9 @@ Namespace Controllers
             Dim ctrl As String = Me.[GetType]().Name.Replace("Controller", "")
 
             If ctrl.Substring(0, 1) = "T" Then
-                Return MyBase.View(ViewName, String.Format("~/Views/Transaction/{0}/{1}.vbhtml", ctrl, ViewName).ToString, model)
+                Return MyBase.View(String.Format("~/Views/Transaction/{0}/{1}.vbhtml", ctrl, ViewName).ToString, model)
             Else
-                Return MyBase.View(ViewName, String.Format("~/Views/System/{0}/{1}.vbhtml", ctrl, ViewName).ToString, model)
+                Return MyBase.View(String.Format("~/Views/System/{0}/{1}.vbhtml", ctrl, ViewName).ToString, model)
             End If
 
         End Function
@@ -92,9 +92,9 @@ Namespace Controllers
             Dim ctrl As String = Me.[GetType]().Name.Replace("Controller", "")
 
             If ctrl.Substring(0, 1) = "T" Then
-                Return MyBase.View(ViewName, String.Format("~/Views/Transaction/{0}/{1}.vbhtml", ctrl, ViewName).ToString)
+                Return MyBase.View(String.Format("~/Views/Transaction/{0}/{1}.vbhtml", ctrl, ViewName).ToString)
             Else
-                Return MyBase.View(ViewName, String.Format("~/Views/System/{0}/{1}.vbhtml", ctrl, ViewName).ToString)
+                Return MyBase.View(String.Format("~/Views/System/{0}/{1}.vbhtml", ctrl, ViewName).ToString)
             End If
 
         End Function
