@@ -19,18 +19,6 @@ Namespace Controllers
             Return MyBase.View(System.Reflection.MethodBase.GetCurrentMethod.Name, m_Item.ToList())
         End Function
 
-        ' GET: M_Item/Details/5
-        Function Details(ByVal id As String) As ActionResult
-            If IsNothing(id) Then
-                Return New HttpStatusCodeResult(HttpStatusCode.BadRequest)
-            End If
-            Dim m_Item As M_Item = db.M_Item.Find(id)
-            If IsNothing(m_Item) Then
-                Return HttpNotFound()
-            End If
-            Return MyBase.View(System.Reflection.MethodBase.GetCurrentMethod.Name, m_Item)
-        End Function
-
         ' GET: M_Item/Create
         Function Create() As ActionResult
             ViewBag.SeasonCd = New SelectList(db.M_Season, "SeasonCd", "SeasonName")

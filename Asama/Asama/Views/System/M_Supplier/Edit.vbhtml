@@ -2,6 +2,7 @@
 @Code
     ViewData("Title") = "Edit"
 End Code
+@imports Asama.Helpers
 
 <h2>変更</h2>
 
@@ -12,10 +13,16 @@ End Code
         <h4>仕入先マスタ</h4>
         <hr />
         @Html.ValidationSummary(True, "", New With { .class = "text-danger" })
-        @Html.HiddenFor(Function(model) model.SupplierCd)
+
+         <div class="form-group">
+             @Html.LabelFor(Function(model) model.SupplierCd, htmlAttributes:=New With {.class = "control-label col-md-2"})
+             <div class="col-md-10">
+                 @HtmlHelperEditor.ReadOnlyEditor(Model.SupplierCd, "SupplierCd", "")
+             </div>
+         </div>
 
         <div class="form-group">
-            @Html.LabelFor(Function(model) model.SupplierName, htmlAttributes:= New With { .class = "control-label col-md-2" })
+            @Html.LabelFor(Function(model) model.SupplierName, htmlAttributes:=New With {.class = "control-label col-md-2"})
             <div class="col-md-10">
                 @Html.EditorFor(Function(model) model.SupplierName, New With { .htmlAttributes = New With { .class = "form-control" } })
                 @Html.ValidationMessageFor(Function(model) model.SupplierName, "", New With { .class = "text-danger" })
@@ -40,7 +47,7 @@ End Code
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="登録" class="btn btn-default" />
+                <input type="submit" value="登録" class="btn btn-primary" />
             </div>
         </div>
     </div>

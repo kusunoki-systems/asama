@@ -22,18 +22,6 @@ Namespace Controllers
             Return MyBase.View(System.Reflection.MethodBase.GetCurrentMethod.Name, service.search(db))
         End Function
 
-        ' GET: M_Size/Details/5
-        Function Details(ByVal id As String) As ActionResult
-            If IsNothing(id) Then
-                Return New HttpStatusCodeResult(HttpStatusCode.BadRequest)
-            End If
-            Dim m_Size As M_Size = db.M_Size.Find(id)
-            If IsNothing(m_Size) Then
-                Return HttpNotFound()
-            End If
-            Return MyBase.View(System.Reflection.MethodBase.GetCurrentMethod.Name, m_Size)
-        End Function
-
         ' GET: M_Size/Create
         Function Create() As ActionResult
             'DropDownListFor で指定したプロパティと同じ名前でViewBagに SelectList を入れておくと良い感じに使ってくれる

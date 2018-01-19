@@ -33,13 +33,13 @@
 
 //各画面でのエンター発火を防止する
 $(function () {
-    $("input").on("keydown", function (e) {
-        if ((e.which && e.which === 13) || (e.keyCode && e.keyCode === 13)) {
-            return false;
-        } else {
-            return true;
-        }
-    });
+    //$("input").on("keydown", function (e) {
+    //    if ((e.which && e.which === 13) || (e.keyCode && e.keyCode === 13)) {
+    //        return false;
+    //    } else {
+    //        return true;
+    //    }
+    //});
 });
     
 //jQuery(window).load(function () {
@@ -51,6 +51,7 @@ window.onload = function () {
         $("#loading").fadeOut();
         $("#container").fadeIn();
     });
+    $('table').addClass('table-hover table-striped');
 //        var toDate = $('#MDRG_ValidDateTo.datepicker').datepicker('getDate');
 //        $('#MDRG_ValidDateFrom.datepicker').datepicker('option', 'maxDate', toDate);
 }

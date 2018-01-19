@@ -6,10 +6,13 @@ End Code
 <h2>シーズン一覧</h2>
 
 <p>
-    @Html.ActionLink("新規作成", "Create", "", New With {.class = "btn btn-default"})
+    @Html.ActionLink("新規作成", "Create", "", New With {.class = "btn btn-primary"})
 </p>
 <table class="table">
     <tr>
+        <th>
+            @Html.DisplayNameFor(Function(model) model.SeasonCd)
+        </th>
         <th>
             @Html.DisplayNameFor(Function(model) model.SeasonName)
         </th>
@@ -34,6 +37,9 @@ End Code
 @For Each item In Model
     @<tr>
         <td>
+            @Html.ActionLink(item.SeasonCd, "Edit", New With {.id = item.SeasonCd}, New With {.class = ""})
+        </td>
+        <td>
             @Html.DisplayFor(Function(modelItem) item.SeasonName)
         </td>
         <td>
@@ -52,9 +58,7 @@ End Code
             @Html.DisplayFor(Function(modelItem) item.SortNo)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", New With {.id = item.SeasonCd }) |
-            @Html.ActionLink("Details", "Details", New With {.id = item.SeasonCd }) |
-            @Html.ActionLink("Delete", "Delete", New With {.id = item.SeasonCd })
+            @Html.ActionLink("削除", "Delete", New With {.id = item.SeasonCd}, New With {.class = "btn btn-danger btn-sm"})
         </td>
     </tr>
 Next

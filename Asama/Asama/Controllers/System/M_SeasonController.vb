@@ -17,18 +17,6 @@ Namespace Controllers
             Return MyBase.View(System.Reflection.MethodBase.GetCurrentMethod.Name, db.M_Season.ToList())
         End Function
 
-        ' GET: M_Season/Details/5
-        Function Details(ByVal id As String) As ActionResult
-            If IsNothing(id) Then
-                Return New HttpStatusCodeResult(HttpStatusCode.BadRequest)
-            End If
-            Dim m_Season As M_Season = db.M_Season.Find(id)
-            If IsNothing(m_Season) Then
-                Return HttpNotFound()
-            End If
-            Return MyBase.View(System.Reflection.MethodBase.GetCurrentMethod.Name, m_Season)
-        End Function
-
         ' GET: M_Season/Create
         Function Create() As ActionResult
             Return MyBase.View(System.Reflection.MethodBase.GetCurrentMethod.Name)

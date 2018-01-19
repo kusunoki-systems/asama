@@ -18,18 +18,6 @@ Namespace Controllers
             Return MyBase.View(System.Reflection.MethodBase.GetCurrentMethod.Name, db.M_Supplier.ToList())
         End Function
 
-        ' GET: M_Supplier/Details/5
-        Function Details(ByVal id As String) As ActionResult
-            If IsNothing(id) Then
-                Return New HttpStatusCodeResult(HttpStatusCode.BadRequest)
-            End If
-            Dim m_Supplier As M_Supplier = db.M_Supplier.Find(id)
-            If IsNothing(m_Supplier) Then
-                Return HttpNotFound()
-            End If
-            Return MyBase.View(System.Reflection.MethodBase.GetCurrentMethod.Name, m_Supplier)
-        End Function
-
         ' GET: M_Supplier/Create
         Function Create() As ActionResult
             Return MyBase.View(System.Reflection.MethodBase.GetCurrentMethod.Name)

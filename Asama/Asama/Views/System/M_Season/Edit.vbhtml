@@ -2,22 +2,28 @@
 @Code
     ViewData("Title") = "Edit"
 End Code
-
-<h2>Edit</h2>
+@imports Asama.Helpers
+<h2>変更</h2>
 
 @Using (Html.BeginForm())
     @Html.AntiForgeryToken()
     
     @<div class="form-horizontal">
-        <h4>M_Season</h4>
+        <h4>シーズンマスタ</h4>
         <hr />
         @Html.ValidationSummary(True, "", New With { .class = "text-danger" })
-        @Html.HiddenFor(Function(model) model.SeasonCd)
+
+         <div class="form-group">
+             @Html.LabelFor(Function(model) model.SeasonCd, htmlAttributes:=New With {.class = "control-label col-md-2"})
+             <div class="col-md-10">
+                 @HtmlHelperEditor.ReadOnlyEditor(Model.SeasonCd, "SeasonCd", "")
+             </div>
+         </div>
 
         <div class="form-group">
-            @Html.LabelFor(Function(model) model.SeasonName, htmlAttributes:= New With { .class = "control-label col-md-2" })
+            @Html.LabelFor(Function(model) model.SeasonName, htmlAttributes:=New With {.class = "control-label col-md-2"})
             <div class="col-md-10">
-                @Html.EditorFor(Function(model) model.SeasonName, New With { .htmlAttributes = New With { .class = "form-control" } })
+                @Html.EditorFor(Function(model) model.SeasonName, New With {.htmlAttributes = New With {.class = "form-control ime-active"}})
                 @Html.ValidationMessageFor(Function(model) model.SeasonName, "", New With { .class = "text-danger" })
             </div>
         </div>
@@ -25,46 +31,41 @@ End Code
         <div class="form-group">
             @Html.LabelFor(Function(model) model.InsertedBy, htmlAttributes:= New With { .class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(Function(model) model.InsertedBy, New With { .htmlAttributes = New With { .class = "form-control" } })
-                @Html.ValidationMessageFor(Function(model) model.InsertedBy, "", New With { .class = "text-danger" })
+                @HtmlHelperEditor.ReadOnlyEditor(Model.InsertedBy, "InsertedBy", "")
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(Function(model) model.InsertedAt, htmlAttributes:= New With { .class = "control-label col-md-2" })
+            @Html.LabelFor(Function(model) model.InsertedAt, htmlAttributes:=New With {.class = "control-label col-md-2"})
             <div class="col-md-10">
-                @Html.EditorFor(Function(model) model.InsertedAt, New With { .htmlAttributes = New With { .class = "form-control" } })
-                @Html.ValidationMessageFor(Function(model) model.InsertedAt, "", New With { .class = "text-danger" })
+                @HtmlHelperEditor.ReadOnlyEditor(Model.InsertedAt, "InsertedBy", "")
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(Function(model) model.UpdatedBy, htmlAttributes:= New With { .class = "control-label col-md-2" })
+            @Html.LabelFor(Function(model) model.UpdatedBy, htmlAttributes:=New With {.class = "control-label col-md-2"})
             <div class="col-md-10">
-                @Html.EditorFor(Function(model) model.UpdatedBy, New With { .htmlAttributes = New With { .class = "form-control" } })
-                @Html.ValidationMessageFor(Function(model) model.UpdatedBy, "", New With { .class = "text-danger" })
+                @HtmlHelperEditor.ReadOnlyEditor(Model.UpdatedBy, "UpdatedBy", "")
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(Function(model) model.UpdatedAt, htmlAttributes:= New With { .class = "control-label col-md-2" })
+            @Html.LabelFor(Function(model) model.UpdatedAt, htmlAttributes:=New With {.class = "control-label col-md-2"})
             <div class="col-md-10">
-                @Html.EditorFor(Function(model) model.UpdatedAt, New With { .htmlAttributes = New With { .class = "form-control" } })
-                @Html.ValidationMessageFor(Function(model) model.UpdatedAt, "", New With { .class = "text-danger" })
+                @HtmlHelperEditor.ReadOnlyEditor(Model.UpdatedAt, "UpdatedAt", "")
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(Function(model) model.SortNo, htmlAttributes:= New With { .class = "control-label col-md-2" })
+            @Html.LabelFor(Function(model) model.SortNo, htmlAttributes:=New With {.class = "control-label col-md-2"})
             <div class="col-md-10">
-                @Html.EditorFor(Function(model) model.SortNo, New With { .htmlAttributes = New With { .class = "form-control" } })
-                @Html.ValidationMessageFor(Function(model) model.SortNo, "", New With { .class = "text-danger" })
+                @HtmlHelperEditor.ReadOnlyEditor(Model.SortNo, "SortNo", "")
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </div>
     </div>

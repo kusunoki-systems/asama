@@ -15,7 +15,7 @@ End Code
         <div class="form-group">
             @Html.LabelFor(Function(model) model.CustomerCd, htmlAttributes:= New With { .class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(Function(model) model.CustomerCd, New With { .htmlAttributes = New With { .class = "form-control" } })
+                @Html.EditorFor(Function(model) model.CustomerCd, New With {.htmlAttributes = New With {.class = "form-control ime-inactive"}})
                 @Html.ValidationMessageFor(Function(model) model.CustomerCd, "", New With { .class = "text-danger" })
             </div>
         </div>
@@ -23,7 +23,7 @@ End Code
         <div class="form-group">
             @Html.LabelFor(Function(model) model.CustomerName, htmlAttributes:= New With { .class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(Function(model) model.CustomerName, New With { .htmlAttributes = New With { .class = "form-control" } })
+                @Html.EditorFor(Function(model) model.CustomerName, New With {.htmlAttributes = New With {.class = "form-control ime-active"}})
                 @Html.ValidationMessageFor(Function(model) model.CustomerName, "", New With { .class = "text-danger" })
             </div>
         </div>
@@ -31,7 +31,7 @@ End Code
         <div class="form-group">
             @Html.LabelFor(Function(model) model.CustomerContact, htmlAttributes:= New With { .class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(Function(model) model.CustomerContact, New With { .htmlAttributes = New With { .class = "form-control" } })
+                @Html.EditorFor(Function(model) model.CustomerContact, New With {.htmlAttributes = New With {.class = "form-control ime-active"}})
                 @Html.ValidationMessageFor(Function(model) model.CustomerContact, "", New With {.class = "text-danger"})
             </div>
         </div>
@@ -39,14 +39,14 @@ End Code
          <div class="form-group">
              @Html.LabelFor(Function(model) model.SortNo, htmlAttributes:=New With {.class = "control-label col-md-2"})
              <div class="col-md-10">
-                 @Html.EditorFor(Function(model) model.SortNo, New With {.htmlAttributes = New With {.class = "form-control"}})
+                 @Html.EditorFor(Function(model) model.SortNo, New With {.htmlAttributes = New With {.class = "form-control ime-inactive"}})
                  @Html.ValidationMessageFor(Function(model) model.SortNo, "", New With {.class = "text-danger"})
              </div>
          </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="登録" class="btn btn-default" />
+                <input type="submit" value="登録" class="btn btn-primary" />
             </div>
         </div>
     </div>

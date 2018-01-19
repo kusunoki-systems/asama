@@ -16,20 +16,8 @@ Namespace Controllers
         ' GET: M_Color
         Function Index() As ActionResult
             Dim m_Color = (db.M_Color.Include(Function(m) m.M_ColorType))
-            Dim color = m_Color.OrderBy(Function(m) m.SortNo)
+            Dim color = m_Color.OrderBy(Function(m) m.ColorTypeCd).OrderBy(Function(m) m.SortNo)
             Return MyBase.View(System.Reflection.MethodBase.GetCurrentMethod.Name, color.ToList())
-        End Function
-
-        ' GET: M_Color/Details/5
-        Function Details(ByVal id As String) As ActionResult
-            If IsNothing(id) Then
-                Return New HttpStatusCodeResult(HttpStatusCode.BadRequest)
-            End If
-            Dim m_Color As M_Color = db.M_Color.Find(id)
-            If IsNothing(m_Color) Then
-                Return HttpNotFound()
-            End If
-            Return MyBase.View(System.Reflection.MethodBase.GetCurrentMethod.Name, m_Color)
         End Function
 
         ' GET: M_Color/Create
@@ -45,7 +33,7 @@ Namespace Controllers
         <ValidateAntiForgeryToken()>
         Function Create(<Bind(Include:="ColorCd,ColorName,ColorTypeCd,SortNo,InsertedBy,InsertedAt,UpdatedBy,UpdatedAt")> ByVal m_Color As M_Color) As ActionResult
             If ModelState.IsValid Then
-                m_Color.ColorCd = StrConv("m_Color.ColorCd", VbStrConv.Narrow)
+                m_Color.ColorCd = StrConv(m_Color.ColorCd, VbStrConv.Narrow)
                 m_Color.InsertedAt = Date.Now()
                 m_Color.UpdatedAt = Date.Now()
                 m_Color.InsertedBy = User.Identity.Name
@@ -78,7 +66,7 @@ Namespace Controllers
         <ValidateAntiForgeryToken()>
         Function Edit(<Bind(Include:="ColorCd,ColorName,ColorTypeCd,SortNo,InsertedBy,InsertedAt,UpdatedBy,UpdatedAt")> ByVal m_Color As M_Color) As ActionResult
             If ModelState.IsValid Then
-                m_Color.ColorCd = StrConv("m_Color.ColorCd", VbStrConv.Narrow)
+                m_Color.ColorCd = StrConv(m_Color.ColorCd, VbStrConv.Narrow)
                 m_Color.UpdatedAt = Date.Now()
                 m_Color.UpdatedBy = User.Identity.Name
                 db.Entry(m_Color).State = EntityState.Modified

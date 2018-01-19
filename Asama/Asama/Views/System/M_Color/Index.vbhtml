@@ -6,10 +6,13 @@ End Code
 <h2>色一覧</h2>
 
 <p>
-    <input type="button" value="新規作成" class="btn btn-default" onclick="location.href='@Url.Action("Create", "M_Color")'" />
+    <input type="button" value="新規作成" class="btn btn-primary" onclick="location.href='@Url.Action("Create", "M_Color")'" />
 </p>
 <table class="table">
     <tr>
+        <th>
+            @Html.DisplayNameFor(Function(model) model.ColorCd)
+        </th>
         <th>
             @Html.DisplayNameFor(Function(model) model.ColorName)
         </th>
@@ -36,6 +39,9 @@ End Code
 
 @For Each item In Model
     @<tr>
+        <td>
+            @Html.ActionLink(item.ColorCd, "Edit", New With {.id = item.ColorCd}, New With {.class = ""})
+        </td>
          <td>
              @Html.DisplayFor(Function(modelItem) item.ColorName)
          </td>
@@ -58,9 +64,7 @@ End Code
             @Html.DisplayFor(Function(modelItem) item.M_ColorType.ColorTypeName)
         </td>
         <td>
-            @Html.ActionLink("変更", "Edit", New With {.id = item.ColorCd}) |
-            @Html.ActionLink("詳細", "Details", New With {.id = item.ColorCd}) |
-            @Html.ActionLink("削除", "Delete", New With {.id = item.ColorCd})
+            @Html.ActionLink("削除", "Delete", New With {.id = item.ColorCd}, New With {.class = "btn btn-danger btn-sm"})
         </td>
     </tr>
 Next

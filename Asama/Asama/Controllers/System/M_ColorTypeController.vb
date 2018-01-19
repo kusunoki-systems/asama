@@ -18,18 +18,6 @@ Namespace Controllers
             Return MyBase.View(System.Reflection.MethodBase.GetCurrentMethod.Name, db.M_ColorType.ToList())
         End Function
 
-        ' GET: M_ColorType/Details/5
-        Function Details(ByVal id As String) As ActionResult
-            If IsNothing(id) Then
-                Return New HttpStatusCodeResult(HttpStatusCode.BadRequest)
-            End If
-            Dim m_ColorType As M_ColorType = db.M_ColorType.Find(id)
-            If IsNothing(m_ColorType) Then
-                Return HttpNotFound()
-            End If
-            Return MyBase.View(System.Reflection.MethodBase.GetCurrentMethod.Name, m_ColorType)
-        End Function
-
         ' GET: M_ColorType/Create
         Function Create() As ActionResult
             Return MyBase.View(System.Reflection.MethodBase.GetCurrentMethod.Name)

@@ -6,10 +6,13 @@ End Code
 <h2>仕入先一覧</h2>
 
 <p>
-    @Html.ActionLink("新規作成", "Create", "", New With {.class = "btn btn-default"})
+    @Html.ActionLink("新規作成", "Create", "", New With {.class = "btn btn-primary"})
 </p>
 <table class="table">
     <tr>
+        <th>
+            @Html.DisplayNameFor(Function(model) model.SupplierCd)
+        </th>
         <th>
             @Html.DisplayNameFor(Function(model) model.SupplierName)
         </th>
@@ -36,9 +39,12 @@ End Code
 
 @For Each item In Model
     @<tr>
-        <td>
-            @Html.DisplayFor(Function(modelItem) item.SupplierName)
-        </td>
+         <td>
+             @Html.ActionLink(item.SupplierCd, "Edit", New With {.id = item.SupplierCd}, New With {.class = ""})
+         </td>
+         <td>
+             @Html.DisplayFor(Function(modelItem) item.SupplierName)
+         </td>
          <td>
              @Html.DisplayFor(Function(modelItem) item.SupplierContact)
          </td>
@@ -58,9 +64,7 @@ End Code
             @Html.DisplayFor(Function(modelItem) item.UpdatedAt)
         </td>
         <td>
-            @Html.ActionLink("変更", "Edit", New With {.id = item.SupplierCd}) |
-            @Html.ActionLink("詳細", "Details", New With {.id = item.SupplierCd}) |
-            @Html.ActionLink("削除", "Delete", New With {.id = item.SupplierCd})
+            @Html.ActionLink("削除", "Delete", New With {.id = item.SupplierCd}, New With {.class = "btn btn-danger btn-sm"})
         </td>
     </tr>
 Next

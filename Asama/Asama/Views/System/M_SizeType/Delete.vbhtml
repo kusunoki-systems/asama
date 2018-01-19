@@ -63,7 +63,7 @@ End Code
         @Html.AntiForgeryToken()
 
         @<div class="form-actions no-color">
-            <input type="submit" value="削除" class="btn btn-default" /> |
+            <input type="submit" value="削除" class="btn btn-primary" /> |
             @Html.ActionLink("一覧へ戻る", "Index")
         </div>
     End Using

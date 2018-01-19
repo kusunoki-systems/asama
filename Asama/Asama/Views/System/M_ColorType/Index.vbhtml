@@ -6,10 +6,13 @@ End Code
 <h2>色種類一覧</h2>
 
 <p>
-    @Html.ActionLink("新規作成", "Create", "", New With {.class = "btn btn-default"})
+    @Html.ActionLink("新規作成", "Create", "", New With {.class = "btn btn-primary"})
 </p>
 <table class="table">
     <tr>
+        <th>
+            @Html.DisplayNameFor(Function(model) model.ColorTypeCd)
+        </th>
         <th>
             @Html.DisplayNameFor(Function(model) model.ColorTypeName)
         </th>
@@ -33,6 +36,9 @@ End Code
 
 @For Each item In Model
     @<tr>
+        <td>
+            @Html.ActionLink(item.ColorTypeCd, "Edit", New With {.id = item.ColorTypeCd}, New With {.class = ""})
+        </td>
          <td>
              @Html.DisplayFor(Function(modelItem) item.ColorTypeName)
          </td>
@@ -52,9 +58,7 @@ End Code
             @Html.DisplayFor(Function(modelItem) item.UpdatedAt)
         </td>
         <td>
-            @Html.ActionLink("変更", "Edit", New With {.id = item.ColorTypeCd}) |
-            @Html.ActionLink("詳細", "Details", New With {.id = item.ColorTypeCd}) |
-            @Html.ActionLink("削除", "Delete", New With {.id = item.ColorTypeCd})
+            @Html.ActionLink("削除", "Delete", New With {.id = item.ColorTypeCd}, New With {.class = "btn btn-danger btn-sm"})
         </td>
     </tr>
 Next

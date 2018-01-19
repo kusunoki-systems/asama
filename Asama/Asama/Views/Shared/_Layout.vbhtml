@@ -27,49 +27,48 @@
             @If User.Identity.IsAuthenticated Then
                 @<div id="gnavi" Class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li Class="dropdown">
-                            <a href="#" Class="dropdown-toggle" data-toggle="dropdown" role="button"><span class="fa fa-fax"></span> 受注 <span Class="caret"></span></a>
-                            <ul Class="dropdown-menu" role="menu">
-                                <li>@Html.ActionLink("受注入力", "Index", "TJuchu")</li>
-                            </ul>
-                        </li>
-                        <li Class="dropdown">
-                            <a href="#" Class="dropdown-toggle" data-toggle="dropdown" role="button"><span class="fa fa-plane"></span> 発注 <span Class="caret"></span></a>
-                            <ul Class="dropdown-menu" role="menu">
-                                <li>@Html.ActionLink("発注入力", "Index", "THachu")</li>
-                            </ul>
-                        </li>
-                        <li Class="dropdown">
-                            <a href="#" Class="dropdown-toggle" data-toggle="dropdown" role="button"><span class="fa fa-ship"></span> 入荷 <span Class="caret"></span></a>
-                            <ul Class="dropdown-menu" role="menu">
-                                <li>@Html.ActionLink("入荷入力", "Index", "TArrival")</li>
-                            </ul>
-                        </li>
-                        <li Class="dropdown">
-                            <a href="#" Class="dropdown-toggle" data-toggle="dropdown" role="button"><span class="fa fa-truck"></span> 出荷 <span Class="caret"></span></a>
-                            <ul Class="dropdown-menu" role="menu">
-                                <li>@Html.ActionLink("出荷入力", "Index", "TDeliver")</li>
-                            </ul>
-                        </li>
-                        <li Class="dropdown">
-                            <a href="#" Class="dropdown-toggle" data-toggle="dropdown" role="button"><span class="fa fa-print"></span> 請求 <span Class="caret"></span></a>
-                            <ul Class="dropdown-menu" role="menu">
-                                <li>@Html.ActionLink("請求入力", "Index", "Tinvoice")</li>
-                            </ul>
-                        </li>
-                        <li Class="dropdown">
-                            <a href="#" Class="dropdown-toggle" data-toggle="dropdown" role="button"><span class="fa fa-jpy"></span> 入金 <span Class="caret"></span></a>
-                            <ul Class="dropdown-menu" role="menu">
-                                <!--<li>@*Html.ActionLink("入金入力", "Index", "TNyukin", New With {.id = "2"}, New With {.class = ""})*@</li>-->
-                                <li>@Html.ActionLink("入金入力", "Index", "TNyukin")</li>
-                            </ul>
-                        </li>
-                        <li Class="dropdown">
-                            <a href="#" Class="dropdown-toggle" data-toggle="dropdown" role="button"><span class="fa fa-jpy"></span> 支払 <span Class="caret"></span></a>
-                            <ul Class="dropdown-menu" role="menu">
-                                <li>@Html.ActionLink("支払入力", "Index", "TPayment")</li>
-                            </ul>
-                        </li>
+                        @*<li Class="dropdown">
+        <a href="#" Class="dropdown-toggle" data-toggle="dropdown" role="button"><span class="fa fa-fax"></span> 受注 <span Class="caret"></span></a>
+        <ul Class="dropdown-menu" role="menu">
+            <li>@Html.ActionLink("受注入力", "Index", "TJuchu")</li>
+        </ul>
+    </li>
+    <li Class="dropdown">
+        <a href="#" Class="dropdown-toggle" data-toggle="dropdown" role="button"><span class="fa fa-plane"></span> 発注 <span Class="caret"></span></a>
+        <ul Class="dropdown-menu" role="menu">
+            <li>@Html.ActionLink("発注入力", "Index", "THachu")</li>
+        </ul>
+    </li>
+    <li Class="dropdown">
+        <a href="#" Class="dropdown-toggle" data-toggle="dropdown" role="button"><span class="fa fa-ship"></span> 入荷 <span Class="caret"></span></a>
+        <ul Class="dropdown-menu" role="menu">
+            <li>@Html.ActionLink("入荷入力", "Index", "TArrival")</li>
+        </ul>
+    </li>
+    <li Class="dropdown">
+        <a href="#" Class="dropdown-toggle" data-toggle="dropdown" role="button"><span class="fa fa-truck"></span> 出荷 <span Class="caret"></span></a>
+        <ul Class="dropdown-menu" role="menu">
+            <li>@Html.ActionLink("出荷入力", "Index", "TDeliver")</li>
+        </ul>
+    </li>
+    <li Class="dropdown">
+        <a href="#" Class="dropdown-toggle" data-toggle="dropdown" role="button"><span class="fa fa-print"></span> 請求 <span Class="caret"></span></a>
+        <ul Class="dropdown-menu" role="menu">
+            <li>@Html.ActionLink("請求入力", "Index", "Tinvoice")</li>
+        </ul>
+    </li>
+    <li Class="dropdown">
+        <a href="#" Class="dropdown-toggle" data-toggle="dropdown" role="button"><span class="fa fa-jpy"></span> 入金 <span Class="caret"></span></a>
+        <ul Class="dropdown-menu" role="menu">
+            <li>@Html.ActionLink("入金入力", "Index", "TNyukin")</li>
+        </ul>
+    </li>
+    <li Class="dropdown">
+        <a href="#" Class="dropdown-toggle" data-toggle="dropdown" role="button"><span class="fa fa-jpy"></span> 支払 <span Class="caret"></span></a>
+        <ul Class="dropdown-menu" role="menu">
+            <li>@Html.ActionLink("支払入力", "Index", "TPayment")</li>
+        </ul>
+    </li>*@
                         <li Class="dropdown">
                             <a href="#" Class="dropdown-toggle" data-toggle="dropdown" role="button"><span class="fa fa-gear"></span> システム管理 <span Class="caret"></span></a>
                             <ul Class="dropdown-menu" role="menu">

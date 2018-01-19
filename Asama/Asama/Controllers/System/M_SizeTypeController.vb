@@ -18,18 +18,6 @@ Namespace Controllers
             Return MyBase.View(System.Reflection.MethodBase.GetCurrentMethod.Name, db.M_SizeType.ToList())
         End Function
 
-        ' GET: M_SizeType/Details/5
-        Function Details(ByVal id As String) As ActionResult
-            If IsNothing(id) Then
-                Return New HttpStatusCodeResult(HttpStatusCode.BadRequest)
-            End If
-            Dim m_SizeType As M_SizeType = db.M_SizeType.Find(id)
-            If IsNothing(m_SizeType) Then
-                Return HttpNotFound()
-            End If
-            Return MyBase.View(System.Reflection.MethodBase.GetCurrentMethod.Name, m_SizeType)
-        End Function
-
         ' GET: M_SizeType/Create
         Function Create() As ActionResult
             Return MyBase.View(System.Reflection.MethodBase.GetCurrentMethod.Name)

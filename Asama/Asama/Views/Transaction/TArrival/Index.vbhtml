@@ -6,7 +6,7 @@ End Code
 <h2>入荷一覧</h2>
 
 <p>
-    @Html.ActionLink("新規作成", "Create", "", New With {.class = "btn btn-default"})
+    @Html.ActionLink("新規作成", "Create", "", New With {.class = "btn btn-primary"})
 </p>
 <table class="table">
     <tr>
@@ -40,9 +40,9 @@ End Code
             @Html.DisplayFor(Function(modelItem) item.ArrivalAmount)
         </td>
         <td>
-            @Html.ActionLink("変更", "Edit", New With {.id = item.ArrivalNo}, New With {.class = "btn btn-default"}) |
-            @Html.ActionLink("詳細", "Details", New With {.id = item.ArrivalNo}, New With {.class = "btn btn-default"}) |
-            @Html.ActionLink("削除", "Delete", New With {.id = item.ArrivalNo}, New With {.class = "btn btn-default"})
+            @Html.ActionLink("変更", "Edit", New With {.id = item.ArrivalNo}, New With {.class = "btn btn-primary"}) |
+            @Html.ActionLink("詳細", "Details", New With {.id = item.ArrivalNo}, New With {.class = "btn btn-primary"}) |
+            @Html.ActionLink("削除", "Delete", New With {.id = item.ArrivalNo}, New With {.class = "btn btn-primary"})
         </td>
     </tr>
 Next

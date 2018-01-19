@@ -15,7 +15,7 @@ End Code
         <div class="form-group">
             @Html.LabelFor(Function(model) model.ColorTypeCd, htmlAttributes:= New With { .class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(Function(model) model.ColorTypeCd, New With { .htmlAttributes = New With { .class = "form-control" } })
+                @Html.EditorFor(Function(model) model.ColorTypeCd, New With { .htmlAttributes = New With { .class = "form-control ime-inactive" } })
                 @Html.ValidationMessageFor(Function(model) model.ColorTypeCd, "", New With { .class = "text-danger" })
             </div>
         </div>
@@ -23,7 +23,7 @@ End Code
         <div class="form-group">
             @Html.LabelFor(Function(model) model.ColorTypeName, htmlAttributes:= New With { .class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(Function(model) model.ColorTypeName, New With { .htmlAttributes = New With { .class = "form-control" } })
+                @Html.EditorFor(Function(model) model.ColorTypeName, New With {.htmlAttributes = New With {.class = "form-control ime-active"}})
                 @Html.ValidationMessageFor(Function(model) model.ColorTypeName, "", New With {.class = "text-danger"})
             </div>
         </div>
@@ -31,14 +31,14 @@ End Code
          <div class="form-group">
              @Html.LabelFor(Function(model) model.SortNo, "SortNo", htmlAttributes:=New With {.class = "control-label col-md-2"})
              <div class="col-md-10">
-                 @Html.EditorFor(Function(model) model.SortNo, New With {.htmlAttributes = New With {.class = "form-control"}})
+                 @Html.EditorFor(Function(model) model.SortNo, New With {.htmlAttributes = New With {.class = "form-control ime-inactive"}})
                  @Html.ValidationMessageFor(Function(model) model.SortNo, "", New With {.class = "text-danger"})
              </div>
          </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="登録" class="btn btn-default" />
+                <input type="submit" value="登録" class="btn btn-primary" />
             </div>
         </div>
     </div>
