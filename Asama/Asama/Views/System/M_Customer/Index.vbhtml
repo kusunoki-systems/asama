@@ -20,6 +20,9 @@ End Code
             @Html.DisplayNameFor(Function(model) model.CustomerContact)
         </th>
         <th>
+            @Html.DisplayNameFor(Function(model) model.InitialRatio)
+        </th>
+        <th>
             @Html.DisplayNameFor(Function(model) model.SortNo)
         </th>
         <th>
@@ -47,6 +50,9 @@ End Code
          </td>
          <td>
              @Html.DisplayFor(Function(modelItem) item.CustomerContact)
+         </td>
+         <td>
+             @Html.DisplayFor(Function(modelItem) item.InitialRatio)
          </td>
          <td>
              @Html.DisplayFor(Function(modelItem) item.SortNo)

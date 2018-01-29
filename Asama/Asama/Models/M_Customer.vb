@@ -19,5 +19,6 @@ Partial Public Class M_Customer
     Public Property UpdatedBy As String
     Public Property UpdatedAt As Nullable(Of Date)
     Public Property SortNo As Nullable(Of Byte)
+    Public Property InitialRatio As Nullable(Of Byte)
 
 End Class

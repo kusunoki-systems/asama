@@ -29,5 +29,6 @@ Partial Public Class M_Item
     Public Overridable Property M_Maker As M_Maker
     Public Overridable Property M_Season As M_Season
     Public Overridable Property M_SizeType As M_SizeType
+    Public Overridable Property M_Maker1 As M_Maker
 
 End Class

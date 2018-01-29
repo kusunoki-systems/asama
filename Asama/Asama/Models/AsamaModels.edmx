@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="__MigrationHistory">
           <Key>
             <PropertyRef Name="MigrationId" />
@@ -98,6 +98,7 @@
           <Property Name="CustomerCd" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="CustomerName" Type="nvarchar" MaxLength="100" Nullable="false" />
           <Property Name="CustomerContact" Type="nvarchar(max)" />
+          <Property Name="InitialRatio" Type="tinyint" />
           <Property Name="InsertedBy" Type="nvarchar" MaxLength="100" />
           <Property Name="InsertedAt" Type="datetime" />
           <Property Name="UpdatedBy" Type="nvarchar" MaxLength="100" />
@@ -492,7 +493,7 @@
               <PropertyRef Name="MakerCd" />
             </Principal>
             <Dependent Role="M_Item">
-              <PropertyRef Name="SeasonCd" />
+              <PropertyRef Name="MakerCd" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -604,8 +605,7 @@
             <End Role="M_Size" EntitySet="M_Size" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -708,6 +708,7 @@
           <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
           <Property Name="SortNo" Type="Byte" />
+          <Property Name="InitialRatio" Type="Byte" />
         </EntityType>
         <EntityType Name="M_Item">
           <Key>
@@ -730,6 +731,7 @@
           <NavigationProperty Name="M_Maker" Relationship="Self.FK_M_Item_M_Maker" FromRole="M_Item" ToRole="M_Maker" />
           <NavigationProperty Name="M_Season" Relationship="Self.FK_M_Item_M_Season" FromRole="M_Item" ToRole="M_Season" />
           <NavigationProperty Name="M_SizeType" Relationship="Self.FK_M_Item_M_SizeType" FromRole="M_Item" ToRole="M_SizeType" />
+          <NavigationProperty Name="M_Maker1" Relationship="Model.FK_M_Item_M_Maker1" FromRole="M_Item" ToRole="M_Maker" />
         </EntityType>
         <EntityType Name="M_Maker">
           <Key>
@@ -744,6 +746,7 @@
           <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
           <Property Name="SortNo" Type="Byte" />
           <NavigationProperty Name="M_Item" Relationship="Self.FK_M_Item_M_Maker" FromRole="M_Maker" ToRole="M_Item" />
+          <NavigationProperty Name="M_Item1" Relationship="Model.FK_M_Item_M_Maker1" FromRole="M_Maker" ToRole="M_Item" />
         </EntityType>
         <EntityType Name="M_Season">
           <Key>
@@ -1188,7 +1191,23 @@
             <End Role="AspNetRoles" EntitySet="AspNetRoles" />
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
           </AssociationSet>
+          <AssociationSet Name="FK_M_Item_M_Maker1" Association="Model.FK_M_Item_M_Maker1">
+            <End Role="M_Maker" EntitySet="M_Maker" />
+            <End Role="M_Item" EntitySet="M_Item" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="FK_M_Item_M_Maker1">
+          <End Type="Model.M_Maker" Role="M_Maker" Multiplicity="0..1" />
+          <End Type="Model.M_Item" Role="M_Item" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_Maker">
+              <PropertyRef Name="MakerCd" />
+            </Principal>
+            <Dependent Role="M_Item">
+              <PropertyRef Name="MakerCd" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1280,6 +1299,7 @@
           <EntitySetMapping Name="M_Customer">
             <EntityTypeMapping TypeName="Model.M_Customer">
               <MappingFragment StoreEntitySet="M_Customer">
+                <ScalarProperty Name="InitialRatio" ColumnName="InitialRatio" />
                 <ScalarProperty Name="CustomerCd" ColumnName="CustomerCd" />
                 <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
                 <ScalarProperty Name="CustomerContact" ColumnName="CustomerContact" />

@@ -52,7 +52,7 @@ End Code
 @For Each item In Model
     @<tr>
         <td>
-            @Html.DisplayFor(Function(modelItem) item.ItemName)
+            @Html.ActionLink(item.ItemCd, "Edit", New With {.id = item.ItemCd}, New With {.class = ""})
         </td>
         <td>
             @Html.DisplayFor(Function(modelItem) item.M_Season.SeasonName)
@@ -88,8 +88,6 @@ End Code
             @Html.DisplayFor(Function(modelItem) item.M_SizeType.SizeTypeName)
         </td>
         <td>
-            @Html.ActionLink("変更", "Edit", New With {.id = item.ItemCd}, New With {.class = "btn btn-primary btn-sm"}) |
-            @Html.ActionLink("詳細", "Details", New With {.id = item.ItemCd}, New With {.class = "btn btn-primary btn-sm"}) |
             @Html.ActionLink("削除", "Delete", New With {.id = item.ItemCd}, New With {.class = "btn btn-danger btn-sm"})
         </td>
     </tr>

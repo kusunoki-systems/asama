@@ -43,6 +43,7 @@
         <AssociationConnector Association="Model.FK_M_Item_M_SizeType" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_M_Size_M_SizeType" ManuallyRouted="false" />
         <AssociationConnector Association="Model.AspNetUserRoles" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK_M_Item_M_Maker1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

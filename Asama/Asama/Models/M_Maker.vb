@@ -21,5 +21,6 @@ Partial Public Class M_Maker
     Public Property SortNo As Nullable(Of Byte)
 
     Public Overridable Property M_Item As ICollection(Of M_Item) = New HashSet(Of M_Item)
+    Public Overridable Property M_Item1 As ICollection(Of M_Item) = New HashSet(Of M_Item)
 
 End Class

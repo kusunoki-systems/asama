@@ -19,6 +19,9 @@ Public Class M_CustomerMetaData
     <DisplayName("連絡先")>
     Public Property CustomerContact As String
 
+    <DisplayName("掛け率")>
+    Public Property InitialRatio As Nullable(Of Byte)
+
     <DisplayName("表示順")>
     <Required(ErrorMessage:="{0}を入力して下さい")>
     <RegularExpression("[0-9]+", ErrorMessage:="{0}は数字で入力して下さい")>

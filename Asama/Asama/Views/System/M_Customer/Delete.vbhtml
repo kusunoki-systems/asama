@@ -27,6 +27,14 @@ End Code
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(Function(model) model.InitialRatio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(Function(model) model.InitialRatio)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(Function(model) model.SortNo)
         </dt>
 

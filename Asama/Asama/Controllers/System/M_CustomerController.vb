@@ -28,7 +28,7 @@ Namespace Controllers
         '詳細については、https://go.microsoft.com/fwlink/?LinkId=317598 を参照してください。
         <HttpPost()>
         <ValidateAntiForgeryToken()>
-        Function Create(<Bind(Include:="CustomerCd,CustomerName,CustomerContact,SortNo,InsertedBy,InsertedAt,UpdatedBy,UpdatedAt")> ByVal m_Customer As M_Customer) As ActionResult
+        Function Create(<Bind(Include:="CustomerCd,CustomerName,CustomerContact,InitialRatio,SortNo,InsertedBy,InsertedAt,UpdatedBy,UpdatedAt")> ByVal m_Customer As M_Customer) As ActionResult
             If ModelState.IsValid Then
                 m_Customer.InsertedAt = Date.Now()
                 m_Customer.UpdatedAt = Date.Now()
@@ -58,7 +58,7 @@ Namespace Controllers
         '詳細については、https://go.microsoft.com/fwlink/?LinkId=317598 を参照してください。
         <HttpPost()>
         <ValidateAntiForgeryToken()>
-        Function Edit(<Bind(Include:="CustomerCd,CustomerName,CustomerContact,SortNo,InsertedBy,InsertedAt,UpdatedBy,UpdatedAt")> ByVal m_Customer As M_Customer) As ActionResult
+        Function Edit(<Bind(Include:="CustomerCd,CustomerName,CustomerContact,InitialRatio,SortNo,InsertedBy,InsertedAt,UpdatedBy,UpdatedAt")> ByVal m_Customer As M_Customer) As ActionResult
             If ModelState.IsValid Then
                 m_Customer.UpdatedAt = Date.Now()
                 m_Customer.UpdatedBy = User.Identity.Name
