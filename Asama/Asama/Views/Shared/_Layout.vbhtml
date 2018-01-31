@@ -73,6 +73,7 @@
                             <a href="#" Class="dropdown-toggle" data-toggle="dropdown" role="button"><span class="fa fa-gear"></span> システム管理 <span Class="caret"></span></a>
                             <ul Class="dropdown-menu" role="menu">
                                 <li>@Html.ActionLink("顧客マスタ", "Index", "M_Customer")</li>
+                                <li>@Html.ActionLink("ブランドマスタ", "Index", "M_Brand")</li>
                                 <li>@Html.ActionLink("商品マスタ", "Index", "M_Item")</li>
                                 <li>@Html.ActionLink("仕入先マスタ", "Index", "M_Supplier")</li>
                                 <li>@Html.ActionLink("メーカーマスタ", "Index", "M_Maker")</li>

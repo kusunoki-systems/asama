@@ -17,7 +17,7 @@ End Code
             @Html.DisplayNameFor(Function(model) model.M_Season.SeasonName)
         </th>
         <th>
-            @Html.DisplayNameFor(Function(model) model.M_Maker.MakerCd)
+            @Html.DisplayNameFor(Function(model) model.M_Brand.BrandName)
         </th>
         <th>
             @Html.DisplayNameFor(Function(model) model.RetailPrice)
@@ -58,7 +58,7 @@ End Code
             @Html.DisplayFor(Function(modelItem) item.M_Season.SeasonName)
         </td>
         <td>
-            @Html.DisplayFor(Function(modelItem) item.M_Maker.MakerName)
+            @Html.DisplayFor(Function(modelItem) item.M_Brand.BrandName)
         </td>
         <td>
             @Html.DisplayFor(Function(modelItem) item.RetailPrice)

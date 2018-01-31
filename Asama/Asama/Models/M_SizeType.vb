@@ -19,7 +19,7 @@ Partial Public Class M_SizeType
     Public Property UpdatedAt As Nullable(Of Date)
     Public Property SortNo As Nullable(Of Byte)
 
-    Public Overridable Property M_Item As ICollection(Of M_Item) = New HashSet(Of M_Item)
     Public Overridable Property M_Size As ICollection(Of M_Size) = New HashSet(Of M_Size)
+    Public Overridable Property M_Item As ICollection(Of M_Item) = New HashSet(Of M_Item)
 
 End Class

@@ -27,11 +27,11 @@ End Code
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(Function(model) model.MakerCd)
+            @Html.DisplayNameFor(Function(model) model.BrandCd)
         </dt>
 
         <dd>
-            @Html.DisplayFor(Function(model) model.MakerCd)
+            @Html.DisplayFor(Function(model) model.BrandCd)
         </dd>
 
         <dt>

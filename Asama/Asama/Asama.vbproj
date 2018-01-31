@@ -188,6 +188,7 @@
     <Compile Include="App_Start\FilterConfig.vb" />
     <Compile Include="App_Start\RouteConfig.vb" />
     <Compile Include="Controllers\BaseController.vb" />
+    <Compile Include="Controllers\System\M_BrandController.vb" />
     <Compile Include="Controllers\System\M_ColorController.vb" />
     <Compile Include="Controllers\System\M_ColorTypeController.vb" />
     <Compile Include="Controllers\System\M_CustomerController.vb" />
@@ -242,6 +243,7 @@
     </Compile>
     <Compile Include="Models\LoginAD.vb" />
     <Compile Include="Models\LoginStaffInfo.vb" />
+    <Compile Include="Models\MetaData\M_BrandMetaData.vb" />
     <Compile Include="Models\MetaData\M_SeasonMetaData.vb" />
     <Compile Include="Models\MetaData\M_ColorMetaData.vb" />
     <Compile Include="Models\MetaData\M_ColorTypeMetaData.vb" />
@@ -252,26 +254,31 @@
     <Compile Include="Models\MetaData\M_SizeTypeMetaData.vb" />
     <Compile Include="Models\MetaData\M_SupplierMetaData.vb" />
     <Compile Include="Models\MetaData\T_ArrivalHeader.vb" />
+    <Compile Include="Models\Extention\M_ColorEX.vb" />
+    <Compile Include="Models\Extention\M_ColorTypeEX.vb" />
+    <Compile Include="Models\Extention\M_CustomerEx.vb" />
+    <Compile Include="Models\Extention\M_ItemEx.vb" />
+    <Compile Include="Models\Extention\M_MakerEx.vb" />
+    <Compile Include="Models\Extention\M_SizeTypeEX.vb" />
+    <Compile Include="Models\Extention\M_SupplierEx.vb" />
+    <Compile Include="Models\M_Brand.vb">
+      <DependentUpon>AsamaModels.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\M_Color.vb">
       <DependentUpon>AsamaModels.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Extention\M_ColorEX.vb" />
     <Compile Include="Models\M_ColorType.vb">
       <DependentUpon>AsamaModels.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Extention\M_ColorTypeEX.vb" />
     <Compile Include="Models\M_Customer.vb">
       <DependentUpon>AsamaModels.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Extention\M_CustomerEx.vb" />
     <Compile Include="Models\M_Item.vb">
       <DependentUpon>AsamaModels.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Extention\M_ItemEx.vb" />
     <Compile Include="Models\M_Maker.vb">
       <DependentUpon>AsamaModels.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Extention\M_MakerEx.vb" />
     <Compile Include="Models\M_Season.vb">
       <DependentUpon>AsamaModels.tt</DependentUpon>
     </Compile>
@@ -281,7 +288,6 @@
     <Compile Include="Models\M_SizeType.vb">
       <DependentUpon>AsamaModels.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Extention\M_SizeTypeEX.vb" />
     <Compile Include="Models\M_StaffBase.vb">
       <DependentUpon>AsamaModels.tt</DependentUpon>
     </Compile>
@@ -291,7 +297,6 @@
     <Compile Include="Models\M_Supplier.vb">
       <DependentUpon>AsamaModels.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Extention\M_SupplierEx.vb" />
     <Compile Include="Models\Options.vb" />
     <Compile Include="Models\T_ArrivalBody.vb">
       <DependentUpon>AsamaModels.tt</DependentUpon>
@@ -452,6 +457,7 @@
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
+    <None Include="My Project\PublishProfiles\FolderProfile.pubxml" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <CustomToolNamespace>My</CustomToolNamespace>
@@ -496,7 +502,6 @@
     <Content Include="Views\System\M_Customer\Index.vbhtml" />
     <Content Include="Views\System\M_Item\Create.vbhtml" />
     <Content Include="Views\System\M_Item\Delete.vbhtml" />
-    <Content Include="Views\System\M_Item\Details.vbhtml" />
     <Content Include="Views\System\M_Item\Edit.vbhtml" />
     <Content Include="Views\System\M_Item\Index.vbhtml" />
     <Content Include="Views\System\M_Maker\Create.vbhtml" />
@@ -564,6 +569,11 @@
     <Content Include="Views\Transaction\TPayment\Details.vbhtml" />
     <Content Include="Views\Transaction\TPayment\Edit.vbhtml" />
     <Content Include="Views\Transaction\TPayment\Index.vbhtml" />
+    <Content Include="Views\System\M_Brand\Create.vbhtml" />
+    <Content Include="Views\System\M_Brand\Delete.vbhtml" />
+    <Content Include="Views\System\M_Brand\Details.vbhtml" />
+    <Content Include="Views\System\M_Brand\Edit.vbhtml" />
+    <Content Include="Views\System\M_Brand\Index.vbhtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon.ico" />

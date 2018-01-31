@@ -20,7 +20,6 @@ Partial Public Class M_Maker
     Public Property UpdatedAt As Nullable(Of Date)
     Public Property SortNo As Nullable(Of Byte)
 
-    Public Overridable Property M_Item As ICollection(Of M_Item) = New HashSet(Of M_Item)
-    Public Overridable Property M_Item1 As ICollection(Of M_Item) = New HashSet(Of M_Item)
+    Public Overridable Property M_Brand As ICollection(Of M_Brand) = New HashSet(Of M_Brand)
 
 End Class

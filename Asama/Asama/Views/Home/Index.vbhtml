@@ -4,10 +4,11 @@
 End Code
 
 <div class="jumbotron">
-    <!--<h1>Asama </h1>
-    <p class="lead">Asama </p>-->
+    <!--
+    
     <h1>販売管理システム</h1>
     <p class="lead">アキート</p>
+-->
 </div>
 
 <div class="row">

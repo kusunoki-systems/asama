@@ -30,7 +30,6 @@ Partial Public Class Entities
     Public Overridable Property M_Color() As DbSet(Of M_Color)
     Public Overridable Property M_ColorType() As DbSet(Of M_ColorType)
     Public Overridable Property M_Customer() As DbSet(Of M_Customer)
-    Public Overridable Property M_Item() As DbSet(Of M_Item)
     Public Overridable Property M_Maker() As DbSet(Of M_Maker)
     Public Overridable Property M_Season() As DbSet(Of M_Season)
     Public Overridable Property M_Size() As DbSet(Of M_Size)
@@ -51,5 +50,7 @@ Partial Public Class Entities
     Public Overridable Property T_Nyukin() As DbSet(Of T_Nyukin)
     Public Overridable Property T_PaymentBody() As DbSet(Of T_PaymentBody)
     Public Overridable Property T_PaymentHeader() As DbSet(Of T_PaymentHeader)
+    Public Overridable Property M_Item() As DbSet(Of M_Item)
+    Public Overridable Property M_Brand() As DbSet(Of M_Brand)
 
 End Class

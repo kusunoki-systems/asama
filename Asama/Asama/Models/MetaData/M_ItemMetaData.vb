@@ -25,10 +25,10 @@ Public Class M_ItemMetaData
     <DisplayName("シーズン")>
     Public Overridable Property M_Season As M_Season
 
-    <DisplayName("メーカーコード")>
+    <DisplayName("ブランドコード")>
     <Required(ErrorMessage:="{0}を入力して下さい")>
     <MaxLength(20, ErrorMessage:="20字以内で入力して下さい")>
-    Public Property MakerCd As String
+    Public Property BrandCd As String
 
     <DisplayName("サイズ")>
     Public Overridable Property M_SizeType As M_SizeType

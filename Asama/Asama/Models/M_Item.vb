@@ -14,21 +14,20 @@ Partial Public Class M_Item
     Public Property ItemCd As String
     Public Property ItemName As String
     Public Property SeasonCd As String
-    Public Property MakerCd As String
+    Public Property BrandCd As String
     Public Property SizeTypeCd As String
     Public Property ColorTypeCd As String
     Public Property RetailPrice As Nullable(Of Decimal)
     Public Property CostPrice As Nullable(Of Decimal)
+    Public Property SortNo As Nullable(Of Byte)
     Public Property InsertedBy As String
     Public Property InsertedAt As Nullable(Of Date)
     Public Property UpdatedBy As String
     Public Property UpdatedAt As Nullable(Of Date)
-    Public Property SortNo As Nullable(Of Byte)
 
     Public Overridable Property M_ColorType As M_ColorType
-    Public Overridable Property M_Maker As M_Maker
     Public Overridable Property M_Season As M_Season
     Public Overridable Property M_SizeType As M_SizeType
-    Public Overridable Property M_Maker1 As M_Maker
+    Public Overridable Property M_Brand As M_Brand
 
 End Class

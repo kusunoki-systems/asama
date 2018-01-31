@@ -13,7 +13,6 @@
         <EntityTypeShape EntityType="Model.M_Color" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.M_ColorType" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.M_Customer" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.M_Item" Width="1.5" PointX="6" PointY="3.125" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.M_Maker" Width="1.5" PointX="3.75" PointY="9.25" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.M_Season" Width="1.5" PointX="3.75" PointY="13" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.M_Size" Width="1.5" PointX="6" PointY="16.5" IsExpanded="true" />
@@ -37,13 +36,15 @@
         <AssociationConnector Association="Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_M_Color_M_ColorType" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK_M_Item_M_ColorType" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK_M_Item_M_Maker" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK_M_Item_M_Season" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK_M_Item_M_SizeType" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_M_Size_M_SizeType" ManuallyRouted="false" />
         <AssociationConnector Association="Model.AspNetUserRoles" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK_M_Item_M_Maker1" />
+        <EntityTypeShape EntityType="Model.M_Item" Width="1.5" PointX="11.25" PointY="16.5" />
+        <AssociationConnector Association="Model.FK_M_Item_M_ColorType" />
+        <AssociationConnector Association="Model.FK_M_Item_M_Season" />
+        <AssociationConnector Association="Model.FK_M_Item_M_SizeType" />
+        <EntityTypeShape EntityType="Model.M_Brand" Width="1.5" PointX="6" PointY="4.125" />
+        <AssociationConnector Association="Model.FK_M_Brand_M_Maker" />
+        <AssociationConnector Association="Model.FK_M_Item_M_Brand" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

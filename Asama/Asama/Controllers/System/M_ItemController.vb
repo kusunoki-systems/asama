@@ -22,7 +22,7 @@ Namespace Controllers
         ' GET: M_Item/Create
         Function Create() As ActionResult
             ViewBag.SeasonCd = New SelectList(db.M_Season, "SeasonCd", "SeasonName")
-            ViewBag.MakerCd = New SelectList(db.M_Maker, "MakerCd", "MakerName")
+            ViewBag.BrandCd = New SelectList(db.M_Brand, "BrandCd", "BrandName")
             ViewBag.ColorTypeCd = New SelectList(db.M_ColorType, "ColorTypeCd", "ColorTypeName")
             ViewBag.SizeTypeCd = New SelectList(db.M_SizeType, "SizeTypeCd", "SizeTypeName")
             Return MyBase.View(System.Reflection.MethodBase.GetCurrentMethod.Name)
@@ -33,7 +33,7 @@ Namespace Controllers
         '詳細については、https://go.microsoft.com/fwlink/?LinkId=317598 を参照してください。
         <HttpPost()>
         <ValidateAntiForgeryToken()>
-        Function Create(<Bind(Include:="ItemCd,ItemName,SeasonCd,MakerCd,SizeTypeCd,ColorTypeCd,RetailPrice,CostPrice,SortNo,InsertedBy,InsertedAt,UpdatedBy,UpdatedAt")> ByVal m_Item As M_Item) As ActionResult
+        Function Create(<Bind(Include:="ItemCd,ItemName,SeasonCd,BrandCd,SizeTypeCd,ColorTypeCd,RetailPrice,CostPrice,SortNo,InsertedBy,InsertedAt,UpdatedBy,UpdatedAt")> ByVal m_Item As M_Item) As ActionResult
             If ModelState.IsValid Then
                 m_Item.InsertedAt = Date.Now()
                 m_Item.UpdatedAt = Date.Now()
@@ -44,7 +44,7 @@ Namespace Controllers
                 Return RedirectToAction("Index")
             End If
             ViewBag.SeasonCd = New SelectList(db.M_Season, "SeasonCd", "SeasonName", m_Item.SeasonCd)
-            ViewBag.MakerCd = New SelectList(db.M_Maker, "MakerCd", "MakerName", m_Item.MakerCd)
+            ViewBag.BrandCd = New SelectList(db.M_Brand, "BrandCd", "BrandName", m_Item.BrandCd)
             ViewBag.ColorTypeCd = New SelectList(db.M_ColorType, "ColorTypeCd", "ColorTypeName", m_Item.ColorTypeCd)
             ViewBag.SizeTypeCd = New SelectList(db.M_SizeType, "SizeTypeCd", "SizeTypeName", m_Item.SizeTypeCd)
             Return MyBase.View(System.Reflection.MethodBase.GetCurrentMethod.Name, m_Item)
@@ -60,7 +60,7 @@ Namespace Controllers
                 Return HttpNotFound()
             End If
             ViewBag.SeasonCd = New SelectList(db.M_Season, "SeasonCd", "SeasonName", m_Item.SeasonCd)
-            ViewBag.MakerCd = New SelectList(db.M_Maker, "MakerCd", "MakerName", m_Item.MakerCd)
+            ViewBag.BrandCd = New SelectList(db.M_Brand, "BrandCd", "BrandName", m_Item.BrandCd)
             ViewBag.ColorTypeCd = New SelectList(db.M_ColorType, "ColorTypeCd", "ColorTypeName", m_Item.ColorTypeCd)
             ViewBag.SizeTypeCd = New SelectList(db.M_SizeType, "SizeTypeCd", "SizeTypeName", m_Item.SizeTypeCd)
             Return MyBase.View(System.Reflection.MethodBase.GetCurrentMethod.Name, m_Item)
@@ -71,7 +71,7 @@ Namespace Controllers
         '詳細については、https://go.microsoft.com/fwlink/?LinkId=317598 を参照してください。
         <HttpPost()>
         <ValidateAntiForgeryToken()>
-        Function Edit(<Bind(Include:="ItemCd,ItemName,SeasonCd,MakerCd,SizeTypeCd,ColorTypeCd,RetailPrice,CostPrice,SortNo,InsertedBy,InsertedAt,UpdatedBy,UpdatedAt")> ByVal m_Item As M_Item) As ActionResult
+        Function Edit(<Bind(Include:="ItemCd,ItemName,SeasonCd,BrandCd,SizeTypeCd,ColorTypeCd,RetailPrice,CostPrice,SortNo,InsertedBy,InsertedAt,UpdatedBy,UpdatedAt")> ByVal m_Item As M_Item) As ActionResult
             If ModelState.IsValid Then
                 m_Item.UpdatedAt = Date.Now()
                 m_Item.UpdatedBy = User.Identity.Name
@@ -80,7 +80,7 @@ Namespace Controllers
                 Return RedirectToAction("Index")
             End If
             ViewBag.SeasonCd = New SelectList(db.M_Season, "SeasonCd", "SeasonName", m_Item.SeasonCd)
-            ViewBag.MakerCd = New SelectList(db.M_Maker, "MakerCd", "MakerName", m_Item.MakerCd)
+            ViewBag.BrandCd = New SelectList(db.M_Brand, "BrandCd", "BrandName", m_Item.BrandCd)
             ViewBag.ColorTypeCd = New SelectList(db.M_ColorType, "ColorTypeCd", "ColorTypeName", m_Item.ColorTypeCd)
             ViewBag.SizeTypeCd = New SelectList(db.M_SizeType, "SizeTypeCd", "SizeTypeName", m_Item.SizeTypeCd)
             Return MyBase.View(System.Reflection.MethodBase.GetCurrentMethod.Name, m_Item)
