@@ -1,64 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityType Name="C__MigrationHistory">
-    <Key>
-      <PropertyRef Name="MigrationId" />
-      <PropertyRef Name="ContextKey" />
-    </Key>
-    <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
-    <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
-  </EntityType>
-  <EntityType Name="AspNetRoles">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
-  </EntityType>
-  <EntityType Name="AspNetUserClaims">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
-  </EntityType>
-  <EntityType Name="AspNetUserLogins">
-    <Key>
-      <PropertyRef Name="LoginProvider" />
-      <PropertyRef Name="ProviderKey" />
-      <PropertyRef Name="UserId" />
-    </Key>
-    <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="AspNetUsers" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
-  </EntityType>
-  <EntityType Name="AspNetUsers">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
-    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
-    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
-    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
-    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
-    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
-    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
-    <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
-    <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
-    <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
-    <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
-  </EntityType>
   <EntityType Name="M_Color">
     <Key>
       <PropertyRef Name="ColorCd" />
@@ -78,14 +19,16 @@
       <PropertyRef Name="ColorTypeCd" />
     </Key>
     <Property Name="ColorTypeCd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="ColorTypeName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="ColorTypeName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="InsertedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="InsertedAt" Type="DateTime" Precision="3" />
     <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
     <Property Name="SortNo" Type="Byte" />
     <NavigationProperty Name="M_Color" Relationship="Self.FK_M_Color_M_ColorType" FromRole="M_ColorType" ToRole="M_Color" />
-    <NavigationProperty Name="M_Item" Relationship="Self.FK_M_Item_M_ColorType" FromRole="M_ColorType" ToRole="M_Item" />
+    <NavigationProperty Name="M_Item" Relationship="Model.FK_M_Item_M_ColorType" FromRole="M_ColorType" ToRole="M_Item" />
+    <Property Name="BrandCd" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="M_Brand" Relationship="Model.FK_M_ColorType_M_Brand" FromRole="M_ColorType" ToRole="M_Brand" />
   </EntityType>
   <EntityType Name="M_Customer">
     <Key>
@@ -99,28 +42,7 @@
     <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
     <Property Name="SortNo" Type="Byte" />
-  </EntityType>
-  <EntityType Name="M_Item">
-    <Key>
-      <PropertyRef Name="ItemCd" />
-    </Key>
-    <Property Name="ItemCd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="ItemName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="SeasonCd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="MakerCd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="SizeTypeCd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="ColorTypeCd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-    <Property Name="RetailPrice" Type="Decimal" Precision="18" Scale="0" />
-    <Property Name="CostPrice" Type="Decimal" Precision="18" Scale="0" />
-    <Property Name="InsertedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="InsertedAt" Type="DateTime" Precision="3" />
-    <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-    <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
-    <Property Name="SortNo" Type="Byte" />
-    <NavigationProperty Name="M_ColorType" Relationship="Self.FK_M_Item_M_ColorType" FromRole="M_Item" ToRole="M_ColorType" />
-    <NavigationProperty Name="M_Maker" Relationship="Self.FK_M_Item_M_Maker" FromRole="M_Item" ToRole="M_Maker" />
-    <NavigationProperty Name="M_Season" Relationship="Self.FK_M_Item_M_Season" FromRole="M_Item" ToRole="M_Season" />
-    <NavigationProperty Name="M_SizeType" Relationship="Self.FK_M_Item_M_SizeType" FromRole="M_Item" ToRole="M_SizeType" />
+    <Property Name="InitialRatio" Type="Byte" />
   </EntityType>
   <EntityType Name="M_Maker">
     <Key>
@@ -134,7 +56,7 @@
     <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
     <Property Name="SortNo" Type="Byte" />
-    <NavigationProperty Name="M_Item" Relationship="Self.FK_M_Item_M_Maker" FromRole="M_Maker" ToRole="M_Item" />
+    <NavigationProperty Name="M_Brand" Relationship="Model.FK_M_Brand_M_Maker" FromRole="M_Maker" ToRole="M_Brand" />
   </EntityType>
   <EntityType Name="M_Season">
     <Key>
@@ -147,7 +69,7 @@
     <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
     <Property Name="SortNo" Type="Byte" />
-    <NavigationProperty Name="M_Item" Relationship="Self.FK_M_Item_M_Season" FromRole="M_Season" ToRole="M_Item" />
+    <NavigationProperty Name="M_Item" Relationship="Model.FK_M_Item_M_Season" FromRole="M_Season" ToRole="M_Item" />
   </EntityType>
   <EntityType Name="M_Size">
     <Key>
@@ -174,8 +96,8 @@
     <Property Name="UpdatedBy" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
     <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
     <Property Name="SortNo" Type="Byte" />
-    <NavigationProperty Name="M_Item" Relationship="Self.FK_M_Item_M_SizeType" FromRole="M_SizeType" ToRole="M_Item" />
     <NavigationProperty Name="M_Size" Relationship="Self.FK_M_Size_M_SizeType" FromRole="M_SizeType" ToRole="M_Size" />
+    <NavigationProperty Name="M_Item" Relationship="Model.FK_M_Item_M_SizeType" FromRole="M_SizeType" ToRole="M_Item" />
   </EntityType>
   <EntityType Name="M_StaffBase">
     <Key>
@@ -409,34 +331,6 @@
     <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
   </EntityType>
-  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
-    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="AspNetUsers">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="AspNetUserClaims">
-        <PropertyRef Name="UserId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
-    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="AspNetUsers">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="AspNetUserLogins">
-        <PropertyRef Name="UserId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_M_Color_M_ColorType">
     <End Role="M_ColorType" Type="Self.M_ColorType" Multiplicity="0..1" />
     <End Role="M_Color" Type="Self.M_Color" Multiplicity="*" />
@@ -446,54 +340,6 @@
       </Principal>
       <Dependent Role="M_Color">
         <PropertyRef Name="ColorTypeCd" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_M_Item_M_ColorType">
-    <End Role="M_ColorType" Type="Self.M_ColorType" Multiplicity="0..1" />
-    <End Role="M_Item" Type="Self.M_Item" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="M_ColorType">
-        <PropertyRef Name="ColorTypeCd" />
-      </Principal>
-      <Dependent Role="M_Item">
-        <PropertyRef Name="ColorTypeCd" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_M_Item_M_Maker">
-    <End Role="M_Maker" Type="Self.M_Maker" Multiplicity="0..1" />
-    <End Role="M_Item" Type="Self.M_Item" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="M_Maker">
-        <PropertyRef Name="MakerCd" />
-      </Principal>
-      <Dependent Role="M_Item">
-        <PropertyRef Name="SeasonCd" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_M_Item_M_Season">
-    <End Role="M_Season" Type="Self.M_Season" Multiplicity="0..1" />
-    <End Role="M_Item" Type="Self.M_Item" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="M_Season">
-        <PropertyRef Name="SeasonCd" />
-      </Principal>
-      <Dependent Role="M_Item">
-        <PropertyRef Name="SeasonCd" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_M_Item_M_SizeType">
-    <End Role="M_SizeType" Type="Self.M_SizeType" Multiplicity="0..1" />
-    <End Role="M_Item" Type="Self.M_Item" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="M_SizeType">
-        <PropertyRef Name="SizeTypeCd" />
-      </Principal>
-      <Dependent Role="M_Item">
-        <PropertyRef Name="SizeTypeCd" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -509,20 +355,10 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="AspNetUserRoles">
-    <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="*" />
-    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
-  </Association>
   <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
-    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" />
-    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" />
-    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" />
-    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" />
     <EntitySet Name="M_Color" EntityType="Self.M_Color" />
     <EntitySet Name="M_ColorType" EntityType="Self.M_ColorType" />
     <EntitySet Name="M_Customer" EntityType="Self.M_Customer" />
-    <EntitySet Name="M_Item" EntityType="Self.M_Item" />
     <EntitySet Name="M_Maker" EntityType="Self.M_Maker" />
     <EntitySet Name="M_Season" EntityType="Self.M_Season" />
     <EntitySet Name="M_Size" EntityType="Self.M_Size" />
@@ -543,41 +379,149 @@
     <EntitySet Name="T_Nyukin" EntityType="Self.T_Nyukin" />
     <EntitySet Name="T_PaymentBody" EntityType="Self.T_PaymentBody" />
     <EntitySet Name="T_PaymentHeader" EntityType="Self.T_PaymentHeader" />
-    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
-      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
-    </AssociationSet>
-    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
-      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
-      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
-    </AssociationSet>
     <AssociationSet Name="FK_M_Color_M_ColorType" Association="Self.FK_M_Color_M_ColorType">
       <End Role="M_ColorType" EntitySet="M_ColorType" />
       <End Role="M_Color" EntitySet="M_Color" />
-    </AssociationSet>
-    <AssociationSet Name="FK_M_Item_M_ColorType" Association="Self.FK_M_Item_M_ColorType">
-      <End Role="M_ColorType" EntitySet="M_ColorType" />
-      <End Role="M_Item" EntitySet="M_Item" />
-    </AssociationSet>
-    <AssociationSet Name="FK_M_Item_M_Maker" Association="Self.FK_M_Item_M_Maker">
-      <End Role="M_Maker" EntitySet="M_Maker" />
-      <End Role="M_Item" EntitySet="M_Item" />
-    </AssociationSet>
-    <AssociationSet Name="FK_M_Item_M_Season" Association="Self.FK_M_Item_M_Season">
-      <End Role="M_Season" EntitySet="M_Season" />
-      <End Role="M_Item" EntitySet="M_Item" />
-    </AssociationSet>
-    <AssociationSet Name="FK_M_Item_M_SizeType" Association="Self.FK_M_Item_M_SizeType">
-      <End Role="M_SizeType" EntitySet="M_SizeType" />
-      <End Role="M_Item" EntitySet="M_Item" />
     </AssociationSet>
     <AssociationSet Name="FK_M_Size_M_SizeType" Association="Self.FK_M_Size_M_SizeType">
       <End Role="M_SizeType" EntitySet="M_SizeType" />
       <End Role="M_Size" EntitySet="M_Size" />
     </AssociationSet>
-    <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
-      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
-      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+    <EntitySet Name="M_Item" EntityType="Model.M_Item" />
+    <AssociationSet Name="FK_M_Item_M_ColorType" Association="Model.FK_M_Item_M_ColorType">
+      <End Role="M_ColorType" EntitySet="M_ColorType" />
+      <End Role="M_Item" EntitySet="M_Item" />
+    </AssociationSet>
+    <AssociationSet Name="FK_M_Item_M_Season" Association="Model.FK_M_Item_M_Season">
+      <End Role="M_Season" EntitySet="M_Season" />
+      <End Role="M_Item" EntitySet="M_Item" />
+    </AssociationSet>
+    <AssociationSet Name="FK_M_Item_M_SizeType" Association="Model.FK_M_Item_M_SizeType">
+      <End Role="M_SizeType" EntitySet="M_SizeType" />
+      <End Role="M_Item" EntitySet="M_Item" />
+    </AssociationSet>
+    <EntitySet Name="M_Brand" EntityType="Model.M_Brand" />
+    <AssociationSet Name="FK_M_Brand_M_Maker" Association="Model.FK_M_Brand_M_Maker">
+      <End Role="M_Maker" EntitySet="M_Maker" />
+      <End Role="M_Brand" EntitySet="M_Brand" />
+    </AssociationSet>
+    <AssociationSet Name="FK_M_Item_M_Brand" Association="Model.FK_M_Item_M_Brand">
+      <End Role="M_Brand" EntitySet="M_Brand" />
+      <End Role="M_Item" EntitySet="M_Item" />
+    </AssociationSet>
+    <AssociationSet Name="FK_M_ColorType_M_Brand" Association="Model.FK_M_ColorType_M_Brand">
+      <End Role="M_Brand" EntitySet="M_Brand" />
+      <End Role="M_ColorType" EntitySet="M_ColorType" />
     </AssociationSet>
   </EntityContainer>
+  <EntityType Name="M_Item">
+    <Key>
+      <PropertyRef Name="ItemCd" />
+    </Key>
+    <Property Name="ItemCd" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ItemName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="SeasonCd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="BrandCd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="SizeTypeCd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ColorTypeCd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="RetailPrice" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="CostPrice" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="SortNo" Type="Byte" />
+    <Property Name="InsertedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="InsertedAt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="M_ColorType" Relationship="Model.FK_M_Item_M_ColorType" FromRole="M_Item" ToRole="M_ColorType" />
+    <NavigationProperty Name="M_Season" Relationship="Model.FK_M_Item_M_Season" FromRole="M_Item" ToRole="M_Season" />
+    <NavigationProperty Name="M_SizeType" Relationship="Model.FK_M_Item_M_SizeType" FromRole="M_Item" ToRole="M_SizeType" />
+    <NavigationProperty Name="M_Brand" Relationship="Model.FK_M_Item_M_Brand" FromRole="M_Item" ToRole="M_Brand" />
+  </EntityType>
+  <Association Name="FK_M_Item_M_ColorType">
+    <End Type="Model.M_ColorType" Role="M_ColorType" Multiplicity="0..1" />
+    <End Type="Model.M_Item" Role="M_Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="M_ColorType">
+        <PropertyRef Name="ColorTypeCd" />
+      </Principal>
+      <Dependent Role="M_Item">
+        <PropertyRef Name="ColorTypeCd" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_M_Item_M_Season">
+    <End Type="Model.M_Season" Role="M_Season" Multiplicity="0..1" />
+    <End Type="Model.M_Item" Role="M_Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="M_Season">
+        <PropertyRef Name="SeasonCd" />
+      </Principal>
+      <Dependent Role="M_Item">
+        <PropertyRef Name="SeasonCd" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_M_Item_M_SizeType">
+    <End Type="Model.M_SizeType" Role="M_SizeType" Multiplicity="0..1" />
+    <End Type="Model.M_Item" Role="M_Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="M_SizeType">
+        <PropertyRef Name="SizeTypeCd" />
+      </Principal>
+      <Dependent Role="M_Item">
+        <PropertyRef Name="SizeTypeCd" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="M_Brand">
+    <Key>
+      <PropertyRef Name="BrandCd" />
+    </Key>
+    <Property Name="BrandCd" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="BrandName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="MakerCd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="SortNo" Type="Byte" />
+    <Property Name="InsertedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="InsertedAt" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="M_Maker" Relationship="Model.FK_M_Brand_M_Maker" FromRole="M_Brand" ToRole="M_Maker" />
+    <NavigationProperty Name="M_Item" Relationship="Model.FK_M_Item_M_Brand" FromRole="M_Brand" ToRole="M_Item" />
+    <NavigationProperty Name="M_ColorType" Relationship="Model.FK_M_ColorType_M_Brand" FromRole="M_Brand" ToRole="M_ColorType" />
+  </EntityType>
+  <Association Name="FK_M_Brand_M_Maker">
+    <End Type="Model.M_Maker" Role="M_Maker" Multiplicity="0..1" />
+    <End Type="Model.M_Brand" Role="M_Brand" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="M_Maker">
+        <PropertyRef Name="MakerCd" />
+      </Principal>
+      <Dependent Role="M_Brand">
+        <PropertyRef Name="MakerCd" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_M_Item_M_Brand">
+    <End Type="Model.M_Brand" Role="M_Brand" Multiplicity="0..1" />
+    <End Type="Model.M_Item" Role="M_Item" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="M_Brand">
+        <PropertyRef Name="BrandCd" />
+      </Principal>
+      <Dependent Role="M_Item">
+        <PropertyRef Name="BrandCd" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_M_ColorType_M_Brand">
+    <End Type="Model.M_Brand" Role="M_Brand" Multiplicity="1" />
+    <End Type="Model.M_ColorType" Role="M_ColorType" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="M_Brand">
+        <PropertyRef Name="BrandCd" />
+      </Principal>
+      <Dependent Role="M_ColorType">
+        <PropertyRef Name="BrandCd" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

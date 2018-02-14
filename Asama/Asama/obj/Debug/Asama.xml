@@ -132,6 +132,20 @@ Asama
  </summary>
  <returns></returns>
 </member>
+<member name="T:Asama.Helpers.HtmlHelperEditor">
+ <summary>
+ 編集用ヘルパー
+ </summary>
+</member>
+<member name="M:Asama.Helpers.HtmlHelperEditor.ReadOnlyEditor(System.Object,System.String,System.String)">
+ <summary>
+ 文字列をテキストで表示
+ </summary>
+ <param name="obj"></param>
+ <param name="name"></param>
+ <param name="format"></param>
+ <returns></returns>
+</member>
 <member name="P:Asama.LoginAD.FunctionName">
  <summary>
  機能名

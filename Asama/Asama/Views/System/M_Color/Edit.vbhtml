@@ -1,6 +1,6 @@
 ﻿@ModelType Asama.M_Color
 @Code
-    ViewData("Title") = "Edit"
+    ViewData("Title") = "変更"
 End Code
 @imports Asama.Helpers
 

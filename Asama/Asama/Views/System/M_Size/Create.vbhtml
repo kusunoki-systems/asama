@@ -1,9 +1,9 @@
 ﻿@ModelType Asama.M_Size
 @Code
-    ViewData("Title") = "Create"
+    ViewData("Title") = "新規作成"
 End Code
 
-<h2>新サイズ</h2>
+<h2>新規作成</h2>
 
 @Using (Html.BeginForm()) 
     @Html.AntiForgeryToken()

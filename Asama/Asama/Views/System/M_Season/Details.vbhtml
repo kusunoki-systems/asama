@@ -61,5 +61,5 @@ End Code
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", New With { .id = Model.SeasonCd }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("一覧へ戻る", "Index")
 </p>

@@ -18,8 +18,10 @@ Partial Public Class M_ColorType
     Public Property UpdatedBy As String
     Public Property UpdatedAt As Nullable(Of Date)
     Public Property SortNo As Nullable(Of Byte)
+    Public Property BrandCd As String
 
     Public Overridable Property M_Color As ICollection(Of M_Color) = New HashSet(Of M_Color)
     Public Overridable Property M_Item As ICollection(Of M_Item) = New HashSet(Of M_Item)
+    Public Overridable Property M_Brand As M_Brand
 
 End Class

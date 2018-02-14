@@ -16,6 +16,11 @@ Public Class M_ColorTypeMetaData
     <MaxLength(100, ErrorMessage:="100字以内で入力して下さい")>
     Public Property ColorTypeName As String
 
+    <DisplayName("ブランドコード")>
+    <Required(ErrorMessage:="{0}を入力して下さい")>
+    <MaxLength(20, ErrorMessage:="20字以内で入力して下さい")>
+    Public Property BrandCd As String
+
     <DisplayName("表示順")>
     <Required(ErrorMessage:="{0}を入力して下さい")>
     <RegularExpression("[0-9]+", ErrorMessage:="{0}は数字で入力して下さい")>

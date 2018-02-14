@@ -4,11 +4,8 @@
 End Code
 
 <div class="jumbotron">
-    <!--
-    
     <h1>販売管理システム</h1>
     <p class="lead">アキート</p>
--->
 </div>
 
 <div class="row">

@@ -1,6 +1,6 @@
 ﻿@ModelType IEnumerable(Of Asama.M_Item)
 @Code
-ViewData("Title") = "Index"
+    ViewData("Title") = "商品一覧"
 End Code
 
 <h2>商品一覧</h2>

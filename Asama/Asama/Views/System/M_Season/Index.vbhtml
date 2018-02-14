@@ -1,6 +1,6 @@
 ﻿@ModelType IEnumerable(Of Asama.M_Season)
 @Code
-ViewData("Title") = "Index"
+    ViewData("Title") = "シーズン一覧"
 End Code
 
 <h2>シーズン一覧</h2>

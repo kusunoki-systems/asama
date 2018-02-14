@@ -1,6 +1,6 @@
 ﻿@ModelType IEnumerable(Of Asama.M_ColorType)
 @Code
-ViewData("Title") = "Index"
+    ViewData("Title") = "色種類一覧"
 End Code
 
 <h2>色種類一覧</h2>
@@ -15,6 +15,9 @@ End Code
         </th>
         <th>
             @Html.DisplayNameFor(Function(model) model.ColorTypeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(Function(model) model.M_Brand.BrandName)
         </th>
         <th>
             @Html.DisplayNameFor(Function(model) model.SortNo)
@@ -41,6 +44,9 @@ End Code
         </td>
          <td>
              @Html.DisplayFor(Function(modelItem) item.ColorTypeName)
+         </td>
+         <td>
+             @Html.DisplayFor(Function(modelItem) item.M_Brand.BrandName)
          </td>
          <td>
              @Html.DisplayFor(Function(modelItem) item.SortNo)

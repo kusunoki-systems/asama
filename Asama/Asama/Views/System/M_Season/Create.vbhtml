@@ -1,6 +1,6 @@
 ﻿@ModelType Asama.M_Season
 @Code
-    ViewData("Title") = "Create"
+    ViewData("Title") = "新規作成"
 End Code
 
 <h2>新規作成</h2>
@@ -45,7 +45,7 @@ End Code
 End Using
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("一覧へ戻る", "Index")
 </div>
 
 @Section Scripts 

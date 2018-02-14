@@ -1,6 +1,6 @@
 ﻿@ModelType Asama.M_Supplier
 @Code
-    ViewData("Title") = "Create"
+    ViewData("Title") = "新規作成"
 End Code
 
 <h2>新規作成</h2>

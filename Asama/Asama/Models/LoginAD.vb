@@ -15,6 +15,7 @@
 Public Class LoginAD
 
     Public HasError As Boolean = False
+    Public ErrorInfo As String
 
     '施設情報
     Public Property FacilityList As New SortedList(Of String, String)

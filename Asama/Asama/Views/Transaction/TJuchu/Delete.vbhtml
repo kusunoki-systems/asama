@@ -32,7 +32,7 @@ End Code
 
         @<div class="form-actions no-color">
             <input type="submit" value="Delete" class="btn btn-primary" /> |
-            @Html.ActionLink("Back to List", "Index")
+            @Html.ActionLink("一覧へ戻る", "Index")
         </div>
     End Using
 </div>

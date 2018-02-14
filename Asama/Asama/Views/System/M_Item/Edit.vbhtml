@@ -1,6 +1,6 @@
 ﻿@ModelType Asama.M_Item
 @Code
-    ViewData("Title") = "Edit"
+    ViewData("Title") = "変更"
 End Code
 @imports Asama.Helpers
 

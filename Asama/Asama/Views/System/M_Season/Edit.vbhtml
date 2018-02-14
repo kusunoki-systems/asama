@@ -1,6 +1,6 @@
 ﻿@ModelType Asama.M_Season
 @Code
-    ViewData("Title") = "Edit"
+    ViewData("Title") = "変更"
 End Code
 @imports Asama.Helpers
 <h2>変更</h2>
@@ -72,7 +72,7 @@ End Code
 End Using
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("一覧へ戻る", "Index")
 </div>
 
 @Section Scripts 

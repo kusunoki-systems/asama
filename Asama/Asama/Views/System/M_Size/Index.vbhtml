@@ -1,6 +1,6 @@
 ﻿@ModelType IEnumerable(Of Asama.M_Size)
 @Code
-ViewData("Title") = "Index"
+    ViewData("Title") = "サイズ一覧"
 End Code
 
 <h2>サイズ一覧</h2>

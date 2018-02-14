@@ -1,6 +1,6 @@
 ﻿@ModelType IEnumerable(Of Asama.M_Maker)
 @Code
-ViewData("Title") = "Index"
+    ViewData("Title") = "メーカー一覧"
 End Code
 
 <h2>メーカー一覧</h2>

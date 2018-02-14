@@ -24,6 +24,7 @@
                 </button>
                 @Html.ActionLink("Acchito Sales Management System.", "Index", "Home", New With {.area = ""}, New With {.class = "navbar-brand"})
             </div>
+            <span>@ViewData("Message")</span>
             @If User.Identity.IsAuthenticated Then
                 @<div id="gnavi" Class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
@@ -72,16 +73,16 @@
                         <li Class="dropdown">
                             <a href="#" Class="dropdown-toggle" data-toggle="dropdown" role="button"><span class="fa fa-gear"></span> システム管理 <span Class="caret"></span></a>
                             <ul Class="dropdown-menu" role="menu">
-                                <li>@Html.ActionLink("顧客マスタ", "Index", "M_Customer")</li>
-                                <li>@Html.ActionLink("ブランドマスタ", "Index", "M_Brand")</li>
-                                <li>@Html.ActionLink("商品マスタ", "Index", "M_Item")</li>
-                                <li>@Html.ActionLink("仕入先マスタ", "Index", "M_Supplier")</li>
                                 <li>@Html.ActionLink("メーカーマスタ", "Index", "M_Maker")</li>
-                                <li>@Html.ActionLink("シーズンマスタ", "Index", "M_Season")</li>
+                                <li>@Html.ActionLink("ブランドマスタ", "Index", "M_Brand")</li>
                                 <li>@Html.ActionLink("色種類マスタ", "Index", "M_ColorType")</li>
                                 <li>@Html.ActionLink("色マスタ", "Index", "M_Color")</li>
+                                <li>@Html.ActionLink("シーズンマスタ", "Index", "M_Season")</li>
                                 <li>@Html.ActionLink("サイズ種類マスタ", "Index", "M_SizeType")</li>
                                 <li>@Html.ActionLink("サイズマスタ", "Index", "M_Size")</li>
+                                <li>@Html.ActionLink("商品マスタ", "Index", "M_Item")</li>
+                                <li>@Html.ActionLink("仕入先マスタ", "Index", "M_Supplier")</li>
+                                <li>@Html.ActionLink("顧客マスタ", "Index", "M_Customer")</li>
                             </ul>
                         </li>
                         </ul>
@@ -91,7 +92,7 @@
                             </li>
                         </ul>
              </div>
-            Else
+Else
                     @<ul Class="nav navbar-nav navbar-right">
                         <li>
                             @Html.ActionLink("ログイン", "Login", "User")

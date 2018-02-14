@@ -39,7 +39,7 @@ Public Class UclLoginBL
         Try
             'Const l_PASSWORDINPUTALLOWTIMES As String = "PasswordInputAllowTimes"
             'Const l_PASSWORDVALIDDAYS As String = "PasswordValidDays"
-
+            LoginAppData.ErrorInfo += "DoMain Start"
             Dim blEof As Boolean = True
             Dim intPasswordInputAllowTimes As Integer = 99
             Dim intPasswordValidDays As Integer = 9999
@@ -54,6 +54,7 @@ Public Class UclLoginBL
             loginStaffInfo.StaffID = LoginAppData.LoginID
             loginStaffInfo.Password = LoginAppData.Password
 
+            LoginAppData.ErrorInfo += "DoMain Initialized"
             '******************* GM_CONTROL ********************
 
             'コントロールマスタから、システムデータを取得する。
@@ -87,7 +88,9 @@ Public Class UclLoginBL
                                 e.MSTB_DelFlag = 0 And
                                 e.MSTB_LogNo = 0
                              Select e).FirstOrDefault
+            LoginAppData.ErrorInfo += "Geted Staffbase"
             If staffbase IsNot Nothing Then '有効なログインIDである時、職員基本情報の取得を行う。
+                LoginAppData.ErrorInfo += "staffbase is not nothing"
                 LoginAppData.SexType = staffbase.MSTB_SexType
                 LoginAppData.BirthDate = CDate(staffbase.MSTB_BirthDate)
                 'LoginAppData.FirstName = staffbase.MSTB_FirstName
@@ -104,6 +107,7 @@ Public Class UclLoginBL
                 'End If
             Else
                 '存在しないログインIDです。
+                LoginAppData.ErrorInfo = "存在しないログインIDです。"
                 LoginAppData.HasError = True
                 Return LoginAppData
             End If
@@ -126,20 +130,25 @@ Public Class UclLoginBL
                                  e.MSTP_LogNo = 0
                                  Select e).FirstOrDefault
 
+            LoginAppData.ErrorInfo += "geted staffpassword"
             If IsNothing(staffPassword.MSTP_Password) Then
                 '存在しないログインIDです。
                 LoginAppData.HasError = True
+                LoginAppData.ErrorInfo = "存在しないログインIDです。"
                 Return LoginAppData
             End If
 
+            LoginAppData.ErrorInfo += "before LoginAppData.LoginCount"
             '入力許容回数のチェック
             If LoginAppData.LoginCount = intPasswordInputAllowTimes Then
                 isAllowTime = False
             End If
 
             If isAllowTime Then
+                LoginAppData.ErrorInfo += "isAlloeTime"
                 If staffPassword.MSTP_Password.Equals(GetSha256(LoginAppData.Password)) Then
                     'ここでログイン情報をゲットする
+                    LoginAppData.ErrorInfo += "staffPassword.MSTP_Password.Equals"
 
                     '有効期限切れのチェック
                     If DateTime.Compare(staffPassword.MSTP_UpdateDate.AddDays(intPasswordValidDays), DateTime.Now) < 0 Then
@@ -153,11 +162,14 @@ Public Class UclLoginBL
                     Else
                         '2:有効期限切れ
                         LoginAppData.HasError = True
+                        LoginAppData.ErrorInfo = "有効期限切れ"
                     End If
+                    LoginAppData.ErrorInfo += "staffPassword.MSTP_Password.Equals End"
                 Else
                     LoginAppData.LoginCount += 1
                     '3:ログインユーザ、パスワード入力ミス
                     LoginAppData.HasError = True
+                    LoginAppData.ErrorInfo = "パスワード入力ミス"
                 End If
 
                 ''職種コードの取得
@@ -186,14 +198,17 @@ Public Class UclLoginBL
                 '    Next
                 '    LoginAppData.JobCodes = CType(arr.ToArray(GetType(String)), String())
                 'End If
+                LoginAppData.ErrorInfo += "ALL OK"
             Else
                 '4:ログイン許容回数越え
                 LoginAppData.HasError = True
+                LoginAppData.ErrorInfo = "ログイン許容回数越え"
             End If
         Catch ex As Exception
             Dim aryMsg As New ArrayList
             aryMsg.Add(ex.Message)
             LoginAppData.HasError = True
+            LoginAppData.ErrorInfo += "例外エラー：" & ex.Message & ":" & ex.StackTrace
             Return LoginAppData
         Finally
         End Try

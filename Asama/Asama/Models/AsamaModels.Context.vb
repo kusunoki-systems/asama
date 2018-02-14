@@ -22,11 +22,6 @@ Partial Public Class Entities
         Throw New UnintentionalCodeFirstException()
     End Sub
 
-    Public Overridable Property C__MigrationHistory() As DbSet(Of C__MigrationHistory)
-    Public Overridable Property AspNetRoles() As DbSet(Of AspNetRoles)
-    Public Overridable Property AspNetUserClaims() As DbSet(Of AspNetUserClaims)
-    Public Overridable Property AspNetUserLogins() As DbSet(Of AspNetUserLogins)
-    Public Overridable Property AspNetUsers() As DbSet(Of AspNetUsers)
     Public Overridable Property M_Color() As DbSet(Of M_Color)
     Public Overridable Property M_ColorType() As DbSet(Of M_ColorType)
     Public Overridable Property M_Customer() As DbSet(Of M_Customer)

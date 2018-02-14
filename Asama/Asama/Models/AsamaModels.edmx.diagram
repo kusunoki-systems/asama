@@ -5,11 +5,6 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="9aa08f7682ec4717a10c12bfdc49be5a" Name="Diagram1">
-        <EntityTypeShape EntityType="Model.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.AspNetRoles" Width="1.5" PointX="8.75" PointY="2.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.AspNetUserClaims" Width="1.5" PointX="13.25" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.AspNetUserLogins" Width="1.5" PointX="13.25" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.AspNetUsers" Width="1.5" PointX="11" PointY="1.375" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.M_Color" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.M_ColorType" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.M_Customer" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
@@ -33,11 +28,8 @@
         <EntityTypeShape EntityType="Model.T_Nyukin" Width="1.5" PointX="15.75" PointY="5.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.T_PaymentBody" Width="1.5" PointX="8.75" PointY="15.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.T_PaymentHeader" Width="1.5" PointX="15.75" PointY="9.75" IsExpanded="true" />
-        <AssociationConnector Association="Model.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_M_Color_M_ColorType" ManuallyRouted="false" />
         <AssociationConnector Association="Model.FK_M_Size_M_SizeType" ManuallyRouted="false" />
-        <AssociationConnector Association="Model.AspNetUserRoles" ManuallyRouted="false" />
         <EntityTypeShape EntityType="Model.M_Item" Width="1.5" PointX="11.25" PointY="16.5" />
         <AssociationConnector Association="Model.FK_M_Item_M_ColorType" />
         <AssociationConnector Association="Model.FK_M_Item_M_Season" />
@@ -45,6 +37,7 @@
         <EntityTypeShape EntityType="Model.M_Brand" Width="1.5" PointX="6" PointY="4.125" />
         <AssociationConnector Association="Model.FK_M_Brand_M_Maker" />
         <AssociationConnector Association="Model.FK_M_Item_M_Brand" />
+        <AssociationConnector Association="Model.FK_M_ColorType_M_Brand" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

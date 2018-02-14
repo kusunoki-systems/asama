@@ -1,6 +1,6 @@
 ﻿@ModelType IEnumerable(Of Asama.M_Color)
 @Code
-ViewData("Title") = "Index"
+    ViewData("Title") = "色一覧"
 End Code
 
 <h2>色一覧</h2>
@@ -20,6 +20,9 @@ End Code
             @Html.DisplayNameFor(Function(model) model.SortNo)
         </th>
         <th>
+            @Html.DisplayNameFor(Function(model) model.M_ColorType.ColorTypeName)
+        </th>
+        <th>
             @Html.DisplayNameFor(Function(model) model.InsertedBy)
         </th>
         <th>
@@ -30,9 +33,6 @@ End Code
         </th>
         <th>
             @Html.DisplayNameFor(Function(model) model.UpdatedAt)
-        </th>
-        <th>
-            @Html.DisplayNameFor(Function(model) model.M_ColorType.ColorTypeName)
         </th>
         <th></th>
     </tr>
@@ -48,6 +48,9 @@ End Code
          <td>
              @Html.DisplayFor(Function(modelItem) item.SortNo)
          </td>
+         <td>
+             @Html.DisplayFor(Function(modelItem) item.M_ColorType.ColorTypeName)
+         </td>
         <td>
             @Html.DisplayFor(Function(modelItem) item.InsertedBy)
         </td>
@@ -60,12 +63,9 @@ End Code
         <td>
             @Html.DisplayFor(Function(modelItem) item.UpdatedAt)
         </td>
-        <td>
-            @Html.DisplayFor(Function(modelItem) item.M_ColorType.ColorTypeName)
-        </td>
-        <td>
-            @Html.ActionLink("削除", "Delete", New With {.id = item.ColorCd}, New With {.class = "btn btn-danger btn-sm"})
-        </td>
+         <td>
+             @Html.ActionLink("削除", "Delete", New With {.id = item.ColorCd}, New With {.class = "btn btn-danger btn-sm"})
+         </td>
     </tr>
 Next
 

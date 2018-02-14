@@ -35,6 +35,7 @@ Namespace Controllers
             'model.Id = model.Id.PadLeft(12, "0")
             model.Id = model.Id
             Dim loginAD As LoginAD = svc.LoginAuthority(db, model, var)
+            ViewData("Message") = loginAD.ErrorInfo
 
             If Not loginAD.HasError Then
                 'ユーザー認証 成功
@@ -44,7 +45,6 @@ Namespace Controllers
                 '職種コードをクッキーへ保存
                 'Dim strJob As String = String.Join(",", model.JobCodes)
                 'SetCookie(COOKIE_JOBCODE, strJob)
-
                 If returnurl Is Nothing Then
                     Return Me.RedirectToAction("Index", "Home")
                 Else
