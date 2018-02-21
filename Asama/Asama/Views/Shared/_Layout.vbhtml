@@ -51,14 +51,14 @@
         <ul Class="dropdown-menu" role="menu">
             <li>@Html.ActionLink("出荷入力", "Index", "TDeliver")</li>
         </ul>
-    </li>
+    </li>*@
     <li Class="dropdown">
         <a href="#" Class="dropdown-toggle" data-toggle="dropdown" role="button"><span class="fa fa-print"></span> 請求 <span Class="caret"></span></a>
         <ul Class="dropdown-menu" role="menu">
             <li>@Html.ActionLink("請求入力", "Index", "Tinvoice")</li>
         </ul>
     </li>
-    <li Class="dropdown">
+@*    <li Class="dropdown">
         <a href="#" Class="dropdown-toggle" data-toggle="dropdown" role="button"><span class="fa fa-jpy"></span> 入金 <span Class="caret"></span></a>
         <ul Class="dropdown-menu" role="menu">
             <li>@Html.ActionLink("入金入力", "Index", "TNyukin")</li>

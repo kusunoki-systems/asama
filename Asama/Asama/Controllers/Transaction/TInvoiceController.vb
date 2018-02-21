@@ -7,8 +7,13 @@ Imports System.Net
 Imports System.Web
 Imports System.Web.Mvc
 Imports Asama
+Imports ClosedXML
+Imports ClosedXML.Extensions
 
 Namespace Controllers
+    ''' <summary>
+    ''' 請求
+    ''' </summary>
     Public Class TInvoiceController
         Inherits BaseController
 
@@ -31,7 +36,7 @@ Namespace Controllers
 
         ' GET: TInvoice/Create
         Function Create() As ActionResult
-            Return View()
+            Return MyBase.View(System.Reflection.MethodBase.GetCurrentMethod.Name)
         End Function
 
         ' POST: TInvoice/Create
@@ -95,6 +100,27 @@ Namespace Controllers
             db.T_InvoiceHeader.Remove(t_InvoiceHeader)
             db.SaveChanges()
             Return RedirectToAction("Index")
+        End Function
+
+        ' GET: TInvoice/OutPutExcel/5
+        Function OutPutExcel(ByVal id As String) As ActionResult
+
+            Dim workbook As New ClosedXML.Excel.XLWorkbook
+            Dim worksheet As Excel.IXLWorksheet = workbook.Worksheets.Add("Sample Sheet")
+            worksheet.Cell("A1").Value = "Hello World!!"
+            workbook.SaveAs(Request.PhysicalApplicationPath & "\HelloWorld.xlsx")
+
+            'If IsNothing(id) Then
+            '    Return New HttpStatusCodeResult(HttpStatusCode.BadRequest)
+            'End If
+            'Dim t_InvoiceHeader As T_InvoiceHeader = db.T_InvoiceHeader.Find(id)
+            'If IsNothing(t_InvoiceHeader) Then
+            '    Return HttpNotFound()
+            'End If
+            'Return MyBase.View(System.Reflection.MethodBase.GetCurrentMethod.Name, t_InvoiceHeader)
+
+            Return workbook.Deliver(Request.PhysicalApplicationPath & "HelloWorld.xlsx")
+
         End Function
 
         Protected Overrides Sub Dispose(ByVal disposing As Boolean)

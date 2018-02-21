@@ -54,7 +54,8 @@ End Code
         <td>
             @Html.ActionLink("Edit", "Edit", New With {.id = item.InvoiceNo }) |
             @Html.ActionLink("Details", "Details", New With {.id = item.InvoiceNo }) |
-            @Html.ActionLink("Delete", "Delete", New With {.id = item.InvoiceNo })
+            @Html.ActionLink("Delete", "Delete", New With {.id = item.InvoiceNo})
+            @Html.ActionLink("Excel", "OutPutExcel", New With {.id = item.InvoiceNo})
         </td>
     </tr>
 Next
