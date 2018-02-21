@@ -15,4 +15,6 @@ Partial Public Class T_JuchuHeader
     Public Property CustomerCd As String
     Public Property JuchuDate As Nullable(Of Date)
 
+    Public Overridable Property M_Customer As M_Customer
+
 End Class

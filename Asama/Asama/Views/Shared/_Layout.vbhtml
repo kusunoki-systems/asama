@@ -28,13 +28,13 @@
             @If User.Identity.IsAuthenticated Then
                 @<div id="gnavi" Class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        @*<li Class="dropdown">
-        <a href="#" Class="dropdown-toggle" data-toggle="dropdown" role="button"><span class="fa fa-fax"></span> 受注 <span Class="caret"></span></a>
-        <ul Class="dropdown-menu" role="menu">
-            <li>@Html.ActionLink("受注入力", "Index", "TJuchu")</li>
-        </ul>
-    </li>
-    <li Class="dropdown">
+                        <li Class="dropdown">
+                            <a href="#" Class="dropdown-toggle" data-toggle="dropdown" role="button"><span class="fa fa-fax"></span> 受注 <span Class="caret"></span></a>
+                            <ul Class="dropdown-menu" role="menu">
+                                <li>@Html.ActionLink("受注入力", "Index", "TJuchu")</li>
+                            </ul>
+                        </li>
+@*    <li Class="dropdown">
         <a href="#" Class="dropdown-toggle" data-toggle="dropdown" role="button"><span class="fa fa-plane"></span> 発注 <span Class="caret"></span></a>
         <ul Class="dropdown-menu" role="menu">
             <li>@Html.ActionLink("発注入力", "Index", "THachu")</li>
@@ -121,6 +121,7 @@ Else
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/bootstrap-datepicker")
     @Scripts.Render("~/bundles/script")
 
     @RenderSection("scripts", required:=False)

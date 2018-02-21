@@ -21,4 +21,6 @@ Partial Public Class M_Customer
     Public Property SortNo As Nullable(Of Byte)
     Public Property InitialRatio As Nullable(Of Byte)
 
+    Public Overridable Property T_JuchuHeader As ICollection(Of T_JuchuHeader) = New HashSet(Of T_JuchuHeader)
+
 End Class

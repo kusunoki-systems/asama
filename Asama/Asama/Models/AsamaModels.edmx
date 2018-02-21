@@ -312,7 +312,7 @@
             <PropertyRef Name="JuchuNo" />
           </Key>
           <Property Name="JuchuNo" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="CustomerCd" Type="char" MaxLength="6" Nullable="false" />
+          <Property Name="CustomerCd" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="JuchuDate" Type="date" />
         </EntityType>
         <EntityType Name="T_Nyukin">
@@ -454,6 +454,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_T_JuchuHeader_M_Customer">
+          <End Role="M_Customer" Type="Self.M_Customer" Multiplicity="1" />
+          <End Role="T_JuchuHeader" Type="Self.T_JuchuHeader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_Customer">
+              <PropertyRef Name="CustomerCd" />
+            </Principal>
+            <Dependent Role="T_JuchuHeader">
+              <PropertyRef Name="CustomerCd" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="ModelStoreContainer">
           <EntitySet Name="M_Brand" EntityType="Self.M_Brand" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="M_Color" EntityType="Self.M_Color" Schema="dbo" store:Type="Tables" />
@@ -512,6 +524,10 @@
             <End Role="M_SizeType" EntitySet="M_SizeType" />
             <End Role="M_Size" EntitySet="M_Size" />
           </AssociationSet>
+          <AssociationSet Name="FK_T_JuchuHeader_M_Customer" Association="Self.FK_T_JuchuHeader_M_Customer">
+            <End Role="M_Customer" EntitySet="M_Customer" />
+            <End Role="T_JuchuHeader" EntitySet="T_JuchuHeader" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -560,6 +576,7 @@
           <Property Name="UpdatedAt" Type="DateTime" Precision="3" />
           <Property Name="SortNo" Type="Byte" />
           <Property Name="InitialRatio" Type="Byte" />
+          <NavigationProperty Name="T_JuchuHeader" Relationship="Model.FK_T_JuchuHeader_M_Customer" FromRole="M_Customer" ToRole="T_JuchuHeader" />
         </EntityType>
         <EntityType Name="M_Maker">
           <Key>
@@ -802,8 +819,9 @@
             <PropertyRef Name="JuchuNo" />
           </Key>
           <Property Name="JuchuNo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="CustomerCd" Type="String" MaxLength="6" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="CustomerCd" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="JuchuDate" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="M_Customer" Relationship="Model.FK_T_JuchuHeader_M_Customer" FromRole="T_JuchuHeader" ToRole="M_Customer" />
         </EntityType>
         <EntityType Name="T_Nyukin">
           <Key>
@@ -930,6 +948,10 @@
             <End Role="M_Brand" EntitySet="M_Brand" />
             <End Role="M_ColorType" EntitySet="M_ColorType" />
           </AssociationSet>
+          <AssociationSet Name="FK_T_JuchuHeader_M_Customer" Association="Model.FK_T_JuchuHeader_M_Customer">
+            <End Role="M_Customer" EntitySet="M_Customer" />
+            <End Role="T_JuchuHeader" EntitySet="T_JuchuHeader" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="M_Item">
           <Key>
@@ -1038,6 +1060,18 @@
             </Principal>
             <Dependent Role="M_ColorType">
               <PropertyRef Name="BrandCd" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_JuchuHeader_M_Customer">
+          <End Type="Model.M_Customer" Role="M_Customer" Multiplicity="1" />
+          <End Type="Model.T_JuchuHeader" Role="T_JuchuHeader" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="M_Customer">
+              <PropertyRef Name="CustomerCd" />
+            </Principal>
+            <Dependent Role="T_JuchuHeader">
+              <PropertyRef Name="CustomerCd" />
             </Dependent>
           </ReferentialConstraint>
         </Association>

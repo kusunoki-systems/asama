@@ -2,6 +2,7 @@
 @Code
     ViewData("Title") = "Create"
 End Code
+@imports Asama.Helpers
 
 <h2>Create</h2>
 
@@ -23,7 +24,7 @@ End Code
         <div class="form-group">
             @Html.LabelFor(Function(model) model.CustomerCd, htmlAttributes:= New With { .class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(Function(model) model.CustomerCd, New With { .htmlAttributes = New With { .class = "form-control" } })
+                @Html.DropDownList("CustomerCd", Nothing, htmlAttributes:=New With {.class = "form-control"})
                 @Html.ValidationMessageFor(Function(model) model.CustomerCd, "", New With { .class = "text-danger" })
             </div>
         </div>
@@ -31,8 +32,10 @@ End Code
         <div class="form-group">
             @Html.LabelFor(Function(model) model.JuchuDate, htmlAttributes:= New With { .class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(Function(model) model.JuchuDate, New With { .htmlAttributes = New With { .class = "form-control" } })
-                @Html.ValidationMessageFor(Function(model) model.JuchuDate, "", New With { .class = "text-danger" })
+                @*HtmlHelperEditor.DateEditor(Model.JuchuDate, "JuchuDate")*@
+                @Html.EditorFor(Function(model) model.JuchuDate, New With {.htmlAttributes = New With {.class = "form-control datepicker"}})
+                @*Html.DatePickerFor(Function(model) model.JuchuDate, "autoclose=true", "todayBtn=true", "todayHighlight=true")*@
+                @Html.ValidationMessageFor(Function(model) model.JuchuDate, "", New With {.Class = "text-danger"})
             </div>
         </div>
 
@@ -44,6 +47,6 @@ End Code
     </div>
 End Using
 
-<div>
+                        <div>
     @Html.ActionLink("一覧へ戻る", "Index")
 </div>

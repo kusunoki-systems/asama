@@ -24,7 +24,7 @@
         <EntityTypeShape EntityType="Model.T_InvoiceBody" Width="1.5" PointX="13.75" PointY="9.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.T_InvoiceHeader" Width="1.5" PointX="13.75" PointY="14.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.T_JuchuBody" Width="1.5" PointX="15.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="Model.T_JuchuHeader" Width="1.5" PointX="5.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.T_JuchuHeader" Width="1.5" PointX="6.25" PointY="13.25" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.T_Nyukin" Width="1.5" PointX="15.75" PointY="5.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.T_PaymentBody" Width="1.5" PointX="8.75" PointY="15.75" IsExpanded="true" />
         <EntityTypeShape EntityType="Model.T_PaymentHeader" Width="1.5" PointX="15.75" PointY="9.75" IsExpanded="true" />
@@ -38,6 +38,7 @@
         <AssociationConnector Association="Model.FK_M_Brand_M_Maker" />
         <AssociationConnector Association="Model.FK_M_Item_M_Brand" />
         <AssociationConnector Association="Model.FK_M_ColorType_M_Brand" />
+        <AssociationConnector Association="Model.FK_T_JuchuHeader_M_Customer" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

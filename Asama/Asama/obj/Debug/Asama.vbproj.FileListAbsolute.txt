@@ -172,3 +172,5 @@ C:\nakamura\ASAMA\Asama\Asama\obj\Debug\Asama.vbproj.GenerateResource.Cache
 C:\nakamura\ASAMA\Asama\Asama\obj\Debug\Asama.dll
 C:\nakamura\ASAMA\Asama\Asama\obj\Debug\Asama.xml
 C:\nakamura\ASAMA\Asama\Asama\obj\Debug\Asama.pdb
+C:\nakamura\ASAMA\Asama\Asama\bin\ja\EntityFramework.resources.dll
+C:\nakamura\ASAMA\Asama\Asama\bin\ja\EntityFramework.SqlServer.resources.dll

@@ -22,8 +22,13 @@ Public Module BundleConfig
                   "~/Scripts/bootstrap.js",
                   "~/Scripts/respond.js"))
 
+        bundles.Add(New ScriptBundle("~/bundles/bootstrap-datepicker").Include(
+                "~/Scripts/bootstrap-datepicker.js",
+                "~/Scripts/locales/bootstrap-datepicker.ja.js"))
+
         bundles.Add(New StyleBundle("~/Content/css").Include(
                   "~/Content/bootstrap.css",
+                  "~/Content/bootstrap-datepicker.css",
                   "~/Content/site.css"))
 
         bundles.Add(New ScriptBundle("~/bundles/script").Include(

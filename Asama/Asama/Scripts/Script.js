@@ -1,12 +1,21 @@
 ﻿$(function () {
-    //$('#MDRG_ValidDateFrom.datepicker').datepicker({
-    //    changeYear: true, //表示年の指定が可能
-    //    changeMonth: true, //表示月の指定が可能
-    //    dateFormat: 'yy-mm-dd', //年-月-日(曜日)
-    //    onSelect: function (onSelect) {
-    //        var toDate = $('#MDRG_ValidDateTo.datepicker').datepicker('getDate');
-    //        $('#MDRG_ValidDateFrom.datepicker').datepicker('option', 'maxDate', toDate);
-    //    }
+    $('.datepicker').datepicker({
+        autoclose: 'true',
+        format: 'yyyy-mm-dd',
+        language: 'ja',
+        todayHighlight: true,
+        todayBtn:true
+    });
+
+    //$('.datepicker').datepicker();
+
+        //$('.datepicker').datepicker({
+        //changeYear: true, //表示年の指定が可能
+        //changeMonth: true, //表示月の指定が可能
+        //dateFormat: 'yy-mm-dd', //年-月-日(曜日)
+        //onSelect: function (onSelect) {
+        //var toDate = $('.datepicker').datepicker('getDate');
+        //$('.datepicker').datepicker('option', 'maxDate', toDate);
     //});
 
     //$('#MDRG_ValidDateTo.datepicker').datepicker({
@@ -52,9 +61,9 @@ window.onload = function () {
         $("#container").fadeIn();
     });
     $('table').addClass('table-hover table-striped');
-//        var toDate = $('#MDRG_ValidDateTo.datepicker').datepicker('getDate');
-//        $('#MDRG_ValidDateFrom.datepicker').datepicker('option', 'maxDate', toDate);
-}
+    //        var toDate = $('#MDRG_ValidDateTo.datepicker').datepicker('getDate');
+    //        $('#MDRG_ValidDateFrom.datepicker').datepicker('option', 'maxDate', toDate);
+};
 
 ////医薬品グループマスタのチェックボックスで検索ボタン制御
 //$('#GM_Drug_Index .check-group input').click(function () {

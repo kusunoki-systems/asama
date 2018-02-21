@@ -14,7 +14,11 @@ Namespace Controllers
 
         ' GET: TJuchu
         Function Index() As ActionResult
-            Return MyBase.View(System.Reflection.MethodBase.GetCurrentMethod.Name, db.T_JuchuHeader.ToList())
+            Dim t_JuchuHeader = (db.T_JuchuHeader.Include(Function(m) m.M_Customer))    '顧客マスタ
+            Dim ex As New T_JuchuHeaderEx
+            ex.Exs = t_JuchuHeader
+            ViewBag.SearchCustomerCd = New SelectList(db.M_Customer, "CustomerCd", "CustomerName")
+            Return MyBase.View(System.Reflection.MethodBase.GetCurrentMethod.Name, ex)
         End Function
 
         ' GET: TJuchu/Details/5
@@ -31,7 +35,8 @@ Namespace Controllers
 
         ' GET: TJuchu/Create
         Function Create() As ActionResult
-            Return View()
+            ViewBag.CustomerCd = New SelectList(db.M_Customer, "CustomerCd", "CustomerName")
+            Return MyBase.View(System.Reflection.MethodBase.GetCurrentMethod.Name)
         End Function
 
         ' POST: TJuchu/Create

@@ -7,28 +7,41 @@ Namespace Helpers
     ''' 編集用ヘルパー
     ''' </summary>
     Public Class HtmlHelperEditor
-        ''' <summary>
-        ''' 文字列をテキストで表示
-        ''' </summary>
-        ''' <param name="obj"></param>
-        ''' <param name="name"></param>
-        ''' <param name="format"></param>
-        ''' <returns></returns>
-        Public Shared Function ReadOnlyEditor(obj As Object, name As String, format As String) As IHtmlString
 
-            '日付型の場合
-            Dim datepicker As String = If(TypeOf obj Is DateTime, "datepicker", "")
-            obj = If(TypeOf obj Is Decimal, obj.ToString, obj)
+        'Public Shared Function DateEditor(obj As Object, name As String) As IHtmlString
 
-            Return MvcHtmlString.Create(
-            String.Format("<input type=""text"" value=""{0}"" class=""" & datepicker & " form-control text-box single-line"" id=""{1}"" name=""{1}"" disabled=""true""/>",
-                                  HttpUtility.HtmlAttributeEncode(String.Format("{0:" & format & "}", obj)),
-                                  HttpUtility.HtmlAttributeEncode(name)) &
-            String.Format("<input type=""hidden"" value=""{0}"" name=""{1}""/>",
-                                  HttpUtility.HtmlAttributeEncode(String.Format("{0:" & format & "}", obj)),
-                                  HttpUtility.HtmlAttributeEncode(name)))
+        '    '日付型の場合
+        '    Dim dtItem As DateTime = CDate(obj)
 
-        End Function
+        '    Return MvcHtmlString.Create(
+        '    String.Format("<input type=""text"" value=""{0}"" text=""{0}""  class=""datepicker form-control text-box single-line ime-disabled"" id=""{1}"" name=""{1}""" & "/> ",
+        '                   HttpUtility.HtmlAttributeEncode(dtItem.ToShortDateString),
+        '                   HttpUtility.HtmlAttributeEncode(name))
+        '                 )
+        'End Function
+
+        '''' <summary>
+        '''' 文字列をテキストで表示
+        '''' </summary>
+        '''' <param name="obj"></param>
+        '''' <param name="name"></param>
+        '''' <param name="format"></param>
+        '''' <returns></returns>
+        'Public Shared Function ReadOnlyEditor(obj As Object, name As String, format As String) As IHtmlString
+
+        '    '日付型の場合
+        '    Dim datepicker As String = If(TypeOf obj Is DateTime, "datepicker", "")
+        '    obj = If(TypeOf obj Is Decimal, obj.ToString, obj)
+
+        '    Return MvcHtmlString.Create(
+        '    String.Format("<input type=""text"" value=""{0}"" class=""" & datepicker & " form-control text-box single-line"" id=""{1}"" name=""{1}"" disabled=""true""/>",
+        '                          HttpUtility.HtmlAttributeEncode(String.Format("{0:" & format & "}", obj)),
+        '                          HttpUtility.HtmlAttributeEncode(name)) &
+        '    String.Format("<input type=""hidden"" value=""{0}"" name=""{1}""/>",
+        '                          HttpUtility.HtmlAttributeEncode(String.Format("{0:" & format & "}", obj)),
+        '                          HttpUtility.HtmlAttributeEncode(name)))
+
+        'End Function
         '        ' ''' <summary>
         '        ' ''' 編集可能になる
         '        ' ''' </summary>
