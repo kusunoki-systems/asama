@@ -174,3 +174,13 @@ C:\nakamura\ASAMA\Asama\Asama\obj\Debug\Asama.xml
 C:\nakamura\ASAMA\Asama\Asama\obj\Debug\Asama.pdb
 C:\nakamura\ASAMA\Asama\Asama\bin\ja\EntityFramework.resources.dll
 C:\nakamura\ASAMA\Asama\Asama\bin\ja\EntityFramework.SqlServer.resources.dll
+C:\nakamura\ASAMA\Asama\Asama\bin\ClosedXML.dll
+C:\nakamura\ASAMA\Asama\Asama\bin\ClosedXML.Extensions.MVC.dll
+C:\nakamura\ASAMA\Asama\Asama\bin\DocumentFormat.OpenXml.dll
+C:\nakamura\ASAMA\Asama\Asama\bin\ExcelNumberFormat.dll
+C:\nakamura\ASAMA\Asama\Asama\bin\FastMember.Signed.dll
+C:\nakamura\ASAMA\Asama\Asama\bin\ClosedXML.pdb
+C:\nakamura\ASAMA\Asama\Asama\bin\ClosedXML.xml
+C:\nakamura\ASAMA\Asama\Asama\bin\ClosedXML.Extensions.MVC.pdb
+C:\nakamura\ASAMA\Asama\Asama\bin\DocumentFormat.OpenXml.xml
+C:\nakamura\ASAMA\Asama\Asama\bin\ExcelNumberFormat.xml

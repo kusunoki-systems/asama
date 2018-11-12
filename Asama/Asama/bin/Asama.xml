@@ -118,6 +118,11 @@ Asama
  </summary>
  <returns></returns>
 </member>
+<member name="T:Asama.Controllers.TInvoiceController">
+ <summary>
+ 請求
+ </summary>
+</member>
 <member name="M:Asama.Controllers.UserController.Login(Asama.UserModel,System.String)">
  <summary>
  ログイン POST: User
